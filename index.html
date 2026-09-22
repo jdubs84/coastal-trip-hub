@@ -182,7 +182,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
     <span class="pill">+ Home→Anastasia 4h 19m / ~213 mi</span>
   </div>
   <div class="links">
-    <a href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener">Open map</a>
+    <a href="https://gist.githack.com/jdubs84/84e4b6b6b3681993e9680318ae9d6452/raw/coastal-trip-map.html" target="_blank" rel="noopener">Open map</a>
     <a id="packLive" data-pack-live="1" href="https://pack.here2serve.us" target="_blank" rel="noopener">Pack live</a>
     <a class="sec" href="#food">Food</a> · <a href="#food-schedule">Food schedule</a>
     <a class="sec" href="https://docs.google.com/spreadsheets/d/1_frgr_bs-ECGU7PbTcwaiSbnStPBjjLm7gTUqmnARHo" target="_blank" rel="noopener">Google Sheet</a>
@@ -194,11 +194,11 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   <div class="phone-home" aria-label="Quick open">
     <a href="#dayof"><span class="ph-kicker">Today</span><span class="ph-title">Day-of</span><span class="ph-sub">Leave-by · meals · linens</span></a>
     <a id="phPack" data-pack-live="1" href="https://pack.here2serve.us" target="_blank" rel="noopener"><span class="ph-kicker">Checklist</span><span class="ph-title">Pack live</span><span class="ph-sub">Cellular OK</span></a>
-    <a href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener"><span class="ph-kicker">Route</span><span class="ph-title">Map</span><span class="ph-sub">Stops + food pins</span></a>
+    <a href="https://gist.githack.com/jdubs84/84e4b6b6b3681993e9680318ae9d6452/raw/coastal-trip-map.html" target="_blank" rel="noopener"><span class="ph-kicker">Route</span><span class="ph-title">Map</span><span class="ph-sub">Stops + food pins</span></a>
     <a href="#boat"><span class="ph-kicker">Oct 1–4</span><span class="ph-title">Boat / Clayton</span><span class="ph-sub">Cheat sheet</span></a>
     <a href="#coverage"><span class="ph-kicker">Signal</span><span class="ph-title">Cell / Starlink</span><span class="ph-sub">Gap zones</span></a>
   </div>
-  <p class="offline-tip"><b>Offline:</b> Prefer <b>Coastal Trip Hub (offline).html</b> in Desktop → Pinned Trip (or iCloud). iPhone: Share → Save to Files / Add to Home Screen. One HTML file — itinerary, lodging, food, weather bake work without signal. Sheet Sync & Pack live need signal.</p>
+  <p class="offline-tip"><b>Offline:</b> iPhone Safari → Share → <b>Add to Home Screen</b> (or Save to Files). This hub is one HTML file — works without signal once saved. Pack live needs cellular/Wi‑Fi.</p>
 
 <section class="block dayof" id="dayof">
   <h2><span class="dot"></span> Day-of mode</h2>
@@ -247,45 +247,40 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
 <section class="block" id="lodging">
   <h2><span class="dot"></span> Lodging cheat sheet</h2>
 
-  <p class="lede" style="margin:10px 0 12px">Kitchen totals across <b>13 overnight nights</b>: <b>5 full</b> (Edisto 2 + Clayton 3) · <b>2 kitchenette</b> (Anastasia) · <b>6 none</b> (Carolina Beach + Hammocks + Frisco). After boat-out on Oct 4 you’re in a <b>6-night no-kitchen stretch</b> through Oct 10 — cooler meals, Cook Out / takeout, or travel stove/grill.</p>
+  <div class="sync-row">
+    <button type="button" class="sync-btn" id="btnSyncLodging">Sync lodging</button>
+    <button type="button" class="sync-btn sec" id="btnOpenLodgingSheet">Open sheet</button>
+    <span class="sync-meta" id="lodgeSyncMeta">Baked lodging · Sync sheet updates Food + Lodging</span>
+  </div>
+
+  <p class="lede" id="kitchenSummary" style="margin:10px 0 12px">Kitchen totals across <b>13 overnight nights</b>: <b>5 full</b> (Edisto 2 + Clayton 3) · <b>2 kitchenette</b> (Anastasia) · <b>6 none</b> (Carolina Beach + Hammocks + Frisco). After boat-out on Oct 4 you’re in a <b>6-night no-kitchen stretch</b> through Oct 10 — cooler meals, Cook Out / takeout, or travel stove/grill.</p>
 
   <div class="table-wrap">
   <table>
     <thead>
     <tr><th>Stop</th><th>Nights</th><th>Linens</th><th>Laundry</th><th>Kitchen</th><th>Fees / notes</th><th>Boat</th></tr>
     </thead>
-    <tbody>
-    <tr><td>1. Anastasia SP bungalows</td><td>Sep 27–29 (2)</td><td>Sheets/pillows provided — <b>bring towels</b></td><td>Coin laundry in bathhouse</td><td class="kitchen"><b>Kitchenette</b><br/><span style="opacity:.85;font-size:.86em">Fridge + microwave + coffee · <b>no stove</b> · outdoor fire grate · bring cookware/dishes · bathhouse for shower</span></td><td>~$8/vehicle · in 4 PM / out 11 AM · door code ~2 days prior · after dark call park for gate combo <b>(904) 461-2033</b> · max 2 cars (Honeybee = 1)</td><td>—</td></tr>
-    <tr><td>2. Edisto Beach SP cabins</td><td>Sep 29–Oct 1 (2)</td><td>Bed + bath linens provided</td><td>No park laundry (~1 hr away)</td><td class="kitchen"><b>Full kitchen</b><br/><span style="opacity:.85;font-size:.86em">Stove, fridge, microwave, coffee, utensils/pots · screened porch · A/C</span></td><td>~$189/$199 · overnight guests skip day admission · in 4 PM / out 10 AM at Live Oak Ranger Station · <b>no pets in cabins</b> · tap water salty (bottle coffee water) · no white beach lights (turtle season)</td><td>—</td></tr>
-    <tr><td>3. Clayton Cabin / Commander&#x27;s Island</td><td>Oct 1–4 (3)</td><td>Linens + towels provided</td><td>No washer listed</td><td class="kitchen"><b>Full kitchen</b><br/><span style="opacity:.85;font-size:.86em">Gas stove/oven (turn propane on), fridge, cookware/dishes · Wi‑Fi can be weak</span></td><td>Paid $696.41 on 9/11 (Airbnb 42045580) · in ~3 PM / out ~10 AM · stock food before boat · mosquito spray + flashlight</td><td><b>Boat-only</b> · host/concierge boat rides $100 fee paid on-site for arrival + departure if no boat (listing; confirm times with Evolve)</td></tr>
-    <tr><td>4. Carolina Beach SP cabin</td><td>Oct 4–6 (2)</td><td><b>BRING</b> linens + pillows + towels (NC kit)</td><td>Coin laundry at marina ~¾ mi</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camper cabin · A/C + power · outdoor grill/fire ring only · no indoor cooking · bathhouse</span></td><td>SP cabin rates · check-in at <b>Marina Store</b> (~4 PM) · <b>gate locks at closing</b> (no vehicle in/out after) · no pets in cabin</td><td>—</td></tr>
-    <tr><td>5. Hammocks Beach SP Simmons</td><td>Oct 6–8 (2)</td><td><b>BRING</b> linens + extra set (no laundry)</td><td>No on-site laundry</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Mainland camper cabin · climate control · outdoor fire pit · bathhouse year-round</span></td><td>SP cabin rates · <b>100 FFA Camp Rd, Swansboro</b> · in after 3 PM at visitor center · <b>no early check-in</b> · 24‑hr campground access · ferry is Bear Island day-trip only</td><td>— (mainland)</td></tr>
-    <tr><td>6. Frisco Woods camping cabin</td><td>Oct 8–10 (2)</td><td><b>BRING</b> linens + towels</td><td>Shared laundry on property</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camping cabin · A/C · outdoor grill/picnic · bathhouse · no indoor kitchen</span></td><td>Camping cabin rates · in 3 PM / out noon · <b>no ground fires</b> (elevated pit only) · quiet 11 PM–8 AM · pets OK with fee</td><td>—</td></tr>
+    <tbody id="lodgeTbody">
+    <tr><td>1. Anastasia SP bungalows</td><td>Sep 27–29 (2)</td><td>Sheets/pillows provided — bring towels</td><td>Coin laundry in bathhouse</td><td class="kitchen"><b>Kitchenette</b><br/><span style="opacity:.85;font-size:.86em">Fridge + microwave + coffee · <b>no stove</b> · outdoor fire grate · bring cookware/dishes</span></td><td>~$8/vehicle</td><td>—</td></tr>
+    <tr><td>2. Edisto Beach SP cabins</td><td>Sep 29–Oct 1 (2)</td><td>Linens provided</td><td>No park laundry</td><td class="kitchen"><b>Full kitchen</b><br/><span style="opacity:.85;font-size:.86em">Stove, fridge, microwave, coffee, basic utensils/pots</span></td><td>~$189/$199 + $8/adult entrance</td><td>—</td></tr>
+    <tr><td>3. Clayton Cabin / Commander&#x27;s Island</td><td>Oct 1–4 (3)</td><td>Linens provided</td><td>No washer listed</td><td class="kitchen"><b>Full kitchen</b><br/><span style="opacity:.85;font-size:.86em">Gas stove/oven, fridge, cookware/dishes (listing)</span></td><td>Paid $696.41 on 9/11 (Airbnb 42045580)</td><td>Boat-only</td></tr>
+    <tr><td>4. Carolina Beach SP cabin</td><td>Oct 4–6 (2)</td><td>BRING linens (NC kit)</td><td>Coin laundry at marina ~¾ mi</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camper cabin · outdoor grill/fire ring only · no indoor cooking</span></td><td>SP cabin rates</td><td>—</td></tr>
+    <tr><td>5. Hammocks Beach SP Simmons</td><td>Oct 6–8 (2)</td><td>BRING linens + extra set (no laundry)</td><td>No on-site laundry</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Simmons camper cabin · outdoor fire pit · bathhouse</span></td><td>SP cabin rates</td><td>— (mainland cabin)</td></tr>
+    <tr><td>6. Frisco Woods camping cabin</td><td>Oct 8–10 (2)</td><td>BRING linens</td><td>Shared laundry</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camping cabin · outdoor grill/picnic · no indoor kitchen (confirm unit)</span></td><td>Camping cabin rates</td><td>—</td></tr>
     </tbody>
   </table>
-  </div>
-
-  <div class="need-know" style="margin:14px 0 8px;padding:12px 14px;border-radius:12px;border:1px solid rgba(196,163,90,.35);background:rgba(196,163,90,.08);font-size:.88rem;line-height:1.45;color:var(--muted)">
-    <b style="color:var(--gold,#c4a35a)">Need to know (from park / listing sites)</b>
-    <ul style="margin:8px 0 0;padding-left:1.15rem">
-      <li><b>Linens split:</b> Edisto + Clayton = bed &amp; bath provided · Anastasia = sheets yes / <b>towels no</b> · Carolina Beach + Hammocks + Frisco = <b>BYO all bedding &amp; towels</b>.</li>
-      <li><b>NC kit (from Oct 4):</b> 1 queen + 1 full + 2 twin sheet sets + pillows ×3 + pillowcases + towels ×3 · <b>extra set for Hammocks</b> (no laundry).</li>
-      <li><b>Carolina Beach gate:</b> locks at park closing — no casual late grocery run by car.</li>
-      <li><b>Boat stretch (Oct 1–4):</b> Clayton boat: $100 on-site for arrival+departure rides (Evolve listing) — confirm pickup times with host; load cooler before you cast off.</li>
-      <li><b>Coastal fall:</b> mosquitoes · turtle nesting = no white beach lights (SC/NC) · watch tropical weather.</li>
-    </ul>
   </div>
   <div class="nc-kit"><b>NC linens kit (include pillows):</b> 1 queen + 1 full + 2 twin sheet sets + bed pillows ×3 + pillowcases + towels ×3; bring an <b>extra set for Hammocks</b> (no laundry on-site).</div>
 </section>
 
 <section class="block" id="weather">
   <h2><span class="dot"></span> Weather strip</h2>
-  <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">Open-Meteo baked 2026-09-20T23:26:25-04:00 (ET) · high/low °F + precip chance</p>
-  <div class="wstrip"><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday'><div class='wd'>09-27</div><div class='hl'>87°/64°</div><div class='pr'>11%</div></div><div class='wday'><div class='wd'>09-28</div><div class='hl'>86°/69°</div><div class='pr'>21%</div></div><div class='wday'><div class='wd'>09-29</div><div class='hl'>86°/70°</div><div class='pr'>19%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>09-29</div><div class='hl'>79°/72°</div><div class='pr'>8%</div></div><div class='wday'><div class='wd'>09-30</div><div class='hl'>80°/69°</div><div class='pr'>22%</div></div><div class='wday'><div class='wd'>10-01</div><div class='hl'>82°/73°</div><div class='pr'>21%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-01</div><div class='hl'>86°/68°</div><div class='pr'>21%</div></div><div class='wday'><div class='wd'>10-02</div><div class='hl'>84°/68°</div><div class='pr'>16%</div></div><div class='wday'><div class='wd'>10-03</div><div class='hl'>76°/73°</div><div class='pr'>40%</div></div><div class='wday'><div class='wd'>10-04</div><div class='hl'>78°/74°</div><div class='pr'>36%</div></div></div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-04</div><div class='hl'>78°/73°</div><div class='pr'>33%</div></div><div class='wday'><div class='wd'>10-05</div><div class='hl'>77°/71°</div><div class='pr'>35%</div></div><div class='wday'><div class='wd'>10-06</div><div class='hl'>80°/70°</div><div class='pr'>30%*</div></div></div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP Simmons<span>Swansboro, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-06</div><div class='hl'>81°/66°</div><div class='pr'>15%*</div></div><div class='wday'><div class='wd'>10-07</div><div class='hl'>79°/63°</div><div class='pr'>45%*</div></div><div class='wday'><div class='wd'>10-08</div><div class='hl'>75°/60°</div><div class='pr'>30%*</div></div></div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-08</div><div class='hl'>72°/67°</div><div class='pr'>30%*</div></div><div class='wday'><div class='wd'>10-09</div><div class='hl'>71°/67°</div><div class='pr'>15%*</div></div><div class='wday'><div class='wd'>10-10</div><div class='hl'>73°/67°</div><div class='pr'>15%*</div></div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div>
+  <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">Open-Meteo baked 2026-09-19T01:30:00-04:00 (ET) · high/low °F + precip chance</p>
+  <div class="wstrip"><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday'><div class='wd'>09-27</div><div class='hl'>81°/71°</div><div class='pr'>31%</div></div><div class='wday'><div class='wd'>09-28</div><div class='hl'>82°/69°</div><div class='pr'>36%</div></div><div class='wday'><div class='wd'>09-29</div><div class='hl'>86°/71°</div><div class='pr'>39%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>09-29</div><div class='hl'>80°/71°</div><div class='pr'>23%</div></div><div class='wday'><div class='wd'>09-30</div><div class='hl'>83°/77°</div><div class='pr'>21%</div></div><div class='wday'><div class='wd'>10-01</div><div class='hl'>85°/71°</div><div class='pr'>29%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-01</div><div class='hl'>90°/70°</div><div class='pr'>26%</div></div><div class='wday'><div class='wd'>10-02</div><div class='hl'>85°/70°</div><div class='pr'>35%</div></div><div class='wday'><div class='wd'>10-03</div><div class='hl'>75°/63°</div><div class='pr'>26%</div></div><div class='wday'><div class='wd'>10-04</div><div class='hl'>79°/65°</div><div class='pr'>17%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-04</div><div class='hl'>77°/65°</div><div class='pr'>17%*</div></div><div class='wday'><div class='wd'>10-05</div><div class='hl'>79°/68°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-06</div><div class='hl'>79°/69°</div><div class='pr'>20%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-06</div><div class='hl'>81°/66°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-07</div><div class='hl'>78°/62°</div><div class='pr'>20%*</div></div><div class='wday'><div class='wd'>10-08</div><div class='hl'>75°/60°</div><div class='pr'>27%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-08</div><div class='hl'>72°/67°</div><div class='pr'>17%*</div></div><div class='wday'><div class='wd'>10-09</div><div class='hl'>71°/67°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-10</div><div class='hl'>73°/67°</div><div class='pr'>10%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div></div>
 </section>
 
 <section class="block" id="pack">
-  <p id="packProgressLive" style="color:var(--muted);font-size:.85rem;margin:0 0 10px">Pack / Bring progress — Sun Sep 20 12:47 AM · Open 146 · Done 0 · Total 146 · <a href="https://pack.here2serve.us" target="_blank" rel="noopener">Open Pack live</a></p>
+  <p id="packProgressLive" style="color:var(--muted);font-size:.85rem;margin:0 0 10px">Pack / Bring progress — Tue Sep 22 11:09 AM · Open 129 · Done 43 · Total 172 · <a href="https://pack.here2serve.us" target="_blank" rel="noopener">Open Pack live</a></p>
   <h2><span class="dot"></span> Pack progress</h2>
   <div class="pack-sum">
     <div class="stat"><b>166</b><span>open</span></div>
@@ -311,7 +306,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
     <div class="boat-card">
       <h3>Before you leave Edisto (Oct 1)</h3>
       <ul>
-        <li>Confirm boat pickup time/text with Evolve (host) the night before — $100 on-site for arrival+departure if no boat</li>
+        <li>Confirm boat pickup time/text with host the night before</li>
         <li>Fill cooler (wall + car adapters — no milk powder needed)</li>
         <li>Pack <b>dry bag</b>: meds, phones, keys, chargers, paper docs</li>
         <li>Boat snacks: water, EPIC beefs, edamame, no-cook packs</li>
@@ -356,41 +351,204 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
 
 <section class="block" id="food">
   <h2><span class="dot"></span> Food (from Kelli’s sheet)</h2>
-  <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">Pulled from the <b>Food</b> tab · <a href="https://docs.google.com/spreadsheets/d/1_frgr_bs-ECGU7PbTcwaiSbnStPBjjLm7gTUqmnARHo/edit#gid=2034441691" target="_blank" rel="noopener">Open Google Sheet</a> · arrives Tuesday</p>
+  <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">Food + lodging sync from Kelli’s sheet · <a href="https://docs.google.com/spreadsheets/d/1_frgr_bs-ECGU7PbTcwaiSbnStPBjjLm7gTUqmnARHo/edit#gid=2034441691" target="_blank" rel="noopener">Open Google Sheet</a> · food arrives Tuesday · lodging from publish CSV</p>
   <div class="sync-row">
-    <button type="button" class="sync-btn" id="btnSyncSheet">Sync Food</button>
+    <button type="button" class="sync-btn" id="btnSyncSheet">Sync sheet</button>
     <button type="button" class="sync-btn sec" id="btnOpenSheet">Open sheet</button>
     <button type="button" class="sync-btn sec" id="btnExportHint">How to export</button>
     <input type="file" id="foodCsvInput" accept=".csv,text/csv" hidden>
-    <span class="sync-meta" id="foodSyncMeta">Last synced Sep 20 12:48 AM from Going north on GA coast 2026 - Food (1).csv</span>
+    <span class="sync-meta" id="foodSyncMeta">Last synced Sep 22 7:23 PM ET from Kelli Food publish CSV (gid 2034441691) · Have block first</span>
   </div>
-  <div id="foodDrop" role="button" tabindex="0"><b>Drop Food CSV here</b> · or tap to pick · Sync Food opens the sheet export first</div>
+  <div id="foodDrop" role="button" tabindex="0"><b>Drop Food CSV here</b> · or tap to pick · Sync sheet one-taps Food + Lodging publish CSVs</div>
 
   <div class="table-wrap">
   <table>
     <thead><tr><th>Status</th><th>Item</th><th>Notes</th></tr></thead>
     <tbody>
-      <tr><td>Note</td><td>Arrives Tuesday</td><td>Arrives Tuesday</td></tr>
-      <tr><td>Ordered</td><td>Bibigo Korean Sticky White Rice</td><td><a href="https://www.amazon.com/dp/B0CW3LCBZL" target="_blank" rel="noopener">Amazon</a></td></tr>
-      <tr><td>Ordered</td><td>Genova Premium Tuna Mediterranean Bean Salad (Pack of 6)</td><td>Other variety had bell pepper · <a href="https://www.amazon.com/dp/B0FMM6WTY4" target="_blank" rel="noopener">Amazon</a></td></tr>
-      <tr><td>Ordered</td><td>Gimme Seaweed Organic Roasted Seaweed Snack Variety</td><td><a href="https://www.amazon.com/dp/B0D86PV6WG" target="_blank" rel="noopener">Amazon</a></td></tr>
-      <tr><td>Ordered</td><td>Tasty Bite Organic Coconut Squash Dal, 10 Ounce, Pack of 6</td><td>They have lots of flavors, but dad doesn&#x27;t like Indians · <a href="https://www.amazon.com/dp/B09G47JS5Z" target="_blank" rel="noopener">Amazon</a></td></tr>
-      <tr><td>Ordered</td><td>Dry Roasted Edamame by Medley hills farm 1.25 Lbs</td><td><a href="https://www.amazon.com/dp/B0CKTKMRHR" target="_blank" rel="noopener">Amazon</a></td></tr>
-      <tr><td>Have</td><td>Cereal</td><td>In cabinet</td></tr>
-      <tr><td>Have</td><td>Splenda</td><td>In cabinet</td></tr>
-      <tr><td>Have</td><td>PUR gums</td><td>on dining room table</td></tr>
+      <tr><td>Have</td><td>Medium Roast Compostable Coffee Pods</td><td>On Table Amazon has good &quot;food for camping section&quot; · <a href="https://www.amazon.com/dp/B08ZZP3BLK" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Have</td><td>Cereal</td><td>Put on table</td></tr>
+      <tr><td>Have</td><td>Splenda</td><td>Put on table</td></tr>
+      <tr><td>Have</td><td>PUR gum</td><td>On dining room table</td></tr>
       <tr><td>Have</td><td>EPIC beefs</td><td>In cabinet, pending</td></tr>
-      <tr><td>Have</td><td>flax</td><td>dining room tables</td></tr>
-      <tr><td>Need</td><td>canned/pouch chicken and sardins</td><td>Needs to be organic. GE</td></tr>
-      <tr><td>Need</td><td>Jerky</td><td>Needs to be organic and Yuka Have EPIC MEATS</td></tr>
-      <tr><td>Ask</td><td>Protein powder and chia</td><td>Do you have protein powder and chia? yes</td></tr>
-      <tr><td>Noted</td><td>Food for camping section</td><td>Amazon has good &quot;food for camping section&quot;</td></tr>
-      <tr><td>Ask</td><td>Milk</td><td>Should we try this milk? Does cooler plug into wall or just car? If it&#x27;s just car, then we need a box of milk for cereal like at the hotel breakfasts · <a href="https://www.amazon.com/dp/B000LKVB52" target="_blank" rel="noopener">Amazon</a></td></tr>
-      <tr><td>Noted</td><td>No Creamie</td><td>because no freezern 😓</td></tr>
-      <tr><td>Note</td><td>No smoothie</td><td>Food for camping section,&quot;Amazon has good &quot;&quot;food for camping section&quot;&quot;&quot;</td></tr>
-      <tr><td>Note</td><td>No smoothie,because we can&#x27;t have yoghurt??,</td><td>we probably can</td></tr>
-      <tr><td>Need</td><td>Sheets of every size</td><td>yeah, all of them I guess</td></tr>
-      <tr><td>Note</td><td>don&#x27;t need milk powder. just use plug n play cooler, it has wall adapter and car</td><td>don&#x27;t need milk powder. just use plug n play cooler, it has wall adapter and car adapter</td></tr>
+      <tr><td>Have</td><td>Flax</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Mango sticky rice</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Pad Thai</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Cuban rice bowl</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Coconut black bean</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Smash seasoning</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Nuts</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Canned/pouch chicken and sardines</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Jerky</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Protein powder and chia</td><td>Put on table</td></tr>
+      <tr><td>Have</td><td>Cans of beans</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Minute Ready-to-Serve Jasmine Rice Cups, Instant Rice, (8)-Count Pack</td><td>On Table · <a href="https://www.amazon.com/dp/B0B446MT34" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives 26th</td><td>Bibigo Korean Sticky White Rice</td><td><a href="https://www.amazon.com/dp/B0CW3LCBZL" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Genova Premium Tuna Mediterranean Bean Salad (Pack of 6)</td><td><a href="https://www.amazon.com/dp/B0FMM6WTY4" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Gimme Seaweed Organic Roasted Seaweed Snack Variety</td><td><a href="https://www.amazon.com/dp/B0D86PV6WG" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Tasty Bite Organic Coconut Squash Dal, 10 Ounce, Pack of 6</td><td>They have lots of flavors, but dad doesn&#x27;t like Indians · <a href="https://www.amazon.com/dp/B09G47JS5Z" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Dry Roasted Edamame by Medley hills farm 1.25 Lbs</td><td><a href="https://www.amazon.com/dp/B0CKTKMRHR" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Fillo&#x27;s Beans, Ready to Eat Beans &amp; Lentils Variety, Gluten Free, 10oz 6 Pk</td><td><a href="https://www.amazon.com/dp/B07B3YHGV3" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives 24th</td><td>READYWISE Emergency Food Supply Meals 72 Hour Survival Kit, 30 Servings</td><td><a href="https://www.amazon.com/dp/B00HOGS6JA?ref=ppx_yo2ov_dt_b_fed_asin_title&amp;th=1" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Triscuit Reduced Fat Whole Grain Wheat Crackers, Vegan Snacks, 11.5 oz</td><td><a href="https://www.amazon.com/dp/B0744FFDFK?ref=ppx_yo2ov_dt_b_fed_asin_title&amp;th=1" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Buy</td><td>Milk</td><td>Pending</td></tr>
+      <tr><td></td><td>Boiled and regular eggs?</td><td></td></tr>
+      <tr><td></td><td>Creamer? Powered for emergency?</td><td></td></tr>
+      <tr><td></td><td>Zip lock bags for veggies if tupperware doesn&#x27;t fit in cooler.</td><td></td></tr>
+      <tr><td></td><td>Steak cutting knife. Ceramic knife.</td><td></td></tr>
+      <tr><td></td><td>Old pot and frying pan</td><td></td></tr>
+      <tr><td></td><td>Silverware metal and plastic</td><td></td></tr>
+      <tr><td></td><td>Big metal spoon to stir</td><td></td></tr>
+      <tr><td></td><td>Tongs for flipping food over</td><td></td></tr>
+      <tr><td></td><td>Dish soap</td><td></td></tr>
+      <tr><td></td><td>Old dish towels</td><td></td></tr>
+      <tr><td></td><td>Laundry detergent</td><td></td></tr>
+      <tr><td></td><td>Roll of paper towels</td><td></td></tr>
+      <tr><td></td><td>Measuring cup. Some meals need one cup.</td><td></td></tr>
+      <tr><td></td><td>Old hot pad</td><td></td></tr>
+      <tr><td></td><td>What is that paper called to put the food on</td><td></td></tr>
+      <tr><td></td><td>Designated water bottle</td><td></td></tr>
+      <tr><td></td><td>aluminum foil,</td><td></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="nc-kit"><b>NC linens kit (include pillows):</b> 1 queen + 1 full + 2 twin sheet sets + bed pillows ×3 + pillowcases + towels ×3; bring an <b>extra set for Hammocks</b> (no laundry on-site).</div>
+</section>
+
+<section class="block" id="weather">
+  <h2><span class="dot"></span> Weather strip</h2>
+  <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">Open-Meteo baked 2026-09-19T01:30:00-04:00 (ET) · high/low °F + precip chance</p>
+  <div class="wstrip"><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday'><div class='wd'>09-27</div><div class='hl'>81°/71°</div><div class='pr'>31%</div></div><div class='wday'><div class='wd'>09-28</div><div class='hl'>82°/69°</div><div class='pr'>36%</div></div><div class='wday'><div class='wd'>09-29</div><div class='hl'>86°/71°</div><div class='pr'>39%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>09-29</div><div class='hl'>80°/71°</div><div class='pr'>23%</div></div><div class='wday'><div class='wd'>09-30</div><div class='hl'>83°/77°</div><div class='pr'>21%</div></div><div class='wday'><div class='wd'>10-01</div><div class='hl'>85°/71°</div><div class='pr'>29%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-01</div><div class='hl'>90°/70°</div><div class='pr'>26%</div></div><div class='wday'><div class='wd'>10-02</div><div class='hl'>85°/70°</div><div class='pr'>35%</div></div><div class='wday'><div class='wd'>10-03</div><div class='hl'>75°/63°</div><div class='pr'>26%</div></div><div class='wday'><div class='wd'>10-04</div><div class='hl'>79°/65°</div><div class='pr'>17%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-04</div><div class='hl'>77°/65°</div><div class='pr'>17%*</div></div><div class='wday'><div class='wd'>10-05</div><div class='hl'>79°/68°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-06</div><div class='hl'>79°/69°</div><div class='pr'>20%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-06</div><div class='hl'>81°/66°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-07</div><div class='hl'>78°/62°</div><div class='pr'>20%*</div></div><div class='wday'><div class='wd'>10-08</div><div class='hl'>75°/60°</div><div class='pr'>27%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-08</div><div class='hl'>72°/67°</div><div class='pr'>17%*</div></div><div class='wday'><div class='wd'>10-09</div><div class='hl'>71°/67°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-10</div><div class='hl'>73°/67°</div><div class='pr'>10%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div></div>
+</section>
+
+<section class="block" id="pack">
+  <p id="packProgressLive" style="color:var(--muted);font-size:.85rem;margin:0 0 10px">Pack / Bring progress — Tue Sep 22 11:09 AM · Open 129 · Done 43 · Total 172 · <a href="https://pack.here2serve.us" target="_blank" rel="noopener">Open Pack live</a></p>
+  <h2><span class="dot"></span> Pack progress</h2>
+  <div class="pack-sum">
+    <div class="stat"><b>166</b><span>open</span></div>
+    <div class="stat"><b>6</b><span>done</span></div>
+    <div class="stat"><b>172</b><span>total</span></div>
+  </div>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Section</th><th>Open</th><th>Done</th></tr></thead>
+    <tbody><tr><td>Misc</td><td class='num'>4</td><td class='num'>0</td></tr><tr><td>Shelter / Sleep</td><td class='num'>4</td><td class='num'>0</td></tr><tr><td>Linens kit</td><td class='num'>5</td><td class='num'>0</td></tr><tr><td>Kitchen / Cook</td><td class='num'>24</td><td class='num'>0</td></tr><tr><td>Food / Drink</td><td class='num'>6</td><td class='num'>0</td></tr><tr><td>Clothes</td><td class='num'>11</td><td class='num'>0</td></tr><tr><td>Toiletries / Meds</td><td class='num'>20</td><td class='num'>0</td></tr><tr><td>Tools / Camp gear</td><td class='num'>14</td><td class='num'>0</td></tr><tr><td>Electronics / Power</td><td class='num'>30</td><td class='num'>0</td></tr><tr><td>Docs / Money / Keys</td><td class='num'>2</td><td class='num'>0</td></tr><tr><td>Home checklist</td><td class='num'>6</td><td class='num'>0</td></tr><tr><td>J</td><td class='num'>40</td><td class='num'>0</td></tr></tbody>
+  </table>
+  </div>
+  <p class="snap">Snapshot: 2026-09-17 ET (remi snapshot; live remi not reachable from box executor). Live checks: <a style="color:var(--gold)" href="http://127.0.0.1:18765/">http://127.0.0.1:18765/</a> / Reminders → <b>Pack / Bring</b>.</p>
+</section>
+
+
+
+
+<section class="block" id="boat">
+  <h2><span class="dot"></span> Clayton / boat cheat sheet</h2>
+  <p style="color:var(--muted);margin:0 0 12px;font-size:.85rem">Oct 1–4 · Commander’s Island / Georgetown SC · Airbnb 42045580 · <b>boat-only</b> · paid $696.41 on Sep 11.</p>
+  <div class="boat-grid">
+    <div class="boat-card">
+      <h3>Before you leave Edisto (Oct 1)</h3>
+      <ul>
+        <li>Confirm boat pickup time/text with host the night before</li>
+        <li>Fill cooler (wall + car adapters — no milk powder needed)</li>
+        <li>Pack <b>dry bag</b>: meds, phones, keys, chargers, paper docs</li>
+        <li>Boat snacks: water, EPIC beefs, edamame, no-cook packs</li>
+        <li>Gas + bathroom stop before the dock</li>
+      </ul>
+    </div>
+    <div class="boat-card">
+      <h3>On the island</h3>
+      <ul>
+        <li>Linens: provided (bring towel extras if picky)</li>
+        <li>No easy store run — bring 3 nights of food</li>
+        <li>Know boat-out plan for Sat Oct 4 morning</li>
+        <li>Screenshot host contact + dock directions while you have signal</li>
+        <li>After boat-out → Carolina Beach SP cabin (BRING linens from here on)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="coverage">
+  <h2><span class="dot"></span> Cellular &amp; Starlink gaps</h2>
+  <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">Shown on the map (toggles: <b>Cellular gaps</b> / <b>Starlink limits</b>). Estimates for planning — not a carrier guarantee.</p>
+  <div class="boat-grid">
+    <div class="boat-card">
+      <h3>Cellular — expect trouble</h3>
+      <ul>
+        <li><b>No/unreliable:</b> Commander’s Island boat run + on-island; Ocracoke/south Hatteras if you day-trip</li>
+        <li><b>Limited:</b> Edisto park side, rural SC to Georgetown docks, Hammocks ferry side, Pea Island, Buxton→Frisco</li>
+        <li><b>Do before weak signal:</b> download Apple/Google offline maps, save Pack hub to Files, screenshot boat host contact</li>
+      </ul>
+    </div>
+    <div class="boat-card">
+      <h3>Starlink — CONUS OK, sky is the limit</h3>
+      <ul>
+        <li>No true “no Starlink” footprint on this East-Coast route</li>
+        <li><b>Limited:</b> tree canopy / cabin roofs at every SP stop; bouncing skiff (need clear sky + stable mount)</li>
+        <li>If you bring a dish: set up in a clearing with southern sky; don’t count on it during the boat hop</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="food">
+  <h2><span class="dot"></span> Food (from Kelli’s sheet)</h2>
+  <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">Food + lodging sync from Kelli’s sheet · <a href="https://docs.google.com/spreadsheets/d/1_frgr_bs-ECGU7PbTcwaiSbnStPBjjLm7gTUqmnARHo/edit#gid=2034441691" target="_blank" rel="noopener">Open Google Sheet</a> · food arrives Tuesday · lodging from publish CSV</p>
+  <div class="sync-row">
+    <button type="button" class="sync-btn" id="btnSyncSheet">Sync sheet</button>
+    <button type="button" class="sync-btn sec" id="btnOpenSheet">Open sheet</button>
+    <button type="button" class="sync-btn sec" id="btnExportHint">How to export</button>
+    <input type="file" id="foodCsvInput" accept=".csv,text/csv" hidden>
+    <span class="sync-meta" id="foodSyncMeta">Last synced Sep 22 7:23 PM ET from Kelli Food publish CSV (gid 2034441691) · Have block first</span>
+  </div>
+  <div id="foodDrop" role="button" tabindex="0"><b>Drop Food CSV here</b> · or tap to pick · Sync sheet one-taps Food + Lodging publish CSVs</div>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Status</th><th>Item</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Have</td><td>Medium Roast Compostable Coffee Pods</td><td>On Table Amazon has good &quot;food for camping section&quot; · <a href="https://www.amazon.com/dp/B08ZZP3BLK" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Have</td><td>Cereal</td><td>Put on table</td></tr>
+      <tr><td>Have</td><td>Splenda</td><td>Put on table</td></tr>
+      <tr><td>Have</td><td>PUR gum</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>EPIC beefs</td><td>In cabinet, pending</td></tr>
+      <tr><td>Have</td><td>Flax</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Mango sticky rice</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Pad Thai</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Cuban rice bowl</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Coconut black bean</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Smash seasoning</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Nuts</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Canned/pouch chicken and sardines</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Jerky</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Protein powder and chia</td><td>Put on table</td></tr>
+      <tr><td>Have</td><td>Cans of beans</td><td>On dining room table</td></tr>
+      <tr><td>Have</td><td>Minute Ready-to-Serve Jasmine Rice Cups, Instant Rice, (8)-Count Pack</td><td>On Table · <a href="https://www.amazon.com/dp/B0B446MT34" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives 26th</td><td>Bibigo Korean Sticky White Rice</td><td><a href="https://www.amazon.com/dp/B0CW3LCBZL" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Genova Premium Tuna Mediterranean Bean Salad (Pack of 6)</td><td><a href="https://www.amazon.com/dp/B0FMM6WTY4" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Gimme Seaweed Organic Roasted Seaweed Snack Variety</td><td><a href="https://www.amazon.com/dp/B0D86PV6WG" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Tasty Bite Organic Coconut Squash Dal, 10 Ounce, Pack of 6</td><td>They have lots of flavors, but dad doesn&#x27;t like Indians · <a href="https://www.amazon.com/dp/B09G47JS5Z" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Dry Roasted Edamame by Medley hills farm 1.25 Lbs</td><td><a href="https://www.amazon.com/dp/B0CKTKMRHR" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Fillo&#x27;s Beans, Ready to Eat Beans &amp; Lentils Variety, Gluten Free, 10oz 6 Pk</td><td><a href="https://www.amazon.com/dp/B07B3YHGV3" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives 24th</td><td>READYWISE Emergency Food Supply Meals 72 Hour Survival Kit, 30 Servings</td><td><a href="https://www.amazon.com/dp/B00HOGS6JA?ref=ppx_yo2ov_dt_b_fed_asin_title&amp;th=1" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Arrives Tuesday</td><td>Triscuit Reduced Fat Whole Grain Wheat Crackers, Vegan Snacks, 11.5 oz</td><td><a href="https://www.amazon.com/dp/B0744FFDFK?ref=ppx_yo2ov_dt_b_fed_asin_title&amp;th=1" target="_blank" rel="noopener">Amazon</a></td></tr>
+      <tr><td>Buy</td><td>Milk</td><td>Pending</td></tr>
+      <tr><td></td><td>Boiled and regular eggs?</td><td></td></tr>
+      <tr><td></td><td>Creamer? Powered for emergency?</td><td></td></tr>
+      <tr><td></td><td>Zip lock bags for veggies if tupperware doesn&#x27;t fit in cooler.</td><td></td></tr>
+      <tr><td></td><td>Steak cutting knife. Ceramic knife.</td><td></td></tr>
+      <tr><td></td><td>Old pot and frying pan</td><td></td></tr>
+      <tr><td></td><td>Silverware metal and plastic</td><td></td></tr>
+      <tr><td></td><td>Big metal spoon to stir</td><td></td></tr>
+      <tr><td></td><td>Tongs for flipping food over</td><td></td></tr>
+      <tr><td></td><td>Dish soap</td><td></td></tr>
+      <tr><td></td><td>Old dish towels</td><td></td></tr>
+      <tr><td></td><td>Laundry detergent</td><td></td></tr>
+      <tr><td></td><td>Roll of paper towels</td><td></td></tr>
+      <tr><td></td><td>Measuring cup. Some meals need one cup.</td><td></td></tr>
+      <tr><td></td><td>Old hot pad</td><td></td></tr>
+      <tr><td></td><td>What is that paper called to put the food on</td><td></td></tr>
+      <tr><td></td><td>Designated water bottle</td><td></td></tr>
+      <tr><td></td><td>aluminum foil,</td><td></td></tr>
     </tbody>
   </table>
   </div>
@@ -573,18 +731,16 @@ const DAY_PLAN = {
   "2026-09-28": { title:"Anastasia stay", leave:"No drive day", meals:"Cereal · seaweed/edamame · Tasty Bite dal + rice", checkin:"Still Anastasia", linens:"Towels", next:"Tomorrow: Anastasia → Edisto ~5h 35m · leave ~10:25 AM" },
   "2026-09-29": { title:"Drive Anastasia → Edisto", leave:"Leave ~10:25 AM · ~5h 35m", meals:"Snacks early · Buc-ee’s Brunswick · Dinner: tuna packs + rice/dal", checkin:"Edisto Beach SP cabins", linens:"Provided", next:"Stay Tue" },
   "2026-09-30": { title:"Edisto stay", leave:"No drive day", meals:"Cereal · beach picnic · dal + rice · flax/PUR", checkin:"Still Edisto", linens:"Provided", next:"Tomorrow: BOAT day to Clayton — confirm host boat time tonight", warn:"Boat tomorrow — confirm pickup text" },
-  "2026-10-01": { title:"Boat day → Clayton Cabin", leave: "Leave dock drive ~12:30 PM · ~2h 34m then boat (confirm host time)", meals:"Cook Out if timing · boat bag snacks · cabin heat-and-eat", checkin: "Clayton / Commander’s Island (boat-only) · dry bag + cooler loaded", linens:"Provided (confirm towels)", next:"Island Thu–Fri · no store run", warn:"BOAT-ONLY · dry bag + full cooler", boat:true },
+  "2026-10-01": { title:"Boat day → Clayton Cabin", leave:"Drive Edisto → dock · then boat", meals:"Cook Out if timing · boat bag snacks · cabin heat-and-eat", checkin:"Clayton / Commander’s Island (boat-only)", linens:"Provided (confirm towels)", next:"Island Thu–Fri · no store run", warn:"BOAT-ONLY · dry bag + full cooler", boat:true },
   "2026-10-02": { title:"Clayton island", leave:"No drive", meals:"Rotate packs / EPIC / edamame / dal", checkin:"On island", linens:"Provided", next:"Still island Fri · boat-out Sat morning", boat:true },
   "2026-10-03": { title:"Clayton island", leave:"No drive", meals:"Finish island food — leave buffer for Sat", checkin:"On island", linens:"Provided", next:"Tomorrow: boat out → Carolina Beach SP", warn:"Confirm Sat boat-out time", boat:true },
-  "2026-10-04": { title:"Boat out → Carolina Beach", leave: "Boat out AM · drive by ~12:00 PM · ~2h 56m", meals:"Cook Out Myrtle/Wilmington · cabin packs dinner", checkin: "Carolina Beach SP cabin · gate locks at park closing (no late car grocery run)", linens:"BRING NC linens kit", next:"Stay Sun", warn: "BRING LINENS starting tonight · gate locks at closing" },
-  "2026-10-05": { title:"Carolina Beach stay", leave:"No drive", meals:"Cereal · pier snacks · cabin or Cook Out Wilmington", checkin: "Still Carolina Beach · gate locks at closing", linens:"Your kit", next:"Tomorrow → Hammocks Simmons",
-    warn: "Park gate locks at closing — plan evening in/out"
-  },
-  "2026-10-06": { title:"Drive → Hammocks Simmons", leave: "Leave ~1:55 PM · ~2h 05m (check-in after 3 PM)", meals:"Cook Out Jacksonville NC optional · easy packs dinner", checkin: "Hammocks Beach SP Simmons (mainland) · no early check-in", linens:"BRING linens + EXTRA set (no laundry)", next:"Stay Tue", warn:"Extra sheet set — no laundry on-site" },
+  "2026-10-04": { title:"Boat out → Carolina Beach", leave:"Boat out AM · then drive", meals:"Cook Out Myrtle/Wilmington · cabin packs dinner", checkin:"Carolina Beach SP cabin", linens:"BRING NC linens kit", next:"Stay Sun", warn:"BRING LINENS starting tonight" },
+  "2026-10-05": { title:"Carolina Beach stay", leave:"No drive", meals:"Cereal · pier snacks · cabin or Cook Out Wilmington", checkin:"Still Carolina Beach", linens:"Your kit", next:"Tomorrow → Hammocks Simmons" },
+  "2026-10-06": { title:"Drive → Hammocks Simmons", leave:"Drive day", meals:"Cook Out Jacksonville NC optional · easy packs dinner", checkin:"Hammocks Beach SP Simmons", linens:"BRING linens + EXTRA set (no laundry)", next:"Stay Tue", warn:"Extra sheet set — no laundry on-site" },
   "2026-10-07": { title:"Hammocks stay", leave:"No drive", meals:"Remaining Have/Ordered · town only if needed", checkin:"Still Simmons", linens:"Your kit + extra", next:"Tomorrow → Frisco Woods (OBX)" },
-  "2026-10-08": { title:"Drive → Frisco Woods", leave: "Leave ~10:35 AM · ~5h 24m · stock snacks before OBX", meals:"Cook Out Morehead City · camping cabin packs", checkin:"Frisco Woods camping cabin", linens:"BRING linens", next:"Stay Thu · Fri head home", warn:"No Buc-ee’s on OBX — snack up" },
+  "2026-10-08": { title:"Drive → Frisco Woods", leave:"Drive day · stock snacks before OBX", meals:"Cook Out Morehead City · camping cabin packs", checkin:"Frisco Woods camping cabin", linens:"BRING linens", next:"Stay Thu · Fri head home", warn:"No Buc-ee’s on OBX — snack up" },
   "2026-10-09": { title:"Frisco stay", leave:"No drive", meals:"Remaining packs · local if needed", checkin:"Still Frisco", linens:"Your kit", next:"Tomorrow: head home to Largo" },
-  "2026-10-10": { title:"Head home", leave: "Leave early AM · Frisco → Largo (long southbound day)", meals:"Road food · home dinner", checkin:"Home", linens:"Pack dirty linens for laundry at home", next:"Trip done", warn:"Long southbound day — leave early" }
+  "2026-10-10": { title:"Head home", leave:"Drive Frisco → Largo (long day)", meals:"Road food · home dinner", checkin:"Home", linens:"Pack dirty linens for laundry at home", next:"Trip done", warn:"Long southbound day — leave early" }
 };
 function renderDayCard(day){
   const title = document.getElementById('dayCardTitle');
@@ -656,12 +812,12 @@ document.getElementById('copyShare').addEventListener('click', async () => {
 });
 
 document.getElementById('btnExportHint')?.addEventListener('click', () => {
-  alert('Food sync:\n\n1. Open Google Sheet → Food tab\n2. File → Download → Comma Separated Values (.csv)\n3. Tap Sync Food CSV and pick that file\n\nTip: keep the CSV on Desktop as “Going north…Food.csv” for next time.');
+  alert('Sheet sync:\n\nFood: Sync sheet one-taps the published Food CSV (or drop a download).\nLodging: syncs from the Hub gist lodging.csv (or set a publish URL via How to export).\n\nTip: keep Food CSV on Desktop as “Going north…Food.csv” for fallback.');
 });
 
 refreshDay();
 
-const HUB_BUILD = '20260921-0105';
+const HUB_BUILD = '20260920-1950';
 const VERSION_URL = 'https://gist.githubusercontent.com/jdubs84/24e6e2ca6391620f5d51305d490d5add/raw/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 
@@ -672,11 +828,11 @@ async function fetchHubVersion() {
   return res.json();
 }
 
-function showUpdateBar(info, msg) {
+function showUpdateBar(info) {
   const bar = document.getElementById('updateBar');
   const meta = document.getElementById('updateMeta');
-  if (!bar || !meta) return;
-  meta.textContent = msg || ('This page: ' + HUB_BUILD + ' · Latest: ' + (info.build || info.version || '?'));
+  if (!bar) return;
+  meta.textContent = 'This page: ' + HUB_BUILD + ' · Latest: ' + (info.build || info.version || '?');
   bar.classList.add('show');
 }
 
@@ -685,70 +841,53 @@ function hideUpdateBar() {
   if (bar) bar.classList.remove('show');
 }
 
-function normalizeHubRawUrl(u) {
-  let fetchUrl = String(u || '');
-  const hp = 'htmlpreview.github.io/?';
-  if (fetchUrl.includes(hp)) fetchUrl = fetchUrl.split(hp).pop();
-  fetchUrl = fetchUrl
-    .replace('https://gist.githack.com/', 'https://gist.githubusercontent.com/')
-    .replace('https://raw.githack.com/', 'https://gist.githubusercontent.com/')
-    .replace('https://rawcdn.githack.com/', 'https://gist.githubusercontent.com/');
-  // raw.githack style /user/id/sha/file → githubusercontent /user/id/raw/sha/file
-  fetchUrl = fetchUrl.replace(
-    /https:\/\/gist\.githubusercontent\.com\/([^/]+)\/([a-f0-9]+)\/([a-f0-9]{40})\//,
-    'https://gist.githubusercontent.com/$1/$2/raw/$3/'
-  );
-  return fetchUrl;
-}
-
-async function applyHubUpdate(info) {
-  const meta = document.getElementById('updateMeta');
-  const btn = document.getElementById('btnUpdateHub');
-  try {
-    if (!info) info = await fetchHubVersion();
-    window.__hubUpdate = info;
-    try { localStorage.removeItem(DISMISS_KEY); } catch (e) {}
-    if (meta) meta.textContent = 'Opening latest hub…';
-    if (btn) btn.disabled = true;
-    // iPhone Safari blanks on htmlpreview + big blob: URLs — always use GitHub Pages.
-    const pages = (info && (info.pages || info.url)) || 'https://jdubs84.github.io/coastal-trip-hub/';
-    const clean = String(pages).split('?')[0].replace(/htmlpreview\.github\.io\/\?.*/, 'https://jdubs84.github.io/coastal-trip-hub/');
-    const target = (/jdubs84\.github\.io\/coastal-trip-hub/.test(clean) ? clean : 'https://jdubs84.github.io/coastal-trip-hub/')
-      + '?v=' + encodeURIComponent(info.build || info.version || Date.now());
-    location.href = target;
-  } catch (e) {
-    if (meta) meta.textContent = 'Update failed: ' + (e && e.message ? e.message : e) + ' — opening Pages hub…';
-    if (btn) btn.disabled = false;
-    setTimeout(() => { location.href = 'https://jdubs84.github.io/coastal-trip-hub/?v=' + Date.now(); }, 400);
-  }
-}
-
 async function checkForHubUpdate(manual) {
   try {
     const info = await fetchHubVersion();
     const latest = String(info.build || info.version || '');
     if (!latest) return;
-    window.__hubUpdate = info; // always stash so Update hub can re-pull
+    // Only offer an update when remote build is NEWER (never roll back)
     if (latest === HUB_BUILD || latest < HUB_BUILD) {
       if (manual) {
-        showUpdateBar(info, latest < HUB_BUILD
-          ? ('This page is newer than published (' + HUB_BUILD + '). Tap Update hub to re-download published.')
-          : ('Already on latest (' + HUB_BUILD + '). Tap Update hub to re-download.'));
+        const meta = document.getElementById('updateMeta');
+        const bar = document.getElementById('updateBar');
+        if (meta && bar) {
+          meta.textContent = (latest < HUB_BUILD)
+            ? ('This page is newer than the published pointer (' + HUB_BUILD + ')')
+            : ('Already on latest (' + HUB_BUILD + ')');
+          bar.classList.add('show');
+          setTimeout(hideUpdateBar, 2500);
+        }
       }
       return;
     }
     const dismissed = localStorage.getItem(DISMISS_KEY);
     if (!manual && dismissed === latest) return;
+    window.__hubUpdate = info;
     showUpdateBar(info);
   } catch (e) {
     if (manual) {
-      showUpdateBar({}, 'Could not check for updates (offline or blocked).');
-      setTimeout(hideUpdateBar, 3000);
+      const meta = document.getElementById('updateMeta');
+      const bar = document.getElementById('updateBar');
+      if (meta && bar) {
+        meta.textContent = 'Could not check for updates (offline or blocked).';
+        bar.classList.add('show');
+        setTimeout(hideUpdateBar, 3000);
+      }
     }
   }
 }
 
-document.getElementById('btnUpdateHub')?.addEventListener('click', () => applyHubUpdate(window.__hubUpdate));
+document.getElementById('btnUpdateHub')?.addEventListener('click', () => {
+  const info = window.__hubUpdate;
+  const url = (info && (info.url || info.href)) || '';
+  if (!url) return;
+  try { localStorage.removeItem(DISMISS_KEY); } catch (e) {}
+  // Hard navigation with cache buster
+  const sep = url.includes('?') ? '&' : '?';
+  location.replace(url + sep + 'v=' + encodeURIComponent(info.build || Date.now()));
+});
+
 document.getElementById('btnDismissUpdate')?.addEventListener('click', () => {
   const info = window.__hubUpdate;
   if (info && (info.build || info.version)) {
@@ -756,99 +895,12 @@ document.getElementById('btnDismissUpdate')?.addEventListener('click', () => {
   }
   hideUpdateBar();
 });
+
 document.getElementById('btnCheckUpdate')?.addEventListener('click', () => checkForHubUpdate(true));
 checkForHubUpdate(false);
 
-
 </script>
 
-<script>
-(function(){
-  const SHEET_EDIT = 'https://docs.google.com/spreadsheets/d/1_frgr_bs-ECGU7PbTcwaiSbnStPBjjLm7gTUqmnARHo/edit#gid=2034441691';
-  const KEY = 'coastalHubFoodV1';
-  const tbody = () => document.querySelector('#food table tbody');
-  const meta = () => document.getElementById('foodSyncMeta');
-
-  function render(rows, when){
-    const tb = tbody();
-    if (!tb) return;
-    tb.innerHTML = rows.map(r => {
-      const notes = [];
-      if (r.notes) notes.push(escapeHtml(r.notes));
-      if (r.link) notes.push('<a href="'+escapeHtml(r.link)+'" target="_blank" rel="noopener">Amazon</a>');
-      return '<tr><td>'+escapeHtml(r.status||'')+'</td><td>'+escapeHtml(r.item||'')+'</td><td>'+notes.join(' · ')+'</td></tr>';
-    }).join('');
-    if (meta()) meta().textContent = when ? ('Last synced ' + when) : '';
-  }
-  function escapeHtml(s){
-    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
-  }
-  function parseCsv(text){
-    const lines = text.replace(/^\uFEFF/,'').split(/\r?\n/).filter(l => l.trim().length);
-    if (!lines.length) return [];
-    // simple CSV parse respecting quotes
-    function split(line){
-      const out=[]; let cur=''; let q=false;
-      for (let i=0;i<line.length;i++){
-        const c=line[i];
-        if (c==='"'){ if(q && line[i+1]==='"'){cur+='"';i++;} else q=!q; }
-        else if (c===',' && !q){ out.push(cur); cur=''; }
-        else cur+=c;
-      }
-      out.push(cur); return out;
-    }
-    const header = split(lines[0]).map(h => h.trim().toLowerCase());
-    const idx = {
-      status: header.findIndex(h => h==='status'),
-      item: header.findIndex(h => h==='item'),
-      notes: header.findIndex(h => h==='notes'),
-      link: header.findIndex(h => h==='link'),
-    };
-    const rows=[];
-    for (let i=1;i<lines.length;i++){
-      const cols=split(lines[i]);
-      const status=(cols[idx.status]||'').replace(/\s+/g,' ').trim();
-      const item=(cols[idx.item]||'').replace(/\s+/g,' ').trim();
-      const notes=(cols[idx.notes]||'').replace(/\s+/g,' ').trim();
-      const link=(cols[idx.link]||'').replace(/\s+/g,' ').trim();
-      if (!status && !item && !notes) continue;
-      rows.push({status: status||'Note', item, notes, link});
-    }
-    return rows;
-  }
-  function applyRows(rows){
-    const when = new Date().toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
-    localStorage.setItem(KEY, JSON.stringify({when, rows}));
-    render(rows, when);
-  }
-
-  // restore prior sync
-  try {
-    const saved = JSON.parse(localStorage.getItem(KEY)||'null');
-    if (saved && Array.isArray(saved.rows) && saved.rows.length){
-      render(saved.rows, saved.when);
-    }
-  } catch(e){}
-
-  const fileInput = document.getElementById('foodCsvInput');
-  document.getElementById('btnSyncSheet')?.addEventListener('click', () => {
-    // Prefer picking the exported Food CSV (Desktop / Downloads)
-    fileInput?.click();
-  });
-  document.getElementById('btnOpenSheet')?.addEventListener('click', () => {
-    window.open(SHEET_EDIT, '_blank', 'noopener');
-  });
-  fileInput?.addEventListener('change', async (ev) => {
-    const f = ev.target.files && ev.target.files[0];
-    if (!f) return;
-    const text = await f.text();
-    const rows = parseCsv(text);
-    if (!rows.length){ alert('No rows found in that CSV.'); return; }
-    applyRows(rows);
-    if (meta()) meta().textContent = 'Synced from '+f.name+' · '+new Date().toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
-  });
-})();
-</script>
 
 
 <script id="food-sync-v2">
@@ -930,30 +982,34 @@ checkForHubUpdate(false);
     return true;
   }
 
-  document.getElementById('btnSyncSheet')?.addEventListener('click', async () => {
-    const b=document.getElementById('btnSyncSheet');
-    if (b) b.textContent='Syncing…';
-    try {
-      if (await tryPublishUrl()) { if (b) b.textContent='Sync Food'; return; }
-    } catch(e){ console.warn(e); }
-    // Fallback: open signed-in export (downloads CSV) + highlight drop zone
-    window.open(EXPORT, '_blank', 'noopener');
-    if (drop()){ drop().classList.add('hot'); drop().scrollIntoView({behavior:'smooth', block:'center'}); }
-    if (meta()) meta().textContent='Export opened — drop the downloaded Food CSV here (or pick file)';
-    document.getElementById('foodCsvInput')?.click();
-    if (b) b.textContent='Sync Food';
-  });
+    // btnSyncSheet click owned by sheet-sync-v1 (Food + Lodging)
+  window.__hubFoodSync = {
+    tryPublish: tryPublishUrl,
+    fallbackExport() {
+      window.open(EXPORT, '_blank', 'noopener');
+      if (drop()){ drop().classList.add('hot'); drop().scrollIntoView({behavior:'smooth', block:'center'}); }
+      if (meta()) meta().textContent='Export opened — drop the downloaded Food CSV here (or pick file)';
+      document.getElementById('foodCsvInput')?.click();
+    },
+    EXPORT, PUBLISH_KEY, FOOD_PUBLISH_CSV
+  };
 
   document.getElementById('btnOpenSheet')?.addEventListener('click', () => {
     window.open(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit#gid=${GID}`, '_blank', 'noopener');
   });
   document.getElementById('btnExportHint')?.addEventListener('click', () => {
-    const cur = localStorage.getItem(PUBLISH_KEY)||'';
-    const url = prompt('Optional one-tap: paste Google Sheet “Publish to web” CSV URL for the Food tab.\\n\\nSheet → File → Share → Publish to web → Food → CSV → Publish, then paste the link here.\\n\\nLeave blank to keep using download + drop.', cur);
+    const curFood = localStorage.getItem(PUBLISH_KEY)||'';
+    const curLodge = localStorage.getItem('coastalLodgePublishCsv')||'';
+    const url = prompt('Optional one-tap Food publish CSV URL (Google Sheet Publish to web → Food → CSV).\n\nLeave blank to clear Food URL (download + drop).\n\nCurrent lodging publish URL stays in localStorage key coastalLodgePublishCsv (set separately if needed).\n\nFood URL:', curFood);
     if (url===null) return;
     if (url.trim()) localStorage.setItem(PUBLISH_KEY, url.trim());
     else localStorage.removeItem(PUBLISH_KEY);
-    if (meta()) meta().textContent = url.trim() ? 'Publish URL saved — Sync Food will one-tap fetch' : 'Publish URL cleared — Sync uses download + drop';
+    if (meta()) meta().textContent = url.trim() ? 'Publish URL saved — Sync sheet will one-tap fetch Food' : 'Food publish URL cleared — Sync uses download + drop';
+    const lodgeUrl = prompt('Optional lodging publish CSV URL (gist raw lodging.csv). Leave blank to keep current.', curLodge);
+    if (lodgeUrl!==null) {
+      if (lodgeUrl.trim()) localStorage.setItem('coastalLodgePublishCsv', lodgeUrl.trim());
+      else localStorage.removeItem('coastalLodgePublishCsv');
+    }
   });
 
   async function ingestFile(f){
@@ -978,6 +1034,211 @@ checkForHubUpdate(false);
     });
     dz.addEventListener('click', () => document.getElementById('foodCsvInput')?.click());
   }
+})();
+</script>
+
+
+<script id="sheet-sync-v1">
+(function(){
+  const LODGING_PUBLISH_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQliG1Nx2jR5PkAvrZ5l6AArvyy0Oo_opsTGdaRyebBylT-KTLjTKa0FSJh53Py8tYv2N8JOz9Xgmc1/pub?gid=181322923&single=true&output=csv';
+  const PUBLISH_KEY = 'coastalLodgePublishCsv';
+  const STORE_KEY = 'coastalHubLodgeV1';
+  const SHEET_EDIT = 'https://docs.google.com/spreadsheets/d/1_frgr_bs-ECGU7PbTcwaiSbnStPBjjLm7gTUqmnARHo/edit';
+  try {
+    const cur = localStorage.getItem(PUBLISH_KEY)||'';
+    if (!cur || cur.indexOf('gist.githubusercontent.com')>=0 || cur.indexOf('raw/lodging.csv')>=0)
+      localStorage.setItem(PUBLISH_KEY, LODGING_PUBLISH_CSV);
+  } catch(e){}
+
+  const tbody = () => document.getElementById('lodgeTbody');
+  const meta = () => document.getElementById('lodgeSyncMeta');
+  const summaryEl = () => document.getElementById('kitchenSummary');
+
+  function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function splitCsvLine(line){
+    const out=[]; let cur=''; let q=false;
+    for (let i=0;i<line.length;i++){
+      const c=line[i];
+      if (c==='"'){ if(q && line[i+1]==='"'){cur+='"'; i++;} else q=!q; }
+      else if (c===',' && !q){ out.push(cur); cur=''; }
+      else cur+=c;
+    }
+    out.push(cur); return out;
+  }
+  function parseCsv(text){
+    const lines=text.replace(/^\uFEFF/,'').split(/\r?\n/).filter(l=>l.trim().length);
+    if (!lines.length) return [];
+    const header=splitCsvLine(lines[0]).map(h=>h.trim().toLowerCase());
+    const idx={
+      stop: header.indexOf('stop'),
+      nights: header.indexOf('nights'),
+      linens: header.indexOf('linens'),
+      laundry: header.indexOf('laundry'),
+      kitchen: header.indexOf('kitchen'),
+      fees: header.indexOf('fees'),
+      boat: header.indexOf('boat'),
+      notes: header.indexOf('notes')
+    };
+    const rows=[];
+    for (let i=1;i<lines.length;i++){
+      const cols=splitCsvLine(lines[i]);
+      const row={
+        stop:(cols[idx.stop]||'').trim(),
+        nights:(cols[idx.nights]||'').trim(),
+        linens:(cols[idx.linens]||'').trim(),
+        laundry:(cols[idx.laundry]||'').trim(),
+        kitchen:(cols[idx.kitchen]||'').trim(),
+        fees:(cols[idx.fees]||'').trim(),
+        boat:(cols[idx.boat]||'').trim(),
+        notes:(cols[idx.notes]||'').trim()
+      };
+      if (!row.stop && !row.nights) continue;
+      rows.push(row);
+    }
+    return rows;
+  }
+  function kitchenCellHtml(kitchen){
+    const k = String(kitchen||'').trim();
+    let head = null, rest = '';
+    if (/^full\b/i.test(k)) {
+      const m = /^(full(?:\s+kitchen)?)\s*[—\-–:]?\s*([\s\S]*)$/i.exec(k);
+      head = 'Full kitchen'; rest = ((m && m[2]) || '').trim();
+    } else if (/^kitchenette\b/i.test(k)) {
+      const m = /^(kitchenette)\s*[—\-–:]?\s*([\s\S]*)$/i.exec(k);
+      head = 'Kitchenette'; rest = ((m && m[2]) || '').trim();
+    } else if (/^no\b/i.test(k)) {
+      const m = /^(no(?:\s+kitchen)?)\s*[—\-–:]?\s*([\s\S]*)$/i.exec(k);
+      head = 'No kitchen'; rest = ((m && m[2]) || '').trim();
+    }
+    if (head) {
+      if (rest) return '<b>'+esc(head)+'</b><br/><span style="opacity:.85;font-size:.86em">'+esc(rest)+'</span>';
+      return '<b>'+esc(head)+'</b>';
+    }
+    return esc(k);
+  }
+  function renderLodge(rows){
+    const tb = tbody(); if (!tb) return;
+    tb.innerHTML = rows.map((r,i)=>{
+      const stop = /^\d+\./.test(r.stop) ? r.stop : ((i+1)+'. '+r.stop);
+      return '<tr><td>'+esc(stop)+'</td><td>'+esc(r.nights)+'</td><td>'+esc(r.linens)+'</td><td>'+esc(r.laundry)+'</td><td class="kitchen">'+kitchenCellHtml(r.kitchen)+'</td><td>'+esc(r.fees)+'</td><td>'+esc(r.boat)+'</td></tr>';
+    }).join('');
+  }
+  function nightsFrom(nights){
+    const m = /\((\d+)\)/.exec(String(nights||''));
+    return m ? parseInt(m[1],10) : 0;
+  }
+  function classifyKitchen(k){
+    const s = String(k||'').toLowerCase();
+    if (s.includes('no kitchen') || /^no\b/.test(s.trim())) return 'none';
+    if (s.includes('kitchenette')) return 'kitchenette';
+    if (s.includes('full')) return 'full';
+    return 'other';
+  }
+  function kitchenSummaryFrom(rows){
+    let total=0, full=0, kit=0, none=0;
+    const fullStops=[], kitStops=[], noneStops=[];
+    rows.forEach(r=>{
+      const n = nightsFrom(r.nights);
+      total += n;
+      const c = classifyKitchen(r.kitchen);
+      const short = (r.stop||'').replace(/^\d+\.\s*/,'');
+      if (c==='full'){ full+=n; fullStops.push(short.split('/')[0].trim().split(' ').slice(0,2).join(' ')+' '+n); }
+      else if (c==='kitchenette'){ kit+=n; kitStops.push(short.split(' ')[0]+''); }
+      else if (c==='none'){ none+=n; noneStops.push(short.split(' ')[0]); }
+    });
+    // Build friendly summary close to baked copy
+    let html = 'Kitchen totals across <b>'+total+' overnight nights</b>: ';
+    html += '<b>'+full+' full</b>';
+    if (fullStops.length) html += ' ('+fullStops.join(' + ')+')';
+    html += ' · <b>'+kit+' kitchenette</b>';
+    if (kitStops.length) html += ' ('+kitStops.join(', ')+')';
+    html += ' · <b>'+none+' none</b>';
+    if (noneStops.length) html += ' ('+noneStops.join(' + ')+')';
+    html += '.';
+    if (none >= 6) {
+      html += ' After boat-out you’re in a <b>'+none+'-night no-kitchen stretch</b> — cooler meals, Cook Out / takeout, or travel stove/grill.';
+    }
+    return html;
+  }
+  function applyLodge(rows, label){
+    const when = new Date().toLocaleString('en-US',{month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
+    localStorage.setItem(STORE_KEY, JSON.stringify({when, rows, label}));
+    renderLodge(rows);
+    const sum = summaryEl();
+    if (sum) sum.innerHTML = kitchenSummaryFrom(rows);
+    if (meta()) meta().textContent = (label||'Synced')+' · '+when;
+  }
+
+  async function tryLodgePublish(){
+    const url = (localStorage.getItem(PUBLISH_KEY)||LODGING_PUBLISH_CSV||'').trim();
+    if (!url) return false;
+    const res = await fetch(url + (url.includes('?')?'&':'?') + 't=' + Date.now(), {cache:'no-store'});
+    if (!res.ok) throw new Error('Lodging publish HTTP '+res.status);
+    const text = await res.text();
+    if (text.trim().startsWith('<')) throw new Error('Got HTML, not CSV — lodging publish link may be wrong');
+    const rows = parseCsv(text);
+    if (!rows.length) throw new Error('Empty lodging CSV');
+    applyLodge(rows, 'One-tap lodging');
+    return true;
+  }
+
+  async function syncFoodThenLodge(){
+    const b = document.getElementById('btnSyncSheet');
+    if (b) b.textContent = 'Syncing…';
+    let foodOk = false, lodgeOk = false;
+    const foodApi = window.__hubFoodSync;
+    try {
+      if (foodApi && typeof foodApi.tryPublish === 'function') {
+        foodOk = !!(await foodApi.tryPublish());
+      }
+    } catch(e){ console.warn('food sync', e); }
+    if (!foodOk && foodApi && typeof foodApi.fallbackExport === 'function') {
+      // only trigger fallback if food failed and we're not also doing lodge successfully path
+      try { foodApi.fallbackExport(); } catch(e){}
+    }
+    try {
+      lodgeOk = !!(await tryLodgePublish());
+    } catch(e){
+      console.warn('lodge sync', e);
+      if (meta()) meta().textContent = 'Lodging sync failed: '+(e && e.message ? e.message : e);
+    }
+    if (b) b.textContent = 'Sync sheet';
+    const fm = document.getElementById('foodSyncMeta');
+    if (foodOk && lodgeOk && fm) {
+      /* food meta already set by apply */
+    }
+    return {foodOk, lodgeOk};
+  }
+
+  document.getElementById('btnSyncSheet')?.addEventListener('click', () => { syncFoodThenLodge(); });
+  document.getElementById('btnSyncLodging')?.addEventListener('click', async () => {
+    const b = document.getElementById('btnSyncLodging');
+    if (b) b.textContent = 'Syncing…';
+    try {
+      await tryLodgePublish();
+    } catch(e){
+      console.warn(e);
+      if (meta()) meta().textContent = 'Lodging sync failed: '+(e && e.message ? e.message : e);
+      alert('Lodging sync failed: '+(e && e.message ? e.message : e));
+    }
+    if (b) b.textContent = 'Sync lodging';
+  });
+  document.getElementById('btnOpenLodgingSheet')?.addEventListener('click', () => {
+    window.open(SHEET_EDIT, '_blank', 'noopener');
+  });
+
+  // restore prior lodge sync
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORE_KEY)||'null');
+    if (saved && Array.isArray(saved.rows) && saved.rows.length){
+      renderLodge(saved.rows);
+      const sum = summaryEl();
+      if (sum) sum.innerHTML = kitchenSummaryFrom(saved.rows);
+      if (meta()) meta().textContent = (saved.label||'Saved')+' · '+saved.when;
+    }
+  } catch(e){}
+
+  window.__hubLodgeSync = { tryPublish: tryLodgePublish, apply: applyLodge };
 })();
 </script>
 
