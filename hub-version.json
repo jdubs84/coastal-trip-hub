@@ -1,8 +1,8 @@
 {
-  "build": "20260922-2153",
-  "version": "20260922-2153",
+  "build": "20260923-1651",
+  "version": "20260923-1651",
   "url": "https://jdubs84.github.io/coastal-trip-hub/",
-  "notes": "Added The Yearling Restaurant (Cross Creek) as map restaurant POI + Sat 9/27 along-the-way food alt.",
+  "notes": "Fix Update hub: sync HUB_BUILD with version pointer",
   "food_synced": "2026-09-22T20:38:34-04:00",
-  "updated": "2026-09-22T21:53:29-04:00"
+  "updated": "2026-09-23T16:51:38-04:00"
 }

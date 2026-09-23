@@ -835,8 +835,8 @@ document.getElementById('btnExportHint')?.addEventListener('click', () => {
 
 refreshDay();
 
-const HUB_BUILD = '20260920-1950';
-const VERSION_URL = 'https://gist.githubusercontent.com/jdubs84/24e6e2ca6391620f5d51305d490d5add/raw/hub-version.json';
+const HUB_BUILD = '20260923-1651';
+const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 
 async function fetchHubVersion() {
@@ -897,13 +897,25 @@ async function checkForHubUpdate(manual) {
 }
 
 document.getElementById('btnUpdateHub')?.addEventListener('click', () => {
-  const info = window.__hubUpdate;
-  const url = (info && (info.url || info.href)) || '';
-  if (!url) return;
+  const info = window.__hubUpdate || {};
+  const canonical = 'https://jdubs84.github.io/coastal-trip-hub/';
+  let url = canonical;
+  const raw = info.url || info.href || '';
+  try {
+    if (raw && new URL(raw).hostname === 'jdubs84.github.io') url = raw;
+  } catch (e) {}
+  url = String(url).split('#')[0].split('?')[0];
+  if (url.charAt(url.length - 1) !== '/') url += '/';
   try { localStorage.removeItem(DISMISS_KEY); } catch (e) {}
-  // Hard navigation with cache buster
-  const sep = url.includes('?') ? '&' : '?';
-  location.replace(url + sep + 'v=' + encodeURIComponent(info.build || Date.now()));
+  const go = () => {
+    const build = encodeURIComponent(info.build || info.version || Date.now());
+    location.replace(url + '?v=' + build + '&t=' + Date.now());
+  };
+  if (window.caches && typeof caches.keys === 'function') {
+    caches.keys().then(ks => Promise.all(ks.map(k => caches.delete(k)))).then(go, go);
+  } else {
+    go();
+  }
 });
 
 document.getElementById('btnDismissUpdate')?.addEventListener('click', () => {
