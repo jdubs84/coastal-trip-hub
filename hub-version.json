@@ -1,8 +1,8 @@
 {
-  "build": "20260920-1915",
-  "version": "20260920-1915",
+  "build": "20260922-2040",
+  "version": "20260922-2040",
   "url": "https://jdubs84.github.io/coastal-trip-hub/",
-  "notes": "Food Hub synced Have-first from Kelli publish CSV (gid 2034441691); arrivals\u2192Have updates",
-  "food_synced": "2026-09-22T20:33:26-04:00",
-  "updated": "2026-09-22T20:33:26-04:00"
+  "notes": "Daily food schedule refreshed from Food sheet Have list + kitchen notes (kitchenette/full/no-kitchen + Coleman).",
+  "food_synced": "2026-09-22T20:38:34-04:00",
+  "updated": "2026-09-22T20:38:34-04:00"
 }
