@@ -57,6 +57,10 @@ td.num{text-align:right;font-variant-numeric:tabular-nums;color:var(--gold);font
 .wday .hl{font-weight:700;font-size:.85rem;color:var(--gold-bright)}
 .wday .pr{color:#c9b87a;font-size:.72rem}
 .wnote{color:var(--muted);font-size:.72rem;margin-top:6px}
+.whead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin:0 0 10px}
+.wstamp{margin:0;color:var(--muted);font-size:.85rem;line-height:1.35;flex:1 1 12rem;min-width:0;overflow-wrap:anywhere}
+.wrefresh{flex:0 0 auto;margin:0;border:1px solid #4a3d1a;background:#0a0804;color:var(--gold);font-weight:700;font-size:.75rem;line-height:1;padding:10px 12px;border-radius:999px;cursor:pointer;min-height:40px}
+.wrefresh:disabled{opacity:.55}
 .pack-sum{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
 .stat{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:10px 14px;min-width:100px}
 .stat b{display:block;font-size:1.4rem;color:var(--gold)}
@@ -427,8 +431,8 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
 
 <section class="block" id="weather">
   <h2><span class="dot"></span> Weather strip</h2>
-  <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">Open-Meteo baked 2026-09-19T01:30:00-04:00 (ET) · high/low °F + precip chance</p>
-  <div class="wstrip"><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday'><div class='wd'>09-27</div><div class='hl'>81°/71°</div><div class='pr'>31%</div></div><div class='wday'><div class='wd'>09-28</div><div class='hl'>82°/69°</div><div class='pr'>36%</div></div><div class='wday'><div class='wd'>09-29</div><div class='hl'>86°/71°</div><div class='pr'>39%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>09-29</div><div class='hl'>80°/71°</div><div class='pr'>23%</div></div><div class='wday'><div class='wd'>09-30</div><div class='hl'>83°/77°</div><div class='pr'>21%</div></div><div class='wday'><div class='wd'>10-01</div><div class='hl'>85°/71°</div><div class='pr'>29%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-01</div><div class='hl'>90°/70°</div><div class='pr'>26%</div></div><div class='wday'><div class='wd'>10-02</div><div class='hl'>85°/70°</div><div class='pr'>35%</div></div><div class='wday'><div class='wd'>10-03</div><div class='hl'>75°/63°</div><div class='pr'>26%</div></div><div class='wday'><div class='wd'>10-04</div><div class='hl'>79°/65°</div><div class='pr'>17%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-04</div><div class='hl'>77°/65°</div><div class='pr'>17%*</div></div><div class='wday'><div class='wd'>10-05</div><div class='hl'>79°/68°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-06</div><div class='hl'>79°/69°</div><div class='pr'>20%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-06</div><div class='hl'>81°/66°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-07</div><div class='hl'>78°/62°</div><div class='pr'>20%*</div></div><div class='wday'><div class='wd'>10-08</div><div class='hl'>75°/60°</div><div class='pr'>27%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-08</div><div class='hl'>72°/67°</div><div class='pr'>17%*</div></div><div class='wday'><div class='wd'>10-09</div><div class='hl'>71°/67°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-10</div><div class='hl'>73°/67°</div><div class='pr'>10%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div></div>
+  <div class='whead'><p class='wstamp' data-weather-stamp>Forecast as of Sep 25, 12:54 PM ET</p><button type='button' class='wrefresh' data-weather-refresh>Refresh</button></div>
+  <div class='wstrip' data-weather-strip><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday' data-date='2026-09-27'><div class='wd'>09-27</div><div class='hl'>90°/59°</div><div class='pr'>0%</div></div><div class='wday' data-date='2026-09-28'><div class='wd'>09-28</div><div class='hl'>89°/68°</div><div class='pr'>3%</div></div><div class='wday' data-date='2026-09-29'><div class='wd'>09-29</div><div class='hl'>90°/70°</div><div class='pr'>8%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday' data-date='2026-09-29'><div class='wd'>09-29</div><div class='hl'>83°/73°</div><div class='pr'>2%</div></div><div class='wday' data-date='2026-09-30'><div class='wd'>09-30</div><div class='hl'>83°/74°</div><div class='pr'>4%</div></div><div class='wday' data-date='2026-10-01'><div class='wd'>10-01</div><div class='hl'>84°/77°</div><div class='pr'>7%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday' data-date='2026-10-01'><div class='wd'>10-01</div><div class='hl'>90°/71°</div><div class='pr'>10%</div></div><div class='wday' data-date='2026-10-02'><div class='wd'>10-02</div><div class='hl'>87°/71°</div><div class='pr'>21%</div></div><div class='wday' data-date='2026-10-03'><div class='wd'>10-03</div><div class='hl'>86°/74°</div><div class='pr'>29%</div></div><div class='wday' data-date='2026-10-04'><div class='wd'>10-04</div><div class='hl'>88°/74°</div><div class='pr'>35%</div></div></div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-04'><div class='wd'>10-04</div><div class='hl'>87°/73°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-05'><div class='wd'>10-05</div><div class='hl'>90°/72°</div><div class='pr'>37%</div></div><div class='wday' data-date='2026-10-06'><div class='wd'>10-06</div><div class='hl'>81°/72°</div><div class='pr'>43%</div></div></div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-06'><div class='wd'>10-06</div><div class='hl'>78°/68°</div><div class='pr'>39%</div></div><div class='wday' data-date='2026-10-07'><div class='wd'>10-07</div><div class='hl'>76°/67°</div><div class='pr'>46%</div></div><div class='wday' data-date='2026-10-08'><div class='wd'>10-08</div><div class='hl'>85°/74°</div><div class='pr'>19%</div></div></div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-08'><div class='wd'>10-08</div><div class='hl'>77°/75°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-09'><div class='wd'>10-09</div><div class='hl'>75°/66°</div><div class='pr'>23%</div></div><div class='wday' data-date='2026-10-10'><div class='wd'>10-10</div><div class='hl'>67°/61°</div><div class='pr'>29%</div></div></div></div></div>
 </section>
 
 <section class="block" id="pack">
@@ -568,10 +572,10 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   <div class="nc-kit"><b>NC linens kit (include pillows):</b> 1 queen + 1 full + 2 twin sheet sets + bed pillows ×3 + pillowcases + towels ×3; bring an <b>extra set for Hammocks</b> (no laundry on-site).</div>
 </section>
 
-<section class="block" id="weather">
+<section class="block" id="weather-2">
   <h2><span class="dot"></span> Weather strip</h2>
-  <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">Open-Meteo baked 2026-09-19T01:30:00-04:00 (ET) · high/low °F + precip chance</p>
-  <div class="wstrip"><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday'><div class='wd'>09-27</div><div class='hl'>81°/71°</div><div class='pr'>31%</div></div><div class='wday'><div class='wd'>09-28</div><div class='hl'>82°/69°</div><div class='pr'>36%</div></div><div class='wday'><div class='wd'>09-29</div><div class='hl'>86°/71°</div><div class='pr'>39%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>09-29</div><div class='hl'>80°/71°</div><div class='pr'>23%</div></div><div class='wday'><div class='wd'>09-30</div><div class='hl'>83°/77°</div><div class='pr'>21%</div></div><div class='wday'><div class='wd'>10-01</div><div class='hl'>85°/71°</div><div class='pr'>29%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-01</div><div class='hl'>90°/70°</div><div class='pr'>26%</div></div><div class='wday'><div class='wd'>10-02</div><div class='hl'>85°/70°</div><div class='pr'>35%</div></div><div class='wday'><div class='wd'>10-03</div><div class='hl'>75°/63°</div><div class='pr'>26%</div></div><div class='wday'><div class='wd'>10-04</div><div class='hl'>79°/65°</div><div class='pr'>17%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-04</div><div class='hl'>77°/65°</div><div class='pr'>17%*</div></div><div class='wday'><div class='wd'>10-05</div><div class='hl'>79°/68°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-06</div><div class='hl'>79°/69°</div><div class='pr'>20%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-06</div><div class='hl'>81°/66°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-07</div><div class='hl'>78°/62°</div><div class='pr'>20%*</div></div><div class='wday'><div class='wd'>10-08</div><div class='hl'>75°/60°</div><div class='pr'>27%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday'><div class='wd'>10-08</div><div class='hl'>72°/67°</div><div class='pr'>17%*</div></div><div class='wday'><div class='wd'>10-09</div><div class='hl'>71°/67°</div><div class='pr'>10%*</div></div><div class='wday'><div class='wd'>10-10</div><div class='hl'>73°/67°</div><div class='pr'>10%*</div></div></div><div class='wnote'>* beyond forecast horizon → 2023–25 climate avg</div></div></div>
+  <div class='whead'><p class='wstamp' data-weather-stamp>Forecast as of Sep 25, 12:54 PM ET</p><button type='button' class='wrefresh' data-weather-refresh>Refresh</button></div>
+  <div class='wstrip' data-weather-strip><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday' data-date='2026-09-27'><div class='wd'>09-27</div><div class='hl'>90°/59°</div><div class='pr'>0%</div></div><div class='wday' data-date='2026-09-28'><div class='wd'>09-28</div><div class='hl'>89°/68°</div><div class='pr'>3%</div></div><div class='wday' data-date='2026-09-29'><div class='wd'>09-29</div><div class='hl'>90°/70°</div><div class='pr'>8%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday' data-date='2026-09-29'><div class='wd'>09-29</div><div class='hl'>83°/73°</div><div class='pr'>2%</div></div><div class='wday' data-date='2026-09-30'><div class='wd'>09-30</div><div class='hl'>83°/74°</div><div class='pr'>4%</div></div><div class='wday' data-date='2026-10-01'><div class='wd'>10-01</div><div class='hl'>84°/77°</div><div class='pr'>7%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday' data-date='2026-10-01'><div class='wd'>10-01</div><div class='hl'>90°/71°</div><div class='pr'>10%</div></div><div class='wday' data-date='2026-10-02'><div class='wd'>10-02</div><div class='hl'>87°/71°</div><div class='pr'>21%</div></div><div class='wday' data-date='2026-10-03'><div class='wd'>10-03</div><div class='hl'>86°/74°</div><div class='pr'>29%</div></div><div class='wday' data-date='2026-10-04'><div class='wd'>10-04</div><div class='hl'>88°/74°</div><div class='pr'>35%</div></div></div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-04'><div class='wd'>10-04</div><div class='hl'>87°/73°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-05'><div class='wd'>10-05</div><div class='hl'>90°/72°</div><div class='pr'>37%</div></div><div class='wday' data-date='2026-10-06'><div class='wd'>10-06</div><div class='hl'>81°/72°</div><div class='pr'>43%</div></div></div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-06'><div class='wd'>10-06</div><div class='hl'>78°/68°</div><div class='pr'>39%</div></div><div class='wday' data-date='2026-10-07'><div class='wd'>10-07</div><div class='hl'>76°/67°</div><div class='pr'>46%</div></div><div class='wday' data-date='2026-10-08'><div class='wd'>10-08</div><div class='hl'>85°/74°</div><div class='pr'>19%</div></div></div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-08'><div class='wd'>10-08</div><div class='hl'>77°/75°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-09'><div class='wd'>10-09</div><div class='hl'>75°/66°</div><div class='pr'>23%</div></div><div class='wday' data-date='2026-10-10'><div class='wd'>10-10</div><div class='hl'>67°/61°</div><div class='pr'>29%</div></div></div></div></div>
 </section>
 
 <section class="block" id="pack">
@@ -956,8 +960,7 @@ function refreshDay(){
     if (stay){
       status.textContent = 'On trip · tonight: ' + stay.name;
       parts.push('Stay window ' + stay.start + ' → ' + stay.end + ' (checkout morning).');
-      const w = document.querySelector('.wcard[data-stop="' + stay.id + '"]');
-      if (w) w.classList.add('today');
+      document.querySelectorAll('.wcard[data-stop="' + stay.id + '"]').forEach(w => w.classList.add('today'));
     } else {
       status.textContent = 'On trip · ' + day;
     }
@@ -989,7 +992,7 @@ document.getElementById('btnExportHint')?.addEventListener('click', () => {
 
 refreshDay();
 
-const HUB_BUILD = '20260925-1104';
+const HUB_BUILD = '20260925-1254';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 
@@ -1423,6 +1426,160 @@ checkForHubUpdate(false);
   } catch(e){}
 
   window.__hubLodgeSync = { tryPublish: tryLodgePublish, apply: applyLodge };
+})();
+</script>
+
+
+<script id="weather-live">
+(function(){
+  const CACHE_KEY = 'coastalHubWeatherV1';
+  const BAKED_AT = '2026-09-25T12:54:00-04:00';
+  const STOPS = [
+    { id:'anastasia', lat:29.8675, lon:-81.271, days:['2026-09-27','2026-09-28','2026-09-29'] },
+    { id:'edisto', lat:32.505, lon:-80.299, days:['2026-09-29','2026-09-30','2026-10-01'] },
+    { id:'georgetown', lat:33.3768, lon:-79.2945, days:['2026-10-01','2026-10-02','2026-10-03','2026-10-04'] },
+    { id:'carolina', lat:34.036, lon:-77.907, days:['2026-10-04','2026-10-05','2026-10-06'] },
+    { id:'hammocks', lat:34.687, lon:-77.139, days:['2026-10-06','2026-10-07','2026-10-08'] },
+    { id:'frisco', lat:35.223, lon:-75.635, days:['2026-10-08','2026-10-09','2026-10-10'] }
+  ];
+  const BAKED = {"asOf":"2026-09-25T12:54:00-04:00","stops":{"anastasia":{"2026-09-27":{"hi":90,"lo":59,"pop":0},"2026-09-28":{"hi":89,"lo":68,"pop":3},"2026-09-29":{"hi":90,"lo":70,"pop":8}},"edisto":{"2026-09-29":{"hi":83,"lo":73,"pop":2},"2026-09-30":{"hi":83,"lo":74,"pop":4},"2026-10-01":{"hi":84,"lo":77,"pop":7}},"georgetown":{"2026-10-01":{"hi":90,"lo":71,"pop":10},"2026-10-02":{"hi":87,"lo":71,"pop":21},"2026-10-03":{"hi":86,"lo":74,"pop":29},"2026-10-04":{"hi":88,"lo":74,"pop":35}},"carolina":{"2026-10-04":{"hi":87,"lo":73,"pop":26},"2026-10-05":{"hi":90,"lo":72,"pop":37},"2026-10-06":{"hi":81,"lo":72,"pop":43}},"hammocks":{"2026-10-06":{"hi":78,"lo":68,"pop":39},"2026-10-07":{"hi":76,"lo":67,"pop":46},"2026-10-08":{"hi":85,"lo":74,"pop":19}},"frisco":{"2026-10-08":{"hi":77,"lo":75,"pop":26},"2026-10-09":{"hi":75,"lo":66,"pop":23},"2026-10-10":{"hi":67,"lo":61,"pop":29}}}};
+
+  function roundOrNull(v){
+    if (v === null || v === undefined || v === '') return null;
+    const n = Number(v);
+    if (!isFinite(n)) return null;
+    return Math.round(n);
+  }
+  function stampText(iso, suffix){
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return 'Forecast as of ' + iso;
+    const date = new Intl.DateTimeFormat('en-US', { timeZone:'America/New_York', month:'short', day:'numeric' }).format(d);
+    const time = new Intl.DateTimeFormat('en-US', { timeZone:'America/New_York', hour:'numeric', minute:'2-digit' }).format(d);
+    return 'Forecast as of ' + date + ', ' + time + ' ET' + (suffix ? ' · ' + suffix : '');
+  }
+  function setStamps(text){
+    document.querySelectorAll('[data-weather-stamp]').forEach(el => { el.textContent = text; });
+  }
+  function dayRecord(rec){
+    if (!rec) return null;
+    const hi = roundOrNull(rec.hi);
+    const lo = roundOrNull(rec.lo);
+    const pop = roundOrNull(rec.pop);
+    if (hi === null || lo === null) return null;
+    return { hi: hi, lo: lo, pop: pop };
+  }
+  function paint(byStop){
+    if (!byStop) return;
+    document.querySelectorAll('.wcard').forEach(card => {
+      const id = card.getAttribute('data-stop');
+      const days = byStop[id] || {};
+      let missing = false;
+      card.querySelectorAll('.wday[data-date]').forEach(dayEl => {
+        const date = dayEl.getAttribute('data-date');
+        const rec = dayRecord(days[date]);
+        const hl = dayEl.querySelector('.hl');
+        const pr = dayEl.querySelector('.pr');
+        if (!rec) {
+          missing = true;
+          if (hl) hl.textContent = '—';
+          if (pr) pr.textContent = '—';
+          return;
+        }
+        if (hl) hl.textContent = rec.hi + '°/' + rec.lo + '°';
+        if (pr) pr.textContent = rec.pop === null ? '—' : (rec.pop + '%');
+      });
+      let note = card.querySelector('.wnote');
+      if (!missing) {
+        if (note) note.remove();
+        return;
+      }
+      if (!note) {
+        note = document.createElement('div');
+        note.className = 'wnote';
+        card.appendChild(note);
+      }
+      note.textContent = '— outside the 16-day forecast';
+    });
+  }
+  function cacheUsable(c){
+    if (!c || !c.asOf || !c.stops) return false;
+    return STOPS.every(s => c.stops[s.id]);
+  }
+  function readCache(){
+    try {
+      const parsed = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+      return cacheUsable(parsed) ? parsed : null;
+    } catch (e) { return null; }
+  }
+  function writeCache(payload){
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(payload)); } catch (e) {}
+  }
+  function applySource(stops, asOf, source){
+    paint(stops);
+    const suffix = source === 'live' ? '' : (source === 'saved' ? 'saved' : 'baked');
+    setStamps(stampText(asOf, suffix));
+  }
+  function indexDaily(daily){
+    const out = {};
+    const times = daily && daily.time ? daily.time : [];
+    for (let i = 0; i < times.length; i++) {
+      const hi = roundOrNull(daily.temperature_2m_max && daily.temperature_2m_max[i]);
+      const lo = roundOrNull(daily.temperature_2m_min && daily.temperature_2m_min[i]);
+      const pop = roundOrNull(daily.precipitation_probability_max && daily.precipitation_probability_max[i]);
+      if (hi === null || lo === null) out[times[i]] = null;
+      else out[times[i]] = { hi: hi, lo: lo, pop: pop };
+    }
+    return out;
+  }
+  async function fetchLive(){
+    const params = new URLSearchParams({
+      latitude: STOPS.map(s => s.lat).join(','),
+      longitude: STOPS.map(s => s.lon).join(','),
+      daily: 'temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code,wind_speed_10m_max',
+      temperature_unit: 'fahrenheit',
+      wind_speed_unit: 'mph',
+      timezone: 'America/New_York',
+      forecast_days: '16'
+    });
+    const res = await fetch('https://api.open-meteo.com/v1/forecast?' + params.toString(), { cache: 'no-store' });
+    if (!res.ok) throw new Error('weather ' + res.status);
+    const data = await res.json();
+    const blocks = Array.isArray(data) ? data : [data];
+    if (blocks.length < STOPS.length) throw new Error('short forecast');
+    const byStop = {};
+    STOPS.forEach((s, i) => {
+      const daily = blocks[i] && blocks[i].daily;
+      if (!daily || !Array.isArray(daily.time)) throw new Error('missing daily');
+      const indexed = indexDaily(daily);
+      byStop[s.id] = {};
+      s.days.forEach(day => { byStop[s.id][day] = Object.prototype.hasOwnProperty.call(indexed, day) ? indexed[day] : null; });
+    });
+    return byStop;
+  }
+  async function refreshWeather(){
+    const buttons = document.querySelectorAll('[data-weather-refresh]');
+    buttons.forEach(b => { b.disabled = true; b.setAttribute('aria-busy', 'true'); });
+    try {
+      if (navigator.onLine === false) throw new Error('offline');
+      const stops = await fetchLive();
+      const asOf = new Date().toISOString();
+      writeCache({ asOf: asOf, stops: stops });
+      applySource(stops, asOf, 'live');
+    } catch (e) {
+      const cached = readCache();
+      if (cached) applySource(cached.stops, cached.asOf, 'saved');
+      else if (BAKED && BAKED.stops) applySource(BAKED.stops, BAKED.asOf || BAKED_AT, 'baked');
+      else setStamps(stampText(BAKED_AT, 'baked'));
+    } finally {
+      buttons.forEach(b => { b.disabled = false; b.removeAttribute('aria-busy'); });
+    }
+  }
+  document.querySelectorAll('[data-weather-refresh]').forEach(btn => {
+    btn.addEventListener('click', () => { refreshWeather(); });
+  });
+  const cached = readCache();
+  if (cached) applySource(cached.stops, cached.asOf, 'saved');
+  refreshWeather();
 })();
 </script>
 
