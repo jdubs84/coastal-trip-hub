@@ -163,7 +163,34 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   .stay-facts .when{margin:0 0 8px;color:var(--muted);font-size:.8rem}
   .stay-facts ul{margin:0;padding-left:1.15rem}
   .stay-facts li{margin:5px 0;font-size:.88rem;line-height:1.4}
-  .stay-facts a,.dayof-item a{color:var(--gold-bright);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+  .stay-facts a,.dayof-item a,.todo-fold .todo-body a{color:var(--gold-bright);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+  .todo-fold{margin-top:12px;border:1px solid var(--border);border-radius:12px;background:var(--panel2)}
+  .todo-fold summary{cursor:pointer;list-style:none;padding:12px 14px;font-weight:800;color:var(--gold-bright);font-size:.98rem;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .todo-fold summary::-webkit-details-marker{display:none}
+  .todo-fold summary::after{content:"▸";color:var(--gold);font-size:1rem;flex:none}
+  .todo-fold[open] summary::after{content:"▾"}
+  .todo-sub{display:block;font-weight:500;font-size:.75rem;color:var(--muted);margin-top:2px}
+  .todo-fold .todo-body{padding:0 12px 14px}
+  .todo-top{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+  .todo-fold .todo-top a{display:inline-flex;align-items:center;min-height:40px;padding:8px 12px;border-radius:999px;text-decoration:none;font-weight:800;font-size:.86rem}
+  .todo-top a.book{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a}
+  .todo-top a.call{background:transparent;color:var(--gold-bright);border:1px solid var(--border)}
+  .todo-deadline{margin:0 0 8px;padding:8px 10px;border-radius:10px;border:1px solid #6b5420;background:#12100a;color:#e8d5a3;font-size:.86rem;font-weight:700;line-height:1.35}
+  .todo-fold h4{margin:14px 0 6px;font-size:.84rem;color:var(--gold);letter-spacing:.02em}
+  .todo-fold p,.todo-fold li{font-size:.86rem;line-height:1.4}
+  .todo-fold ul{margin:0;padding-left:1.15rem}
+  .todo-fold li{margin:4px 0}
+  .todo-note{margin:6px 0 0;color:var(--muted);font-size:.8rem}
+  .act-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:6px}
+  .act-prices{width:100%;border-collapse:collapse;font-size:.8rem}
+  .act-prices th,.act-prices td{padding:6px 4px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+  .act-prices th{color:var(--muted);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  .act-prices td:not(:first-child),.act-prices th:not(:first-child){text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .act-prices td:not(:first-child){color:var(--gold);font-weight:700}
+  @media(max-width:520px){
+    .act-prices{font-size:.76rem}
+    .act-prices th,.act-prices td{padding:6px 3px}
+  }
 </style>
 </head>
 <body>
@@ -292,6 +319,109 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
       <li><b>Bungalow supervisor</b> (after hours or late arrival): <a href="tel:904-988-6869">904-988-6869</a>. Emergencies: call 911 and say Sea Bean Camping loop, sites 1–6.</li>
     </ul>
   </div>
+  <details class="todo-fold" id="anastasia-todo">
+    <summary>Things to do at Anastasia<span class="todo-sub">Paddle, sail, bikes, beach · Sep 27–29</span></summary>
+    <div class="todo-body">
+      <div class="todo-top">
+        <a class="book" href="https://fareharbor.com/embeds/book/anastasiawatersports/?full-items=yes&amp;flow=69473" target="_blank" rel="noopener">Book online</a>
+        <a class="call" href="tel:904-460-9111">904-460-9111</a>
+      </div>
+      <p class="todo-deadline">Sunday rentals: book online by ~4 PM Sat Sep 26</p>
+      <p class="todo-note">Online booking closes 24 hours ahead. Same-day rentals are first come, first served. The renter must be 18 or older and holds a driver’s license as the deposit. Life jackets are included. Cancel at least 24 hours ahead. No guided tours or ranger programs are scheduled Sep 27 to 29. Prices from the concessionaire’s FareHarbor pages, checked Sep 25, 2026.</p>
+
+      <h4>Suggested plan</h4>
+      <ul>
+        <li>Sunday after the 4 PM check-in: take a 1-hour canoe for all 3 ($50), then walk the beach or the Marsh Trail at sunset.</li>
+        <li>Monday morning: sail the Hobie during the high-tide window if someone knows how, or do a 2 to 3 hour paddle on Salt Run.</li>
+        <li>Monday midday: book a Beach Setup for the day ($60) plus 1 extra chair, and have lunch at the Grill.</li>
+        <li>Monday around 2 PM: ride e-bikes on the beach at low tide ($55 for 2 hours). Bikes have to be rented by 3:30 PM.</li>
+        <li>Tuesday before the 11 AM checkout: walk the Ancient Dunes Trail and see the quarries, or take a quick 9:30 AM paddle.</li>
+      </ul>
+
+      <h4>Paddling on Salt Run</h4>
+      <p class="todo-note">Launch behind Anastasia Watersports. No experience needed. Prices are for 1 hour, 2 hours, and 3 hours.</p>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Boat</th><th>1 hr</th><th>2 hr</th><th>3 hr</th></tr></thead>
+          <tbody>
+            <tr><td>Single kayak</td><td>$40</td><td>$50</td><td>$60</td></tr>
+            <tr><td>Tandem kayak</td><td>$50</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Canoe (seats up to 3)</td><td>$50</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Stand-up paddleboard</td><td>$40</td><td>$50</td><td>$60</td></tr>
+            <tr><td>Fishing kayak</td><td>$50</td><td>$60</td><td>$70</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="todo-note">Paddleboard depends on wind and tide, so call first. Online paddle slots run 9:30 AM to 5:00 PM — call to confirm late slots. No swimming in Salt Run, and don’t beach the boats because of the oyster beds.</p>
+
+      <h4>Sailboats</h4>
+      <p class="todo-note">21 or older with sailing experience. No lessons. Out only from 2 hours before to 2 hours after high tide, and not when wind is over 15 mph. That’s about 9:30 to 11:45 AM Monday and 9:30 AM to 12:30 PM Tuesday.</p>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Boat</th><th>1 hr</th><th>2 hr</th><th>3 hr</th></tr></thead>
+          <tbody>
+            <tr><td>Hobie Cat 14 (up to 4)</td><td>$75</td><td>$85</td><td>$95</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="todo-note">Aquafin (up to 2 people): the listed price varies, so call to confirm. Call <a href="tel:904-460-9111">904-460-9111</a> to check whether reservations are possible.</p>
+
+      <h4>Bikes</h4>
+      <p class="todo-note">Island Beach Shop. Helmet included.</p>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Bike</th><th>1 hr</th><th>2 hr</th><th>4 hr</th><th>Day</th></tr></thead>
+          <tbody>
+            <tr><td>Adult cruiser</td><td>$15</td><td>$18</td><td></td><td></td></tr>
+            <tr><td>E-bike</td><td>$35</td><td>$55</td><td>$75</td><td>$90</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="todo-note">Adult cruiser is listed for 1 hour and 2 hours. E-bike riders need to be 18 or older, with a driver’s license and closed-toe shoes. Ride on the beach only from 2 hours before to 2 hours after low tide — about 1:50 to 5:50 PM Monday.</p>
+
+      <h4>Beach gear</h4>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Beach Setup</th><th>Price</th></tr></thead>
+          <tbody>
+            <tr><td>Up to 4 hours (2 loungers and an umbrella)</td><td>$45</td></tr>
+            <tr><td>Day until 5 PM</td><td>$60</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Gear</th><th>Half day</th><th>Full day</th></tr></thead>
+          <tbody>
+            <tr><td>Umbrella + 2 chairs</td><td>$35</td><td>$35</td></tr>
+            <tr><td>Chair</td><td>$12</td><td>$15</td></tr>
+            <tr><td>Umbrella</td><td>$15</td><td>$20</td></tr>
+            <tr><td>Boogie board</td><td>$15</td><td>$17</td></tr>
+            <tr><td>Surfboard</td><td>$27</td><td>$37</td></tr>
+            <tr><td>Wagon</td><td>$15</td><td>$21</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="todo-note">There’s no lifeguard after Labor Day.</p>
+
+      <h4>Hours</h4>
+      <ul>
+        <li>Park: 8 AM to sundown. Sunset is about 7:15 PM.</li>
+        <li>Anastasia Watersports: 9 AM to 4 PM, with rentals back by 5 PM.</li>
+        <li>Island Beach Shop: 9 AM to 5 PM. Rentals go out until 3:30 PM and are due back by 4:30 PM.</li>
+        <li>Island Grill: 10 AM to 4:30 PM. Fish tacos, wraps, baskets, ice cream, beer, wine, and frozen drinks.</li>
+      </ul>
+
+      <h4>Free</h4>
+      <ul>
+        <li>Ancient Dunes Nature Trail, a shaded loop with some hills and stairs.</li>
+        <li>Marsh Trail along Salt Run.</li>
+        <li>4 miles of beach, with the swim area behind the Beach Shop.</li>
+        <li>The Spanish coquina quarries near the entrance (stone for the Castillo de San Marcos).</li>
+        <li>Fishing on the east bank of Salt Run (trout, redfish, flounder). There’s a cleaning station, and frozen bait is sold at Watersports. A Florida saltwater license may be required. A Florida resident fishing from shore can get a free shoreline license.</li>
+      </ul>
+    </div>
+  </details>
   <div class="nc-kit"><b>NC linens kit (include pillows):</b> 1 queen + 1 full + 2 twin sheet sets + bed pillows ×3 + pillowcases + towels ×3; bring an <b>extra set for Hammocks</b> (no laundry on-site).</div>
 </section>
 
@@ -859,7 +989,7 @@ document.getElementById('btnExportHint')?.addEventListener('click', () => {
 
 refreshDay();
 
-const HUB_BUILD = '20260925-1049';
+const HUB_BUILD = '20260925-1104';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 
