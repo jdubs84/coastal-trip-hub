@@ -1,8 +1,8 @@
 {
-  "build": "20260925-1104",
-  "version": "20260925-1104",
+  "build": "20260925-1254",
+  "version": "20260925-1254",
   "url": "https://jdubs84.github.io/coastal-trip-hub/",
-  "notes": "Anastasia things to do: concessionaire prices, collapsed on phone",
+  "notes": "Weather strip rebaked from Open-Meteo Sep 25 and refreshes live",
   "food_synced": "2026-09-22T20:38:34-04:00",
-  "updated": "2026-09-25T11:04:00-04:00"
+  "updated": "2026-09-25T12:54:00-04:00"
 }
