@@ -174,6 +174,35 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   .dc-map-btn:active{opacity:.85}
 
   td.kitchen{min-width:11rem;line-height:1.35}
+  @media(max-width:600px){
+    .table-wrap:has(> .lodge-table){overflow:visible}
+    .lodge-table,.lodge-table thead,.lodge-table tbody,.lodge-table tr,.lodge-table td{display:block;width:100%}
+    .lodge-table{border-collapse:separate;border-spacing:0}
+    .lodge-table thead{display:none}
+    .lodge-table tr{
+      margin:0 0 10px;padding:12px 14px 8px;border:1px solid var(--border);border-radius:14px;
+      background:var(--panel2)
+    }
+    .lodge-table tr:last-child{margin-bottom:0}
+    .lodge-table td{border-bottom:0;padding:7px 0;min-width:0;overflow-wrap:anywhere}
+    .lodge-table td:nth-child(1){
+      padding:0 0 2px;font-weight:800;font-size:1.02rem;color:var(--gold-bright);line-height:1.3
+    }
+    .lodge-table td:nth-child(2){
+      padding:0 0 8px;margin-bottom:2px;color:var(--muted);font-size:.82rem;
+      border-bottom:1px solid var(--border)
+    }
+    .lodge-table td:nth-child(n+3)::before{
+      content:"";display:block;margin-bottom:2px;font-size:.68rem;font-weight:700;
+      letter-spacing:.06em;text-transform:uppercase;color:var(--gold)
+    }
+    .lodge-table td:nth-child(3)::before{content:"Linens"}
+    .lodge-table td:nth-child(4)::before{content:"Laundry"}
+    .lodge-table td:nth-child(5)::before{content:"Kitchen"}
+    .lodge-table td:nth-child(6)::before{content:"Fees / notes"}
+    .lodge-table td:nth-child(7)::before{content:"Boat"}
+    .lodge-table td.kitchen{min-width:0}
+  }
   #lodging .lede{color:var(--muted,#9aa8b5);font-size:.9rem;line-height:1.45}
   .stay-facts{margin-top:12px;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:var(--panel2)}
   .stay-facts h3{margin:0 0 4px;font-size:.98rem;color:var(--gold-bright)}
@@ -228,6 +257,7 @@ a.pack-live-btn{
 .drive-card.today{scroll-margin:12px}
 .arrival-fields > li:has([data-slot]:empty){display:none}
 .confirm-tag{display:inline-block;margin:0 4px 0 0;padding:1px 7px;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.03em;text-transform:lowercase;color:#0a0a0a;background:var(--gold);vertical-align:middle}
+.checked-tag{display:inline-block;margin:0 4px 0 0;padding:1px 7px;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.02em;color:#0a0a0a;background:var(--gold);vertical-align:middle}
 .still-need{margin:8px 0 0;color:var(--muted);font-size:.78rem;line-height:1.35}
 .arrival-alert{margin:0 0 8px;padding:8px 10px;border-radius:10px;border:1px solid #6b5420;background:#12100a;color:#e8d5a3;font-size:.86rem;font-weight:700;line-height:1.35}
 a.arrival-action{display:flex;align-items:center;justify-content:center;min-height:48px;width:100%;box-sizing:border-box;margin:8px 0;text-decoration:none;font-weight:800;font-size:.92rem;line-height:1.25;text-align:center;border-radius:12px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;padding:12px 14px}
@@ -340,7 +370,7 @@ a.arrival-action:visited{color:#0a0a0a}
   <p class="lede" id="kitchenSummary" style="margin:10px 0 12px">Kitchen totals across <b>13 overnight nights</b>: <b>5 full</b> (Edisto 2 + Clayton 3) · <b>2 kitchenette</b> (Anastasia) · <b>6 none</b> (Carolina Beach + Hammocks + Frisco). After boat-out on Oct 4 you’re in a <b>6-night no-kitchen stretch</b> through Oct 10 — cooler meals, Cook Out / takeout, or travel stove/grill.</p>
 
   <div class="table-wrap">
-  <table>
+  <table class="lodge-table">
     <thead>
     <tr><th>Stop</th><th>Nights</th><th>Linens</th><th>Laundry</th><th>Kitchen</th><th>Fees / notes</th><th>Boat</th></tr>
     </thead>
@@ -363,6 +393,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <li data-field="arrival"><b>Arrival:</b> at the park entrance, tell the ranger you have a glamping reservation and show the confirmation email. They give the parking pass and gate access. Follow the map to Sea Bean Loop and take the first right for sites 1–6. Site 4 is the fourth on the right. Parking at the site is limited; large vehicles can use the nearby lot. Max 2 vehicles per site — extras go to overflow parking.</li>
       <li data-field="key"><b>Key:</b> the lock-box combination comes by phone call or text before arrival. The lock box is on the metal steps at the front door.</li>
       <li data-field="wifi"><b>Wi-Fi:</b> network Glamping-WiFi, password Ana-Glamping-2026 (not guaranteed).</li>
+      <li data-field="fire"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> No ban found. Fires only in rings. No beach fires. Propane OK.</li>
       <li data-field="rules"><b>Quiet hours</b> 11 PM–7 AM. Amphitheatre concerts end by 10:30 PM. Fires only in the fire rings or grills. No candles or smoking inside. Buy firewood at the Island Beach Shop — don’t collect wood in the park. Store food securely (raccoons and squirrels). Alcohol only at the campsite, not on the beach or while walking through the park. Loft ladders are steep. No drones. No pets in the bungalows or on the beach.</li>
       <li data-field="camp"><b>Camp:</b> laundry nearby. Bathhouses close briefly each day for cleaning. Trash is picked up daily at 10 AM; extra trash goes to the park compactor (marked on the map inside the bungalow).</li>
       <li data-field="checkout"><b>Before checkout:</b> take all trash to the park compactor and set the thermostat to 72°F cool.</li>
@@ -387,6 +418,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <li data-field="fees"><b>Fees:</b> <span class="confirm-tag">confirm</span> Sheet lists $189/$199 + $8/adult entrance. Official FAQ: overnight guests do not pay park admission. The $8/adult rate is for day visitors.</li>
       <li data-field="wifi"><b>Wi-Fi:</b> only near the office and in the Wi-Fi room next to the office, not in the cabins. Hub cell note: limited on the Edisto park side. Cabins have a TV with satellite.</li>
       <li data-field="linens"><b>Linens / laundry:</b> bath and bed linens provided, plus utensils, coffee maker, microwave, and a screened porch. No laundry in the park or on the island; nearest is about 1 hour toward Charleston.</li>
+      <li data-field="fire"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> No ban (SC ban lifted May 1). Fires only in designated grills/areas. No fires or propane devices on the public beach.</li>
       <li data-field="notes"><b>Notes:</b> tap water is safe but salty; the park does not recommend it for coffee. Only cabin guests in the cabin area. Small dock for cabin guests. Quiet hours 10 PM–7 AM. Alcohol prohibited. The park has 7 cabins (five 1-bedroom, sleeps 4; two 3-bedroom, sleeps 6). Which cabin is ours is not in the sources.</li>
     </ul>
     <p class="still-need">Still need: cabin #, confirmation #, how keys work, vehicle limit</p>
@@ -406,6 +438,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <li data-field="fees"><b>Paid:</b> $696.41 on Sep 11. Pets $75. No smoking. No events.</li>
       <li data-field="wifi"><b>Wi-Fi:</b> listing says Free WiFi. Hub cell estimate (not a host fact): no/unreliable on the boat run and on the island.</li>
       <li data-field="linens"><b>Linens / kitchen:</b> linens, towels, and toiletries provided. Gas stove/oven, fridge, drip coffee, basic spices, cooking essentials, and dishware. Outside: dock, screened porch, picnic table, gas grill, fire pit. Central A/C and heat. Steps to enter. No washer listed.</li>
+      <li data-field="fire"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> No ban. Ask the host about cabin fire rules. Gas grill on site.</li>
     </ul>
     <p class="still-need">Still need: confirmation #, Wi-Fi name/password</p>
   </div>
@@ -423,7 +456,8 @@ a.arrival-action:visited{color:#0a0a0a}
       <li data-field="vehicles"><b>Vehicles:</b> max 2 per cabin, in the cabin spaces. Extra vehicles need a permit and park at the Visitor Center.</li>
       <li data-field="fees"><b>Fees:</b> no day-use entry fee. Fees due on arrival are not in the sources. Published cabin rate is about $75/night (third-party). Sheet says SP cabin rates.</li>
       <li data-field="linens"><b>Linens / laundry:</b> bring your own linens, pillows, and towels. Coin laundry at the marina. No water or bathroom in the cabin; two bathhouses and potable spigots. Sleeps 6. <span class="confirm-tag">confirm</span> ReserveAmerica: double bed + 2 twin bunk sets. ncparks.gov: queen. The NC linen kit (queen + full + 2 twin) covers either.</li>
-      <li data-field="notes"><b>Outside:</b> picnic table, fire ring, pedestal charcoal grill. No cooking or open flame inside. Firewood at the marina store. Check NC burn ban status before using fire rings. Alcohol prohibited. Quiet hours 11 PM–7 AM.</li>
+      <li data-field="fire"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> No ban (NC statewide ban lifted May 8). Designated rings/grills only. Propane OK.</li>
+      <li data-field="notes"><b>Outside:</b> picnic table, fire ring, pedestal charcoal grill. No cooking or open flame inside. Firewood at the marina store. Alcohol prohibited. Quiet hours 11 PM–7 AM.</li>
     </ul>
     <p class="still-need">Still need: cabin #, confirmation #, key/code beyond Marina Store, Wi-Fi/cell</p>
   </div>
@@ -441,7 +475,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <li data-field="contact"><b>Phone:</b> Visitor Center <a href="tel:910-326-4881">(910) 326-4881</a>. Email <a href="mailto:hammocks.beach@ncparks.gov">hammocks.beach@ncparks.gov</a>. ReserveAmerica <a href="tel:18777226762">1-877-722-6762</a>.</li>
       <li data-field="fees"><b>Fees:</b> <span class="confirm-tag">confirm</span> ReserveAmerica $75/night (2026) vs campground map PDF $78 with a 2-night minimum. Firewood $10/bundle. Fees due on arrival are not in the sources.</li>
       <li data-field="linens"><b>Linens / laundry:</b> linens are not provided — bring linens plus an extra set. Sleeps up to 6: one large bed and two sets of bunks, climate-controlled. Shared bathhouse with showers and toilets, open year-round. No on-site laundry (official site and the sheet).</li>
-      <li data-field="notes"><b>Fire:</b> each site has a steel fire pit. Check NC burn ban status before using fire rings. A July 10, 2026 status page mentioned a statewide burn ban (“no fires allowed”). Hub cell note: limited on the Hammocks ferry side.</li>
+      <li data-field="notes"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> Park fire status unclear (park notice is stale) — plan on the propane stove. Call Visitor Center <a href="tel:910-326-4881">910-326-4881</a> at check-in to confirm rings are OK. Hub cell note: limited on the Hammocks ferry side.</li>
     </ul>
     <p class="still-need">Still need: cabin name, confirmation #, key/code, Wi-Fi, vehicle limit</p>
   </div>
@@ -459,7 +493,8 @@ a.arrival-action:visited{color:#0a0a0a}
       <li data-field="fees"><b>Rates:</b> the booking amount is not in the sources. Fall rates were not on the page. Published 2026 summer rates through Sep 30 (not the October price): One Room $120/night, Two Room $130/night. One Room sleeps 4 (2 full, or 1 full + 1 twin bunk). Two Room sleeps 6 (1 full + 2 twin bunk sets in a separate room). No guarantee of a specific site.</li>
       <li data-field="wifi"><b>Wi-Fi:</b> complimentary across most of the campground (speeds vary). Password <b>FRISCOWOODS</b>. Hub cell note: limited Buxton to Frisco.</li>
       <li data-field="linens"><b>Linens / laundry:</b> cabins have no bathroom or kitchen. Bring your own bed linens. A/C, lights, and outlets inside. Outside: park-style charcoal grill, picnic table, water spigot. Laundry is not listed on the official site. The sheet says shared laundry / camp laundry if available.</li>
-      <li data-field="notes"><b>Rules:</b> no ground fires (container or elevated only). Quiet hours 11 PM–7 AM. 5 mph. Golf carts parked by 10 PM. Pool 9 AM–dusk. No events listed for Oct 8–10 (Fall Fest is Oct 17). Oct 10 is the drive home to 3007 Bluffs Drive, Largo FL.</li>
+      <li data-field="fire"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> NO ground fires and no park fire ring. Only elevated/contained portable fire pits. Propane stove/grill OK. Plan propane for cooking there.</li>
+      <li data-field="notes"><b>Rules:</b> Quiet hours 11 PM–7 AM. 5 mph. Golf carts parked by 10 PM. Pool 9 AM–dusk. No events listed for Oct 8–10 (Fall Fest is Oct 17). Oct 10 is the drive home to 3007 Bluffs Drive, Largo FL.</li>
     </ul>
     <p class="still-need">Still need: cabin/site #, confirmation #, office hours</p>
   </div>
@@ -805,10 +840,11 @@ a.arrival-action:visited{color:#0a0a0a}
 
   <div class="food-day" data-dates="2026-10-06">
     <h3 data-wd="2026-10-06" data-label="Drive → Hammocks Simmons">Tue 10/6 · Drive → Hammocks Simmons</h3>
-    <p class="when">Leave ~1:55 PM · ~2h 05m · <b>NO kitchen</b> (fire pit) · camp stove</p>
+    <p class="when">Leave ~1:55 PM · ~2h 05m · <b>NO kitchen</b> · propane stove</p>
     <ul>
       <li><span class="tag">stop</span> Cook Out Jacksonville NC if you want a late lunch</li>
-      <li><span class="tag">dinner</span> Simmons: READYWISE or Tasty Bite / rice cups boil on Coleman · fire grate backup · foil OK</li>
+      <li><span class="tag">dinner</span> Simmons: READYWISE or Tasty Bite / rice cups boil on the propane stove · foil OK</li>
+      <li><span class="tag">note</span> <span class="checked-tag">checked Sep 25</span> Park fire status unclear (park notice is stale) — plan on the propane stove. Call Visitor Center <a href="tel:910-326-4881">910-326-4881</a> at check-in to confirm rings are OK.</li>
     </ul>
   </div>
 
@@ -829,6 +865,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <li><span class="tag">stop</span> Cook Out Morehead City on the Crystal Coast approach</li>
       <li><span class="tag">note</span> No Buc-ee’s on OBX yet — stock snacks before this leg</li>
       <li><span class="tag">dinner</span> Camping cabin: READYWISE / remaining pouches on Coleman · EPIC / flax snacks</li>
+      <li><span class="tag">note</span> <span class="checked-tag">checked Sep 25</span> NO ground fires and no park fire ring. Only elevated/contained portable fire pits. Propane stove/grill OK. Plan propane for cooking there.</li>
     </ul>
   </div>
 
@@ -842,7 +879,7 @@ a.arrival-action:visited{color:#0a0a0a}
     </ul>
   </div>
 
-  <p style="color:var(--muted);font-size:.8rem;margin:8px 0 0">Map pins: Buc-ee’s (beaver gold), Cook Out (orange), Wawa (red), Restaurants / The Yearling (teal) — toggle on the Coastal Trip Map. Oct 4–10 = 6 no-kitchen nights on Coleman Bottletop + fire grate; foil OK, no parchment. Check NC burn ban status before using fire rings (a July 10, 2026 NC Parks status page mentioned a statewide burn ban).</p>
+  <p style="color:var(--muted);font-size:.8rem;margin:8px 0 0">Map pins: Buc-ee’s (beaver gold), Cook Out (orange), Wawa (red), Restaurants / The Yearling (teal) — toggle on the Coastal Trip Map. Oct 4–10 = 6 no-kitchen nights on the Coleman Bottletop; foil OK, no parchment. Fire status for each stop is in its arrival block (checked Sep 25).</p>
 </section>
 
 
@@ -872,7 +909,7 @@ Questions → text the thread.</textarea>
   <div class="btnrow"><button class="copy" type="button" id="copyShare">Copy share message</button></div>
 </section>
 
-<footer><span id="hubBuildLabel">20260925-2018</span> · <button type="button" id="btnCheckUpdate" style="all:unset;cursor:pointer;color:var(--gold);text-decoration:underline">Check for update</button></footer>
+<footer><span id="hubBuildLabel">20260925-2038</span> · <button type="button" id="btnCheckUpdate" style="all:unset;cursor:pointer;color:var(--gold);text-decoration:underline">Check for update</button></footer>
 </div>
 <script>
 const TRIP_START = '2026-09-27';
@@ -897,16 +934,16 @@ const DAY_PLAN = {
   "2026-09-26": { title:"Day before leave", leave:"Pack car tonight · cooler charging", meals:"Home meals", checkin:"—", linens:"Stage NC linens kit by door", next:"Tomorrow: Home → Anastasia ~3h 33m · leave ~12:25 PM" },
   "2026-09-27": { title:"Drive home → Anastasia", leave:"Leave ~12:25 PM · ~3h 33m", meals:"Bfast home · Buc-ee’s Daytona/St. Aug lunch (alt: The Yearling / Cross Creek if inland) · Dinner: Minute jasmine rice cups + Genova tuna salad", checkin:"The Dolphin · Site 4, Sea Bean Loop · check-in 4:00 PM", linens:"Towels; sheets provided", next:"Stay {wd:2026-09-28} · no drive", blocks:[{k:"Arrival", html:"<a href='https://maps.apple.com/?q=300%20Anastasia%20Park%20Rd,%20St.%20Augustine,%20FL%2032080'>300 Anastasia Park Rd, St. Augustine, FL 32080</a>. At the entrance tell the ranger you have a glamping reservation and show the confirmation email. They give the parking pass and gate access. Follow the map to Sea Bean Loop and take the first right for sites 1–6. Site 4 is the fourth on the right. Site parking is limited; large vehicles use the nearby lot. Max 2 vehicles; extras go to overflow."},{k:"Key / Wi-Fi", html:"Lock-box code comes by call or text before arrival. The box is on the metal steps at the front door. Wi-Fi: Glamping-WiFi · password Ana-Glamping-2026 (not guaranteed)."},{k:"After hours", html:"Bungalow supervisor <a href='tel:904-988-6869'>904-988-6869</a>. Emergencies: 911 — say Sea Bean Camping loop, sites 1–6."}] },
   "2026-09-28": { title:"Anastasia stay", leave:"No drive day", meals:"Cereal · seaweed/edamame · Tasty Bite dal + rice", checkin:"Still The Dolphin, Site 4", linens:"Towels", next:"Tomorrow: Anastasia → Edisto ~5h 35m · leave ~10:25 AM" },
-  "2026-09-29": { title:"Drive Anastasia → Edisto", leave:"Leave ~10:25 AM · ~5h 35m", meals:"Snacks early · Buc-ee’s Brunswick · Dinner: tuna packs + rice/dal", checkin:"Edisto Beach SP cabins", linens:"Provided", next:"Stay {wd:2026-09-30}", warn:"If you will arrive after 5 PM, call 843-869-2156 before 5 for the gate code. Check-in is 4:00 PM.", blocks:[{k:"Gate code", cls:"warn", html:"If you will arrive after 5 PM, call the Ranger Station <a href='tel:843-869-2156'>843-869-2156</a> <b>before 5 PM</b> for the gate code. On-time guests get the code at check-in (4:00 PM). Office hours are M–F 9 AM–5 PM."},{k:"Checkout", html:"Anastasia check-out is 11:00 AM. Leave ~10:25 AM still clears it. Before you go: all trash to the park compactor, thermostat to 72°F cool."}] },
+  "2026-09-29": { title:"Drive Anastasia → Edisto", leave:"Leave ~10:25 AM · ~5h 35m", meals:"Snacks early · Buc-ee’s Brunswick · Dinner: tuna packs + rice/dal", checkin:"Edisto Beach SP cabins", linens:"Provided", next:"Stay {wd:2026-09-30}", blocks:[{k:"Gate code", cls:"warn", html:"If you will arrive after 5 PM, call the Ranger Station <a href='tel:843-869-2156'>843-869-2156</a> <b>before 5 PM</b> for the gate code. On-time guests get the code at check-in (4:00 PM). Office hours are M–F 9 AM–5 PM."},{k:"Checkout", html:"Anastasia check-out is 11:00 AM. Leave ~10:25 AM still clears it. Before you go: all trash to the park compactor, thermostat to 72°F cool."}] },
   "2026-09-30": { title:"Edisto stay", leave:"No drive day", meals:"Cereal · beach picnic · dal + rice · flax/PUR", checkin:"Still Edisto", linens:"Provided", next:"Tomorrow: BOAT day to Clayton — confirm host boat time tonight", warn:"Boat tomorrow — confirm pickup text" },
-  "2026-10-01": { title:"Boat day → Clayton Cabin", leave:"Leave ~12:30 PM · ~2h 34m · then boat", meals:"Cook Out if timing · boat bag snacks · cabin heat-and-eat", checkin:"Clayton / Commander’s Island (boat-only)", linens:"Provided (confirm towels)", next:"Island {wd:2026-10-02}–{wd:2026-10-03} · no store run", warn:"Edisto check-out is 10:00 AM — be out of the cabin before the 12:30 PM leave-by.", blocks:[{k:"Edisto checkout", cls:"warn", html:"Edisto check-out is <b>10:00 AM</b>. Be out of the cabin then. The 12:30 PM time is the drive leave-by, not the cabin exit."},{k:"Clayton", cls:"warn", html:"Check-in <b>after 3:00 PM</b>. Checkout <b>before 10:00 AM</b>. Boat ride <b>$100 paid on-site</b> (arrival and departure). Host is Evolve — message only in the Airbnb app. Mosquitoes at the landing are fierce — bring repellent."},{k:"Ask the host", cls:"warn", html:"<a href='https://www.airbnb.com/rooms/42045580' target='_blank' rel='noopener'>Message host in Airbnb app for landing, pickup time, parking</a>"},{k:"Frisco balance", cls:"warn", html:"Frisco Woods card-payment balance is due about 7 days before arrival (~Oct 1). <span class='confirm-tag'>confirm paid</span>"},{k:"Boat", cls:"warn", html:"BOAT-ONLY · dry bag + full cooler."}], boat:true },
+  "2026-10-01": { title:"Boat day → Clayton Cabin", leave:"Leave ~12:30 PM · ~2h 34m · then boat", meals:"Cook Out if timing · boat bag snacks · cabin heat-and-eat", checkin:"Clayton / Commander’s Island (boat-only)", linens:"Provided (confirm towels)", next:"Island {wd:2026-10-02}–{wd:2026-10-03} · no store run", blocks:[{k:"Edisto checkout", cls:"warn", html:"Edisto check-out is <b>10:00 AM</b>. Be out of the cabin then. The 12:30 PM time is the drive leave-by, not the cabin exit."},{k:"Clayton", cls:"warn", html:"Check-in <b>after 3:00 PM</b>. Checkout <b>before 10:00 AM</b>. Boat ride <b>$100 paid on-site</b> (arrival and departure). Host is Evolve — message only in the Airbnb app. Mosquitoes at the landing are fierce — bring repellent."},{k:"Ask the host", cls:"warn", html:"<a href='https://www.airbnb.com/rooms/42045580' target='_blank' rel='noopener'>Message host in Airbnb app for landing, pickup time, parking</a>"},{k:"Frisco balance", cls:"warn", html:"Frisco Woods card-payment balance is due about 7 days before arrival (~Oct 1). <span class='confirm-tag'>confirm paid</span>"},{k:"Boat", cls:"warn", html:"BOAT-ONLY · dry bag + full cooler."}], boat:true },
   "2026-10-02": { title:"Clayton island", leave:"No drive", meals:"Rotate packs / EPIC / edamame / dal", checkin:"On island", linens:"Provided", next:"Still island {wd:2026-10-03} · boat-out {wd:2026-10-04} morning", boat:true },
   "2026-10-03": { title:"Clayton island", leave:"No drive", meals:"Finish island food — leave buffer for {wd:2026-10-04}", checkin:"On island", linens:"Provided", next:"Tomorrow: boat out → Carolina Beach SP", warn:"Confirm {wd:2026-10-04} boat-out time", boat:true },
-  "2026-10-04": { title:"Boat out → Carolina Beach", leave:"Leave ~12:00 PM · ~2h 56m · after boat-to-car", meals:"Cook Out Myrtle/Wilmington · cabin packs dinner", checkin:"Carolina Beach SP cabin", linens:"BRING NC linens kit", next:"Stay {wd:2026-10-05}", warn:"Carolina Beach gate locks at 9 PM in October — arrive before 9 PM. The combination is not given out.", blocks:[{k:"Gate", cls:"warn", html:"Park gate in October is 7 AM–9 PM and locks at closing. <b>Arrive before 9 PM</b> on Oct 4. The combination will not be given out, and you cannot re-enter after close. Emergency: see the camp host. Marina <a href='tel:910-458-7770'>910-458-7770</a>."},{k:"Clayton checkout", cls:"warn", html:"Clayton checkout is <b>before 10:00 AM</b>, so the boat-out is before 10. The 12:00 PM time is the drive leave-by after you are back at the car."},{k:"Check-in times", cls:"warn", html:"<span class='confirm-tag'>confirm</span> State standard and ReserveAmerica site details: check-in 3:00 PM / out noon. ReserveAmerica cabin notes: check-in 4:00 PM / out 1:00 PM at the Marina Store. Safest: arrive after 4 PM or call ahead, and check in at the Marina Store."},{k:"Linens", cls:"warn", html:"BRING LINENS starting tonight."}] },
+  "2026-10-04": { title:"Boat out → Carolina Beach", leave:"Leave ~12:00 PM · ~2h 56m · after boat-to-car", meals:"Cook Out Myrtle/Wilmington · cabin packs dinner", checkin:"Carolina Beach SP cabin", linens:"BRING NC linens kit", next:"Stay {wd:2026-10-05}", blocks:[{k:"Gate", cls:"warn", html:"Park gate in October is 7 AM–9 PM and locks at closing. <b>Arrive before 9 PM</b> on Oct 4. The combination will not be given out, and you cannot re-enter after close. Emergency: see the camp host. Marina <a href='tel:910-458-7770'>910-458-7770</a>."},{k:"Clayton checkout", cls:"warn", html:"Clayton checkout is <b>before 10:00 AM</b>, so the boat-out is before 10. The 12:00 PM time is the drive leave-by after you are back at the car."},{k:"Check-in times", cls:"warn", html:"<span class='confirm-tag'>confirm</span> State standard and ReserveAmerica site details: check-in 3:00 PM / out noon. ReserveAmerica cabin notes: check-in 4:00 PM / out 1:00 PM at the Marina Store. Safest: arrive after 4 PM or call ahead, and check in at the Marina Store."},{k:"Linens", cls:"warn", html:"BRING LINENS starting tonight."}] },
   "2026-10-05": { title:"Carolina Beach stay", leave:"No drive", meals:"Cereal · pier snacks · cabin or Cook Out Wilmington", checkin:"Still Carolina Beach", linens:"Your kit", next:"Tomorrow → Hammocks Simmons", warn:"Gate locks at 9 PM. Be back inside before 9 — the combination is not given out." },
-  "2026-10-06": { title:"Drive → Hammocks Simmons", leave:"Leave ~1:55 PM · ~2h 05m", meals:"Cook Out Jacksonville NC optional · easy packs dinner", checkin:"Hammocks Beach SP Simmons", linens:"BRING linens + EXTRA set (no laundry)", next:"Stay {wd:2026-10-07}", warn:"Check-in window is about 3–5 PM. Visitor Center closes at 5 PM.", blocks:[{k:"Visitor Center", cls:"warn", html:"Check in at the Visitor Center, <a href='https://maps.apple.com/?daddr=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&amp;dirflg=d'>1572 Hammocks Beach Road, Swansboro, NC 28584</a>, after 3:00 PM. No early check-in. If the 1:55 PM leave-by slips, call <a href='tel:910-326-4881'>910-326-4881</a> <b>before 5</b>."},{k:"Linens", cls:"warn", html:"Extra sheet set — no laundry on-site."}] },
+  "2026-10-06": { title:"Drive → Hammocks Simmons", leave:"Leave ~1:55 PM · ~2h 05m", meals:"Cook Out Jacksonville NC optional · easy packs dinner", checkin:"Hammocks Beach SP Simmons", linens:"BRING linens + EXTRA set (no laundry)", next:"Stay {wd:2026-10-07}", blocks:[{k:"Visitor Center", cls:"warn", html:"Check in at the Visitor Center, <a href='https://maps.apple.com/?daddr=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&amp;dirflg=d'>1572 Hammocks Beach Road, Swansboro, NC 28584</a>, after 3:00 PM. No early check-in. If the 1:55 PM leave-by slips, call <a href='tel:910-326-4881'>910-326-4881</a> <b>before 5</b>."},{k:"Linens", cls:"warn", html:"Extra sheet set — no laundry on-site."}] },
   "2026-10-07": { title:"Hammocks stay", leave:"No drive", meals:"Remaining Have/Ordered · town only if needed", checkin:"Still Simmons", linens:"Your kit + extra", next:"Tomorrow → Frisco Woods (OBX)" },
-  "2026-10-08": { title:"Drive → Frisco Woods", leave:"Leave ~10:35 AM · ~5h 24m · stock snacks before OBX", meals:"Cook Out Morehead City · camping cabin packs", checkin:"Frisco Woods camping cabin", linens:"BRING linens", next:"Stay {wd:2026-10-09} · {wd:2026-10-10} head home", warn:"No Buc-ee’s on OBX — snack up. Cabin check-in is 3:00 PM.", blocks:[{k:"Balance", cls:"warn", html:"Cabin check-in <b>3:00 PM</b>, check-out noon. Card-payment balance was due about Oct 1. <span class='confirm-tag'>confirm paid</span> Express check-in: pull up to the first yellow speed bump for the welcome packet."}] },
+  "2026-10-08": { title:"Drive → Frisco Woods", leave:"Leave ~10:35 AM · ~5h 24m · stock snacks before OBX", meals:"Cook Out Morehead City · camping cabin packs", checkin:"Frisco Woods camping cabin", linens:"BRING linens", next:"Stay {wd:2026-10-09} · {wd:2026-10-10} head home", warn:"No Buc-ee’s on OBX — snack up.", blocks:[{k:"Balance", cls:"warn", html:"Cabin check-in <b>3:00 PM</b>, check-out noon. Card-payment balance was due about Oct 1. <span class='confirm-tag'>confirm paid</span> Express check-in: pull up to the first yellow speed bump for the welcome packet."}] },
   "2026-10-09": { title:"Frisco stay", leave:"No drive", meals:"Remaining packs · local if needed", checkin:"Still Frisco", linens:"Your kit", next:"Tomorrow: head home to Largo" },
   "2026-10-10": { title:"Head home", leave:"Leave early", meals:"Road food · home dinner", checkin:"Home", linens:"Pack dirty linens for laundry at home", next:"Trip done", warn:"Long southbound day — leave early" }
 };
@@ -1110,7 +1147,7 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
 
 refreshDay();
 
-const HUB_BUILD = '20260925-2018';
+const HUB_BUILD = '20260925-2038';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 (function(){ const el = document.getElementById('hubBuildLabel'); if (el) el.textContent = HUB_BUILD; })();
