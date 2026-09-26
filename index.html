@@ -253,6 +253,8 @@ a.pack-live-btn{
   background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;
   padding:14px 16px;
 }
+p.pack-fallback{margin:6px 0 0;color:var(--muted);font-size:.75rem;line-height:1.35}
+.phone-home>p.pack-fallback{grid-column:1 / -1;margin:0}
 .dc-map-btn{min-height:44px;padding:12px 16px;box-sizing:border-box;line-height:1.2}
 .drive-card.today{scroll-margin:12px}
 .arrival-fields > li:has([data-slot]:empty){display:none}
@@ -294,6 +296,7 @@ a.arrival-action:visited{color:#0a0a0a}
     <a class="sec" href="https://docs.google.com/spreadsheets/d/1_frgr_bs-ECGU7PbTcwaiSbnStPBjjLm7gTUqmnARHo" target="_blank" rel="noopener">Google Sheet</a>
     <a class="sec" href="#pack">Reminders: Pack / Bring</a>
   </div>
+  <p class="pack-fallback">If this link is down, use the Pack / Bring list in Reminders.</p>
 </header>
 
 
@@ -302,6 +305,7 @@ a.arrival-action:visited{color:#0a0a0a}
     <a href="#lodging" id="jumpTonight"><span class="ph-kicker">Stay</span><span class="ph-title">Tonight / Check-in</span><span class="ph-sub">Lodging · linens</span></a>
     <a href="#weather" id="jumpWeather"><span class="ph-kicker">Forecast</span><span class="ph-title">Weather</span><span class="ph-sub">Stops along the route</span></a>
     <a id="phPack" data-pack-live="1" href="https://pack.here2serve.us" target="_blank" rel="noopener"><span class="ph-kicker">Checklist</span><span class="ph-title">Pack live</span><span class="ph-sub">Cellular OK</span></a>
+    <p class="pack-fallback">If this link is down, use the Pack / Bring list in Reminders.</p>
     <a href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener"><span class="ph-kicker">Route</span><span class="ph-title">Map</span><span class="ph-sub">Stops + food pins</span></a>
     <a href="#boat"><span class="ph-kicker">Oct 1–4</span><span class="ph-title">Boat / Clayton</span><span class="ph-sub">Cheat sheet</span></a>
     <a href="#coverage"><span class="ph-kicker">Signal</span><span class="ph-title">Cell / Starlink</span><span class="ph-sub">Gap zones</span></a>
@@ -614,6 +618,7 @@ a.arrival-action:visited{color:#0a0a0a}
   <h2><span class="dot"></span> Pack</h2>
   <p style="color:var(--muted);margin:0 0 12px;font-size:.9rem">Live Pack / Bring checklist. Open it when you have signal.</p>
   <a class="pack-live-btn" id="packOpenLive" href="https://pack.here2serve.us/" target="_blank" rel="noopener">Open Pack live</a>
+  <p class="pack-fallback">If this link is down, use the Pack / Bring list in Reminders.</p>
 </section>
 
 
@@ -909,7 +914,7 @@ Questions → text the thread.</textarea>
   <div class="btnrow"><button class="copy" type="button" id="copyShare">Copy share message</button></div>
 </section>
 
-<footer><span id="hubBuildLabel">20260925-2038</span> · <button type="button" id="btnCheckUpdate" style="all:unset;cursor:pointer;color:var(--gold);text-decoration:underline">Check for update</button></footer>
+<footer><span id="hubBuildLabel">20260925-2311</span> · <button type="button" id="btnCheckUpdate" style="all:unset;cursor:pointer;color:var(--gold);text-decoration:underline">Check for update</button></footer>
 </div>
 <script>
 const TRIP_START = '2026-09-27';
@@ -1147,7 +1152,7 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
 
 refreshDay();
 
-const HUB_BUILD = '20260925-2038';
+const HUB_BUILD = '20260925-2311';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 (function(){ const el = document.getElementById('hubBuildLabel'); if (el) el.textContent = HUB_BUILD; })();
