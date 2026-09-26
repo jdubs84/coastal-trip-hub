@@ -1,8 +1,8 @@
 {
-  "build": "20260925-2311",
-  "version": "20260925-2311",
+  "build": "20260926-1115",
+  "version": "20260926-1115",
   "url": "https://jdubs84.github.io/coastal-trip-hub/",
-  "notes": "Per-stop fire status checked Sep 25",
+  "notes": "Things to do added for every stop (checked Sep 26)",
   "food_synced": "2026-09-22T20:38:34-04:00",
-  "updated": "2026-09-25T23:11:00-04:00"
+  "updated": "2026-09-26T11:15:00-04:00"
 }
