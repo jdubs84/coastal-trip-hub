@@ -1004,8 +1004,97 @@ Questions → text the thread.</textarea>
   <div class="btnrow"><button class="copy" type="button" id="copyShare">Copy share message</button></div>
 </section>
 
-<footer><span id="hubBuildLabel">20260926-1115</span> · <button type="button" id="btnCheckUpdate" style="all:unset;cursor:pointer;color:var(--gold);text-decoration:underline">Check for update</button></footer>
+<footer><span id="hubBuildLabel">20260927-0430</span> · <button type="button" id="btnCheckUpdate" style="all:unset;cursor:pointer;color:var(--gold);text-decoration:underline">Check for update</button></footer>
 </div>
+<script>
+/* iOS (Safari tab and Home Screen standalone) does not hand target=_blank maps links to the Maps apps. */
+(function () {
+  var googleTimer = 0;
+  var googleLeave = null;
+
+  function clearGoogleFallback() {
+    if (googleTimer) {
+      window.clearTimeout(googleTimer);
+      googleTimer = 0;
+    }
+    if (googleLeave) {
+      window.removeEventListener('pagehide', googleLeave.mark);
+      window.removeEventListener('blur', googleLeave.blur);
+      document.removeEventListener('visibilitychange', googleLeave.hide);
+      googleLeave = null;
+    }
+  }
+
+  function isIOS() {
+    var ua = navigator.userAgent || '';
+    if (/iPhone|iPad|iPod/.test(ua)) return true;
+    return navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+  }
+
+  function appleAppUrl(href) {
+    return href.replace(/^https:\/\/maps\.apple\.com\//, 'maps://');
+  }
+
+  function googleAppUrl(href) {
+    var u = new URL(href);
+    var origin = u.searchParams.get('origin') || u.searchParams.get('saddr') || '';
+    var dest = u.searchParams.get('destination') || u.searchParams.get('daddr') || '';
+    var q = u.searchParams.get('q') || u.searchParams.get('query') || '';
+    var dir = u.pathname.indexOf('/maps/dir') !== -1 || (origin && dest);
+    if (dir && origin && dest) {
+      var mode = u.searchParams.get('travelmode') || u.searchParams.get('directionsmode') || 'driving';
+      return 'comgooglemaps://?saddr=' + encodeURIComponent(origin) +
+        '&daddr=' + encodeURIComponent(dest) +
+        '&directionsmode=' + encodeURIComponent(mode);
+    }
+    if (q) return 'comgooglemaps://?q=' + encodeURIComponent(q);
+    return '';
+  }
+
+  document.addEventListener('click', function (e) {
+    if (!isIOS() || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var node = e.target;
+    if (node && node.nodeType !== 1) node = node.parentElement;
+    var a = node && node.closest ? node.closest('a[href]') : null;
+    if (!a || !a.href) return;
+    var href = a.href;
+    var apple = href.startsWith('https://maps.apple.com/');
+    var google = href.startsWith('https://www.google.com/maps') || href.startsWith('https://maps.google.com');
+    if (!apple && !google) return;
+    e.preventDefault();
+    e.stopPropagation();
+    clearGoogleFallback();
+    if (apple) {
+      window.location.href = appleAppUrl(href);
+      return;
+    }
+    var app = googleAppUrl(href);
+    if (!app) {
+      window.location.href = href;
+      return;
+    }
+    var left = false;
+    function markLeft() { left = true; }
+    function markBlur() {
+      // A failed handoff (Maps app not installed) can blur the window while the
+      // hub stays visible. Only a blur that actually backgrounds the page counts.
+      if (document.visibilityState !== 'visible') markLeft();
+    }
+    function markHidden() {
+      if (document.visibilityState !== 'visible') markLeft();
+    }
+    googleLeave = { mark: markLeft, blur: markBlur, hide: markHidden };
+    window.addEventListener('pagehide', markLeft);
+    window.addEventListener('blur', markBlur);
+    document.addEventListener('visibilitychange', markHidden);
+    googleTimer = window.setTimeout(function () {
+      clearGoogleFallback();
+      if (!left && document.visibilityState === 'visible') window.location.href = href;
+    }, 1500);
+    window.location.href = app;
+  }, true);
+})();
+</script>
 <script>
 const TRIP_START = '2026-09-27';
 const TRIP_END = '2026-10-10';
@@ -1242,7 +1331,7 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
 
 refreshDay();
 
-const HUB_BUILD = '20260926-1115';
+const HUB_BUILD = '20260927-0430';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 (function(){ const el = document.getElementById('hubBuildLabel'); if (el) el.textContent = HUB_BUILD; })();
