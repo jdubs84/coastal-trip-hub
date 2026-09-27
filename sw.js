@@ -1,5 +1,5 @@
 /* Coastal Trip Hub service worker. BUILD must match HUB_BUILD in index.html. */
-const BUILD = '20260927-0430';
+const BUILD = '20260927-2326';
 const CACHE = 'coastal-hub-' + BUILD;
 const PRECACHE = [
   './',

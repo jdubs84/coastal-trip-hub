@@ -74,10 +74,6 @@ td.num{text-align:right;font-variant-numeric:tabular-nums;color:var(--gold);font
 .wstamp{margin:0;color:var(--muted);font-size:.85rem;line-height:1.35;flex:1 1 12rem;min-width:0;overflow-wrap:anywhere}
 .wrefresh{flex:0 0 auto;margin:0;border:1px solid #4a3d1a;background:#0a0804;color:var(--gold);font-weight:700;font-size:.75rem;line-height:1;padding:10px 12px;border-radius:999px;cursor:pointer;min-height:40px}
 .wrefresh:disabled{opacity:.55}
-.pack-sum{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
-.stat{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:10px 14px;min-width:100px}
-.stat b{display:block;font-size:1.4rem;color:var(--gold)}
-.stat span{color:var(--muted);font-size:.78rem}
 .snap{color:var(--muted);font-size:.78rem;margin:8px 0 0}
 .checks{display:grid;gap:6px}
 @media(min-width:600px){.checks{grid-template-columns:1fr 1fr}}
@@ -251,15 +247,6 @@ a.dayof-directions{
   background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;
   padding:12px 16px;
 }
-a.pack-live-btn{
-  display:flex;align-items:center;justify-content:center;
-  min-height:52px;width:100%;box-sizing:border-box;
-  text-decoration:none;font-weight:800;font-size:1.05rem;border-radius:14px;
-  background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;
-  padding:14px 16px;
-}
-p.pack-fallback{margin:6px 0 0;color:var(--muted);font-size:.75rem;line-height:1.35}
-.phone-home>p.pack-fallback{grid-column:1 / -1;margin:0}
 .dc-map-btn{min-height:44px;padding:12px 16px;box-sizing:border-box;line-height:1.2}
 .drive-card.today{scroll-margin:12px}
 .arrival-fields > li:has([data-slot]:empty){display:none}
@@ -295,13 +282,10 @@ a.arrival-action:visited{color:#0a0a0a}
   </div>
   <div class="links">
     <a href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener">Open map</a>
-    <a id="packLive" data-pack-live="1" href="https://pack.here2serve.us" target="_blank" rel="noopener">Pack live</a>
     <a class="sec" href="#food">Food</a>
     <a href="#food-schedule">Food schedule</a>
     <a class="sec" href="https://docs.google.com/spreadsheets/d/1_frgr_bs-ECGU7PbTcwaiSbnStPBjjLm7gTUqmnARHo" target="_blank" rel="noopener">Google Sheet</a>
-    <a class="sec" href="#pack">Reminders: Pack / Bring</a>
   </div>
-  <p class="pack-fallback">If this link is down, use the Pack / Bring list in Reminders.</p>
 </header>
 
 
@@ -309,13 +293,11 @@ a.arrival-action:visited{color:#0a0a0a}
     <a href="#dayof" id="jumpDayof"><span class="ph-kicker">Today</span><span class="ph-title">Day-of</span><span class="ph-sub">Leave-by · meals · linens</span></a>
     <a href="#lodging" id="jumpTonight"><span class="ph-kicker">Stay</span><span class="ph-title">Tonight / Check-in</span><span class="ph-sub">Lodging · linens</span></a>
     <a href="#weather" id="jumpWeather"><span class="ph-kicker">Forecast</span><span class="ph-title">Weather</span><span class="ph-sub">Stops along the route</span></a>
-    <a id="phPack" data-pack-live="1" href="https://pack.here2serve.us" target="_blank" rel="noopener"><span class="ph-kicker">Checklist</span><span class="ph-title">Pack live</span><span class="ph-sub">Cellular OK</span></a>
-    <p class="pack-fallback">If this link is down, use the Pack / Bring list in Reminders.</p>
     <a href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener"><span class="ph-kicker">Route</span><span class="ph-title">Map</span><span class="ph-sub">Stops + food pins</span></a>
     <a href="#boat"><span class="ph-kicker">Oct 1–4</span><span class="ph-title">Boat / Clayton</span><span class="ph-sub">Cheat sheet</span></a>
     <a href="#coverage"><span class="ph-kicker">Signal</span><span class="ph-title">Cell / Starlink</span><span class="ph-sub">Gap zones</span></a>
   </div>
-  <p class="offline-tip"><b>Offline:</b> Open once with signal; after that it opens with no signal. Pack live and live weather need signal. iPhone: Share → <b>Add to Home Screen</b>.</p>
+  <p class="offline-tip"><b>Offline:</b> Open once with signal; after that it opens with no signal. Live weather needs signal. iPhone: Share → <b>Add to Home Screen</b>.</p>
 
 <section class="block dayof" id="dayof">
   <h2><span class="dot"></span> Day-of mode</h2>
@@ -704,16 +686,6 @@ a.arrival-action:visited{color:#0a0a0a}
   <div class='wstrip' data-weather-strip><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday' data-date='2026-09-27'><div class='wd'>09-27</div><div class='hl'>90°/59°</div><div class='pr'>0%</div></div><div class='wday' data-date='2026-09-28'><div class='wd'>09-28</div><div class='hl'>89°/68°</div><div class='pr'>3%</div></div><div class='wday' data-date='2026-09-29'><div class='wd'>09-29</div><div class='hl'>90°/70°</div><div class='pr'>8%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday' data-date='2026-09-29'><div class='wd'>09-29</div><div class='hl'>83°/73°</div><div class='pr'>2%</div></div><div class='wday' data-date='2026-09-30'><div class='wd'>09-30</div><div class='hl'>83°/74°</div><div class='pr'>4%</div></div><div class='wday' data-date='2026-10-01'><div class='wd'>10-01</div><div class='hl'>84°/77°</div><div class='pr'>7%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday' data-date='2026-10-01'><div class='wd'>10-01</div><div class='hl'>90°/71°</div><div class='pr'>10%</div></div><div class='wday' data-date='2026-10-02'><div class='wd'>10-02</div><div class='hl'>87°/71°</div><div class='pr'>21%</div></div><div class='wday' data-date='2026-10-03'><div class='wd'>10-03</div><div class='hl'>86°/74°</div><div class='pr'>29%</div></div><div class='wday' data-date='2026-10-04'><div class='wd'>10-04</div><div class='hl'>88°/74°</div><div class='pr'>35%</div></div></div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-04'><div class='wd'>10-04</div><div class='hl'>87°/73°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-05'><div class='wd'>10-05</div><div class='hl'>90°/72°</div><div class='pr'>37%</div></div><div class='wday' data-date='2026-10-06'><div class='wd'>10-06</div><div class='hl'>81°/72°</div><div class='pr'>43%</div></div></div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-06'><div class='wd'>10-06</div><div class='hl'>78°/68°</div><div class='pr'>39%</div></div><div class='wday' data-date='2026-10-07'><div class='wd'>10-07</div><div class='hl'>76°/67°</div><div class='pr'>46%</div></div><div class='wday' data-date='2026-10-08'><div class='wd'>10-08</div><div class='hl'>85°/74°</div><div class='pr'>19%</div></div></div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-08'><div class='wd'>10-08</div><div class='hl'>77°/75°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-09'><div class='wd'>10-09</div><div class='hl'>75°/66°</div><div class='pr'>23%</div></div><div class='wday' data-date='2026-10-10'><div class='wd'>10-10</div><div class='hl'>67°/61°</div><div class='pr'>29%</div></div></div></div></div>
 </section>
 
-<section class="block" id="pack">
-  <h2><span class="dot"></span> Pack</h2>
-  <p style="color:var(--muted);margin:0 0 12px;font-size:.9rem">Live Pack / Bring checklist. Open it when you have signal.</p>
-  <a class="pack-live-btn" id="packOpenLive" href="https://pack.here2serve.us/" target="_blank" rel="noopener">Open Pack live</a>
-  <p class="pack-fallback">If this link is down, use the Pack / Bring list in Reminders.</p>
-</section>
-
-
-
-
 <section class="block" id="boat">
   <h2><span class="dot"></span> Clayton / boat cheat sheet</h2>
   <p style="color:var(--muted);margin:0 0 12px;font-size:.85rem">Oct 1–4 · Commander’s Island / Georgetown SC · Airbnb 42045580 · <b>boat-only</b> · paid $696.41 on Sep 11.</p>
@@ -756,7 +728,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <ul>
         <li><b>No/unreliable:</b> Commander’s Island boat run + on-island; Ocracoke/south Hatteras if you day-trip</li>
         <li><b>Limited:</b> Edisto park side, rural SC to Georgetown docks, Hammocks ferry side, Pea Island, Buxton→Frisco</li>
-        <li><b>Do before weak signal:</b> download Apple/Google offline maps, save Pack hub to Files, screenshot boat host contact</li>
+        <li><b>Do before weak signal:</b> download Apple/Google offline maps, screenshot boat host contact</li>
       </ul>
     </div>
     <div class="boat-card">
@@ -837,7 +809,7 @@ a.arrival-action:visited{color:#0a0a0a}
   <div class="nc-kit"><b>NC linens kit (include pillows):</b> 1 queen + 1 full + 2 twin sheet sets + bed pillows ×3 + pillowcases + towels ×3; bring an <b>extra set for Hammocks</b> (no laundry on-site).</div>
 
   <div class="nc-kit" style="margin-top:12px">
-    <b>Constraints:</b> No Creami (no freezer). Cooler has wall + car adapters (no milk powder needed). Smoothies maybe OK if yogurt works. Amazon “food for camping” section is a good hunt. Linens/sheets need still tracked under Pack.
+    <b>Constraints:</b> No Creami (no freezer). Cooler has wall + car adapters (no milk powder needed). Smoothies maybe OK if yogurt works. Amazon “food for camping” section is a good hunt.
   </div>
 </section>
 
@@ -994,7 +966,6 @@ STOPS
 • Frisco Woods camping cabin — Oct 8–10 (BRING linens)
 
 LINKS
-Pack live (cellular): https://pack.here2serve.us
 Trip hub: https://jdubs84.github.io/coastal-trip-hub/
 Map: https://jdubs84.github.io/coastal-trip-map/
 
@@ -1004,7 +975,7 @@ Questions → text the thread.</textarea>
   <div class="btnrow"><button class="copy" type="button" id="copyShare">Copy share message</button></div>
 </section>
 
-<footer><span id="hubBuildLabel">20260927-0430</span> · <button type="button" id="btnCheckUpdate" style="all:unset;cursor:pointer;color:var(--gold);text-decoration:underline">Check for update</button></footer>
+<footer><span id="hubBuildLabel">20260927-2326</span> · <button type="button" id="btnCheckUpdate" style="all:unset;cursor:pointer;color:var(--gold);text-decoration:underline">Check for update</button></footer>
 </div>
 <script>
 /* iOS (Safari tab and Home Screen standalone) does not hand target=_blank maps links to the Maps apps. */
@@ -1331,7 +1302,7 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
 
 refreshDay();
 
-const HUB_BUILD = '20260927-0430';
+const HUB_BUILD = '20260927-2326';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 (function(){ const el = document.getElementById('hubBuildLabel'); if (el) el.textContent = HUB_BUILD; })();
