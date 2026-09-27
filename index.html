@@ -1010,17 +1010,18 @@ Questions → text the thread.</textarea>
 /* iOS (Safari tab and Home Screen standalone) does not hand target=_blank maps links to the Maps apps. */
 (function () {
   var googleTimer = 0;
-  var googleMark = null;
+  var googleLeave = null;
 
   function clearGoogleFallback() {
     if (googleTimer) {
       window.clearTimeout(googleTimer);
       googleTimer = 0;
     }
-    if (googleMark) {
-      window.removeEventListener('pagehide', googleMark);
-      window.removeEventListener('blur', googleMark);
-      googleMark = null;
+    if (googleLeave) {
+      window.removeEventListener('pagehide', googleLeave.mark);
+      window.removeEventListener('blur', googleLeave.blur);
+      document.removeEventListener('visibilitychange', googleLeave.hide);
+      googleLeave = null;
     }
   }
 
@@ -1074,14 +1075,20 @@ Questions → text the thread.</textarea>
     }
     var left = false;
     function markLeft() { left = true; }
-    googleMark = markLeft;
+    function markBlur() {
+      // A failed handoff (Maps app not installed) can blur the window while the
+      // hub stays visible. Only a blur that actually backgrounds the page counts.
+      if (document.visibilityState !== 'visible') markLeft();
+    }
+    function markHidden() {
+      if (document.visibilityState !== 'visible') markLeft();
+    }
+    googleLeave = { mark: markLeft, blur: markBlur, hide: markHidden };
     window.addEventListener('pagehide', markLeft);
-    window.addEventListener('blur', markLeft);
+    window.addEventListener('blur', markBlur);
+    document.addEventListener('visibilitychange', markHidden);
     googleTimer = window.setTimeout(function () {
-      window.removeEventListener('pagehide', markLeft);
-      window.removeEventListener('blur', markLeft);
-      if (googleMark === markLeft) googleMark = null;
-      googleTimer = 0;
+      clearGoogleFallback();
       if (!left && document.visibilityState === 'visible') window.location.href = href;
     }, 1500);
     window.location.href = app;
