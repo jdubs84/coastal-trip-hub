@@ -8,7 +8,7 @@
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
 <meta name="apple-mobile-web-app-title" content="Coastal Trip Hub"/>
-<meta name="theme-color" content="#d4af37"/>
+<meta name="theme-color" content="#12100a"/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
 <link rel="icon" href="icon-192.png" type="image/png"/>
@@ -20,9 +20,11 @@
 </script>
 <title>Coastal Trip Hub — Sep 27–Oct 10 2026</title>
 <style>
-:root{color-scheme:dark;--bg:#050505;--panel:#121212;--panel2:#0a0a0a;--border:#3a3220;--text:#f5f0e6;--muted:#a89b7a;--gold:#d4af37;--gold-bright:#f0c14b;--gold-dim:#8a7324;--radius:14px}
+:root{color-scheme:dark;--bg:#050505;--panel:#121212;--panel2:#0a0a0a;--border:#3a3220;--text:#f7f3ea;--muted:#e4d7b8;--gold:#d4af37;--gold-bright:#f0c14b;--gold-dim:#8a7324;--radius:14px}
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:radial-gradient(1100px 560px at 8% -8%,#2a2110 0%,transparent 55%),radial-gradient(800px 480px at 100% 0%,#1a1508 0%,transparent 50%),var(--bg);color:var(--text);line-height:1.45;padding:16px 14px 64px}
+html{background:#050505;scroll-padding-top:calc(16px + env(safe-area-inset-top, 0px));-webkit-text-size-adjust:100%}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:radial-gradient(1100px 560px at 8% -8%,#2a2110 0%,transparent 55%),radial-gradient(800px 480px at 100% 0%,#1a1508 0%,transparent 50%),var(--bg);color:var(--text);line-height:1.45;padding:calc(12px + env(safe-area-inset-top, 0px)) calc(14px + env(safe-area-inset-right, 0px)) calc(28px + env(safe-area-inset-bottom, 0px)) calc(14px + env(safe-area-inset-left, 0px));overflow-x:clip}
+html{overflow-x:clip}
 .wrap{max-width:920px;margin:0 auto}
 header.hero{background:linear-gradient(135deg,#0e0e0e 0%,#1a1508 45%,#0a0a0a 100%);border:1px solid var(--border);border-radius:18px;padding:20px 18px 16px;margin-bottom:16px;box-shadow:0 10px 40px rgba(0,0,0,.55),0 0 0 1px rgba(212,175,55,.12)}
 header.hero h1{margin:0 0 6px;font-size:1.55rem;letter-spacing:.02em;color:var(--gold-bright)}
@@ -30,7 +32,7 @@ header.hero .sub{color:var(--muted);font-size:.95rem;margin:0 0 12px}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
 .pill{background:#0a0804;border:1px solid #4a3d1a;color:var(--gold);padding:6px 10px;border-radius:999px;font-size:.82rem;font-weight:600}
 .links{display:flex;flex-wrap:wrap;gap:8px}
-.links a{display:inline-block;text-decoration:none;font-weight:700;font-size:.88rem;padding:10px 14px;border-radius:12px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a}
+.links a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;font-size:1rem;padding:12px 16px;border-radius:12px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;min-height:48px}
 .links a.sec{background:var(--panel);color:var(--text);border:1px solid var(--border)}
 section.block{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin:14px 0}
 section.block h2{margin:0 0 10px;font-size:1.1rem;display:flex;align-items:center;gap:8px;color:var(--gold-bright)}
@@ -38,7 +40,7 @@ section.block h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--go
 .dayof{background:linear-gradient(180deg,#1a1508,#0e0e0e);border:1px solid #4a3d1a}
 .dayof .status{font-size:1.05rem;font-weight:700;margin:0 0 8px;color:var(--gold-bright)}
 .dayof .detail{color:var(--muted);margin:0 0 12px}
-.dayof select{background:var(--panel2);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:8px 10px;font-size:.9rem;width:100%;max-width:280px}
+.dayof select{background:var(--panel2);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:12px 12px;font-size:16px;width:100%;max-width:280px;min-height:48px}
 .drive-grid{display:grid;gap:10px}
 @media(min-width:700px){.drive-grid{grid-template-columns:1fr 1fr}}
 .drive-card{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
@@ -50,9 +52,9 @@ section.block h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--go
 .badge{font-size:.7rem;font-weight:700;padding:3px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
 .badge.long{background:#3b2a10;color:var(--gold-bright)}
 .badge.boat{background:#1a1a1a;color:var(--gold);border:1px solid #4a3d1a}
-.dc-meta{display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:.85rem}
+.dc-meta{display:flex;flex-wrap:wrap;gap:10px;color:var(--text);font-size:1.05rem}
 .dc-meta span{background:#050505;padding:4px 8px;border-radius:8px;border:1px solid #2a2418}
-.dc-note{margin:8px 0 0;color:var(--muted);font-size:.82rem}
+.dc-note{margin:8px 0 0;color:#f3ead6;font-size:1.02rem;line-height:1.4}
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;font-size:.84rem}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
@@ -72,30 +74,30 @@ td.num{text-align:right;font-variant-numeric:tabular-nums;color:var(--gold);font
 .wnote{color:var(--muted);font-size:.72rem;margin-top:6px}
 .whead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin:0 0 10px}
 .wstamp{margin:0;color:var(--muted);font-size:.85rem;line-height:1.35;flex:1 1 12rem;min-width:0;overflow-wrap:anywhere}
-.wrefresh{flex:0 0 auto;margin:0;border:1px solid #4a3d1a;background:#0a0804;color:var(--gold);font-weight:700;font-size:.75rem;line-height:1;padding:10px 12px;border-radius:999px;cursor:pointer;min-height:40px}
+.wrefresh{flex:0 0 auto;margin:0;border:1px solid #4a3d1a;background:#0a0804;color:var(--gold-bright);font-weight:700;font-size:1rem;line-height:1;padding:12px 16px;border-radius:999px;cursor:pointer;min-height:48px}
 .wrefresh:disabled{opacity:.55}
 .snap{color:var(--muted);font-size:.78rem;margin:8px 0 0}
 .checks{display:grid;gap:6px}
 @media(min-width:600px){.checks{grid-template-columns:1fr 1fr}}
 label.check{display:flex;gap:10px;align-items:flex-start;background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:.9rem}
 label.check input{margin-top:3px;accent-color:var(--gold);width:18px;height:18px}
-textarea.share{width:100%;min-height:200px;background:#050505;color:var(--text);border:1px solid var(--border);border-radius:12px;padding:12px;font-size:.88rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;resize:vertical}
+textarea.share{width:100%;min-height:200px;background:#050505;color:var(--text);border:1px solid var(--border);border-radius:12px;padding:12px;font-size:16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;resize:vertical}
 .btnrow{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
-button.copy{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;border:0;font-weight:700;padding:10px 14px;border-radius:10px;cursor:pointer;font-size:.88rem}
+button.copy{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;border:0;font-weight:700;padding:12px 16px;border-radius:10px;cursor:pointer;font-size:1rem;min-height:48px}
 .nc-kit{background:#12100a;border:1px dashed #6b5420;border-radius:12px;padding:10px 12px;color:#e8d5a3;font-size:.88rem;margin-top:10px}
 footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
 
-#updateBar{display:none;position:sticky;top:0;z-index:50;margin:0 0 12px;padding:10px 12px;border-radius:12px;border:1px solid var(--gold);background:linear-gradient(180deg,#1a1508,#0e0e0e);box-shadow:0 8px 24px rgba(0,0,0,.45)}
+#updateBar{display:none;position:sticky;top:env(safe-area-inset-top, 0px);z-index:50;margin:0 0 12px;padding:10px 12px;border-radius:12px;border:1px solid var(--gold);background:linear-gradient(180deg,#1a1508,#0e0e0e);box-shadow:0 8px 24px rgba(0,0,0,.45)}
 #updateBar.show{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-#updateBar p{margin:0;color:var(--gold-bright);font-weight:650;font-size:.92rem}
-#updateBar .ubtn{border:0;cursor:pointer;font-weight:800;font-size:.9rem;padding:10px 14px;border-radius:10px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a}
+#updateBar p{margin:0;color:var(--gold-bright);font-weight:650;font-size:1rem}
+#updateBar .ubtn{border:0;cursor:pointer;font-weight:800;font-size:1rem;padding:12px 16px;border-radius:10px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;min-height:48px}
 #updateBar .ubtn.sec{background:var(--panel);color:var(--text);border:1px solid var(--border);font-weight:600}
 #updateBar .meta{color:var(--muted);font-size:.78rem;font-weight:500}
 
 .drive-card{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:start}
 .drive-card .dc-thumb{width:72px;height:72px;border-radius:10px;object-fit:cover;object-position:center;border:1px solid var(--border);background:#0a0a0a;display:block;padding:0}
 .drive-card .dc-body{min-width:0}
-@media(max-width:520px){.drive-card{grid-template-columns:56px 1fr}.drive-card .dc-thumb{width:72px;height:72px;border-radius:10px;object-fit:cover;object-position:center;border:1px solid var(--border);background:#0a0a0a;display:block;padding:0}}
+@media(max-width:520px){.drive-card{grid-template-columns:72px minmax(0,1fr);padding:14px}.drive-card .dc-thumb{width:72px;height:72px;border-radius:10px;object-fit:cover;object-position:center;border:1px solid var(--border);background:#0a0a0a;display:block;padding:0}}
 
 .drive-card>img.dc-thumb,.drive-card img.dc-thumb{
   width:72px;height:72px;min-width:72px;min-height:72px;max-width:72px;max-height:72px;
@@ -104,7 +106,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
 }
 @media(max-width:520px){
   .drive-card>img.dc-thumb,.drive-card img.dc-thumb{
-    width:56px;height:56px;min-width:56px;min-height:56px;max-width:56px;max-height:56px
+    width:72px;height:72px;min-width:72px;min-height:72px;max-width:72px;max-height:72px
   }
 }
 
@@ -118,7 +120,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
 
 
   .sync-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
-  .sync-row .sync-btn{border:0;cursor:pointer;font-weight:800;font-size:.82rem;padding:8px 12px;border-radius:10px;background:linear-gradient(180deg,var(--gold-bright,#f0d78c),var(--gold,#c4a35a));color:#0a0a0a}
+  .sync-row .sync-btn{border:0;cursor:pointer;font-weight:800;font-size:1rem;padding:12px 14px;border-radius:10px;background:linear-gradient(180deg,var(--gold-bright,#f0d78c),var(--gold,#c4a35a));color:#0a0a0a;min-height:48px}
   .sync-row .sync-btn.sec{background:transparent;color:var(--gold,#c4a35a);border:1px solid rgba(196,163,90,.45)}
   .sync-row .sync-meta{color:var(--muted);font-size:.78rem}
 
@@ -131,18 +133,19 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
     border:1px solid rgba(196,163,90,.35);background:linear-gradient(160deg,rgba(196,163,90,.16),rgba(0,0,0,.25));
     color:var(--ink,#f3f7fa);font:inherit;cursor:pointer;text-align:left;
   }
-  .phone-home .ph-kicker{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold,#c4a35a)}
-  .phone-home .ph-title{font-size:1.05rem;font-weight:800;color:#fff}
-  .phone-home .ph-sub{font-size:.75rem;color:var(--muted,#9aa8b5)}
+  .phone-home .ph-kicker{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-bright,#f0c14b)}
+  .phone-home .ph-title{font-size:1.12rem;font-weight:800;color:#fff}
+  .phone-home .ph-sub{font-size:.95rem;color:#f0e6cc}
   .offline-tip{margin:8px 0 0;padding:10px 12px;border-radius:10px;border:1px dashed rgba(196,163,90,.35);color:var(--muted);font-size:.78rem;line-height:1.4}
   .dayof-card{margin-top:12px;padding:14px;border-radius:14px;border:1px solid rgba(62,196,208,.28);background:rgba(14,107,116,.12)}
   .dayof-card h3{margin:0 0 8px;font-size:1.05rem;color:#e8f7f9}
   .dayof-grid{display:grid;gap:8px}
   @media(min-width:640px){.dayof-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
   .dayof-item{padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.06)}
-  .dayof-item .k{display:block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold,#c4a35a);margin-bottom:4px}
-  .dayof-item .v{font-size:.92rem;color:#f0f4f7;line-height:1.35;overflow-wrap:anywhere}
-  .dayof-item.warn{border-color:rgba(230,126,34,.45);background:rgba(230,126,34,.1);grid-column:1 / -1}
+  .dayof-item .k{display:block;font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#f6e2a4;margin-bottom:4px}
+  .dayof-item .v{font-size:1.08rem;color:#f7f4ee;line-height:1.4;overflow-wrap:anywhere}
+  .dayof-item.warn{border-color:#c4a35a;background:#2a1c0c;grid-column:1 / -1}
+  .dayof-item.warn .v{color:#f7f1e4}
   .dayof-item.boat{border-color:rgba(62,196,208,.5)}
   .boat-grid{display:grid;gap:10px}
   @media(min-width:700px){.boat-grid{grid-template-columns:1fr 1fr}}
@@ -158,11 +161,11 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   #foodDrop b{color:var(--gold,#c4a35a)}
 
 
-  .dc-traffic{margin:8px 0 0;font-size:.78rem;line-height:1.4;color:#c9b27a}
-  .dc-maps{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .dc-traffic{margin:8px 0 0;font-size:1rem;line-height:1.4;color:#f0e2b6}
+  .dc-maps{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}
   .dc-map-btn{
-    display:inline-flex;align-items:center;gap:4px;
-    padding:7px 11px;border-radius:999px;font:650 12px/1 system-ui,sans-serif;
+    display:flex;align-items:center;justify-content:center;gap:4px;width:100%;
+    padding:12px 16px;border-radius:12px;font:800 1.05rem/1.2 system-ui,sans-serif;
     text-decoration:none;color:#0b1014;background:linear-gradient(145deg,#e8c84a,#d4af37);
     border:1px solid rgba(212,175,55,.5)
   }
@@ -204,7 +207,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   .stay-facts h3{margin:0 0 4px;font-size:.98rem;color:var(--gold-bright)}
   .stay-facts .when{margin:0 0 8px;color:var(--muted);font-size:.8rem}
   .stay-facts ul{margin:0;padding-left:1.15rem}
-  .stay-facts li{margin:5px 0;font-size:.88rem;line-height:1.4;overflow-wrap:anywhere}
+  .stay-facts li{margin:5px 0;font-size:1.05rem;line-height:1.4;overflow-wrap:anywhere}
   .stay-facts a,.dayof-item a,.todo-fold .todo-body a{color:var(--gold-bright);font-weight:700;text-decoration:underline;text-underline-offset:2px}
   .todo-fold{margin-top:12px;border:1px solid var(--border);border-radius:12px;background:var(--panel2)}
   .todo-fold summary{cursor:pointer;list-style:none;padding:12px 14px;font-weight:800;color:var(--gold-bright);font-size:.98rem;display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -214,7 +217,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   .todo-sub{display:block;font-weight:500;font-size:.75rem;color:var(--muted);margin-top:2px}
   .todo-fold .todo-body{padding:0 12px 14px}
   .todo-top{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
-  .todo-fold .todo-top a{display:inline-flex;align-items:center;min-height:40px;padding:8px 12px;border-radius:999px;text-decoration:none;font-weight:800;font-size:.86rem}
+  .todo-fold .todo-top a{display:inline-flex;align-items:center;min-height:48px;padding:12px 14px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1rem}
   .todo-top a.book{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a}
   .todo-top a.call{background:transparent;color:var(--gold-bright);border:1px solid var(--border)}
   .todo-deadline{margin:0 0 8px;padding:8px 10px;border-radius:10px;border:1px solid #6b5420;background:#12100a;color:#e8d5a3;font-size:.86rem;font-weight:700;line-height:1.35}
@@ -247,8 +250,8 @@ a.dayof-directions{
   background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;
   padding:12px 16px;
 }
-.dc-map-btn{min-height:44px;padding:12px 16px;box-sizing:border-box;line-height:1.2}
-.drive-card.today{scroll-margin:12px}
+.dc-map-btn{min-height:48px;padding:12px 16px;box-sizing:border-box;line-height:1.2}
+.drive-card.today{scroll-margin-top:calc(16px + env(safe-area-inset-top, 0px))}
 .arrival-fields > li:has([data-slot]:empty){display:none}
 .confirm-tag{display:inline-block;margin:0 4px 0 0;padding:1px 7px;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.03em;text-transform:lowercase;color:#0a0a0a;background:var(--gold);vertical-align:middle}
 .checked-tag{display:inline-block;margin:0 4px 0 0;padding:1px 7px;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.02em;color:#0a0a0a;background:var(--gold);vertical-align:middle}
@@ -257,6 +260,42 @@ a.dayof-directions{
 a.arrival-action{display:flex;align-items:center;justify-content:center;min-height:48px;width:100%;box-sizing:border-box;margin:8px 0;text-decoration:none;font-weight:800;font-size:.92rem;line-height:1.25;text-align:center;border-radius:12px;background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;padding:12px 14px}
 a.arrival-action:visited{color:#0a0a0a}
 .phone-home .ph-title{line-height:1.15}
+.phone-home a.is-map{background:linear-gradient(180deg,var(--gold-bright),var(--gold));border-color:var(--gold);color:#0a0a0a}
+.phone-home a.is-map .ph-kicker,.phone-home a.is-map .ph-title,.phone-home a.is-map .ph-sub{color:#0a0a0a}
+a,button,summary{touch-action:manipulation}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold-bright);outline-offset:2px}
+section[id],.stay-facts,.todo-fold,header.hero,.drive-card,.past-fold,.now-panel{scroll-margin-top:calc(16px + env(safe-area-inset-top, 0px))}
+body.update-open{scroll-padding-top:0}
+body.update-open section[id],body.update-open .stay-facts,body.update-open .todo-fold,body.update-open header.hero,body.update-open .drive-card,body.update-open .past-fold,body.update-open .now-panel{scroll-margin-top:calc(108px + env(safe-area-inset-top, 0px))}
+a[href^="tel:"]{display:inline-flex;align-items:center;min-height:44px;padding:8px 10px;margin:2px 0;border-radius:10px;background:rgba(212,175,55,.18);color:var(--gold-bright);font-weight:800;font-size:1.05rem;line-height:1.2;text-decoration:none}
+.stay-facts a,.todo-body a,.boat-card a,#food a,.food-day a{display:inline-block;max-width:100%;min-height:44px;min-width:44px;padding:10px 12px;overflow-wrap:anywhere;box-sizing:border-box}
+.stay-facts a[href*="maps.apple.com"],.stay-facts a[href*="google.com/maps"],.dayof-item a[href*="maps.apple.com"],.dayof-item a[href*="google.com/maps"]{display:inline-block;max-width:100%;min-height:44px;padding:10px 2px;font-size:1.12rem;font-weight:800;line-height:1.3;overflow-wrap:anywhere}
+.now-panel{background:linear-gradient(180deg,#2a210e,#120f0a);border:1px solid var(--gold);border-radius:18px;padding:16px 16px 14px;margin:0 0 14px;box-shadow:0 0 0 1px rgba(212,175,55,.28),0 12px 32px rgba(0,0,0,.45)}
+.now-kicker{margin:0 0 4px;font-size:.95rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--gold-bright)}
+.now-title{margin:0 0 8px;font-size:1.55rem;line-height:1.15;color:#fff}
+.now-time{margin:0;font-size:1.85rem;font-weight:800;line-height:1.1;color:var(--gold-bright)}
+.now-meta{margin:6px 0 0;font-size:1.2rem;font-weight:700;color:#f7f3ea}
+.now-next,.now-late{margin:10px 0 0;font-size:1.12rem;font-weight:700;line-height:1.35;color:#f7f1e4}
+.now-address{display:flex;align-items:center;min-height:48px;margin-top:8px;font-size:1.2rem;font-weight:800;line-height:1.3;color:var(--gold-bright);text-decoration:underline;text-underline-offset:3px}
+.now-actions{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.now-actions a{display:flex;align-items:center;justify-content:center;min-height:52px;padding:12px 16px;border-radius:14px;text-decoration:none;font-weight:800;font-size:1.15rem;text-align:center;box-sizing:border-box}
+.now-go,.now-call{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a}
+.now-alt{background:#1a160e;color:#f7f3ea;border:1px solid #8a7324}
+.past-fold{border:1px solid var(--border);border-radius:12px;background:var(--panel2)}
+.past-fold>summary{cursor:pointer;list-style:none;min-height:48px;padding:12px 14px;font-weight:800;font-size:1.05rem;color:var(--gold-bright);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.past-fold>summary::-webkit-details-marker{display:none}
+.past-fold>summary::after{content:"Show";font-size:.95rem;font-weight:800;color:var(--gold-bright);flex:none}
+.past-fold[open]>summary::after{content:"Hide"}
+.past-fold>.drive-card,.past-fold>.stay-facts{border:0;margin:0;box-shadow:none;border-radius:0 0 12px 12px}
+#btnCheckUpdate{min-height:44px;display:inline-flex;align-items:center;padding:8px 10px;font-size:1rem;cursor:pointer;color:var(--gold-bright);text-decoration:underline;background:transparent;border:0}
+.wday .wd{font-size:.85rem;color:#f0e6cc}
+.wday .hl{font-size:1rem}
+.drive-card h3{font-size:1.08rem}
+.dc-meta span{color:#f7f3ea;font-weight:700}
+a.dayof-call{display:flex;align-items:center;justify-content:center;min-height:52px;width:100%;margin-top:8px;box-sizing:border-box;text-decoration:none;font-weight:800;font-size:1.1rem;border-radius:12px;background:#1a160e;color:#f7f3ea;border:1px solid #8a7324;padding:12px 16px}
+.act-prices{font-size:.95rem}
+.act-prices th,.act-prices td{padding:8px 6px}
+input,select,textarea{font-size:16px}
 </style>
 </head>
 <body>
@@ -271,6 +310,22 @@ a.arrival-action:visited{color:#0a0a0a}
     <button type="button" class="ubtn sec" id="btnDismissUpdate">Not now</button>
   </div>
 </div>
+
+<section class="now-panel" id="now" aria-label="Today’s leg">
+  <p class="now-kicker" id="nowKicker">Tue 9/29 · Drive day</p>
+  <h2 class="now-title" id="nowTitle">Anastasia SP → Edisto Beach SP cabins</h2>
+  <p class="now-time" id="nowTime">Leave by ~10:25 AM</p>
+  <p class="now-meta" id="nowMeta">5h 35m · 278.3 mi</p>
+  <p class="now-next" id="nowNext">Cabin 2. Check-in 4:00 PM at the Ranger Station.</p>
+    <a class="now-address" id="nowAddress" href="https://maps.apple.com/?daddr=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;dirflg=d" target="_blank" rel="noopener">8377 State Cabin Rd, Edisto Island, SC 29438</a>
+  <p class="now-late" id="nowLate">If you will arrive after 5 PM, call the Ranger Station 843-869-2156 before 5 PM for the gate code.</p>
+  <div class="now-actions" id="nowActions">
+    <a class="now-go" id="nowDirections" href="https://maps.apple.com/?saddr=29.8675,-81.271&amp;daddr=32.505,-80.299&amp;dirflg=d" target="_blank" rel="noopener">Directions</a>
+    <a class="now-call" id="nowCall" href="tel:+18438692156">Call 843-869-2156</a>
+    <a class="now-alt" id="nowGoogle" href="https://www.google.com/maps/dir/?api=1&amp;origin=29.8675,-81.271&amp;destination=32.505,-80.299&amp;travelmode=driving" target="_blank" rel="noopener">Google Maps</a>
+    <a class="now-alt" id="nowMap" href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener">Open trip map</a>
+  </div>
+</section>
 
 <header class="hero">
   <h1>Coastal Trip Hub</h1>
@@ -293,7 +348,7 @@ a.arrival-action:visited{color:#0a0a0a}
     <a href="#dayof" id="jumpDayof"><span class="ph-kicker">Today</span><span class="ph-title">Day-of</span><span class="ph-sub">Leave-by · meals · linens</span></a>
     <a href="#lodging" id="jumpTonight"><span class="ph-kicker">Stay</span><span class="ph-title">Tonight / Check-in</span><span class="ph-sub">Lodging · linens</span></a>
     <a href="#weather" id="jumpWeather"><span class="ph-kicker">Forecast</span><span class="ph-title">Weather</span><span class="ph-sub">Stops along the route</span></a>
-    <a href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener"><span class="ph-kicker">Route</span><span class="ph-title">Map</span><span class="ph-sub">Stops + food pins</span></a>
+    <a class="is-map" href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener"><span class="ph-kicker">Route</span><span class="ph-title">Trip map</span><span class="ph-sub">Stops + food pins</span></a>
     <a href="#boat"><span class="ph-kicker">Oct 1–4</span><span class="ph-title">Boat / Clayton</span><span class="ph-sub">Cheat sheet</span></a>
     <a href="#coverage"><span class="ph-kicker">Signal</span><span class="ph-title">Cell / Starlink</span><span class="ph-sub">Gap zones</span></a>
   </div>
@@ -301,15 +356,15 @@ a.arrival-action:visited{color:#0a0a0a}
 
 <section class="block dayof" id="dayof">
   <h2><span class="dot"></span> Day-of mode</h2>
-  <p class="status" id="dayStatus">…</p>
-  <p class="detail" id="dayDetail"></p>
+  <p class="status" id="dayStatus">Drive day · Anastasia SP → Edisto Beach SP cabins</p>
+  <p class="detail" id="dayDetail">Tonight: Edisto Beach SP cabins. Stay window 2026-09-29 → 2026-10-01 (checkout morning). Today's drive: Anastasia SP → Edisto Beach SP cabins.</p>
   <div id="dateOverrideWrap">
   <label for="dateOverride" style="color:var(--muted);font-size:.85rem;display:block;margin-bottom:4px">Manual date override (testing)</label>
   <select id="dateOverride"><option value="">Auto (today)</option><option value="2026-09-26">2026-09-26</option><option value="2026-09-27">2026-09-27</option><option value="2026-09-28">2026-09-28</option><option value="2026-09-29">2026-09-29</option><option value="2026-09-30">2026-09-30</option><option value="2026-10-01">2026-10-01</option><option value="2026-10-02">2026-10-02</option><option value="2026-10-03">2026-10-03</option><option value="2026-10-04">2026-10-04</option><option value="2026-10-05">2026-10-05</option><option value="2026-10-06">2026-10-06</option><option value="2026-10-07">2026-10-07</option><option value="2026-10-08">2026-10-08</option><option value="2026-10-09">2026-10-09</option><option value="2026-10-10">2026-10-10</option><option value="2026-10-11">2026-10-11</option></select>
   </div>
 
   <div class="dayof-card" id="dayCard">
-    <h3 id="dayCardTitle">Loading…</h3>
+    <h3 id="dayCardTitle">Drive Anastasia → Edisto · Tue 2026-09-29</h3>
     <div class="dayof-grid" id="dayCardGrid"></div>
   </div>
 
@@ -318,33 +373,33 @@ a.arrival-action:visited{color:#0a0a0a}
 <section class="block" id="drives">
   <h2><span class="dot"></span> Drive-day cards</h2>
   <p style="color:var(--muted);margin:0 0 10px;font-size:.85rem">OSRM from coastal map · leave-by assumes ~4:00 PM arrival when sensible · open Maps for live traffic</p>
-  <div class="drive-grid"><article class="drive-card" data-drive-date="2026-09-27" data-arrival="Arrive ~4:00 PM · check-in starts 4:00 · The Dolphin, Site 4">
+  <div class="drive-grid"><details class="past-fold" id="anastasia-drive" data-past-until="2026-09-29"><summary>Past stop · Sun 09-27 · Home → Anastasia</summary><article class="drive-card" data-drive-date="2026-09-27" data-arrival="Arrive ~4:00 PM · check-in starts 4:00 · The Dolphin, Site 4">
   <img class="dc-thumb" src="assets/anastasia.jpg" alt="Anastasia State Park dunes and beach" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-09-27">09-27</span></div><h3>Home (Largo, FL) → Anastasia SP bungalows</h3><div class="dc-meta"><span>3h 33m</span><span>212.5 mi</span><span>Leave by ~12:25 PM</span></div><p class="dc-note">Arrive ~4:00 PM · check-in starts 4:00 · The Dolphin, Site 4</p><p class="dc-traffic">Traffic: Tampa morning + Jacksonville I-95 — add ~20–30 min if the leave-by slips.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=27.911904,-82.817489&daddr=29.8675,-81.271&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=27.911904,-82.817489&destination=29.8675,-81.271&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-09-27">Sun 09-27</span></div><h3>Home (Largo, FL) → Anastasia SP bungalows</h3><div class="dc-meta"><span>3h 33m</span><span>212.5 mi</span><span>Leave by ~12:25 PM</span></div><p class="dc-note">Arrive ~4:00 PM · check-in starts 4:00 · The Dolphin, Site 4</p><p class="dc-traffic">Traffic: Tampa morning + Jacksonville I-95 — add ~20–30 min if the leave-by slips.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=27.911904,-82.817489&daddr=29.8675,-81.271&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=27.911904,-82.817489&destination=29.8675,-81.271&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
   </div>
-</article><article class="drive-card long" data-drive-date="2026-09-29" data-arrival="Cabin 2. Check-in 4:00 PM at the Ranger Station. If you will arrive after 5 PM, call 843-869-2156 before 5 for the gate code.">
+</article></details><article class="drive-card long" data-drive-date="2026-09-29" data-arrival="Cabin 2. Check-in 4:00 PM at the Ranger Station. If you will arrive after 5 PM, call 843-869-2156 before 5 for the gate code.">
   <img class="dc-thumb" src="assets/edisto.jpg" alt="Edisto Beach cabin and palmettos" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-09-29">09-29</span><span class="badge long">Long leg</span></div><h3>Anastasia SP → Edisto Beach SP cabins</h3><div class="dc-meta"><span>5h 35m</span><span>278.3 mi</span><span>Leave by ~10:25 AM</span></div><p class="dc-note">Long leg (&gt;4h) — pack snacks, fuel early. Checkout 11:00 AM: trash to the park compactor, thermostat 72°F cool. Leave ~10:25 AM still clears checkout. Edisto Cabin 2 check-in is 4:00 PM. If you will arrive after 5 PM, call 843-869-2156 before 5 for the gate code.</p><p class="dc-traffic">Traffic: Charleston / US-17 — worse Fri–Sun; leave-by already assumes a buffer.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=29.8675,-81.271&daddr=32.505,-80.299&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=29.8675,-81.271&destination=32.505,-80.299&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-09-29">Tue 09-29</span><span class="badge long">Long leg</span></div><h3>Anastasia SP → Edisto Beach SP cabins</h3><div class="dc-meta"><span>5h 35m</span><span>278.3 mi</span><span>Leave by ~10:25 AM</span></div><p class="dc-note">Long leg (&gt;4h) — pack snacks, fuel early. Checkout 11:00 AM: trash to the park compactor, thermostat 72°F cool. Leave ~10:25 AM still clears checkout. Edisto Cabin 2 check-in is 4:00 PM. If you will arrive after 5 PM, call 843-869-2156 before 5 for the gate code.</p><p class="dc-traffic">Traffic: Charleston / US-17 — worse Fri–Sun; leave-by already assumes a buffer.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=29.8675,-81.271&daddr=32.505,-80.299&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=29.8675,-81.271&destination=32.505,-80.299&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
   </div>
 </article><article class="drive-card" data-drive-date="2026-10-01" data-arrival="Edisto check-out 10:00 AM. Clayton check-in after 3:00 PM. Boat ride $100 on-site. Message host for landing, pickup time, and parking.">
   <img class="dc-thumb" src="assets/georgetown.jpg" alt="Georgetown marsh boat dock cabin" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-01">10-01</span><span class="badge boat">Boat</span></div><h3>Edisto Beach SP → Clayton Cabin / Georgetown SC</h3><div class="dc-meta"><span>2h 34m</span><span>106.3 mi</span><span>Leave by ~12:30 PM</span></div><p class="dc-note">Edisto check-out is 10:00 AM, before this 12:30 PM drive leave-by. Clayton check-in after 3:00 PM. Boat ride $100 paid on-site. Message the host in the Airbnb app for landing, pickup time, and parking. Mosquitoes at the landing — bring repellent.</p><p class="dc-traffic">Traffic: US-17 toward Georgetown / Myrtle; confirm boat time before you roll.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=32.505,-80.299&daddr=33.3768,-79.2945&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=32.505,-80.299&destination=33.3768,-79.2945&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-01">Thu 10-01</span><span class="badge boat">Boat</span></div><h3>Edisto Beach SP → Clayton Cabin / Georgetown SC</h3><div class="dc-meta"><span>2h 34m</span><span>106.3 mi</span><span>Leave by ~12:30 PM</span></div><p class="dc-note">Edisto check-out is 10:00 AM, before this 12:30 PM drive leave-by. Clayton check-in after 3:00 PM. Boat ride $100 paid on-site. Message the host in the Airbnb app for landing, pickup time, and parking. Mosquitoes at the landing — bring repellent.</p><p class="dc-traffic">Traffic: US-17 toward Georgetown / Myrtle; confirm boat time before you roll.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=32.505,-80.299&daddr=33.3768,-79.2945&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=32.505,-80.299&destination=33.3768,-79.2945&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
   </div>
 </article><article class="drive-card" data-drive-date="2026-10-04" data-arrival="Check in at the Marina Store. Gate locks at 9 PM in October — arrive before 9 PM. Combination is not given out.">
   <img class="dc-thumb" src="assets/carolina.jpg" alt="Carolina Beach pier" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-04">10-04</span><span class="badge boat">Boat</span></div><h3>Georgetown (boat out) → Carolina Beach SP cabin</h3><div class="dc-meta"><span>2h 56m</span><span>122.7 mi</span><span>Leave by ~12:00 PM</span></div><p class="dc-note">Factor boat-to-car transfer before drive. Clayton checkout is before 10:00 AM. Carolina Beach gate locks at 9 PM in October — be inside before 9. Combination is not given out.</p><p class="dc-traffic">Traffic: boat-to-car first, then Wilmington on the approach to Carolina Beach.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=33.3768,-79.2945&daddr=34.036,-77.907&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=33.3768,-79.2945&destination=34.036,-77.907&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-04">Sun 10-04</span><span class="badge boat">Boat</span></div><h3>Georgetown (boat out) → Carolina Beach SP cabin</h3><div class="dc-meta"><span>2h 56m</span><span>122.7 mi</span><span>Leave by ~12:00 PM</span></div><p class="dc-note">Factor boat-to-car transfer before drive. Clayton checkout is before 10:00 AM. Carolina Beach gate locks at 9 PM in October — be inside before 9. Combination is not given out.</p><p class="dc-traffic">Traffic: boat-to-car first, then Wilmington on the approach to Carolina Beach.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=33.3768,-79.2945&daddr=34.036,-77.907&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=33.3768,-79.2945&destination=34.036,-77.907&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
   </div>
 </article><article class="drive-card" data-drive-date="2026-10-06" data-arrival="Visitor Center check-in about 3–5 PM (closes 5 PM), 1572 Hammocks Beach Road. Call 910-326-4881 before 5 if the leave-by slips.">
   <img class="dc-thumb" src="assets/hammocks.jpg" alt="Hammocks Beach mainland cabin in oaks" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-06">10-06</span></div><h3>Carolina Beach SP → Hammocks Beach SP Simmons</h3><div class="dc-meta"><span>2h 05m</span><span>81.4 mi</span><span>Leave by ~1:55 PM</span></div><p class="dc-note">Mainland cabin (Simmons). Check in at the Visitor Center, about 3–5 PM (closes 5 PM). If the 1:55 PM leave-by slips, call 910-326-4881 before 5.</p><p class="dc-traffic">Traffic: usually light; still peek at US-17 if you leave midday.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=34.036,-77.907&daddr=34.687,-77.139&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=34.036,-77.907&destination=34.687,-77.139&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-06">Tue 10-06</span></div><h3>Carolina Beach SP → Hammocks Beach SP Simmons</h3><div class="dc-meta"><span>2h 05m</span><span>81.4 mi</span><span>Leave by ~1:55 PM</span></div><p class="dc-note">Mainland cabin (Simmons). Check in at the Visitor Center, about 3–5 PM (closes 5 PM). If the 1:55 PM leave-by slips, call 910-326-4881 before 5.</p><p class="dc-traffic">Traffic: usually light; still peek at US-17 if you leave midday.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=34.036,-77.907&daddr=34.687,-77.139&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=34.036,-77.907&destination=34.687,-77.139&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
   </div>
 </article><article class="drive-card long" data-drive-date="2026-10-08" data-arrival="Cabin check-in 3:00 PM. Confirm the card balance was paid about Oct 1. First yellow speed bump for the welcome packet.">
   <img class="dc-thumb" src="assets/frisco.jpg" alt="Frisco Outer Banks dunes cabin" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-08">10-08</span><span class="badge long">Long leg</span></div><h3>Hammocks Beach SP → Frisco Woods camping cabin</h3><div class="dc-meta"><span>5h 24m</span><span>227.2 mi</span><span>Leave by ~10:35 AM</span></div><p class="dc-note">Long leg (&gt;4h) — Outer Banks stretch. Cabin check-in 3:00 PM. Confirm the card-payment balance was paid about Oct 1.</p><p class="dc-traffic">Traffic: OBX bridges (Wright / Bonner) — leave early Fri–Sun on the Outer Banks stretch.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=34.687,-77.139&daddr=35.223,-75.635&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=34.687,-77.139&destination=35.223,-75.635&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-08">Thu 10-08</span><span class="badge long">Long leg</span></div><h3>Hammocks Beach SP → Frisco Woods camping cabin</h3><div class="dc-meta"><span>5h 24m</span><span>227.2 mi</span><span>Leave by ~10:35 AM</span></div><p class="dc-note">Long leg (&gt;4h) — Outer Banks stretch. Cabin check-in 3:00 PM. Confirm the card-payment balance was paid about Oct 1.</p><p class="dc-traffic">Traffic: OBX bridges (Wright / Bonner) — leave early Fri–Sun on the Outer Banks stretch.</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=34.687,-77.139&daddr=35.223,-75.635&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=34.687,-77.139&destination=35.223,-75.635&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
   </div>
 </article><article class="drive-card" data-drive-date="2026-10-10" data-arrival="Home · 3007 Bluffs Drive, Largo FL">
   <img class="dc-thumb" src="assets/frisco.jpg" alt="Frisco Outer Banks dunes cabin" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-10">10-10</span><span class="badge long">Drive home</span></div><h3>Frisco Woods (Hatteras Island NC) → 3007 Bluffs Drive, Largo FL</h3><div class="dc-meta"><span>Leave early</span></div><p class="dc-note">Long southbound day — leave early. Open Directions for live time and distance.</p><p class="dc-traffic">Traffic: southbound I-95 if you route that way (Florence Buc-ee’s is the food-schedule fuel stop).</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=35.223,-75.635&daddr=3007%20Bluffs%20Drive,%20Largo%20FL&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=35.223,-75.635&destination=3007%20Bluffs%20Drive,%20Largo%20FL&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-10">Sat 10-10</span><span class="badge long">Drive home</span></div><h3>Frisco Woods (Hatteras Island NC) → 3007 Bluffs Drive, Largo FL</h3><div class="dc-meta"><span>Leave early</span></div><p class="dc-note">Long southbound day — leave early. Open Directions for live time and distance.</p><p class="dc-traffic">Traffic: southbound I-95 if you route that way (Florence Buc-ee’s is the food-schedule fuel stop).</p><div class="dc-maps"><a class="dc-map-btn" href="https://maps.apple.com/?saddr=35.223,-75.635&daddr=3007%20Bluffs%20Drive,%20Largo%20FL&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=35.223,-75.635&destination=3007%20Bluffs%20Drive,%20Largo%20FL&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a></div>
   </div>
 </article></div>
 </section>
@@ -375,11 +430,13 @@ a.arrival-action:visited{color:#0a0a0a}
     </tbody>
   </table>
   </div>
+  <details class="past-fold" id="anastasia-past" data-past-until="2026-09-29">
+    <summary>Past stop · Anastasia Beach Bungalows · The Dolphin</summary>
   <div class="stay-facts" id="anastasia-arrival" data-arrival="anastasia">
     <h3>Anastasia Beach Bungalows · The Dolphin</h3>
     <p class="when">Site 4, Sea Bean Loop (sites 1–6) · Sep 27–29 · 2 nights · pre-arrival from Staylist</p>
     <ul class="arrival-fields">
-      <li data-field="address"><b>Address:</b> <a href="https://maps.apple.com/?q=300%20Anastasia%20Park%20Rd,%20St.%20Augustine,%20FL%2032080">300 Anastasia Park Rd, St. Augustine, FL 32080</a></li>
+      <li data-field="address"><b>Address:</b> <a href="https://maps.apple.com/?daddr=300%20Anastasia%20Park%20Rd,%20St.%20Augustine,%20FL%2032080&amp;dirflg=d">300 Anastasia Park Rd, St. Augustine, FL 32080</a></li>
       <li data-field="checkin"><b>Check-in</b> starts 4:00 PM. <b>Check-out</b> is 11:00 AM. Early check-in or late check-out may be available for $35 — call ahead.</li>
       <li data-field="arrival"><b>Arrival:</b> at the park entrance, tell the ranger you have a glamping reservation and show the confirmation email. They give the parking pass and gate access. Follow the map to Sea Bean Loop and take the first right for sites 1–6. Site 4 is the fourth on the right. Parking at the site is limited; large vehicles can use the nearby lot. Max 2 vehicles per site — extras go to overflow parking.</li>
       <li data-field="key"><b>Key:</b> the lock-box combination comes by phone call or text before arrival. The lock box is on the metal steps at the front door.</li>
@@ -389,24 +446,25 @@ a.arrival-action:visited{color:#0a0a0a}
       <li data-field="camp"><b>Camp:</b> laundry nearby. Bathhouses close briefly each day for cleaning. Trash is picked up daily at 10 AM; extra trash goes to the park compactor (marked on the map inside the bungalow).</li>
       <li data-field="checkout"><b>Before checkout:</b> take all trash to the park compactor and set the thermostat to 72°F cool.</li>
       <li data-field="notes"><b>Island Beach Shop and Grill:</b> breakfast, lunch, ice cream, beer, ice, batteries, flashlights, snacks, and beach gear. Reserve kayaks, paddleboards, bikes, and beach gear ahead at <a href="https://AnastasiaStatePark.com">AnastasiaStatePark.com</a>.</li>
-      <li data-field="contact"><b>Bungalow supervisor</b> (after hours or late arrival): <a href="tel:904-988-6869">904-988-6869</a>. Emergencies: call 911 and say Sea Bean Camping loop, sites 1–6.</li>
+      <li data-field="contact"><b>Bungalow supervisor</b> (after hours or late arrival): <a href="tel:+19049886869">904-988-6869</a>. Emergencies: call 911 and say Sea Bean Camping loop, sites 1–6.</li>
       <li data-field="boat"><b>Boat / dock:</b> <span data-slot="boat"></span></li>
     </ul>
     <p class="still-need">Still need: confirmation #</p>
   </div>
+  </details>
   <div class="stay-facts" id="edisto-arrival" data-arrival="edisto">
     <h3>Edisto Beach SP cabins · Cabin 2</h3>
     <p class="when">Sep 29–Oct 1 · 2 nights</p>
-    <p class="arrival-alert">Check-out is 10:00 AM on Oct 1. If you will arrive after 5 PM on Sep 29, call <a href="tel:843-869-2156">843-869-2156</a> before 5 for the gate code.</p>
+    <p class="arrival-alert">Check-out is 10:00 AM on Oct 1. If you will arrive after 5 PM on Sep 29, call <a href="tel:+18438692156">843-869-2156</a> before 5 for the gate code.</p>
     <ul class="arrival-fields">
       <li data-field="address"><b>Address:</b> <a href="https://maps.apple.com/?daddr=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;dirflg=d">8377 State Cabin Rd, Edisto Island, SC 29438</a></li>
       <li data-field="checkin"><b>Check-in</b> 4:00 PM · Cabin 2. <b>Check-out</b> 10:00 AM.</li>
       <li data-field="balance">$217.28 due at check-in (half prepaid; if unpaid at check-in the park charges the card on file).</li>
       <li data-field="arrival"><b>Where to check in:</b> Ranger Station inside Live Oak Campground, off Cabin Road. Dirt road on the right about ¾ mile past the Environmental Learning Center.</li>
       <li data-field="hours"><b>Office hours:</b> M–F 9 AM–5 PM. Park hours 7 AM–6 PM daily, extended to 8 PM during Daylight Saving Time (still in effect Sep 29).</li>
-      <li data-field="late"><b>Late arrival:</b> call the Ranger Station <a href="tel:843-869-2156">843-869-2156</a> from 9 AM–5 PM; leave a message if no one answers. Arriving after 5 PM: contact the park before 5 PM for the gate code. On-time guests get the code at check-in.</li>
+      <li data-field="late"><b>Late arrival:</b> call the Ranger Station <a href="tel:+18438692156">843-869-2156</a> from 9 AM–5 PM; leave a message if no one answers. Arriving after 5 PM: contact the park before 5 PM for the gate code. On-time guests get the code at check-in.</li>
       <li data-field="gate"><b>Gate:</b> access code is given at check-in, or by phone before 5 PM if you will be late.</li>
-      <li data-field="contact"><b>Phone:</b> Ranger Station <a href="tel:843-869-2156">843-869-2156</a>. Email <a href="mailto:edistobeach@scprt.com">edistobeach@scprt.com</a>. SC Parks reservations <a href="tel:18663457275">1-866-345-7275</a>, M–F 9–5.</li>
+      <li data-field="contact"><b>Phone:</b> Ranger Station <a href="tel:+18438692156">843-869-2156</a>. Email <a href="mailto:edistobeach@scprt.com">edistobeach@scprt.com</a>. SC Parks reservations <a href="tel:+18663457275">1-866-345-7275</a>, M–F 9–5.</li>
       <li data-field="fees"><b>Fees:</b> $8/adult entrance is the day-visitor rate. Official FAQ: overnight guests do not pay park admission.</li>
       <li data-field="wifi"><b>Wi-Fi:</b> only near the office and in the Wi-Fi room next to the office, not in the cabins. Hub cell note: limited on the Edisto park side. Cabins have a TV with satellite.</li>
       <li data-field="linens"><b>Linens / laundry:</b> bath and bed linens provided, plus utensils, coffee maker, microwave, and a screened porch. No laundry in the park or on the island; nearest is about 1 hour toward Charleston.</li>
@@ -444,7 +502,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <li data-field="checkin"><b>Check-in / out:</b> <span class="confirm-tag">confirm</span> NC standard and ReserveAmerica Site Details: 3:00 PM / 12:00 PM. ReserveAmerica cabin notes: 4:00 PM / 1:00 PM, check-in at the Marina Store. Safest: arrive after 4 PM or call ahead, and check in at the Marina Store. Early check-in is OK if the cabin was empty the night before.</li>
       <li data-field="hours"><b>October hours:</b> Marina 8 AM–8 PM. Visitor Center 8 AM–5 PM daily. Park gate 7 AM–9 PM.</li>
       <li data-field="late"><b>Late / gate:</b> the gate locks at posted closing and the combination will not be given out. If you leave and miss closing, you cannot re-enter. Emergency: see the camp host. After-hours numbers are posted above the marina phone in the breezeway. If you cannot arrive before close, call the park or ReserveAmerica by 3 PM the next day or the reservation is a no-show.</li>
-      <li data-field="contact"><b>Phone:</b> Marina <a href="tel:910-458-7770">910-458-7770</a>. Visitor Center <a href="tel:910-458-8206">910-458-8206</a>. Email <a href="mailto:carolina.beach@ncparks.gov">carolina.beach@ncparks.gov</a>. ReserveAmerica <a href="tel:18777226762">1-877-722-6762</a>.</li>
+      <li data-field="contact"><b>Phone:</b> Marina <a href="tel:+19104587770">910-458-7770</a>. Visitor Center <a href="tel:+19104588206">910-458-8206</a>. Email <a href="mailto:carolina.beach@ncparks.gov">carolina.beach@ncparks.gov</a>. ReserveAmerica <a href="tel:+18777226762">1-877-722-6762</a>.</li>
       <li data-field="vehicles"><b>Vehicles:</b> max 2 per cabin, in the cabin spaces. Extra vehicles need a permit and park at the Visitor Center.</li>
       <li data-field="fees"><b>Fees:</b> no day-use entry fee. Fees due on arrival are not in the sources. Published cabin rate is about $75/night (third-party). Sheet says SP cabin rates.</li>
       <li data-field="linens"><b>Linens / laundry:</b> bring your own linens, pillows, and towels. Coin laundry at the marina. No water or bathroom in the cabin; two bathhouses and potable spigots. Sleeps 6. <span class="confirm-tag">confirm</span> ReserveAmerica: double bed + 2 twin bunk sets. ncparks.gov: queen. The NC linen kit (queen + full + 2 twin) covers either.</li>
@@ -457,17 +515,17 @@ a.arrival-action:visited{color:#0a0a0a}
   <div class="stay-facts" id="hammocks-arrival" data-arrival="hammocks">
     <h3>Hammocks Beach SP · Simmons Mainland Campground</h3>
     <p class="when">Oct 6–8 · 2 nights · mainland cabin</p>
-    <p class="arrival-alert">Check-in window is about 3–5 PM on Oct 6. The Visitor Center closes at 5 PM. If the drive slips, call <a href="tel:910-326-4881">910-326-4881</a> before 5.</p>
+    <p class="arrival-alert">Check-in window is about 3–5 PM on Oct 6. The Visitor Center closes at 5 PM. If the drive slips, call <a href="tel:+19103264881">910-326-4881</a> before 5.</p>
     <ul class="arrival-fields">
       <li data-field="address"><b>Campground:</b> <a href="https://maps.apple.com/?daddr=Simmons%20Mainland%20Campground,%20100%20FFA%20Camp%20Road,%20Swansboro,%20NC%2028584&amp;dirflg=d">Simmons Mainland Campground, 100 FFA Camp Road, Swansboro, NC 28584</a>. Outside the main gate, about ¼ mile on the right along Hammocks Beach Rd. Map GPS 34.6769, -77.1489.</li>
       <li data-field="checkin-where"><b>Check in at:</b> <a href="https://maps.apple.com/?daddr=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&amp;dirflg=d">Visitor Center, 1572 Hammocks Beach Road, Swansboro, NC 28584</a></li>
       <li data-field="checkin"><b>Check-in</b> at the Visitor Center after 3:00 PM. No early check-ins. <b>Check-out</b> 12:00 PM.</li>
       <li data-field="hours"><b>Hours:</b> Visitor Center 8 AM–5 PM year-round (8–6 Memorial Day–Labor Day). Main park gate in October 8 AM–8 PM. A July 10 status page listed summer hours (Visitor Center 8–6, gate 8–9); that does not apply in October.</li>
       <li data-field="late"><b>Gate:</b> Simmons campground has 24-hour drive-up access (gate always open). No Simmons-specific late check-in is published. NC standard: call by 3 PM the next day or it is a no-show. The map shows a campground host site. “Simmons” is the campground. Cabins are named Trout, Mullet, Flounder, and Red Drum.</li>
-      <li data-field="contact"><b>Phone:</b> Visitor Center <a href="tel:910-326-4881">(910) 326-4881</a>. Email <a href="mailto:hammocks.beach@ncparks.gov">hammocks.beach@ncparks.gov</a>. ReserveAmerica <a href="tel:18777226762">1-877-722-6762</a>.</li>
+      <li data-field="contact"><b>Phone:</b> Visitor Center <a href="tel:+19103264881">(910) 326-4881</a>. Email <a href="mailto:hammocks.beach@ncparks.gov">hammocks.beach@ncparks.gov</a>. ReserveAmerica <a href="tel:+18777226762">1-877-722-6762</a>.</li>
       <li data-field="fees"><b>Fees:</b> <span class="confirm-tag">confirm</span> ReserveAmerica $75/night (2026) vs campground map PDF $78 with a 2-night minimum. Firewood $10/bundle. Fees due on arrival are not in the sources.</li>
       <li data-field="linens"><b>Linens / laundry:</b> linens are not provided — bring linens plus an extra set. Sleeps up to 6: one large bed and two sets of bunks, climate-controlled. Shared bathhouse with showers and toilets, open year-round. No on-site laundry (official site and the sheet).</li>
-      <li data-field="notes"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> Park fire status unclear (park notice is stale) — plan on the propane stove. Call Visitor Center <a href="tel:910-326-4881">910-326-4881</a> at check-in to confirm rings are OK. Hub cell note: limited on the Hammocks ferry side.</li>
+      <li data-field="notes"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> Park fire status unclear (park notice is stale) — plan on the propane stove. Call Visitor Center <a href="tel:+19103264881">910-326-4881</a> at check-in to confirm rings are OK. Hub cell note: limited on the Hammocks ferry side.</li>
     </ul>
     <p class="still-need">Still need: cabin name, confirmation #, key/code, Wi-Fi, vehicle limit</p>
   </div>
@@ -480,7 +538,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <li data-field="address"><b>Address:</b> <a href="https://maps.apple.com/?daddr=53124%20NC%2012%20Highway,%20Frisco,%20NC%2027936&amp;dirflg=d">53124 NC 12 Highway, Frisco, NC 27936</a></li>
       <li data-field="checkin"><b>Check-in</b> 3:00 PM for cabins. <b>Check-out</b> 12:00 PM.</li>
       <li data-field="arrival"><b>Express check-in:</b> required if paying by credit card. Payment is due seven days before arrival. After it is paid, the welcome packet is ready. On arrival, pull up to the first yellow speed bump and they bring the packet out. For an Oct 8 arrival that due date is about Thu Oct 1 (the Clayton boat day, weak signal).</li>
-      <li data-field="contact"><b>Phone:</b> <a href="tel:252-995-5208">(252) 995-5208</a>. Email <a href="mailto:reservations@fwcobx.com">reservations@fwcobx.com</a>. Confirmations sometimes land in spam.</li>
+      <li data-field="contact"><b>Phone:</b> <a href="tel:+12529955208">(252) 995-5208</a>. Email <a href="mailto:reservations@fwcobx.com">reservations@fwcobx.com</a>. Confirmations sometimes land in spam.</li>
       <li data-field="vehicles"><b>Vehicles:</b> 1 included, max 2 per site, extra vehicle $10/night. Rates assume 2 adults + 2 children + 1 vehicle. Each additional adult (13+) is $6/night. Site change is $10.</li>
       <li data-field="fees"><b>Rates:</b> the booking amount is not in the sources. Fall rates were not on the page. Published 2026 summer rates through Sep 30 (not the October price): One Room $120/night, Two Room $130/night. One Room sleeps 4 (2 full, or 1 full + 1 twin bunk). Two Room sleeps 6 (1 full + 2 twin bunk sets in a separate room). No guarantee of a specific site.</li>
       <li data-field="wifi"><b>Wi-Fi:</b> complimentary across most of the campground (speeds vary). Password <b>FRISCOWOODS</b>. Hub cell note: limited Buxton to Frisco.</li>
@@ -495,7 +553,7 @@ a.arrival-action:visited{color:#0a0a0a}
     <div class="todo-body">
       <div class="todo-top">
         <a class="book" href="https://fareharbor.com/embeds/book/anastasiawatersports/?full-items=yes&amp;flow=69473" target="_blank" rel="noopener">Book online</a>
-        <a class="call" href="tel:904-460-9111">904-460-9111</a>
+        <a class="call" href="tel:+19044609111">904-460-9111</a>
       </div>
       <p class="todo-deadline">Sunday rentals: book online by ~4 PM Sat Sep 26</p>
       <p class="todo-note">Online booking closes 24 hours ahead. Same-day rentals are first come, first served. The renter must be 18 or older and holds a driver’s license as the deposit. Life jackets are included. Cancel at least 24 hours ahead. No guided tours or ranger programs are scheduled Sep 27 to 29. Prices from the concessionaire’s FareHarbor pages, checked Sep 25, 2026.</p>
@@ -535,7 +593,7 @@ a.arrival-action:visited{color:#0a0a0a}
           </tbody>
         </table>
       </div>
-      <p class="todo-note">Aquafin (up to 2 people): the listed price varies, so call to confirm. Call <a href="tel:904-460-9111">904-460-9111</a> to check whether reservations are possible.</p>
+      <p class="todo-note">Aquafin (up to 2 people): the listed price varies, so call to confirm. Call <a href="tel:+19044609111">904-460-9111</a> to check whether reservations are possible.</p>
 
       <h4>Bikes</h4>
       <p class="todo-note">Island Beach Shop. Helmet included.</p>
@@ -607,8 +665,8 @@ a.arrival-action:visited{color:#0a0a0a}
         <li><a href="https://southcarolinaparks.com/edisto-beach" target="_blank" rel="noopener">Edisto Beach SP beach</a> <span class="todo-drive">· in park</span><span class="todo-line">1.5 miles of shell beach, 0.4 mi by bike/foot from the Scott Creek Trail. No lifeguards. <span class="confirm-tag">check</span> As of Sep 26, Beach Accesses 2 and 3 are closed because of high tides.</span></li>
         <li><a href="https://southcarolinaparks.com/edisto-beach/trails" target="_blank" rel="noopener">Spanish Mount &amp; Scott Creek trails</a> <span class="todo-drive">· in park</span><span class="todo-line">Easy hike/bike trails. Spanish Mount (1.7 mi) ends at one of SC’s earliest Native American shell mounds. Scott Creek (0.7 mi) has 3 marsh boardwalks. Park open 7 AM–8 PM (Daylight Saving Time).</span></li>
         <li><a href="https://southcarolinaparks.com/products/10003251" target="_blank" rel="noopener">Environmental Learning Center</a> <span class="todo-drive">· in park</span><span class="todo-line">Fossils, a touch tank, and a live alligator. Tue–Sat 9 AM–4 PM (open Tue Sep 29 and Wed Sep 30). <b>Rainy-day pick.</b></span></li>
-        <li><a href="https://edistowatersports.net/kayaks-and-paddleboards" target="_blank" rel="noopener">Edisto Watersports &amp; Tackle: kayak tours</a> <span class="todo-drive">· ~12 min</span><span class="todo-line">2-hr guided tidal tour to Scott Creek or Mud Creek, $50/adult, beginners welcome. 1.5-hr sunrise paddle $50. 3-hr kayak or paddleboard rental $40. Times follow the tide. Book at <a href="tel:843-869-0663">843-869-0663</a>. <span class="confirm-tag">check hours</span></span></li>
-        <li><a href="https://edistochamber.com/botany-bay/" target="_blank" rel="noopener">Botany Bay Plantation Heritage Preserve</a> <span class="todo-drive">· ~20 min</span><span class="todo-line">Free SCDNR preserve with a driving tour and Boneyard Beach (reachable at low tide only). Open 1 hr before sunrise to 1 hr after sunset. Closed Tuesdays and on hunt days. Get a day pass at the kiosk. No shell collecting and no alcohol. <span class="confirm-tag">check</span> Call SCDNR at <a href="tel:843-844-8957">843-844-8957</a> for the hunt calendar.</span></li>
+        <li><a href="https://edistowatersports.net/kayaks-and-paddleboards" target="_blank" rel="noopener">Edisto Watersports &amp; Tackle: kayak tours</a> <span class="todo-drive">· ~12 min</span><span class="todo-line">2-hr guided tidal tour to Scott Creek or Mud Creek, $50/adult, beginners welcome. 1.5-hr sunrise paddle $50. 3-hr kayak or paddleboard rental $40. Times follow the tide. Book at <a href="tel:+18438690663">843-869-0663</a>. <span class="confirm-tag">check hours</span></span></li>
+        <li><a href="https://edistochamber.com/botany-bay/" target="_blank" rel="noopener">Botany Bay Plantation Heritage Preserve</a> <span class="todo-drive">· ~20 min</span><span class="todo-line">Free SCDNR preserve with a driving tour and Boneyard Beach (reachable at low tide only). Open 1 hr before sunrise to 1 hr after sunset. Closed Tuesdays and on hunt days. Get a day pass at the kiosk. No shell collecting and no alcohol. <span class="confirm-tag">check</span> Call SCDNR at <a href="tel:+18438448957">843-844-8957</a> for the hunt calendar.</span></li>
         <li><a href="https://edistomuseum.org/pages/directions-hours" target="_blank" rel="noopener">Edisto Island Museum</a> <span class="todo-drive">· ~12 min</span><span class="todo-line">Island history museum, $8/adult. Open Tue–Sat, noon–5 PM from October. <span class="confirm-tag">check hours</span> September hours may differ. <b>Rainy-day pick.</b></span></li>
         <li><a href="https://edistoserpentarium.com/hours/" target="_blank" rel="noopener">Edisto Island Serpentarium</a> <span class="todo-drive">· ~7 min</span><span class="todo-line">Snakes, alligators, and turtles, indoors and out. Fall hours are Thu–Sat 10 AM–4 PM, so go Thu Oct 1 after checkout. $21.95/adult, with a discount if you show your Edisto Beach SP parking pass.</span></li>
       </ul>
@@ -638,7 +696,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <ul class="todo-items">
         <li><a href="https://www.ncparks.gov/state-parks/carolina-beach-state-park/trails" target="_blank" rel="noopener">Flytrap Trail</a> <span class="todo-drive">· in park</span><span class="todo-line">Easy 0.5-mile wheelchair-accessible loop with wild Venus flytraps along the wetland edges. Stay on the trail. Starts at the end of Nature Trail Lane.</span></li>
         <li><a href="https://www.ncparks.gov/state-parks/carolina-beach-state-park/trails" target="_blank" rel="noopener">Sugarloaf Trail</a> <span class="todo-drive">· in park</span><span class="todo-line">3-mile loop from the marina parking lot to the 50-ft Sugarloaf Dune, with good birding.</span></li>
-        <li><a href="https://paddlenc.com/" target="_blank" rel="noopener">Paddle NC kayak &amp; paddleboard</a> <span class="todo-drive">· in park, 1020 State Park Rd</span><span class="todo-line">Walk-ups OK Sun Oct 4, 9 AM–6 PM. Mon–Tue are by appointment only, so call <a href="tel:910-612-3297">910-612-3297</a> the day before. Guided eco tours at 9 AM and 2 PM need a reservation. <span class="confirm-tag">check</span> Prices.</span></li>
+        <li><a href="https://paddlenc.com/" target="_blank" rel="noopener">Paddle NC kayak &amp; paddleboard</a> <span class="todo-drive">· in park, 1020 State Park Rd</span><span class="todo-line">Walk-ups OK Sun Oct 4, 9 AM–6 PM. Mon–Tue are by appointment only, so call <a href="tel:+19106123297">910-612-3297</a> the day before. Guided eco tours at 9 AM and 2 PM need a reservation. <span class="confirm-tag">check</span> Prices.</span></li>
         <li><a href="https://www.carolinabeach.gov/298/Boardwalk-District" target="_blank" rel="noopener">Carolina Beach Boardwalk</a> <span class="todo-drive">· ~5 min</span><span class="todo-line">Pedestrian boardwalk between Cape Fear Blvd and Harper Ave with shops, food, and beach access. Town parking is paid 9 AM–8 PM through Oct 31.</span></li>
         <li><a href="https://www.ncparks.gov/state-parks/fort-fisher-state-recreation-area" target="_blank" rel="noopener">Fort Fisher State Recreation Area</a> <span class="todo-drive">· ~15 min</span><span class="todo-line">Free, quiet ocean beach and the 1-mile Basin Trail to a marsh overlook. The gate is open 8 AM–7 PM in October.</span></li>
         <li><a href="https://historicsites.nc.gov/all-sites/fort-fisher/plan-your-visit" target="_blank" rel="noopener">Fort Fisher State Historic Site</a> <span class="todo-drive">· ~12 min</span><span class="todo-line">Civil War earthwork fort and a new visitor center, free. The 45-minute guided tour is $5, and tours depend on staffing. Tue–Sat 9 AM–5 PM.</span></li>
@@ -653,7 +711,7 @@ a.arrival-action:visited{color:#0a0a0a}
       <p class="todo-deadline">No Bear Island ferry during this stay. The October ferry runs Fri–Sun only (Oct 1–25), so there is none Tue Oct 6–Thu Oct 8. Bear Island is paddle-only those days.</p>
       <p class="todo-note">For reference: the <a href="https://www.ncparks.gov/state-parks/hammocks-beach-state-park/ferry-schedule" target="_blank" rel="noopener">ferry</a> leaves the mainland hourly 9:30 AM–4:30 PM on its operating days. Tickets are $10/adult round trip, sold same day only. Drive times are from Simmons campground. Checked Sep 26, 2026.</p>
       <ul class="todo-items">
-        <li><a href="https://paddlenc.com/" target="_blank" rel="noopener">Paddle NC: kayak &amp; paddleboard at the park</a> <span class="todo-drive">· ~2 min, 1572 Hammocks Beach Rd</span><span class="todo-line">Rentals and guided tours (9 AM and 2 PM) on the park’s marked paddle trails through the marsh. Mon–Thu are by appointment only, so call <a href="tel:910-612-3297">910-612-3297</a> a day ahead. Ask staff about wind and tide before heading toward Bear Island.</span></li>
+        <li><a href="https://paddlenc.com/" target="_blank" rel="noopener">Paddle NC: kayak &amp; paddleboard at the park</a> <span class="todo-drive">· ~2 min, 1572 Hammocks Beach Rd</span><span class="todo-line">Rentals and guided tours (9 AM and 2 PM) on the park’s marked paddle trails through the marsh. Mon–Thu are by appointment only, so call <a href="tel:+19106123297">910-612-3297</a> a day ahead. Ask staff about wind and tide before heading toward Bear Island.</span></li>
         <li><a href="https://www.ncparks.gov/state-parks/hammocks-beach-state-park" target="_blank" rel="noopener">Mainland trails &amp; Visitor Center exhibits</a> <span class="todo-drive">· in park</span><span class="todo-line">2.3 miles of mainland trails. The Visitor Center is open daily 8 AM–5 PM, and the park gate is open 8 AM–8 PM in October. Good short stop on a rainy day.</span></li>
         <li><a href="https://swansboro-nc.org/historic-district/" target="_blank" rel="noopener">Historic Swansboro waterfront</a> <span class="todo-drive">· ~5–10 min</span><span class="todo-line">Historic district on the White Oak River with waterside parks and shops. Easy evening stroll.</span></li>
         <li><a href="https://www.fs.usda.gov/r08/northcarolina/recreation/patsy-pond-nature-trailhead" target="_blank" rel="noopener">Patsy Pond Nature Trail (Croatan NF)</a> <span class="todo-drive">· ~30 min on NC-24</span><span class="todo-line">Free longleaf-pine loops of 0.75, 1, or 1.9 miles past ponds and sinkholes. No restrooms. Bring bug spray.</span></li>
@@ -673,7 +731,7 @@ a.arrival-action:visited{color:#0a0a0a}
         <li><a href="https://graveyardoftheatlantic.nc.gov/plan-your-visit" target="_blank" rel="noopener">Graveyard of the Atlantic Museum</a> <span class="todo-drive">· ~15 min, Hatteras village</span><span class="todo-line">Free. Shipwreck history, plus the Cape Hatteras Lighthouse’s first-order Fresnel lens. Tue–Sat 10 AM–5 PM, so open Thu Oct 8–Sat Oct 10. <b>Rainy-day pick.</b></span></li>
         <li><a href="https://nativeamericanmuseum.org/" target="_blank" rel="noopener">Frisco Native American Museum</a> <span class="todo-drive">· ~2 min</span><span class="todo-line">Small museum with a free ¼-mile nature trail. Tue–Sun 10 AM–5 PM, $8/adult. Second rainy-day option.</span></li>
         <li><a href="https://www.ncdot.gov/travel-maps/ferry-tickets-services/routes/Pages/default.aspx" target="_blank" rel="noopener">Hatteras–Ocracoke ferry day trip</a> <span class="todo-drive">· ~15 min to Hatteras terminal</span><span class="todo-line">Free vehicle ferry, about a 70-minute crossing, first come first served. Frequent departures from about 5 AM to midnight on the Mar 31–Oct 19 schedule. On Ocracoke, the lighthouse base is open some days, and the Hammock Hills Trail is a 0.75-mile loop. <span class="confirm-tag">check</span> NCDOT ferry status that morning, because dredging cut late runs earlier this year.</span></li>
-        <li><a href="https://slashcreekoutfitters.com/" target="_blank" rel="noopener">Slash Creek Outfitters: kayak rental</a> <span class="todo-drive">· ~10 min, Hatteras village</span><span class="todo-line">Kayak rentals with a launch right at the shop, plus bikes and beach gear. Call <a href="tel:252-986-1500">252-986-1500</a>. <span class="confirm-tag">check hours</span></span></li>
+        <li><a href="https://slashcreekoutfitters.com/" target="_blank" rel="noopener">Slash Creek Outfitters: kayak rental</a> <span class="todo-drive">· ~10 min, Hatteras village</span><span class="todo-line">Kayak rentals with a launch right at the shop, plus bikes and beach gear. Call <a href="tel:+12529861500">252-986-1500</a>. <span class="confirm-tag">check hours</span></span></li>
         <li><a href="https://www.recreation.gov/ticket/facility/252034" target="_blank" rel="noopener">Bodie Island Lighthouse climb</a> <span class="todo-drive">· ~1 hr 25 min north (fits the Oct 10 drive off the island)</span><span class="todo-line">Self-guided climbs every 20 minutes, 9 AM–5 PM, through Oct 12. Tickets are same-day only on Recreation.gov, go on sale at 7 AM, and are limited to 8 per slot.</span></li>
       </ul>
     </div>
@@ -684,7 +742,7 @@ a.arrival-action:visited{color:#0a0a0a}
 <section class="block" id="weather">
   <h2><span class="dot"></span> Weather strip</h2>
   <div class='whead'><p class='wstamp' data-weather-stamp>Forecast as of Sep 25, 12:54 PM ET</p><button type='button' class='wrefresh' data-weather-refresh>Refresh</button></div>
-  <div class='wstrip' data-weather-strip><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday' data-date='2026-09-27'><div class='wd'>09-27</div><div class='hl'>90°/59°</div><div class='pr'>0%</div></div><div class='wday' data-date='2026-09-28'><div class='wd'>09-28</div><div class='hl'>89°/68°</div><div class='pr'>3%</div></div><div class='wday' data-date='2026-09-29'><div class='wd'>09-29</div><div class='hl'>90°/70°</div><div class='pr'>8%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday' data-date='2026-09-29'><div class='wd'>09-29</div><div class='hl'>83°/73°</div><div class='pr'>2%</div></div><div class='wday' data-date='2026-09-30'><div class='wd'>09-30</div><div class='hl'>83°/74°</div><div class='pr'>4%</div></div><div class='wday' data-date='2026-10-01'><div class='wd'>10-01</div><div class='hl'>84°/77°</div><div class='pr'>7%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday' data-date='2026-10-01'><div class='wd'>10-01</div><div class='hl'>90°/71°</div><div class='pr'>10%</div></div><div class='wday' data-date='2026-10-02'><div class='wd'>10-02</div><div class='hl'>87°/71°</div><div class='pr'>21%</div></div><div class='wday' data-date='2026-10-03'><div class='wd'>10-03</div><div class='hl'>86°/74°</div><div class='pr'>29%</div></div><div class='wday' data-date='2026-10-04'><div class='wd'>10-04</div><div class='hl'>88°/74°</div><div class='pr'>35%</div></div></div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-04'><div class='wd'>10-04</div><div class='hl'>87°/73°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-05'><div class='wd'>10-05</div><div class='hl'>90°/72°</div><div class='pr'>37%</div></div><div class='wday' data-date='2026-10-06'><div class='wd'>10-06</div><div class='hl'>81°/72°</div><div class='pr'>43%</div></div></div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-06'><div class='wd'>10-06</div><div class='hl'>78°/68°</div><div class='pr'>39%</div></div><div class='wday' data-date='2026-10-07'><div class='wd'>10-07</div><div class='hl'>76°/67°</div><div class='pr'>46%</div></div><div class='wday' data-date='2026-10-08'><div class='wd'>10-08</div><div class='hl'>85°/74°</div><div class='pr'>19%</div></div></div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-08'><div class='wd'>10-08</div><div class='hl'>77°/75°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-09'><div class='wd'>10-09</div><div class='hl'>75°/66°</div><div class='pr'>23%</div></div><div class='wday' data-date='2026-10-10'><div class='wd'>10-10</div><div class='hl'>67°/61°</div><div class='pr'>29%</div></div></div></div></div>
+  <div class='wstrip' data-weather-strip><div class='wcard' data-stop='anastasia'><div class='wtitle'>Anastasia SP<span>St. Augustine, FL</span></div><div class='wdays'><div class='wday' data-date='2026-09-27'><div class='wd'>Sun 9/27</div><div class='hl'>90°/59°</div><div class='pr'>0%</div></div><div class='wday' data-date='2026-09-28'><div class='wd'>Mon 9/28</div><div class='hl'>89°/68°</div><div class='pr'>3%</div></div><div class='wday' data-date='2026-09-29'><div class='wd'>Tue 9/29</div><div class='hl'>90°/70°</div><div class='pr'>8%</div></div></div></div><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday' data-date='2026-09-29'><div class='wd'>Tue 9/29</div><div class='hl'>83°/73°</div><div class='pr'>2%</div></div><div class='wday' data-date='2026-09-30'><div class='wd'>Wed 9/30</div><div class='hl'>83°/74°</div><div class='pr'>4%</div></div><div class='wday' data-date='2026-10-01'><div class='wd'>Thu 10/1</div><div class='hl'>84°/77°</div><div class='pr'>7%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday' data-date='2026-10-01'><div class='wd'>Thu 10/1</div><div class='hl'>90°/71°</div><div class='pr'>10%</div></div><div class='wday' data-date='2026-10-02'><div class='wd'>Fri 10/2</div><div class='hl'>87°/71°</div><div class='pr'>21%</div></div><div class='wday' data-date='2026-10-03'><div class='wd'>Sat 10/3</div><div class='hl'>86°/74°</div><div class='pr'>29%</div></div><div class='wday' data-date='2026-10-04'><div class='wd'>Sun 10/4</div><div class='hl'>88°/74°</div><div class='pr'>35%</div></div></div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-04'><div class='wd'>Sun 10/4</div><div class='hl'>87°/73°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-05'><div class='wd'>Mon 10/5</div><div class='hl'>90°/72°</div><div class='pr'>37%</div></div><div class='wday' data-date='2026-10-06'><div class='wd'>Tue 10/6</div><div class='hl'>81°/72°</div><div class='pr'>43%</div></div></div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-06'><div class='wd'>Tue 10/6</div><div class='hl'>78°/68°</div><div class='pr'>39%</div></div><div class='wday' data-date='2026-10-07'><div class='wd'>Wed 10/7</div><div class='hl'>76°/67°</div><div class='pr'>46%</div></div><div class='wday' data-date='2026-10-08'><div class='wd'>Thu 10/8</div><div class='hl'>85°/74°</div><div class='pr'>19%</div></div></div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-08'><div class='wd'>Thu 10/8</div><div class='hl'>77°/75°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-09'><div class='wd'>Fri 10/9</div><div class='hl'>75°/66°</div><div class='pr'>23%</div></div><div class='wday' data-date='2026-10-10'><div class='wd'>Sat 10/10</div><div class='hl'>67°/61°</div><div class='pr'>29%</div></div></div></div></div>
 </section>
 
 <section class="block" id="boat">
@@ -912,7 +970,7 @@ a.arrival-action:visited{color:#0a0a0a}
     <ul>
       <li><span class="tag">stop</span> Cook Out Jacksonville NC if you want a late lunch</li>
       <li><span class="tag">dinner</span> Simmons: READYWISE or Tasty Bite / rice cups boil on the propane stove · foil OK</li>
-      <li><span class="tag">note</span> <span class="checked-tag">checked Sep 25</span> Park fire status unclear (park notice is stale) — plan on the propane stove. Call Visitor Center <a href="tel:910-326-4881">910-326-4881</a> at check-in to confirm rings are OK.</li>
+      <li><span class="tag">note</span> <span class="checked-tag">checked Sep 25</span> Park fire status unclear (park notice is stale) — plan on the propane stove. Call Visitor Center <a href="tel:+19103264881">910-326-4881</a> at check-in to confirm rings are OK.</li>
     </ul>
   </div>
 
@@ -976,7 +1034,7 @@ Questions → text the thread.</textarea>
   <div class="btnrow"><button class="copy" type="button" id="copyShare">Copy share message</button></div>
 </section>
 
-<footer><span id="hubBuildLabel">20260928-2150</span> · <button type="button" id="btnCheckUpdate" style="all:unset;cursor:pointer;color:var(--gold);text-decoration:underline">Check for update</button></footer>
+<footer><span id="hubBuildLabel">20260929-polish</span> · <button type="button" id="btnCheckUpdate">Check for update</button></footer>
 </div>
 <script>
 /* iOS (Safari tab and Home Screen standalone) does not hand target=_blank maps links to the Maps apps. */
@@ -1088,16 +1146,16 @@ function stayFor(day){
 
 const DAY_PLAN = {
   "2026-09-26": { title:"Day before leave", leave:"Pack car tonight · cooler charging", meals:"Home meals", checkin:"—", linens:"Stage NC linens kit by door", next:"Tomorrow: Home → Anastasia ~3h 33m · leave ~12:25 PM" },
-  "2026-09-27": { title:"Drive home → Anastasia", leave:"Leave ~12:25 PM · ~3h 33m", meals:"Bfast home · Buc-ee’s Daytona/St. Aug lunch (alt: The Yearling / Cross Creek if inland) · Dinner: Minute jasmine rice cups + Genova tuna salad", checkin:"The Dolphin · Site 4, Sea Bean Loop · check-in 4:00 PM", linens:"Towels; sheets provided", next:"Stay {wd:2026-09-28} · no drive", blocks:[{k:"Arrival", html:"<a href='https://maps.apple.com/?q=300%20Anastasia%20Park%20Rd,%20St.%20Augustine,%20FL%2032080'>300 Anastasia Park Rd, St. Augustine, FL 32080</a>. At the entrance tell the ranger you have a glamping reservation and show the confirmation email. They give the parking pass and gate access. Follow the map to Sea Bean Loop and take the first right for sites 1–6. Site 4 is the fourth on the right. Site parking is limited; large vehicles use the nearby lot. Max 2 vehicles; extras go to overflow."},{k:"Key / Wi-Fi", html:"Lock-box code comes by call or text before arrival. The box is on the metal steps at the front door. Wi-Fi: Glamping-WiFi · password Ana-Glamping-2026 (not guaranteed)."},{k:"After hours", html:"Bungalow supervisor <a href='tel:904-988-6869'>904-988-6869</a>. Emergencies: 911 — say Sea Bean Camping loop, sites 1–6."}] },
+  "2026-09-27": { title:"Drive home → Anastasia", leave:"Leave ~12:25 PM · ~3h 33m", meals:"Bfast home · Buc-ee’s Daytona/St. Aug lunch (alt: The Yearling / Cross Creek if inland) · Dinner: Minute jasmine rice cups + Genova tuna salad", checkin:"The Dolphin · Site 4, Sea Bean Loop · check-in 4:00 PM", linens:"Towels; sheets provided", next:"Stay {wd:2026-09-28} · no drive", blocks:[{k:"Arrival", html:"<a href='https://maps.apple.com/?daddr=300%20Anastasia%20Park%20Rd,%20St.%20Augustine,%20FL%2032080&amp;dirflg=d'>300 Anastasia Park Rd, St. Augustine, FL 32080</a>. At the entrance tell the ranger you have a glamping reservation and show the confirmation email. They give the parking pass and gate access. Follow the map to Sea Bean Loop and take the first right for sites 1–6. Site 4 is the fourth on the right. Site parking is limited; large vehicles use the nearby lot. Max 2 vehicles; extras go to overflow."},{k:"Key / Wi-Fi", html:"Lock-box code comes by call or text before arrival. The box is on the metal steps at the front door. Wi-Fi: Glamping-WiFi · password Ana-Glamping-2026 (not guaranteed)."},{k:"After hours", html:"Bungalow supervisor <a href='tel:+19049886869'>904-988-6869</a>. Emergencies: 911 — say Sea Bean Camping loop, sites 1–6."}] },
   "2026-09-28": { title:"Anastasia stay", leave:"No drive day", meals:"Cereal · seaweed/edamame · Tasty Bite dal + rice", checkin:"Still The Dolphin, Site 4", linens:"Towels", next:"Tomorrow: Anastasia → Edisto ~5h 35m · leave ~10:25 AM" },
-  "2026-09-29": { title:"Drive Anastasia → Edisto", leave:"Leave ~10:25 AM · ~5h 35m", meals:"Snacks early · Buc-ee’s Brunswick · Dinner: tuna packs + rice/dal", checkin:"Edisto Beach SP cabins · Cabin 2 · $217.28 balance due at check-in", linens:"Provided", next:"Stay {wd:2026-09-30}", blocks:[{k:"Gate code", cls:"warn", html:"If you will arrive after 5 PM, call the Ranger Station <a href='tel:843-869-2156'>843-869-2156</a> <b>before 5 PM</b> for the gate code. On-time guests get the code at check-in (4:00 PM). Office hours are M–F 9 AM–5 PM."},{k:"Checkout", html:"Anastasia check-out is 11:00 AM. Leave ~10:25 AM still clears it. Before you go: all trash to the park compactor, thermostat to 72°F cool."}] },
+  "2026-09-29": { title:"Drive Anastasia → Edisto", leave:"Leave ~10:25 AM · ~5h 35m", meals:"Snacks early · Buc-ee’s Brunswick · Dinner: tuna packs + rice/dal", checkin:"Edisto Beach SP cabins · Cabin 2 · $217.28 balance due at check-in", linens:"Provided", next:"Stay {wd:2026-09-30}", blocks:[{k:"Gate code", cls:"warn", html:"If you will arrive after 5 PM, call the Ranger Station <a href='tel:+18438692156'>843-869-2156</a> <b>before 5 PM</b> for the gate code. On-time guests get the code at check-in (4:00 PM). Office hours are M–F 9 AM–5 PM."},{k:"Checkout", html:"Anastasia check-out is 11:00 AM. Leave ~10:25 AM still clears it. Before you go: all trash to the park compactor, thermostat to 72°F cool."}] },
   "2026-09-30": { title:"Edisto stay", leave:"No drive day", meals:"Cereal · beach picnic · dal + rice · flax/PUR", checkin:"Still Edisto", linens:"Provided", next:"Tomorrow: BOAT day to Clayton — confirm host boat time tonight", warn:"Boat tomorrow — confirm pickup text" },
   "2026-10-01": { title:"Boat day → Clayton Cabin", leave:"Leave ~12:30 PM · ~2h 34m · then boat", meals:"Cook Out if timing · boat bag snacks · cabin heat-and-eat", checkin:"Clayton / Commander’s Island (boat-only)", linens:"Provided (confirm towels)", next:"Island {wd:2026-10-02}–{wd:2026-10-03} · no store run", blocks:[{k:"Edisto checkout", cls:"warn", html:"Edisto check-out is <b>10:00 AM</b>. Be out of the cabin then. The 12:30 PM time is the drive leave-by, not the cabin exit."},{k:"Clayton", cls:"warn", html:"Check-in <b>after 3:00 PM</b>. Checkout <b>before 10:00 AM</b>. Boat ride <b>$100 paid on-site</b> (arrival and departure). Host is Evolve — message in the Airbnb app · <a href='tel:+17204087414'>+1 720-408-7414</a>. Mosquitoes at the landing are fierce — bring repellent."},{k:"Ask the host", cls:"warn", html:"<a href='https://www.airbnb.com/rooms/42045580' target='_blank' rel='noopener'>Message host in Airbnb app for landing, pickup time, parking</a>"},{k:"Frisco balance", cls:"warn", html:"Frisco Woods card-payment balance is due about 7 days before arrival (~Oct 1). <span class='confirm-tag'>confirm paid</span>"},{k:"Boat", cls:"warn", html:"BOAT-ONLY · dry bag + full cooler."}], boat:true },
   "2026-10-02": { title:"Clayton island", leave:"No drive", meals:"Rotate packs / EPIC / edamame / dal", checkin:"On island", linens:"Provided", next:"Still island {wd:2026-10-03} · boat-out {wd:2026-10-04} morning", boat:true },
   "2026-10-03": { title:"Clayton island", leave:"No drive", meals:"Finish island food — leave buffer for {wd:2026-10-04}", checkin:"On island", linens:"Provided", next:"Tomorrow: boat out → Carolina Beach SP", warn:"Confirm {wd:2026-10-04} boat-out time", boat:true },
-  "2026-10-04": { title:"Boat out → Carolina Beach", leave:"Leave ~12:00 PM · ~2h 56m · after boat-to-car", meals:"Cook Out Myrtle/Wilmington · cabin packs dinner", checkin:"Carolina Beach SP cabin", linens:"BRING NC linens kit", next:"Stay {wd:2026-10-05}", blocks:[{k:"Gate", cls:"warn", html:"Park gate in October is 7 AM–9 PM and locks at closing. <b>Arrive before 9 PM</b> on Oct 4. The combination will not be given out, and you cannot re-enter after close. Emergency: see the camp host. Marina <a href='tel:910-458-7770'>910-458-7770</a>."},{k:"Clayton checkout", cls:"warn", html:"Clayton checkout is <b>before 10:00 AM</b>, so the boat-out is before 10. The 12:00 PM time is the drive leave-by after you are back at the car."},{k:"Check-in times", cls:"warn", html:"<span class='confirm-tag'>confirm</span> State standard and ReserveAmerica site details: check-in 3:00 PM / out noon. ReserveAmerica cabin notes: check-in 4:00 PM / out 1:00 PM at the Marina Store. Safest: arrive after 4 PM or call ahead, and check in at the Marina Store."},{k:"Linens", cls:"warn", html:"BRING LINENS starting tonight."}] },
+  "2026-10-04": { title:"Boat out → Carolina Beach", leave:"Leave ~12:00 PM · ~2h 56m · after boat-to-car", meals:"Cook Out Myrtle/Wilmington · cabin packs dinner", checkin:"Carolina Beach SP cabin", linens:"BRING NC linens kit", next:"Stay {wd:2026-10-05}", blocks:[{k:"Gate", cls:"warn", html:"Park gate in October is 7 AM–9 PM and locks at closing. <b>Arrive before 9 PM</b> on Oct 4. The combination will not be given out, and you cannot re-enter after close. Emergency: see the camp host. Marina <a href='tel:+19104587770'>910-458-7770</a>."},{k:"Clayton checkout", cls:"warn", html:"Clayton checkout is <b>before 10:00 AM</b>, so the boat-out is before 10. The 12:00 PM time is the drive leave-by after you are back at the car."},{k:"Check-in times", cls:"warn", html:"<span class='confirm-tag'>confirm</span> State standard and ReserveAmerica site details: check-in 3:00 PM / out noon. ReserveAmerica cabin notes: check-in 4:00 PM / out 1:00 PM at the Marina Store. Safest: arrive after 4 PM or call ahead, and check in at the Marina Store."},{k:"Linens", cls:"warn", html:"BRING LINENS starting tonight."}] },
   "2026-10-05": { title:"Carolina Beach stay", leave:"No drive", meals:"Cereal · pier snacks · cabin or Cook Out Wilmington", checkin:"Still Carolina Beach", linens:"Your kit", next:"Tomorrow → Hammocks Simmons", warn:"Gate locks at 9 PM. Be back inside before 9 — the combination is not given out." },
-  "2026-10-06": { title:"Drive → Hammocks Simmons", leave:"Leave ~1:55 PM · ~2h 05m", meals:"Cook Out Jacksonville NC optional · easy packs dinner", checkin:"Hammocks Beach SP Simmons", linens:"BRING linens + EXTRA set (no laundry)", next:"Stay {wd:2026-10-07}", blocks:[{k:"Visitor Center", cls:"warn", html:"Check in at the Visitor Center, <a href='https://maps.apple.com/?daddr=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&amp;dirflg=d'>1572 Hammocks Beach Road, Swansboro, NC 28584</a>, after 3:00 PM. No early check-in. If the 1:55 PM leave-by slips, call <a href='tel:910-326-4881'>910-326-4881</a> <b>before 5</b>."},{k:"Linens", cls:"warn", html:"Extra sheet set — no laundry on-site."}] },
+  "2026-10-06": { title:"Drive → Hammocks Simmons", leave:"Leave ~1:55 PM · ~2h 05m", meals:"Cook Out Jacksonville NC optional · easy packs dinner", checkin:"Hammocks Beach SP Simmons", linens:"BRING linens + EXTRA set (no laundry)", next:"Stay {wd:2026-10-07}", blocks:[{k:"Visitor Center", cls:"warn", html:"Check in at the Visitor Center, <a href='https://maps.apple.com/?daddr=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&amp;dirflg=d'>1572 Hammocks Beach Road, Swansboro, NC 28584</a>, after 3:00 PM. No early check-in. If the 1:55 PM leave-by slips, call <a href='tel:+19103264881'>910-326-4881</a> <b>before 5</b>."},{k:"Linens", cls:"warn", html:"Extra sheet set — no laundry on-site."}] },
   "2026-10-07": { title:"Hammocks stay", leave:"No drive", meals:"Remaining Have/Ordered · town only if needed", checkin:"Still Simmons", linens:"Your kit + extra", next:"Tomorrow → Frisco Woods (OBX)" },
   "2026-10-08": { title:"Drive → Frisco Woods", leave:"Leave ~10:35 AM · ~5h 24m · stock snacks before OBX", meals:"Cook Out Morehead City · camping cabin packs", checkin:"Frisco Woods camping cabin", linens:"BRING linens", next:"Stay {wd:2026-10-09} · {wd:2026-10-10} head home", warn:"No Buc-ee’s on OBX — snack up.", blocks:[{k:"Balance", cls:"warn", html:"Cabin check-in <b>3:00 PM</b>, check-out noon. Card-payment balance was due about Oct 1. <span class='confirm-tag'>confirm paid</span> Express check-in: pull up to the first yellow speed bump for the welcome packet."}] },
   "2026-10-09": { title:"Frisco stay", leave:"No drive", meals:"Remaining packs · local if needed", checkin:"Still Frisco", linens:"Your kit", next:"Tomorrow: head home to Largo" },
@@ -1137,7 +1195,7 @@ function applyWeekdays(){
     if (end) text = weekdayShort(start) + en + weekdayShort(end) + ' ' + md(start) + en + md(end) + ' · ' + label;
     else if (also) text = weekdayShort(start) + ' ' + md(start) + ' · ' + label + ' · ' + weekdayShort(also) + ' ' + md(also) + (tail ? (' ' + tail) : '');
     else text = weekdayShort(start) + ' ' + md(start) + ' · ' + label;
-    h3.textContent = text;
+    setText(h3, text);
   });
   document.querySelectorAll('[data-wd-text]').forEach(el => {
     const start = el.getAttribute('data-wd-text');
@@ -1148,12 +1206,29 @@ function applyWeekdays(){
     if (end) core = weekdayShort(start) + en + weekdayShort(end);
     else if (el.getAttribute('data-wd-format') === 'long') core = weekdayLong(start);
     else core = weekdayShort(start);
-    el.textContent = prefix + core + suffix;
+    setText(el, prefix + core + suffix);
   });
   document.querySelectorAll('.dc-date[data-wd]').forEach(el => {
     const iso = el.getAttribute('data-wd');
-    el.textContent = weekdayShort(iso) + ' ' + iso.slice(5);
+    setText(el, weekdayShort(iso) + ' ' + iso.slice(5));
   });
+}
+function setText(el, text){
+  if (!el) return;
+  if (el.textContent !== text) el.textContent = text;
+}
+function setHref(el, href){
+  if (!el || !href) return;
+  if (el.getAttribute('href') !== href) el.setAttribute('href', href);
+}
+function firstSentences(s, n){
+  const parts = String(s || '').split(/(?<=\.)\s+/).filter(Boolean);
+  return parts.slice(0, n).join(' ');
+}
+function plainHtml(html){
+  const d = document.createElement('div');
+  d.innerHTML = html || '';
+  return d.textContent.replace(/\s+/g, ' ').trim();
 }
 function mealsFor(day){
   const blocks = document.querySelectorAll('.food-day');
@@ -1177,21 +1252,65 @@ function driveFor(day){
     else if (/\bmi\b/i.test(t)) miles = t;
   });
   const maps = el.querySelector('a.dc-map-btn:not(.secondary)');
+  const google = el.querySelector('a.dc-map-btn.secondary');
   return {
     leave: leave,
     duration: duration,
     miles: miles,
     arrival: el.getAttribute('data-arrival') || '',
     maps: maps ? maps.getAttribute('href') : '',
+    google: google ? google.getAttribute('href') : '',
     title: (el.querySelector('h3') || { textContent: '' }).textContent.trim()
   };
 }
+const DAY_CALL = {
+  "2026-09-27": ["tel:+19049886869", "Call 904-988-6869"],
+  "2026-09-28": ["tel:+19049886869", "Call 904-988-6869"],
+  "2026-09-29": ["tel:+18438692156", "Call 843-869-2156"],
+  "2026-09-30": ["tel:+18438692156", "Call 843-869-2156"],
+  "2026-10-01": ["tel:+17204087414", "Call host 720-408-7414"],
+  "2026-10-02": ["tel:+17204087414", "Call host 720-408-7414"],
+  "2026-10-03": ["tel:+17204087414", "Call host 720-408-7414"],
+  "2026-10-04": ["tel:+19104587770", "Call marina 910-458-7770"],
+  "2026-10-05": ["tel:+19104587770", "Call marina 910-458-7770"],
+  "2026-10-06": ["tel:+19103264881", "Call 910-326-4881"],
+  "2026-10-07": ["tel:+19103264881", "Call 910-326-4881"],
+  "2026-10-08": ["tel:+12529955208", "Call 252-995-5208"],
+  "2026-10-09": ["tel:+12529955208", "Call 252-995-5208"]
+};
+const STAY_MAP = {
+  anastasia: {
+    address: "300 Anastasia Park Rd, St. Augustine, FL 32080",
+    apple: "https://maps.apple.com/?daddr=300%20Anastasia%20Park%20Rd,%20St.%20Augustine,%20FL%2032080&dirflg=d",
+    google: "https://www.google.com/maps/dir/?api=1&destination=300%20Anastasia%20Park%20Rd,%20St.%20Augustine,%20FL%2032080&travelmode=driving"
+  },
+  edisto: {
+    address: "8377 State Cabin Rd, Edisto Island, SC 29438",
+    apple: "https://maps.apple.com/?daddr=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&dirflg=d",
+    google: "https://www.google.com/maps/dir/?api=1&destination=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&travelmode=driving"
+  },
+  carolina: {
+    address: "1010 State Park Road, Carolina Beach, NC 28428",
+    apple: "https://maps.apple.com/?daddr=1010%20State%20Park%20Road,%20Carolina%20Beach,%20NC%2028428&dirflg=d",
+    google: "https://www.google.com/maps/dir/?api=1&destination=1010%20State%20Park%20Road,%20Carolina%20Beach,%20NC%2028428&travelmode=driving"
+  },
+  hammocks: {
+    address: "1572 Hammocks Beach Road, Swansboro, NC 28584",
+    apple: "https://maps.apple.com/?daddr=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&dirflg=d",
+    google: "https://www.google.com/maps/dir/?api=1&destination=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&travelmode=driving"
+  },
+  frisco: {
+    address: "53124 NC 12 Highway, Frisco, NC 27936",
+    apple: "https://maps.apple.com/?daddr=53124%20NC%2012%20Highway,%20Frisco,%20NC%2027936&dirflg=d",
+    google: "https://www.google.com/maps/dir/?api=1&destination=53124%20NC%2012%20Highway,%20Frisco,%20NC%2027936&travelmode=driving"
+  }
+};
 function renderDayCard(day){
   const title = document.getElementById('dayCardTitle');
   const grid = document.getElementById('dayCardGrid');
   const card = document.getElementById('dayCard');
   if (!title || !grid) return;
-  if (card) card.querySelectorAll('.dayof-directions').forEach(n => n.remove());
+  if (card) card.querySelectorAll('.dayof-directions,.dayof-call').forEach(n => n.remove());
   const plan = DAY_PLAN[day];
   const esc = (s) => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');
   if (!plan){
@@ -1199,7 +1318,7 @@ function renderDayCard(day){
     grid.innerHTML = '<div class="dayof-item"><span class="k">Status</span><span class="v">'+(day < TRIP_START ? 'Trip starts Sep 27' : 'Coastal run complete')+'</span></div>';
     return;
   }
-  title.textContent = plan.title + ' · ' + weekdayShort(day) + ' ' + day;
+  setText(title, plan.title + ' · ' + weekdayShort(day) + ' ' + day);
   const drive = driveFor(day);
   const items = [];
   if (plan.warn) items.push(['Watch', fillWd(plan.warn), 'warn']);
@@ -1220,7 +1339,8 @@ function renderDayCard(day){
   items.push(['Linens', plan.linens, '']);
   items.push(['Tomorrow', fillWd(plan.next), '']);
   const val = (v) => (v && typeof v === 'object' && v.html != null) ? v.html : esc(v);
-  grid.innerHTML = items.map(([k,v,cls]) => '<div class="dayof-item '+(cls||'')+'"><span class="k">'+esc(k)+'</span><span class="v">'+val(v)+'</span></div>').join('');
+  const html = items.map(([k,v,cls]) => '<div class="dayof-item '+(cls||'')+'"><span class="k">'+esc(k)+'</span><span class="v">'+val(v)+'</span></div>').join('');
+  if (grid.innerHTML !== html) grid.innerHTML = html;
   if (drive && drive.maps && card) {
     const a = document.createElement('a');
     a.className = 'dayof-directions';
@@ -1229,6 +1349,86 @@ function renderDayCard(day){
     a.rel = 'noopener';
     a.textContent = 'Directions';
     card.appendChild(a);
+  }
+  const call = DAY_CALL[day];
+  if (call && card) {
+    const a = document.createElement('a');
+    a.className = 'dayof-call';
+    a.href = call[0];
+    a.textContent = call[1];
+    card.appendChild(a);
+  }
+}
+function foldPast(day){
+  document.querySelectorAll('details[data-past-until]').forEach(el => {
+    const shouldOpen = day < el.getAttribute('data-past-until');
+    if (el.open !== shouldOpen) el.open = shouldOpen;
+  });
+}
+function paintNow(day){
+  const plan = DAY_PLAN[day] || {};
+  const drive = driveFor(day);
+  const stay = stayFor(day);
+  const kicker = document.getElementById('nowKicker');
+  const title = document.getElementById('nowTitle');
+  const time = document.getElementById('nowTime');
+  const meta = document.getElementById('nowMeta');
+  const next = document.getElementById('nowNext');
+  const late = document.getElementById('nowLate');
+  const addr = document.getElementById('nowAddress');
+  const dir = document.getElementById('nowDirections');
+  const goog = document.getElementById('nowGoogle');
+  const callEl = document.getElementById('nowCall');
+  const md = Number(day.slice(5, 7)) + '/' + Number(day.slice(8));
+  const when = weekdayShort(day) + ' ' + md;
+  const nav = stay && STAY_MAP[stay.id];
+  if (drive) {
+    setText(kicker, when + ' · Drive day');
+    setText(title, drive.title);
+    setText(time, drive.leave ? ('Leave by ' + drive.leave) : 'Drive day');
+    setText(meta, [drive.duration, drive.miles].filter(Boolean).join(' · '));
+    if (drive.maps) setHref(dir, drive.maps);
+    if (drive.google) setHref(goog, drive.google);
+    if (dir) dir.hidden = !drive.maps;
+    if (goog) goog.hidden = !drive.google;
+    setText(next, firstSentences(drive.arrival, 2) || plan.checkin || '');
+  } else {
+    setText(kicker, when + ' · No drive');
+    setText(title, plan.title || (stay && stay.name) || 'Today');
+    setText(time, fillWd(plan.leave || 'No drive today'));
+    setText(meta, fillWd(plan.next || ''));
+    if (nav) {
+      setHref(dir, nav.apple);
+      setHref(goog, nav.google);
+    }
+    if (dir) dir.hidden = !nav;
+    if (goog) goog.hidden = !nav;
+    setText(next, plan.checkin || '');
+  }
+  if (addr) {
+    if (nav) {
+      setText(addr, nav.address);
+      setHref(addr, nav.apple);
+      addr.hidden = false;
+    } else {
+      addr.hidden = true;
+    }
+  }
+  const call = DAY_CALL[day];
+  if (callEl) {
+    if (call) {
+      setHref(callEl, call[0]);
+      setText(callEl, call[1]);
+      callEl.hidden = false;
+    } else {
+      callEl.hidden = true;
+    }
+  }
+  const warn = (plan.blocks || []).find(b => b.cls === 'warn');
+  const lateText = warn ? firstSentences(plainHtml(fillWd(warn.html)), 1) : (plan.warn ? fillWd(plan.warn) : '');
+  if (late) {
+    if (lateText) { setText(late, lateText); late.hidden = false; }
+    else late.hidden = true;
   }
 }
 
@@ -1240,31 +1440,38 @@ function refreshDay(){
   document.querySelectorAll('.wcard').forEach(el => el.classList.remove('today'));
   if (day < TRIP_START){
     const n = daysBetween(day, TRIP_START);
-    status.textContent = 'T-minus ' + n + ' day' + (n===1?'':'s') + ' · trip starts Sep 27';
-    detail.textContent = 'Today is ' + day + '. First drive: Home → Anastasia (~3h 33m).';
+    setText(status, 'T-minus ' + n + ' day' + (n===1?'':'s') + ' · trip starts Sep 27');
+    setText(detail, 'Today is ' + day + '. First drive: Home → Anastasia (~3h 33m).');
   } else if (day > TRIP_END){
-    status.textContent = 'Trip over — hope the coast was good.';
-    detail.textContent = 'Today is ' + day + ' (after Oct 10).';
+    setText(status, 'Trip over — hope the coast was good.');
+    setText(detail, 'Today is ' + day + ' (after Oct 10).');
   } else {
     const stay = stayFor(day);
     const leg = LEGS.find(l => l.date === day);
     const parts = [];
-    if (leg && !stay){
-      status.textContent = 'Drive day · ' + leg.from + ' → ' + leg.to;
+    if (leg){
+      setText(status, 'Drive day · ' + leg.from + ' → ' + leg.to);
     } else if (stay){
-      status.textContent = 'On trip · tonight: ' + stay.name;
-      parts.push('Stay window ' + stay.start + ' → ' + stay.end + ' (checkout morning).');
-      document.querySelectorAll('.wcard[data-stop="' + stay.id + '"]').forEach(w => w.classList.add('today'));
+      setText(status, 'On trip · tonight: ' + stay.name);
     } else {
-      status.textContent = 'On trip · ' + day;
+      setText(status, 'On trip · ' + day);
+    }
+    if (stay){
+      parts.push('Tonight: ' + stay.name + '. Stay window ' + stay.start + ' → ' + stay.end + ' (checkout morning).');
+      document.querySelectorAll('.wcard[data-stop="' + stay.id + '"]').forEach(w => w.classList.add('today'));
     }
     if (leg){
       parts.push("Today's drive: " + leg.from + ' → ' + leg.to + '.');
     } else {
       parts.push('No move day — settle-in / explore.');
     }
-    detail.textContent = parts.join(' ');
+    setText(detail, parts.join(' '));
   }
+  document.querySelectorAll('.drive-card').forEach(el => el.classList.remove('today'));
+  const todayCard = document.querySelector('.drive-card[data-drive-date="' + day + '"]');
+  if (todayCard) todayCard.classList.add('today');
+  foldPast(day);
+  paintNow(day);
   renderDayCard(day);
 }
 
@@ -1297,13 +1504,13 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
   e.preventDefault();
   document.querySelectorAll('.drive-card').forEach(el => el.classList.remove('today'));
   card.classList.add('today');
-  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  card.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 
 refreshDay();
 
-const HUB_BUILD = '20260928-2150';
+const HUB_BUILD = '20260929-polish';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 (function(){ const el = document.getElementById('hubBuildLabel'); if (el) el.textContent = HUB_BUILD; })();
@@ -1321,11 +1528,13 @@ function showUpdateBar(info) {
   if (!bar) return;
   meta.textContent = 'This page: ' + HUB_BUILD + ' · Latest: ' + (info.build || info.version || '?');
   bar.classList.add('show');
+  document.body.classList.add('update-open');
 }
 
 function hideUpdateBar() {
   const bar = document.getElementById('updateBar');
   if (bar) bar.classList.remove('show');
+  document.body.classList.remove('update-open');
 }
 
 async function checkForHubUpdate(manual) {
@@ -1343,6 +1552,7 @@ async function checkForHubUpdate(manual) {
             ? ('This page is newer than the published pointer (' + HUB_BUILD + ')')
             : ('Already on latest (' + HUB_BUILD + ')');
           bar.classList.add('show');
+          document.body.classList.add('update-open');
           setTimeout(hideUpdateBar, 2500);
         }
       }
@@ -1359,6 +1569,7 @@ async function checkForHubUpdate(manual) {
       if (meta && bar) {
         meta.textContent = 'Could not check for updates (offline or blocked).';
         bar.classList.add('show');
+        document.body.classList.add('update-open');
         setTimeout(hideUpdateBar, 3000);
       }
     }
@@ -1994,7 +2205,9 @@ checkForHubUpdate(false);
   });
   const cached = readCache();
   if (cached) applySource(cached.stops, cached.asOf, 'saved');
-  refreshWeather();
+  const kickWeather = function () { refreshWeather(); };
+  if (window.requestIdleCallback) requestIdleCallback(kickWeather, { timeout: 1800 });
+  else window.setTimeout(kickWeather, 600);
 })();
 </script>
 
