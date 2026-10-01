@@ -1,8 +1,8 @@
 {
-  "build": "20260930-cleanup",
-  "version": "20260930-cleanup",
+  "build": "20261001-dock",
+  "version": "20261001-dock",
   "url": "https://jdubs84.github.io/coastal-trip-hub/",
-  "notes": "Mid-trip cleanup: past stops collapsed; Today follows the real date",
+  "notes": "Clayton boat dock: 840 Commanders Island Rd",
   "food_synced": "2026-09-22T20:38:34-04:00",
-  "updated": "2026-09-30"
+  "updated": "2026-10-01"
 }
