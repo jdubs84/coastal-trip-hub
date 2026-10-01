@@ -292,6 +292,17 @@ a.map-alt,.stay-facts a.map-alt,.dayof-item a.map-alt,.food-day a.map-alt,.now-p
 .past-fold>summary::after{content:"Show";font-size:.95rem;font-weight:800;color:var(--gold-bright);flex:none}
 .past-fold[open]>summary::after{content:"Hide"}
 .past-fold>.drive-card,.past-fold>.stay-facts{border:0;margin:0;box-shadow:none;border-radius:0 0 12px 12px}
+
+details.auto-fold > summary{cursor:pointer;list-style:none;min-height:48px;padding:12px 14px;font-weight:800;font-size:1.05rem;color:var(--gold-bright);display:flex;align-items:center;justify-content:space-between;gap:10px}
+details.auto-fold > summary::-webkit-details-marker{display:none}
+details.auto-fold > summary::after{content:"Show";font-size:.95rem;font-weight:800;color:var(--gold-bright);flex:none}
+details.auto-fold[open] > summary::after{content:"Hide"}
+details.auto-fold.is-past{border:1px solid var(--border);border-radius:12px;background:var(--panel2);margin:0 0 10px}
+details.show-full:not(.is-past) > summary{display:none}
+details.show-full:not(.is-past){border:0;background:transparent;margin:0}
+details.is-past .sum-live, details:not(.is-past) .sum-done{display:none}
+.lodge-table tr:has(> td[colspan]){padding:0;border:0;background:transparent;margin:0 0 10px}
+.lodge-table td[colspan]{padding:0;font-weight:400;font-size:inherit;color:inherit;border:0}
 #btnCheckUpdate{min-height:44px;display:inline-flex;align-items:center;padding:8px 10px;font-size:1rem;cursor:pointer;color:var(--gold-bright);text-decoration:underline;background:transparent;border:0}
 .wday .wd{font-size:.85rem;color:#f0e6cc}
 .wday .hl{font-size:1rem}
@@ -419,26 +430,66 @@ input,select,textarea{font-size:16px}
     <tr><th>Stop</th><th>Nights</th><th>Linens</th><th>Laundry</th><th>Kitchen</th><th>Fees / notes</th><th>Boat</th></tr>
     </thead>
     <tbody id="lodgeTbody">
-    <tr><td>1. Anastasia SP bungalows</td><td>Done · Sep 27–29 (2)</td><td>Done</td><td>Done</td><td class="kitchen">Done</td><td>Finished</td><td>—</td></tr>
-    <tr><td>2. Edisto Beach SP cabins</td><td>Sep 29–Oct 1 (2)</td><td>Done</td><td>Done</td><td class="kitchen">Done</td><td>Checkout Thu Oct 1 by 10:00 AM · Cabin 2</td><td>—</td></tr>
-    <tr><td>3. Clayton Cabin / Commander&#x27;s Island</td><td>Oct 1–4 (3)</td><td>Linens/towels provided (no sheets to bring)</td><td>No washer listed</td><td class="kitchen"><b>Full kitchen</b><br/><span style="opacity:.85;font-size:.86em">Gas stove/oven, fridge, drip coffee maker, basic spices, cookware. Gas grill, picnic table, screened porch, private dock. Free Wi-Fi (may be weak — recent review), central A/C/heat, TV</span></td><td>Paid ($696). Check-in Thu Oct 1 after 3:00 PM · checkout Sun Oct 4 by 10:00 AM · 3 adults · 2BR/1BA ~1,500 sq ft (queen + full + full sleeper sofa). Evolve emails a rental agreement that must be accepted before arrival; photo ID and a credit card may be required. Bring from the mainland: groceries, ice, drinks, bug spray. Gas up before the boat. Nearby: Hopsewee Plantation ~9 min from the cabin area; Pawleys Island/Litchfield beaches ~40 min. <a href="https://www.airbnb.com/rooms/42045580" target="_blank" rel="noopener">Listing</a>.<p class="arrival-alert">STILL NEEDED: boat landing, pickup time, parking and boat fee. Call/message Evolve at <a href="tel:+17204087414">+1 720-408-7414</a> or use the Airbnb app.</p></td><td>Boat-only (Santee River). The listing states $100 paid on-site for arrival + departure concierge rides; extra rides not included</td></tr>
-    <tr><td>4. Carolina Beach SP cabin</td><td>Oct 4–6 (2)</td><td>BRING linens (NC kit)</td><td>Coin laundry at marina ~¾ mi</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camper cabin · outdoor grill/fire ring only · no indoor cooking</span></td><td>SP cabin rates</td><td>—</td></tr>
-    <tr><td>5. Hammocks Beach SP Simmons</td><td>Oct 6–8 (2)</td><td>BRING linens + extra set (no laundry)</td><td>No on-site laundry</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Simmons camper cabin · outdoor fire pit · bathhouse</span></td><td>SP cabin rates</td><td>— (mainland cabin)</td></tr>
-    <tr><td>6. Frisco Woods camping cabin</td><td>Oct 8–10 (2)</td><td>BRING linens</td><td>Shared laundry</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camping cabin · outdoor grill/picnic · no indoor kitchen (confirm unit)</span></td><td>Camping cabin rates</td><td>—</td></tr>
+    <tr data-until="2026-09-29" data-done="✓ Anastasia SP · Sep 27–29 · done"><td colspan="7"><details class="past-fold"><summary>✓ Anastasia SP · Sep 27–29 · done</summary><div class="table-wrap"><table class="lodge-table"><tbody><tr><td>1. Anastasia SP bungalows</td><td>Sep 27–29 (2)</td><td>Sheets/pillows provided — bring towels</td><td>Laundry nearby</td><td class="kitchen"><b>Kitchenette</b><br/><span style="opacity:.85;font-size:.86em">Fridge + microwave + coffee · <b>no stove</b> · outdoor fire grate · bring cookware/dishes</span></td><td>~$8/vehicle · in 4:00 PM / out 11:00 AM</td><td>—</td></tr></tbody></table></div></details></td></tr>
+    <tr data-until="2026-10-01" data-done="✓ Edisto Beach SP · Sep 29–Oct 1 · done"><td>2. Edisto Beach SP cabins</td><td>Sep 29–Oct 1 (2)</td><td>Linens provided</td><td>No park laundry</td><td class="kitchen"><b>Full kitchen</b><br/><span style="opacity:.85;font-size:.86em">Stove, fridge, microwave, coffee, basic utensils/pots</span></td><td>Cabin 2 · in 4:00 PM / out 10:00 AM · $8/adult entrance</td><td>—</td></tr>
+    <tr data-until="2026-10-04" data-done="✓ Clayton Cabin · Oct 1–4 · done"><td>3. Clayton Cabin / Commander&#x27;s Island</td><td>Oct 1–4 (3)</td><td>Linens/towels provided (no sheets to bring)</td><td>No washer listed</td><td class="kitchen"><b>Full kitchen</b><br/><span style="opacity:.85;font-size:.86em">Gas stove/oven, fridge, drip coffee maker, basic spices, cookware. Gas grill, picnic table, screened porch, private dock. Free Wi-Fi (may be weak — recent review), central A/C/heat, TV</span></td><td>Paid ($696). Check-in Thu Oct 1 after 3:00 PM · checkout Sun Oct 4 by 10:00 AM · 3 adults · 2BR/1BA ~1,500 sq ft (queen + full + full sleeper sofa). Evolve emails a rental agreement that must be accepted before arrival; photo ID and a credit card may be required. Bring from the mainland: groceries, ice, drinks, bug spray. Gas up before the boat. Nearby: Hopsewee Plantation ~9 min from the cabin area; Pawleys Island/Litchfield beaches ~40 min. <a href="https://www.airbnb.com/rooms/42045580" target="_blank" rel="noopener">Listing</a>.<p class="arrival-alert">STILL NEEDED: boat landing, pickup time, parking and boat fee. Call/message Evolve at <a href="tel:+17204087414">+1 720-408-7414</a> or use the Airbnb app.</p></td><td>Boat-only (Santee River). The listing states $100 paid on-site for arrival + departure concierge rides; extra rides not included</td></tr>
+    <tr data-until="2026-10-06" data-done="✓ Carolina Beach SP · Oct 4–6 · done"><td>4. Carolina Beach SP cabin</td><td>Oct 4–6 (2)</td><td>BRING linens (NC kit)</td><td>Coin laundry at marina ~¾ mi</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camper cabin · outdoor grill/fire ring only · no indoor cooking</span></td><td>SP cabin rates</td><td>—</td></tr>
+    <tr data-until="2026-10-08" data-done="✓ Hammocks Beach SP · Oct 6–8 · done"><td>5. Hammocks Beach SP Simmons</td><td>Oct 6–8 (2)</td><td>BRING linens + extra set (no laundry)</td><td>No on-site laundry</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Simmons camper cabin · outdoor fire pit · bathhouse</span></td><td>SP cabin rates</td><td>— (mainland cabin)</td></tr>
+    <tr data-until="2026-10-10" data-done="✓ Frisco Woods · Oct 8–10 · done"><td>6. Frisco Woods camping cabin</td><td>Oct 8–10 (2)</td><td>BRING linens</td><td>Shared laundry</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camping cabin · outdoor grill/picnic · no indoor kitchen (confirm unit)</span></td><td>Camping cabin rates</td><td>—</td></tr>
     </tbody>
   </table>
   </div>
+  <details class="auto-fold show-full stay-fold is-past" id="anastasia-past" data-until="2026-09-29">
+    <summary><span class="sum-done">✓ Anastasia SP · Sep 27–29 · done</span><span class="sum-live">Anastasia SP</span></summary>
+  <div class="stay-facts" id="anastasia-arrival" data-arrival="anastasia">
+    <h3>Anastasia Beach Bungalows · The Dolphin</h3>
+    <p class="when">Site 4, Sea Bean Loop (sites 1–6) · Sep 27–29 · 2 nights · pre-arrival from Staylist</p>
+    <ul class="arrival-fields">
+      <li data-field="address"><b>Address:</b> <a href="https://www.google.com/maps/dir/?api=1&amp;destination=300%20Anastasia%20Park%20Rd,%20St.%20Augustine,%20FL%2032080&amp;travelmode=driving">300 Anastasia Park Rd, St. Augustine, FL 32080</a> <a class="map-alt" href="https://maps.apple.com/?daddr=300%20Anastasia%20Park%20Rd,%20St.%20Augustine,%20FL%2032080&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a></li>
+      <li data-field="checkin"><b>Check-in</b> starts 4:00 PM. <b>Check-out</b> is 11:00 AM. Early check-in or late check-out may be available for $35 — call ahead.</li>
+      <li data-field="arrival"><b>Arrival:</b> at the park entrance, tell the ranger you have a glamping reservation and show the confirmation email. They give the parking pass and gate access. Follow the map to Sea Bean Loop and take the first right for sites 1–6. Site 4 is the fourth on the right. Parking at the site is limited; large vehicles can use the nearby lot. Max 2 vehicles per site — extras go to overflow parking.</li>
+      <li data-field="key"><b>Key:</b> the lock-box combination comes by phone call or text before arrival. The lock box is on the metal steps at the front door.</li>
+      <li data-field="wifi"><b>Wi-Fi:</b> network Glamping-WiFi, password Ana-Glamping-2026 (not guaranteed).</li>
+      <li data-field="fire"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> No ban found. Fires only in rings. No beach fires. Propane OK.</li>
+      <li data-field="rules"><b>Quiet hours</b> 11 PM–7 AM. Amphitheatre concerts end by 10:30 PM. Fires only in the fire rings or grills. No candles or smoking inside. Buy firewood at the Island Beach Shop — don’t collect wood in the park. Store food securely (raccoons and squirrels). Alcohol only at the campsite, not on the beach or while walking through the park. Loft ladders are steep. No drones. No pets in the bungalows or on the beach.</li>
+      <li data-field="camp"><b>Camp:</b> laundry nearby. Bathhouses close briefly each day for cleaning. Trash is picked up daily at 10 AM; extra trash goes to the park compactor (marked on the map inside the bungalow).</li>
+      <li data-field="checkout"><b>Before checkout:</b> take all trash to the park compactor and set the thermostat to 72°F cool.</li>
+      <li data-field="notes"><b>Island Beach Shop and Grill:</b> breakfast, lunch, ice cream, beer, ice, batteries, flashlights, snacks, and beach gear. Reserve kayaks, paddleboards, bikes, and beach gear ahead at <a href="https://AnastasiaStatePark.com">AnastasiaStatePark.com</a>.</li>
+      <li data-field="contact"><b>Bungalow supervisor</b> (after hours or late arrival): <a href="tel:+19049886869">904-988-6869</a>. Emergencies: call 911 and say Sea Bean Camping loop, sites 1–6.</li>
+      <li data-field="boat"><b>Boat / dock:</b> <span data-slot="boat"></span></li>
+    </ul>
+    <p class="still-need">Still need: confirmation #</p>
+  </div>
+  </details>
+
+  <details class="auto-fold show-full stay-fold" data-until="2026-10-01" open>
+  <summary><span class="sum-done">✓ Edisto Beach SP · Sep 29–Oct 1 · done</span><span class="sum-live">✓ Edisto Beach SP · Sep 29–Oct 1 · done</span></summary>
   <div class="stay-facts" id="edisto-arrival" data-arrival="edisto">
     <h3>Edisto Beach SP cabins · Cabin 2</h3>
-    <p class="when">Done · Sep 29–Oct 1 · leaving Thursday morning</p>
+    <p class="when">Sep 29–Oct 1 · 2 nights</p>
     <p class="arrival-alert">Check out of Cabin 2 by 10:00 AM on Thu Oct 1.</p>
     <ul class="arrival-fields">
       <li data-field="address"><b>Address:</b> <a href="https://www.google.com/maps/dir/?api=1&amp;destination=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;travelmode=driving">8377 State Cabin Rd, Edisto Island, SC 29438</a> <a class="map-alt" href="https://maps.apple.com/?daddr=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a></li>
-      <li data-field="checkin"><b>Check-out</b> Thu Oct 1 by 10:00 AM.</li>
-      <li data-field="contact"><b>Phone:</b> Ranger Station <a href="tel:+18438692156">843-869-2156</a>.</li>
+      <li data-field="checkin"><b>Check-in</b> 4:00 PM · Cabin 2. <b>Check-out</b> 10:00 AM.</li>
+      <li data-field="arrival"><b>Where to check in:</b> Ranger Station inside Live Oak Campground, off Cabin Road. Dirt road on the right about ¾ mile past the Environmental Learning Center.</li>
+      <li data-field="hours"><b>Office hours:</b> M–F 9 AM–5 PM. Park hours 7 AM–6 PM daily, extended to 8 PM during Daylight Saving Time (still in effect Sep 29).</li>
+      <li data-field="late"><b>Late arrival:</b> call the Ranger Station <a href="tel:+18438692156">843-869-2156</a> from 9 AM–5 PM; leave a message if no one answers. Arriving after 5 PM: contact the park before 5 PM for the gate code. On-time guests get the code at check-in.</li>
+      <li data-field="gate"><b>Gate:</b> access code is given at check-in, or by phone before 5 PM if you will be late.</li>
+      <li data-field="contact"><b>Phone:</b> Ranger Station <a href="tel:+18438692156">843-869-2156</a>. Email <a href="mailto:edistobeach@scprt.com">edistobeach@scprt.com</a>. SC Parks reservations <a href="tel:+18663457275">1-866-345-7275</a>, M–F 9–5.</li>
+      <li data-field="fees"><b>Fees:</b> $8/adult entrance is the day-visitor rate. Official FAQ: overnight guests do not pay park admission.</li>
+      <li data-field="wifi"><b>Wi-Fi:</b> only near the office and in the Wi-Fi room next to the office, not in the cabins. Hub cell note: limited on the Edisto park side. Cabins have a TV with satellite.</li>
+      <li data-field="linens"><b>Linens / laundry:</b> bath and bed linens provided, plus utensils, coffee maker, microwave, and a screened porch. No laundry in the park or on the island; nearest is about 1 hour toward Charleston.</li>
+      <li data-field="fire"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> No ban (SC ban lifted May 1). Fires only in designated grills/areas. No fires or propane devices on the public beach.</li>
+      <li data-field="notes"><b>Notes:</b> tap water is safe but salty; the park does not recommend it for coffee. Only cabin guests in the cabin area. Small dock for cabin guests. Quiet hours 10 PM–7 AM. Alcohol prohibited. The park has 7 cabins (five 1-bedroom, sleeps 4; two 3-bedroom, sleeps 6). Ours is Cabin 2.</li>
     </ul>
+    <p class="still-need">Still need: confirmation #, how keys work, vehicle limit</p>
   </div>
+</details>
 
+  
+
+  <details class="auto-fold show-full stay-fold" data-until="2026-10-04" open>
+  <summary><span class="sum-done">✓ Clayton Cabin · Oct 1–4 · done</span><span class="sum-live">✓ Clayton Cabin · Oct 1–4 · done</span></summary>
   <div class="stay-facts" id="clayton-arrival" data-arrival="clayton">
     <h3>Clayton Cabin / Commander's Island</h3>
     <p class="when">Oct 1–4 · 3 nights · boat-only (Santee River) · Airbnb 42045580</p>
@@ -460,7 +511,10 @@ input,select,textarea{font-size:16px}
     </ul>
     <p class="still-need">Still need: confirmation #, Wi-Fi name/password</p>
   </div>
+</details>
 
+  <details class="auto-fold show-full stay-fold" data-until="2026-10-06" open>
+  <summary><span class="sum-done">✓ Carolina Beach SP · Oct 4–6 · done</span><span class="sum-live">✓ Carolina Beach SP · Oct 4–6 · done</span></summary>
   <div class="stay-facts" id="carolina-arrival" data-arrival="carolina">
     <h3>Carolina Beach SP cabin</h3>
     <p class="when">Oct 4–6 · 2 nights</p>
@@ -479,7 +533,10 @@ input,select,textarea{font-size:16px}
     </ul>
     <p class="still-need">Still need: cabin #, confirmation #, key/code beyond Marina Store, Wi-Fi/cell</p>
   </div>
+</details>
 
+  <details class="auto-fold show-full stay-fold" data-until="2026-10-08" open>
+  <summary><span class="sum-done">✓ Hammocks Beach SP · Oct 6–8 · done</span><span class="sum-live">✓ Hammocks Beach SP · Oct 6–8 · done</span></summary>
   <div class="stay-facts" id="hammocks-arrival" data-arrival="hammocks">
     <h3>Hammocks Beach SP · Simmons Mainland Campground</h3>
     <p class="when">Oct 6–8 · 2 nights · mainland cabin</p>
@@ -497,7 +554,10 @@ input,select,textarea{font-size:16px}
     </ul>
     <p class="still-need">Still need: cabin name, confirmation #, key/code, Wi-Fi, vehicle limit</p>
   </div>
+</details>
 
+  <details class="auto-fold show-full stay-fold" data-until="2026-10-10" open>
+  <summary><span class="sum-done">✓ Frisco Woods · Oct 8–10 · done</span><span class="sum-live">✓ Frisco Woods · Oct 8–10 · done</span></summary>
   <div class="stay-facts" id="frisco-arrival" data-arrival="frisco">
     <h3>Frisco Woods camping cabin</h3>
     <p class="when">Oct 8–10 · 2 nights · Hatteras Island NC</p>
@@ -516,8 +576,117 @@ input,select,textarea{font-size:16px}
     </ul>
     <p class="still-need">Still need: cabin/site #, confirmation #, office hours</p>
   </div>
-  <details class="todo-fold" id="edisto-todo">
-    <summary>Things to do at Edisto<span class="todo-sub">Trails, paddling, Botany Bay · Sep 29–Oct 1</span></summary>
+</details>
+  <details class="todo-fold is-past" id="anastasia-todo" data-until="2026-09-29">
+    <summary><span class="sum-done">✓ Anastasia SP · Sep 27–29 · done</span><span class="sum-live">Things to do at Anastasia<span class="todo-sub">Paddle, sail, bikes, beach · Sep 27–29</span></span></summary>
+    <div class="todo-body">
+      <div class="todo-top">
+        <a class="book" href="https://fareharbor.com/embeds/book/anastasiawatersports/?full-items=yes&amp;flow=69473" target="_blank" rel="noopener">Book online</a>
+        <a class="call" href="tel:+19044609111">904-460-9111</a>
+      </div>
+      <p class="todo-deadline">Sunday rentals: book online by ~4 PM Sat Sep 26</p>
+      <p class="todo-note">Online booking closes 24 hours ahead. Same-day rentals are first come, first served. The renter must be 18 or older and holds a driver’s license as the deposit. Life jackets are included. Cancel at least 24 hours ahead. No guided tours or ranger programs are scheduled Sep 27 to 29. Prices from the concessionaire’s FareHarbor pages, checked Sep 25, 2026.</p>
+
+      <h4>Suggested plan</h4>
+      <ul>
+        <li>Sunday after the 4 PM check-in: take a 1-hour canoe for all 3 ($50), then walk the beach or the Marsh Trail at sunset.</li>
+        <li>Monday morning: sail the Hobie during the high-tide window if someone knows how, or do a 2 to 3 hour paddle on Salt Run.</li>
+        <li>Monday midday: book a Beach Setup for the day ($60) plus 1 extra chair, and have lunch at the Grill.</li>
+        <li>Monday around 2 PM: ride e-bikes on the beach at low tide ($55 for 2 hours). Bikes have to be rented by 3:30 PM.</li>
+        <li>Tuesday before the 11 AM checkout: walk the Ancient Dunes Trail and see the quarries, or take a quick 9:30 AM paddle.</li>
+      </ul>
+
+      <h4>Paddling on Salt Run</h4>
+      <p class="todo-note">Launch behind Anastasia Watersports. No experience needed. Prices are for 1 hour, 2 hours, and 3 hours.</p>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Boat</th><th>1 hr</th><th>2 hr</th><th>3 hr</th></tr></thead>
+          <tbody>
+            <tr><td>Single kayak</td><td>$40</td><td>$50</td><td>$60</td></tr>
+            <tr><td>Tandem kayak</td><td>$50</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Canoe (seats up to 3)</td><td>$50</td><td>$60</td><td>$70</td></tr>
+            <tr><td>Stand-up paddleboard</td><td>$40</td><td>$50</td><td>$60</td></tr>
+            <tr><td>Fishing kayak</td><td>$50</td><td>$60</td><td>$70</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="todo-note">Paddleboard depends on wind and tide, so call first. Online paddle slots run 9:30 AM to 5:00 PM — call to confirm late slots. No swimming in Salt Run, and don’t beach the boats because of the oyster beds.</p>
+
+      <h4>Sailboats</h4>
+      <p class="todo-note">21 or older with sailing experience. No lessons. Out only from 2 hours before to 2 hours after high tide, and not when wind is over 15 mph. That’s about 9:30 to 11:45 AM Monday and 9:30 AM to 12:30 PM Tuesday.</p>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Boat</th><th>1 hr</th><th>2 hr</th><th>3 hr</th></tr></thead>
+          <tbody>
+            <tr><td>Hobie Cat 14 (up to 4)</td><td>$75</td><td>$85</td><td>$95</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="todo-note">Aquafin (up to 2 people): the listed price varies, so call to confirm. Call <a href="tel:+19044609111">904-460-9111</a> to check whether reservations are possible.</p>
+
+      <h4>Bikes</h4>
+      <p class="todo-note">Island Beach Shop. Helmet included.</p>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Bike</th><th>1 hr</th><th>2 hr</th><th>4 hr</th><th>Day</th></tr></thead>
+          <tbody>
+            <tr><td>Adult cruiser</td><td>$15</td><td>$18</td><td></td><td></td></tr>
+            <tr><td>E-bike</td><td>$35</td><td>$55</td><td>$75</td><td>$90</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="todo-note">Adult cruiser is listed for 1 hour and 2 hours. E-bike riders need to be 18 or older, with a driver’s license and closed-toe shoes. Ride on the beach only from 2 hours before to 2 hours after low tide — about 1:50 to 5:50 PM Monday.</p>
+
+      <h4>Beach gear</h4>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Beach Setup</th><th>Price</th></tr></thead>
+          <tbody>
+            <tr><td>Up to 4 hours (2 loungers and an umbrella)</td><td>$45</td></tr>
+            <tr><td>Day until 5 PM</td><td>$60</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="act-wrap">
+        <table class="act-prices">
+          <thead><tr><th>Gear</th><th>Half day</th><th>Full day</th></tr></thead>
+          <tbody>
+            <tr><td>Umbrella + 2 chairs</td><td>$35</td><td>$35</td></tr>
+            <tr><td>Chair</td><td>$12</td><td>$15</td></tr>
+            <tr><td>Umbrella</td><td>$15</td><td>$20</td></tr>
+            <tr><td>Boogie board</td><td>$15</td><td>$17</td></tr>
+            <tr><td>Surfboard</td><td>$27</td><td>$37</td></tr>
+            <tr><td>Wagon</td><td>$15</td><td>$21</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="todo-note">There’s no lifeguard after Labor Day.</p>
+
+      <h4>Hours</h4>
+      <ul>
+        <li>Park: 8 AM to sundown. Sunset is about 7:15 PM.</li>
+        <li>Anastasia Watersports: 9 AM to 4 PM, with rentals back by 5 PM.</li>
+        <li>Island Beach Shop: 9 AM to 5 PM. Rentals go out until 3:30 PM and are due back by 4:30 PM.</li>
+        <li>Island Grill: 10 AM to 4:30 PM. Fish tacos, wraps, baskets, ice cream, beer, wine, and frozen drinks.</li>
+      </ul>
+
+      <h4>Free</h4>
+      <ul>
+        <li>Ancient Dunes Nature Trail, a shaded loop with some hills and stairs.</li>
+        <li>Marsh Trail along Salt Run.</li>
+        <li>4 miles of beach, with the swim area behind the Beach Shop.</li>
+        <li>The Spanish coquina quarries near the entrance (stone for the Castillo de San Marcos).</li>
+        <li>Fishing on the east bank of Salt Run (trout, redfish, flounder). There’s a cleaning station, and frozen bait is sold at Watersports. A Florida saltwater license may be required. A Florida resident fishing from shore can get a free shoreline license.</li>
+      </ul>
+      <h4>Nearby &amp; rainy day</h4>
+      <ul class="todo-items">
+        <li><a href="https://www.staugustinelighthouse.org/visit/" target="_blank" rel="noopener">St. Augustine Lighthouse &amp; Maritime Museum</a> <span class="todo-drive">· ~10 min</span><span class="todo-line">219-step tower climb, plus the keepers’ house, shipwreck, and WWII exhibits. Open daily 9 AM–6:30 PM through Sep 30 (last ticket 6 PM). $17.95/adult. The tower can close in bad weather. <b>Rainy-day pick.</b></span></li>
+        <li><a href="https://www.nps.gov/casa/planyourvisit/hours.htm" target="_blank" rel="noopener">Castillo de San Marcos (NPS)</a> <span class="todo-drive">· ~15 min, downtown</span><span class="todo-line">Spanish stone fort built from the same coquina as the park’s quarries. Daily 9 AM–5:15 PM (last entry 5 PM). $15 per adult, cards only, good for 7 days. Lower rooms stay open in storms. City lot $2.50/hr.</span></li>
+      </ul>
+    </div>
+  </details>
+  <details class="todo-fold" id="edisto-todo" data-until="2026-10-01">
+    <summary><span class="sum-done">✓ Edisto Beach SP · Sep 29–Oct 1 · done</span><span class="sum-live">Things to do at Edisto<span class="todo-sub">Trails, paddling, Botany Bay · Sep 29–Oct 1</span></span></summary>
     <div class="todo-body">
       <p class="todo-deadline">Thu 10/1 optional morning before checkout: Botany Bay if open (call <a href="tel:+18438448957">843-844-8957</a>), Edisto Island Museum (opens 11), SC-174 historic churches.</p>
       <p class="todo-note">Drive times are from the park cabins. Checked Sep 26, 2026.</p>
@@ -531,8 +700,8 @@ input,select,textarea{font-size:16px}
       </ul>
     </div>
   </details>
-  <details class="todo-fold" id="clayton-todo">
-    <summary>Things to do at Clayton / Georgetown<span class="todo-sub">Island time + stops on the way in and out · Oct 1–4</span></summary>
+  <details class="todo-fold" id="clayton-todo" data-until="2026-10-04">
+    <summary><span class="sum-done">✓ Clayton Cabin · Oct 1–4 · done</span><span class="sum-live">Things to do at Clayton / Georgetown<span class="todo-sub">Island time + stops on the way in and out · Oct 1–4</span></span></summary>
     <div class="todo-body">
       <p class="todo-deadline">Extra boat rides aren’t included, so plan mainland stops for Oct 1 before the 3 PM boat-in or Oct 4 after the 10 AM boat-out.</p>
       <p class="todo-note">Drive times are from downtown Georgetown. Get the landing location from the host. Checked Sep 26, 2026.</p>
@@ -547,8 +716,8 @@ input,select,textarea{font-size:16px}
       </ul>
     </div>
   </details>
-  <details class="todo-fold" id="carolina-todo">
-    <summary>Things to do at Carolina Beach<span class="todo-sub">Flytraps, trails, Fort Fisher · Oct 4–6</span></summary>
+  <details class="todo-fold" id="carolina-todo" data-until="2026-10-06">
+    <summary><span class="sum-done">✓ Carolina Beach SP · Oct 4–6 · done</span><span class="sum-live">Things to do at Carolina Beach<span class="todo-sub">Flytraps, trails, Fort Fisher · Oct 4–6</span></span></summary>
     <div class="todo-body">
       <p class="todo-deadline">The park gate locks at 9 PM. The NC Aquarium at Fort Fisher is closed for renovation (since May 26, 2026). Fort Fisher Historic Site is closed Sun–Mon, so go Tue Oct 6 before checkout.</p>
       <p class="todo-note">Drive times are from the park cabins. Checked Sep 26, 2026.</p>
@@ -564,8 +733,8 @@ input,select,textarea{font-size:16px}
       </ul>
     </div>
   </details>
-  <details class="todo-fold" id="hammocks-todo">
-    <summary>Things to do at Hammocks Beach<span class="todo-sub">Paddle trails, Swansboro, Crystal Coast · Oct 6–8</span></summary>
+  <details class="todo-fold" id="hammocks-todo" data-until="2026-10-08">
+    <summary><span class="sum-done">✓ Hammocks Beach SP · Oct 6–8 · done</span><span class="sum-live">Things to do at Hammocks Beach<span class="todo-sub">Paddle trails, Swansboro, Crystal Coast · Oct 6–8</span></span></summary>
     <div class="todo-body">
       <p class="todo-deadline">No Bear Island ferry during this stay. The October ferry runs Fri–Sun only (Oct 1–25), so there is none Tue Oct 6–Thu Oct 8. Bear Island is paddle-only those days.</p>
       <p class="todo-note">For reference: the <a href="https://www.ncparks.gov/state-parks/hammocks-beach-state-park/ferry-schedule" target="_blank" rel="noopener">ferry</a> leaves the mainland hourly 9:30 AM–4:30 PM on its operating days. Tickets are $10/adult round trip, sold same day only. Drive times are from Simmons campground. Checked Sep 26, 2026.</p>
@@ -579,8 +748,8 @@ input,select,textarea{font-size:16px}
       </ul>
     </div>
   </details>
-  <details class="todo-fold" id="frisco-todo">
-    <summary>Things to do at Frisco / Hatteras<span class="todo-sub">Lighthouses, shipwrecks, Ocracoke ferry · Oct 8–10</span></summary>
+  <details class="todo-fold" id="frisco-todo" data-until="2026-10-10">
+    <summary><span class="sum-done">✓ Frisco Woods · Oct 8–10 · done</span><span class="sum-live">Things to do at Frisco / Hatteras<span class="todo-sub">Lighthouses, shipwrecks, Ocracoke ferry · Oct 8–10</span></span></summary>
     <div class="todo-body">
       <p class="todo-deadline">The Cape Hatteras Lighthouse is closed for climbing all of 2026, but the grounds are open. At Frisco Woods: no ground fires, so cook on propane.</p>
       <p class="todo-note">Drive times are from Frisco Woods. Checked Sep 26, 2026.</p>
@@ -743,6 +912,62 @@ input,select,textarea{font-size:16px}
   <p style="color:var(--muted);margin:0 0 8px;font-size:.85rem">Cabin meals from Kelli’s Food tab + drive-day fuel stops (Cook Out / Wawa / Buc-ee’s on later legs). Party of 3 · no Creami · cooler for milk if Buy milk filled.</p>
   <p style="color:var(--muted);margin:0 0 12px;font-size:.8rem">Schedule refreshed Sep 22 ~8:40 PM ET from Food sheet Have list + kitchen notes.</p>
 
+  <details class="auto-fold show-full food-fold is-past" data-until="2026-09-27">
+  <summary><span class="sum-done">✓ Sun 9/27 · Drive home → Anastasia · done</span><span class="sum-live">Sun 9/27 · Drive home → Anastasia</span></summary>
+  <div class="food-day" data-dates="2026-09-27">
+    <h3 data-wd="2026-09-27" data-label="Drive home → Anastasia">Sun 9/27 · Drive home → Anastasia</h3>
+    <p class="when">Leave ~12:25 PM · ~3h 33m · <b>kitchenette</b> (fridge/microwave/coffee · no stove · outdoor fire grate)</p>
+    <ul>
+      <li><span class="tag">drive</span> Breakfast at home before leave</li>
+      <li><span class="tag">stop</span> <b>Buc-ee’s Daytona</b> or <b>St. Augustine</b> (I-95) for lunch / snacks / clean bathrooms</li>
+      <li><span class="tag">alt</span> <b>The Yearling Restaurant</b> (Cross Creek / Hawthorne) — classic roadside Cracker cuisine if you route via US-301 / SR-20 corridor · map pin on</li>
+      <li><span class="tag">dinner</span> Microwave: Minute jasmine rice cups + Genova tuna Mediterranean bean salad (or chicken/sardines pouch). <em>If Bibigo arrived (~26th):</em> Bibigo sticky rice instead of cups</li>
+      <li><span class="tag">snacks</span> Seaweed · dry roasted edamame · EPIC · Triscuits · nuts · jerky</li>
+    </ul>
+  </div>
+</details>
+<details class="auto-fold show-full food-fold is-past" data-until="2026-09-28">
+  <summary><span class="sum-done">✓ Mon 9/28 · Anastasia (stay) · done</span><span class="sum-live">Mon 9/28 · Anastasia (stay)</span></summary>
+  <div class="food-day" data-dates="2026-09-28">
+    <h3 data-wd="2026-09-28" data-label="Anastasia (stay)">Mon 9/28 · Anastasia (stay)</h3>
+    <p class="when">Beach day · bungalows · <b>kitchenette</b> (microwave / fridge · fire grate)</p>
+    <ul>
+      <li><span class="tag">breakfast</span> Cereal + coffee pods + Splenda · milk (cooler if Buy filled) · or peaches oatmeal</li>
+      <li><span class="tag">lunch</span> Seaweed + edamame · Genova tuna salad or Fillo’s ready beans</li>
+      <li><span class="tag">dinner</span> Mango sticky rice <em>or</em> Tasty Bite coconut squash dal + rice cups (microwave) · pouch chicken optional</li>
+      <li><span class="tag">snacks</span> EPIC · Triscuits · nuts · PUR gum</li>
+    </ul>
+  </div>
+</details>
+<details class="auto-fold show-full food-fold is-past" data-until="2026-09-29">
+  <summary><span class="sum-done">✓ Tue 9/29 · Drive Anastasia → Edisto · done</span><span class="sum-live">Tue 9/29 · Drive Anastasia → Edisto</span></summary>
+  <div class="food-day" data-dates="2026-09-29">
+    <h3 data-wd="2026-09-29" data-label="Drive Anastasia → Edisto">Tue 9/29 · Drive Anastasia → Edisto</h3>
+    <p class="when">Leave ~10:25 AM · ~5h 35m · LONG LEG · arrive <b>FULL kitchen</b></p>
+    <ul>
+      <li><span class="tag">drive</span> Pack car snacks early (jerky / edamame / seaweed)</li>
+      <li><span class="tag">stop</span> <b>Buc-ee’s Brunswick GA</b> (I-95) — best long-leg pit stop</li>
+      <li><span class="tag">alt</span> Cook Out Savannah if you want a burger break</li>
+      <li><span class="tag">dinner</span> Full kitchen: Pad Thai <em>or</em> Cuban rice bowl · heat through on stove</li>
+    </ul>
+  </div>
+</details>
+<details class="auto-fold show-full food-fold" data-until="2026-09-30" open>
+  <summary><span class="sum-done">✓ Wed 9/30 · Edisto (stay) · done</span><span class="sum-live">Wed 9/30 · Edisto (stay)</span></summary>
+  <div class="food-day" data-dates="2026-09-30">
+    <h3 data-wd="2026-09-30" data-label="Edisto (stay)">Wed 9/30 · Edisto (stay)</h3>
+    <p class="when">Cabin day · <b>FULL kitchen</b></p>
+    <ul>
+      <li><span class="tag">breakfast</span> Cereal + coffee pods · peaches oatmeal rotation</li>
+      <li><span class="tag">lunch</span> Beach picnic: Genova tuna · seaweed · edamame · Triscuits</li>
+      <li><span class="tag">dinner</span> Coconut black bean <em>or</em> Cuban / remaining Pad Thai · cans of beans + rice · smash seasoning / truffle oil optional</li>
+      <li><span class="tag">note</span> Stock cooler + dry goods tonight for Clayton boat stretch (no easy store run)</li>
+    </ul>
+  </div>
+</details>
+
+  <details class="auto-fold show-full food-fold" data-until="2026-10-01" open>
+  <summary><span class="sum-done">✓ Thu 10/1 · Drive Edisto → Clayton Cabin (boat) · done</span><span class="sum-live">Thu 10/1 · Drive Edisto → Clayton Cabin (boat)</span></summary>
   <div class="food-day" data-dates="2026-10-01">
     <h3 data-wd="2026-10-01" data-label="Drive Edisto → Clayton Cabin (boat)">Thu 10/1 · Drive Edisto → Clayton Cabin (boat)</h3>
     <p class="when">Leave ~12:30 PM, arrive ~3 PM · ~106 mi / ~2.5 h via SC-174 + US-17 through Charleston · BOAT-ONLY · <b>FULL kitchen</b> · bring enough food</p>
@@ -754,7 +979,10 @@ input,select,textarea{font-size:16px}
       <li><span class="tag">note</span> No store run easy — everything for <span data-wd-text="2026-10-02" data-wd-text-end="2026-10-04">Fri–Sun</span> AM must be on the boat</li>
     </ul>
   </div>
+</details>
 
+  <details class="auto-fold show-full food-fold" data-until="2026-10-03" open>
+  <summary><span class="sum-done">✓ Fri–Sat 10/2–10/3 · Clayton Cabin · done</span><span class="sum-live">Fri–Sat 10/2–10/3 · Clayton Cabin</span></summary>
   <div class="food-day" data-dates="2026-10-02 2026-10-03">
     <h3 data-wd="2026-10-02" data-wd-end="2026-10-03" data-label="Clayton Cabin">Fri–Sat 10/2–10/3 · Clayton Cabin</h3>
     <p class="when">Boat-only · 3 nights total through <span data-wd-text="2026-10-04">Sun</span> AM · <b>FULL kitchen</b></p>
@@ -765,7 +993,10 @@ input,select,textarea{font-size:16px}
       <li><span class="tag">snacks</span> Triscuits · nuts · jerky · flax · protein/chia if bringing</li>
     </ul>
   </div>
+</details>
 
+  <details class="auto-fold show-full food-fold" data-until="2026-10-04" open>
+  <summary><span class="sum-done">✓ Sun 10/4 · Boat out → Carolina Beach · done</span><span class="sum-live">Sun 10/4 · Boat out → Carolina Beach</span></summary>
   <div class="food-day" data-dates="2026-10-04">
     <h3 data-wd="2026-10-04" data-label="Boat out → Carolina Beach">Sun 10/4 · Boat out → Carolina Beach</h3>
     <p class="when">Leave ~12:00 PM after boat-to-car · ~2h 56m · <b>NO kitchen</b> (grill/fire) · Coleman Bottletop for pouch boils</p>
@@ -775,7 +1006,10 @@ input,select,textarea{font-size:16px}
       <li><span class="tag">breakfast-next</span> Cereal + coffee pods (no stove needed)</li>
     </ul>
   </div>
+</details>
 
+  <details class="auto-fold show-full food-fold" data-until="2026-10-05" open>
+  <summary><span class="sum-done">✓ Mon 10/5 · Carolina Beach (stay) · done</span><span class="sum-live">Mon 10/5 · Carolina Beach (stay)</span></summary>
   <div class="food-day" data-dates="2026-10-05">
     <h3 data-wd="2026-10-05" data-label="Carolina Beach (stay)">Mon 10/5 · Carolina Beach (stay)</h3>
     <p class="when"><b>NO kitchen</b> · grill/fire · Coleman Bottletop</p>
@@ -785,7 +1019,10 @@ input,select,textarea{font-size:16px}
       <li><span class="tag">dinner</span> READYWISE / pouches boil on Coleman or fire · foil packets OK · Cook Out Wilmington if you want out</li>
     </ul>
   </div>
+</details>
 
+  <details class="auto-fold show-full food-fold" data-until="2026-10-06" open>
+  <summary><span class="sum-done">✓ Tue 10/6 · Drive → Hammocks Simmons · done</span><span class="sum-live">Tue 10/6 · Drive → Hammocks Simmons</span></summary>
   <div class="food-day" data-dates="2026-10-06">
     <h3 data-wd="2026-10-06" data-label="Drive → Hammocks Simmons">Tue 10/6 · Drive → Hammocks Simmons</h3>
     <p class="when">Leave ~1:55 PM · ~2h 05m · <b>NO kitchen</b> · propane stove</p>
@@ -795,7 +1032,10 @@ input,select,textarea{font-size:16px}
       <li><span class="tag">note</span> <span class="checked-tag">checked Sep 25</span> Park fire status unclear (park notice is stale) — plan on the propane stove. Call Visitor Center <a href="tel:+19103264881">910-326-4881</a> at check-in to confirm rings are OK.</li>
     </ul>
   </div>
+</details>
 
+  <details class="auto-fold show-full food-fold" data-until="2026-10-07" open>
+  <summary><span class="sum-done">✓ Wed 10/7 · Hammocks (stay) · done</span><span class="sum-live">Wed 10/7 · Hammocks (stay)</span></summary>
   <div class="food-day" data-dates="2026-10-07">
     <h3 data-wd="2026-10-07" data-label="Hammocks (stay)">Wed 10/7 · Hammocks (stay)</h3>
     <p class="when"><b>NO kitchen</b> · fire pit · Coleman Bottletop</p>
@@ -805,7 +1045,10 @@ input,select,textarea{font-size:16px}
       <li><span class="tag">dinner</span> READYWISE or pouch boil on Coleman / fire · foil OK · no parchment</li>
     </ul>
   </div>
+</details>
 
+  <details class="auto-fold show-full food-fold" data-until="2026-10-08" open>
+  <summary><span class="sum-done">✓ Thu 10/8 · Drive → Frisco Woods (OBX) · done</span><span class="sum-live">Thu 10/8 · Drive → Frisco Woods (OBX)</span></summary>
   <div class="food-day" data-dates="2026-10-08">
     <h3 data-wd="2026-10-08" data-label="Drive → Frisco Woods (OBX)">Thu 10/8 · Drive → Frisco Woods (OBX)</h3>
     <p class="when">Leave ~10:35 AM · ~5h 24m · LONG LEG · <b>NO kitchen</b> · camp stove</p>
@@ -816,7 +1059,10 @@ input,select,textarea{font-size:16px}
       <li><span class="tag">note</span> <span class="checked-tag">checked Sep 25</span> NO ground fires and no park fire ring. Only elevated/contained portable fire pits. Propane stove/grill OK. Plan propane for cooking there.</li>
     </ul>
   </div>
+</details>
 
+  <details class="auto-fold show-full food-fold" data-until="2026-10-10" open>
+  <summary><span class="sum-done">✓ Fri 10/9 · Frisco (stay) · Sat 10/10 head home · done</span><span class="sum-live">Fri 10/9 · Frisco (stay) · Sat 10/10 head home</span></summary>
   <div class="food-day" data-dates="2026-10-09 2026-10-10">
     <h3 data-wd="2026-10-09" data-wd-also="2026-10-10" data-wd-tail="head home" data-label="Frisco (stay)">Fri 10/9 · Frisco (stay) · Sat 10/10 head home</h3>
     <p class="when"><b>NO kitchen</b> · Coleman through <span data-wd-text="2026-10-10">Sat</span> AM · then homebound</p>
@@ -826,6 +1072,7 @@ input,select,textarea{font-size:16px}
       <li><span class="tag">homebound</span> Plan a fuel + food stop southbound (Florence Buc-ee’s if you route I-95)</li>
     </ul>
   </div>
+</details>
 
   <p style="color:var(--muted);font-size:.8rem;margin:8px 0 0">Map pins: Buc-ee’s (beaver gold), Cook Out (orange), Wawa (red) — toggle on the Coastal Trip Map. Oct 4–10 = 6 no-kitchen nights on the Coleman Bottletop; foil OK, no parchment. Fire status for each stop is in its arrival block (checked Sep 25).</p>
 </section>
@@ -1211,11 +1458,51 @@ function renderDayCard(day){
     card.appendChild(a);
   }
 }
-function foldPast(day){
-  document.querySelectorAll('details[data-past-until]').forEach(el => {
-    const shouldOpen = day < el.getAttribute('data-past-until');
-    if (el.open !== shouldOpen) el.open = shouldOpen;
+function foldLodgeRows(day){
+  const meta = [
+    [/anastasia/i, '2026-09-29', '✓ Anastasia SP · Sep 27–29 · done'],
+    [/edisto/i, '2026-10-01', '✓ Edisto Beach SP · Sep 29–Oct 1 · done'],
+    [/clayton|commander/i, '2026-10-04', '✓ Clayton Cabin · Oct 1–4 · done'],
+    [/carolina beach/i, '2026-10-06', '✓ Carolina Beach SP · Oct 4–6 · done'],
+    [/hammocks/i, '2026-10-08', '✓ Hammocks Beach SP · Oct 6–8 · done'],
+    [/frisco/i, '2026-10-10', '✓ Frisco Woods · Oct 8–10 · done']
+  ];
+  document.querySelectorAll('#lodgeTbody > tr').forEach(tr => {
+    let until = tr.getAttribute('data-until');
+    const probe = tr.querySelector('tbody > tr') || tr;
+    if (!until) {
+      const hit = meta.find(m => m[0].test(probe.textContent || ''));
+      if (!hit) return;
+      until = hit[1];
+      tr.setAttribute('data-until', until);
+      tr.setAttribute('data-done', hit[2]);
+    }
+    const past = until < day;
+    const details = tr.querySelector(':scope > td[colspan] > details');
+    if (past && !details) {
+      const html = tr.innerHTML;
+      const label = tr.getAttribute('data-done') || 'Done';
+      tr.innerHTML = '<td colspan="7"><details class="past-fold"><summary></summary><div class="table-wrap"><table class="lodge-table"><tbody><tr>' + html + '</tr></tbody></table></div></details></td>';
+      tr.querySelector('summary').textContent = label;
+    } else if (!past && details) {
+      const inner = details.querySelector('tbody > tr');
+      if (inner) tr.innerHTML = inner.innerHTML;
+    }
   });
+}
+function foldPast(day){
+  document.querySelectorAll('details[data-until]').forEach(el => {
+    const past = el.getAttribute('data-until') < day;
+    el.classList.toggle('is-past', past);
+    if (!past) {
+      if (el.classList.contains('show-full')) el.open = true;
+      el.dataset.wasPast = '';
+    } else if (el.dataset.wasPast !== '1') {
+      el.open = false;
+      el.dataset.wasPast = '1';
+    }
+  });
+  foldLodgeRows(day);
 }
 function paintNow(day){
   const plan = DAY_PLAN[day] || {};
@@ -1373,6 +1660,7 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
 });
 
 
+window.foldStops = function(){ foldPast(todayISO()); };
 refreshDay();
 
 const HUB_BUILD = '20260930-cleanup';
@@ -1665,7 +1953,8 @@ checkForHubUpdate(false);
     return td.textContent.replace(/\s+/g,' ').trim();
   }
   function rowFromTr(tr){
-    const tds = [...tr.children];
+    const nested = tr.querySelector('tbody > tr');
+    const tds = [...(nested || tr).children].filter(td => td.tagName === 'TD' && !td.hasAttribute('colspan'));
     const text = (i) => (tds[i] ? tds[i].textContent.replace(/\s+/g,' ').trim() : '');
     return {
       stop: text(0), nights: text(1), linens: text(2), laundry: text(3),
@@ -1917,6 +2206,7 @@ checkForHubUpdate(false);
   } catch(e){}
 
   window.__hubLodgeSync = { tryPublish: tryLodgePublish, apply: applyLodge };
+  if (window.foldStops) window.foldStops();
 })();
 </script>
 
