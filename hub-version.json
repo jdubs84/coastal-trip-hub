@@ -1,8 +1,8 @@
 {
-  "build": "20261001-dock",
-  "version": "20261001-dock",
+  "build": "20261003-qol",
+  "version": "20261003-qol",
   "url": "https://jdubs84.github.io/coastal-trip-hub/",
-  "notes": "Clayton boat dock: 840 Commanders Island Rd",
+  "notes": "QoL + privacy: no Wi-Fi passwords or home street address. Clayton today card, Sunday storm plan, Hillsborough TBD after Frisco.",
   "food_synced": "2026-09-22T20:38:34-04:00",
-  "updated": "2026-10-01"
+  "updated": "2026-10-03"
 }
