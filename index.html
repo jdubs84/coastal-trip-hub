@@ -166,7 +166,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   .dc-map-btn{
     display:flex;align-items:center;justify-content:center;gap:4px;width:100%;
     padding:12px 16px;border-radius:12px;font:800 1.05rem/1.2 system-ui,sans-serif;
-    text-decoration:none;color:#0b1014;background:linear-gradient(145deg,#e8c84a,#d4af37);
+    text-decoration:none;text-align:center;color:#0b1014;background:linear-gradient(145deg,#e8c84a,#d4af37);
     border:1px solid rgba(212,175,55,.5)
   }
   .dc-map-btn.secondary{background:rgba(255,255,255,.06);color:var(--text,#e8eef3);border-color:rgba(255,255,255,.12)}
@@ -217,7 +217,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   .todo-sub{display:block;font-weight:500;font-size:.75rem;color:var(--muted);margin-top:2px}
   .todo-fold .todo-body{padding:0 12px 14px}
   .todo-top{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
-  .todo-fold .todo-top a{display:inline-flex;align-items:center;min-height:48px;padding:12px 14px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1rem}
+  .todo-fold .todo-top a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;max-width:100%;box-sizing:border-box;padding:12px 14px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1rem;text-align:center;white-space:normal}
   .todo-top a.book{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a}
   .todo-top a.call{background:transparent;color:var(--gold-bright);border:1px solid var(--border)}
   .todo-deadline{margin:0 0 8px;padding:8px 10px;border-radius:10px;border:1px solid #6b5420;background:#12100a;color:#e8d5a3;font-size:.86rem;font-weight:700;line-height:1.35}
@@ -246,7 +246,7 @@ html.show-date-override #dateOverrideWrap{display:block}
 a.dayof-directions{
   display:flex;align-items:center;justify-content:center;gap:8px;
   min-height:48px;width:100%;margin-top:10px;box-sizing:border-box;
-  text-decoration:none;font-weight:800;font-size:1.05rem;border-radius:12px;
+  text-decoration:none;font-weight:800;font-size:1.05rem;border-radius:12px;text-align:center;
   background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;
   padding:12px 16px;
 }
@@ -345,6 +345,7 @@ input,select,textarea{font-size:16px}
     <a class="now-go" id="nowDirections" href="https://www.google.com/maps/dir/?api=1&amp;destination=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;travelmode=driving" target="_blank" rel="noopener">Google Maps</a>
     <a class="now-call" id="nowCall" href="tel:+18438692156">Call 843-869-2156</a>
     <a class="now-alt" id="nowGoogle" href="https://maps.apple.com/?daddr=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a>
+    <a class="now-go" id="nowTrailMap" href="https://www.ncparks.gov/maps/carolina-beach-state-park-map/open" target="_blank" rel="noopener" hidden>Carolina Beach State Park Trail Map</a>
     <a class="now-alt" id="nowMap" href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener">Open trip map</a>
   </div>
 </section>
@@ -403,7 +404,7 @@ input,select,textarea{font-size:16px}
   </div>
 </article><article class="drive-card" data-drive-date="2026-10-04" data-arrival="Check in at the Marina Store after 4 PM. Gate locks at 9 PM. No water or bathroom in the cabin — bathhouse nearby; bring linens.">
   <img class="dc-thumb" src="assets/carolina.jpg" alt="Carolina Beach pier" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-04">Sun 10-04</span><span class="badge boat">Boat</span></div><h3>Georgetown (boat out) → Carolina Beach SP cabin</h3><div class="dc-meta"><span>2h 56m</span><span>122.7 mi</span><span>Leave by ~10–11 AM</span></div><p class="dc-note">Heavy rain/storms likely from ~3 PM Sun (80–90%) — leave by 10–11 AM, pack a dry bag for the boat. Clayton checkout is Sun Oct 4 by 10:00 AM. Lunch stop on US-17 (Murrells Inlet or Myrtle Beach) fills the gap before check-in. Check in at the Marina Store after 4 PM. Gate locks at 9 PM. No water or bathroom in the cabin — bathhouse nearby; bring linens.</p><p class="dc-traffic">Traffic: boat-to-car first, then Wilmington on the approach to Carolina Beach.</p><div class="dc-maps"><a class="dc-map-btn" href="https://www.google.com/maps/dir/?api=1&destination=1010%20State%20Park%20Rd,%20Carolina%20Beach,%20NC%2028428&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a><a class="dc-map-btn secondary" href="https://maps.apple.com/?daddr=1010%20State%20Park%20Rd,%20Carolina%20Beach,%20NC%2028428&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-04">Sun 10-04</span><span class="badge boat">Boat</span></div><h3>Georgetown (boat out) → Carolina Beach SP cabin</h3><div class="dc-meta"><span>2h 56m</span><span>122.7 mi</span><span>Leave by ~10–11 AM</span></div><p class="dc-note">Heavy rain/storms likely from ~3 PM Sun (80–90%) — leave by 10–11 AM, pack a dry bag for the boat. Clayton checkout is Sun Oct 4 by 10:00 AM. Lunch stop on US-17 (Murrells Inlet or Myrtle Beach) fills the gap before check-in. Check in at the Marina Store after 4 PM. Gate locks at 9 PM. No water or bathroom in the cabin — bathhouse nearby; bring linens.</p><p class="dc-traffic">Traffic: boat-to-car first, then Wilmington on the approach to Carolina Beach.</p><div class="dc-maps"><a class="dc-map-btn" href="https://www.google.com/maps/dir/?api=1&destination=1010%20State%20Park%20Rd,%20Carolina%20Beach,%20NC%2028428&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a><a class="dc-map-btn secondary" href="https://maps.apple.com/?daddr=1010%20State%20Park%20Rd,%20Carolina%20Beach,%20NC%2028428&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn" href="https://www.ncparks.gov/maps/carolina-beach-state-park-map/open" target="_blank" rel="noopener">Carolina Beach State Park Trail Map</a></div>
   </div>
 </article><article class="drive-card" data-drive-date="2026-10-06" data-arrival="Visitor Center check-in about 3–5 PM (closes 5 PM), 1572 Hammocks Beach Road. Call 910-326-4881 before 5 if the leave-by slips.">
   <img class="dc-thumb" src="assets/hammocks.jpg" alt="Hammocks Beach mainland cabin in oaks" width="112" height="112" loading="lazy"/>
@@ -527,6 +528,7 @@ input,select,textarea{font-size:16px}
     <h3>Carolina Beach SP cabin</h3>
     <p class="when">Oct 4–6 · 2 nights</p>
     <p class="arrival-alert">Gate locks at 9 PM in October. Arrive before 9 PM on Oct 4, and be back inside before 9 PM on Oct 5. The combination will not be given out. No re-entry after close.</p>
+    <a class="arrival-action" href="https://www.ncparks.gov/maps/carolina-beach-state-park-map/open" target="_blank" rel="noopener">Carolina Beach State Park Trail Map</a>
     <ul class="arrival-fields">
       <li data-field="address"><b>Address:</b> <a href="https://www.google.com/maps/dir/?api=1&amp;destination=1010%20State%20Park%20Road,%20Carolina%20Beach,%20NC%2028428&amp;travelmode=driving">1010 State Park Road, Carolina Beach, NC 28428</a> <a class="map-alt" href="https://maps.apple.com/?daddr=1010%20State%20Park%20Road,%20Carolina%20Beach,%20NC%2028428&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a>. Official GPS 34.0472, -77.9066. Six camper cabins in the family campground near Snow’s Cut. Visitor Center is 0.5 mi; marina and boat launch 0.75 mi.</li>
       <li data-field="checkin"><b>Check-in / out:</b> Check in at the Marina Store after 4 PM · gate locks 9 PM.</li>
@@ -727,6 +729,9 @@ input,select,textarea{font-size:16px}
   <details class="todo-fold" id="carolina-todo" data-until="2026-10-06">
     <summary><span class="sum-done">✓ Carolina Beach SP · Oct 4–6 · done</span><span class="sum-live">Things to do at Carolina Beach<span class="todo-sub">Flytraps, trails, Fort Fisher · Oct 4–6</span></span></summary>
     <div class="todo-body">
+      <div class="todo-top">
+        <a class="book" href="https://www.ncparks.gov/maps/carolina-beach-state-park-map/open" target="_blank" rel="noopener">Carolina Beach State Park Trail Map</a>
+      </div>
       <p class="todo-deadline">The park gate locks at 9 PM. The NC Aquarium at Fort Fisher is closed for renovation (since May 26, 2026). Fort Fisher Historic Site is closed Sun–Mon, so go Tue Oct 6 before checkout.</p>
       <p class="todo-note">Drive times are from the park cabins. Checked Sep 26, 2026.</p>
       <ul class="todo-items">
@@ -1112,7 +1117,7 @@ Questions → text the thread.</textarea>
   <div class="btnrow"><button class="copy" type="button" id="copyShare">Copy share message</button></div>
 </section>
 
-<footer><span id="hubBuildLabel">20261003-qol</span> · <button type="button" id="btnCheckUpdate">Check for update</button></footer>
+<footer><span id="hubBuildLabel">20261005-trailmap</span> · <button type="button" id="btnCheckUpdate">Check for update</button></footer>
 </div>
 <script>
 /* iOS (Safari tab and Home Screen standalone) does not hand target=_blank maps links to the Maps apps. */
@@ -1463,6 +1468,16 @@ function renderDayCard(day){
     a.textContent = 'Apple Maps';
     card.appendChild(a);
   }
+  const stayDay = stayFor(day);
+  if (stayDay && stayDay.id === 'carolina' && card) {
+    const a = document.createElement('a');
+    a.className = 'dayof-directions';
+    a.href = 'https://www.ncparks.gov/maps/carolina-beach-state-park-map/open';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = 'Carolina Beach State Park Trail Map';
+    card.appendChild(a);
+  }
   const call = DAY_CALL[day];
   if (call && card) {
     const a = document.createElement('a');
@@ -1574,6 +1589,8 @@ function paintNow(day){
       if (addrApple) addrApple.hidden = true;
     }
   }
+  const trail = document.getElementById('nowTrailMap');
+  if (trail) trail.hidden = !(stay && stay.id === 'carolina');
   const call = DAY_CALL[day];
   if (callEl) {
     if (call) {
@@ -1820,7 +1837,7 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
 window.foldStops = function(){ foldPast(todayISO()); };
 refreshDay();
 
-const HUB_BUILD = '20261003-qol';
+const HUB_BUILD = '20261005-trailmap';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 (function(){ const el = document.getElementById('hubBuildLabel'); if (el) el.textContent = HUB_BUILD; })();

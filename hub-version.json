@@ -1,8 +1,8 @@
 {
-  "build": "20261003-qol",
-  "version": "20261003-qol",
+  "build": "20261005-trailmap",
+  "version": "20261005-trailmap",
   "url": "https://jdubs84.github.io/coastal-trip-hub/",
-  "notes": "QoL + privacy: no Wi-Fi passwords or home street address. Clayton today card, Sunday storm plan, Hillsborough TBD after Frisco.",
+  "notes": "Carolina Beach State Park trail map button on the today card, arrival drive card, stay detail, and things to do.",
   "food_synced": "2026-09-22T20:38:34-04:00",
-  "updated": "2026-10-03"
+  "updated": "2026-10-05"
 }
