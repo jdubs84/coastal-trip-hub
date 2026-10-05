@@ -1,8 +1,8 @@
 {
-  "build": "20261003-qol",
-  "version": "20261003-qol",
+  "build": "20261005-frisco",
+  "version": "20261005-frisco",
   "url": "https://jdubs84.github.io/coastal-trip-hub/",
-  "notes": "QoL + privacy: no Wi-Fi passwords or home street address. Clayton today card, Sunday storm plan, Hillsborough TBD after Frisco.",
+  "notes": "Frisco Woods Cabin 6 is 3 nights: check-in Thu Oct 8 at 3:00 PM, check-out Sun Oct 11 at noon. Uncle's leg starts Sun Oct 11.",
   "food_synced": "2026-09-22T20:38:34-04:00",
-  "updated": "2026-10-03"
+  "updated": "2026-10-05"
 }

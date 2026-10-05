@@ -18,7 +18,7 @@
   if (q.get('debug') === '1' || q.get('date')) document.documentElement.classList.add('show-date-override');
 })();
 </script>
-<title>Coastal Trip Hub — Sep 27–Oct 10 2026</title>
+<title>Coastal Trip Hub — Sep 27–Oct 11 2026</title>
 <style>
 :root{color-scheme:dark;--bg:#050505;--panel:#121212;--panel2:#0a0a0a;--border:#3a3220;--text:#f7f3ea;--muted:#e4d7b8;--gold:#d4af37;--gold-bright:#f0c14b;--gold-dim:#8a7324;--radius:14px}
 *{box-sizing:border-box}
@@ -166,7 +166,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   .dc-map-btn{
     display:flex;align-items:center;justify-content:center;gap:4px;width:100%;
     padding:12px 16px;border-radius:12px;font:800 1.05rem/1.2 system-ui,sans-serif;
-    text-decoration:none;color:#0b1014;background:linear-gradient(145deg,#e8c84a,#d4af37);
+    text-decoration:none;text-align:center;color:#0b1014;background:linear-gradient(145deg,#e8c84a,#d4af37);
     border:1px solid rgba(212,175,55,.5)
   }
   .dc-map-btn.secondary{background:rgba(255,255,255,.06);color:var(--text,#e8eef3);border-color:rgba(255,255,255,.12)}
@@ -217,7 +217,7 @@ footer{color:var(--muted);font-size:.75rem;text-align:center;margin-top:20px}
   .todo-sub{display:block;font-weight:500;font-size:.75rem;color:var(--muted);margin-top:2px}
   .todo-fold .todo-body{padding:0 12px 14px}
   .todo-top{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
-  .todo-fold .todo-top a{display:inline-flex;align-items:center;min-height:48px;padding:12px 14px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1rem}
+  .todo-fold .todo-top a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;max-width:100%;box-sizing:border-box;padding:12px 14px;border-radius:999px;text-decoration:none;font-weight:800;font-size:1rem;text-align:center;white-space:normal}
   .todo-top a.book{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a}
   .todo-top a.call{background:transparent;color:var(--gold-bright);border:1px solid var(--border)}
   .todo-deadline{margin:0 0 8px;padding:8px 10px;border-radius:10px;border:1px solid #6b5420;background:#12100a;color:#e8d5a3;font-size:.86rem;font-weight:700;line-height:1.35}
@@ -246,7 +246,7 @@ html.show-date-override #dateOverrideWrap{display:block}
 a.dayof-directions{
   display:flex;align-items:center;justify-content:center;gap:8px;
   min-height:48px;width:100%;margin-top:10px;box-sizing:border-box;
-  text-decoration:none;font-weight:800;font-size:1.05rem;border-radius:12px;
+  text-decoration:none;font-weight:800;font-size:1.05rem;border-radius:12px;text-align:center;
   background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a;
   padding:12px 16px;
 }
@@ -345,13 +345,14 @@ input,select,textarea{font-size:16px}
     <a class="now-go" id="nowDirections" href="https://www.google.com/maps/dir/?api=1&amp;destination=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;travelmode=driving" target="_blank" rel="noopener">Google Maps</a>
     <a class="now-call" id="nowCall" href="tel:+18438692156">Call 843-869-2156</a>
     <a class="now-alt" id="nowGoogle" href="https://maps.apple.com/?daddr=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a>
+    <a class="now-go" id="nowTrailMap" href="https://www.ncparks.gov/maps/carolina-beach-state-park-map/open" target="_blank" rel="noopener" hidden>Carolina Beach State Park Trail Map</a>
     <a class="now-alt" id="nowMap" href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener">Open trip map</a>
   </div>
 </section>
 
 <header class="hero">
   <h1>Coastal Trip Hub</h1>
-  <p class="sub">Sep 27 – Oct 10, 2026 · Party of 3 · Home: Home (Largo)</p>
+  <p class="sub">Sep 27 – Oct 11, 2026 · Party of 3 · Home: Home (Largo)</p>
   <div class="pills">
     <span class="pill">6 overnight stops</span>
     <span class="pill">~18h 35m / ~815+ mi (legs)</span>
@@ -384,7 +385,7 @@ input,select,textarea{font-size:16px}
   <p class="detail" id="dayDetail">Tonight: Edisto Beach SP cabins. Stay window 2026-09-29 → 2026-10-01 (checkout morning). No move day — settle-in / explore. Checkout Thu Oct 1 by 10:00 AM.</p>
   <div id="dateOverrideWrap">
   <label for="dateOverride" style="color:var(--muted);font-size:.85rem;display:block;margin-bottom:4px">Manual date override (testing)</label>
-  <select id="dateOverride" autocomplete="off"><option value="" selected>Auto (today)</option><option value="2026-09-26">2026-09-26</option><option value="2026-09-27">2026-09-27</option><option value="2026-09-28">2026-09-28</option><option value="2026-09-29">2026-09-29</option><option value="2026-09-30">2026-09-30</option><option value="2026-10-01">2026-10-01</option><option value="2026-10-02">2026-10-02</option><option value="2026-10-03">2026-10-03</option><option value="2026-10-04">2026-10-04</option><option value="2026-10-05">2026-10-05</option><option value="2026-10-06">2026-10-06</option><option value="2026-10-07">2026-10-07</option><option value="2026-10-08">2026-10-08</option><option value="2026-10-09">2026-10-09</option><option value="2026-10-10">2026-10-10</option><option value="2026-10-11">2026-10-11</option></select>
+  <select id="dateOverride" autocomplete="off"><option value="" selected>Auto (today)</option><option value="2026-09-26">2026-09-26</option><option value="2026-09-27">2026-09-27</option><option value="2026-09-28">2026-09-28</option><option value="2026-09-29">2026-09-29</option><option value="2026-09-30">2026-09-30</option><option value="2026-10-01">2026-10-01</option><option value="2026-10-02">2026-10-02</option><option value="2026-10-03">2026-10-03</option><option value="2026-10-04">2026-10-04</option><option value="2026-10-05">2026-10-05</option><option value="2026-10-06">2026-10-06</option><option value="2026-10-07">2026-10-07</option><option value="2026-10-08">2026-10-08</option><option value="2026-10-09">2026-10-09</option><option value="2026-10-10">2026-10-10</option><option value="2026-10-11">2026-10-11</option><option value="2026-10-12">2026-10-12</option></select>
   </div>
 
   <div class="dayof-card" id="dayCard">
@@ -403,19 +404,19 @@ input,select,textarea{font-size:16px}
   </div>
 </article><article class="drive-card" data-drive-date="2026-10-04" data-arrival="Check in at the Marina Store after 4 PM. Gate locks at 9 PM. No water or bathroom in the cabin — bathhouse nearby; bring linens.">
   <img class="dc-thumb" src="assets/carolina.jpg" alt="Carolina Beach pier" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-04">Sun 10-04</span><span class="badge boat">Boat</span></div><h3>Georgetown (boat out) → Carolina Beach SP cabin</h3><div class="dc-meta"><span>2h 56m</span><span>122.7 mi</span><span>Leave by ~10–11 AM</span></div><p class="dc-note">Heavy rain/storms likely from ~3 PM Sun (80–90%) — leave by 10–11 AM, pack a dry bag for the boat. Clayton checkout is Sun Oct 4 by 10:00 AM. Lunch stop on US-17 (Murrells Inlet or Myrtle Beach) fills the gap before check-in. Check in at the Marina Store after 4 PM. Gate locks at 9 PM. No water or bathroom in the cabin — bathhouse nearby; bring linens.</p><p class="dc-traffic">Traffic: boat-to-car first, then Wilmington on the approach to Carolina Beach.</p><div class="dc-maps"><a class="dc-map-btn" href="https://www.google.com/maps/dir/?api=1&destination=1010%20State%20Park%20Rd,%20Carolina%20Beach,%20NC%2028428&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a><a class="dc-map-btn secondary" href="https://maps.apple.com/?daddr=1010%20State%20Park%20Rd,%20Carolina%20Beach,%20NC%2028428&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-04">Sun 10-04</span><span class="badge boat">Boat</span></div><h3>Georgetown (boat out) → Carolina Beach SP cabin</h3><div class="dc-meta"><span>2h 56m</span><span>122.7 mi</span><span>Leave by ~10–11 AM</span></div><p class="dc-note">Heavy rain/storms likely from ~3 PM Sun (80–90%) — leave by 10–11 AM, pack a dry bag for the boat. Clayton checkout is Sun Oct 4 by 10:00 AM. Lunch stop on US-17 (Murrells Inlet or Myrtle Beach) fills the gap before check-in. Check in at the Marina Store after 4 PM. Gate locks at 9 PM. No water or bathroom in the cabin — bathhouse nearby; bring linens.</p><p class="dc-traffic">Traffic: boat-to-car first, then Wilmington on the approach to Carolina Beach.</p><div class="dc-maps"><a class="dc-map-btn" href="https://www.google.com/maps/dir/?api=1&destination=1010%20State%20Park%20Rd,%20Carolina%20Beach,%20NC%2028428&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a><a class="dc-map-btn secondary" href="https://maps.apple.com/?daddr=1010%20State%20Park%20Rd,%20Carolina%20Beach,%20NC%2028428&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a><a class="dc-map-btn" href="https://www.ncparks.gov/maps/carolina-beach-state-park-map/open" target="_blank" rel="noopener">Carolina Beach State Park Trail Map</a></div>
   </div>
 </article><article class="drive-card" data-drive-date="2026-10-06" data-arrival="Visitor Center check-in about 3–5 PM (closes 5 PM), 1572 Hammocks Beach Road. Call 910-326-4881 before 5 if the leave-by slips.">
   <img class="dc-thumb" src="assets/hammocks.jpg" alt="Hammocks Beach mainland cabin in oaks" width="112" height="112" loading="lazy"/>
   <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-06">Tue 10-06</span></div><h3>Carolina Beach SP → Hammocks Beach SP Simmons</h3><div class="dc-meta"><span>2h 05m</span><span>81.4 mi</span><span>Leave by ~1:55 PM</span></div><p class="dc-note">Mainland cabin (Simmons). Check in at the Visitor Center, about 3–5 PM (closes 5 PM). If the 1:55 PM leave-by slips, call 910-326-4881 before 5.</p><p class="dc-traffic">Traffic: usually light; still peek at US-17 if you leave midday.</p><div class="dc-maps"><a class="dc-map-btn" href="https://www.google.com/maps/dir/?api=1&destination=34.687,-77.139&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a><a class="dc-map-btn secondary" href="https://maps.apple.com/?daddr=34.687,-77.139&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a></div>
   </div>
-</article><article class="drive-card long" data-drive-date="2026-10-08" data-arrival="Frisco Woods · Cabin 6. Check-in 3:00 PM. Frisco Woods Cabin 6 — fully paid. First yellow speed bump for the welcome packet.">
+</article><article class="drive-card long" data-drive-date="2026-10-08" data-arrival="Frisco Woods · Cabin 6 (Seaglass, 2 rooms). Check-in Thu Oct 8 at 3:00 PM. Check-out Sun Oct 11 at noon. Paid in full, $0 balance. Express check-in at the first yellow speed bump.">
   <img class="dc-thumb" src="assets/frisco.jpg" alt="Frisco Outer Banks dunes cabin" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-08">Thu 10-08</span><span class="badge long">Long leg</span></div><h3>Hammocks Beach SP → Frisco Woods · Cabin 6</h3><div class="dc-meta"><span>5h 24m</span><span>227.2 mi</span><span>Leave by ~10:35 AM</span></div><p class="dc-note">Long leg (&gt;4h) — Outer Banks stretch. Frisco Woods · Cabin 6. Check-in 3:00 PM. Frisco Woods Cabin 6 — fully paid.</p><p class="dc-traffic">Traffic: OBX bridges (Wright / Bonner) — leave early Fri–Sun on the Outer Banks stretch.</p><div class="dc-maps"><a class="dc-map-btn" href="https://www.google.com/maps/dir/?api=1&destination=35.223,-75.635&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a><a class="dc-map-btn secondary" href="https://maps.apple.com/?daddr=35.223,-75.635&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-08">Thu 10-08</span><span class="badge long">Long leg</span></div><h3>Hammocks Beach SP → Frisco Woods · Cabin 6</h3><div class="dc-meta"><span>5h 24m</span><span>227.2 mi</span><span>Leave by ~10:35 AM</span></div><p class="dc-note">Long leg (&gt;4h) — Outer Banks stretch. Frisco Woods · Cabin 6 (Seaglass, 2 rooms). Check-in Thu Oct 8 at 3:00 PM. Check-out Sun Oct 11 at noon. Paid in full, $0 balance. 3 nights (Oct 8, 9, and 10).</p><p class="dc-traffic">Traffic: OBX bridges (Wright / Bonner) — leave early Fri–Sun on the Outer Banks stretch.</p><div class="dc-maps"><a class="dc-map-btn" href="https://www.google.com/maps/dir/?api=1&destination=35.223,-75.635&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a><a class="dc-map-btn secondary" href="https://maps.apple.com/?daddr=35.223,-75.635&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a></div>
   </div>
-</article><article class="drive-card" data-drive-date="2026-10-10" data-arrival="Frisco checkout by noon. TBD — northern coast → Uncle's, Hillsborough area.">
+</article><article class="drive-card" data-drive-date="2026-10-11" data-arrival="Frisco checkout Sun Oct 11 by noon. TBD — northern coast → Uncle's, Hillsborough area.">
   <img class="dc-thumb" src="assets/frisco.jpg" alt="Frisco Outer Banks dunes cabin" width="112" height="112" loading="lazy"/>
-  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-10">Sat 10-10</span><span class="badge long">TBD</span></div><h3>Frisco Woods (Hatteras Island NC) → TBD — northern coast → Uncle's, Hillsborough area</h3><div class="dc-meta"><span>Frisco checkout by noon</span><span>Leave by noon</span></div><p class="dc-note">Frisco checkout by noon. TBD — northern coast → Uncle's, Hillsborough area. Open Directions for live time and distance.</p><p class="dc-traffic">Traffic: route is TBD along the northern coast toward Hillsborough.</p><div class="dc-maps"><a class="dc-map-btn" href="https://www.google.com/maps/dir/?api=1&destination=Hillsborough,%20NC&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a><a class="dc-map-btn secondary" href="https://maps.apple.com/?daddr=Hillsborough,%20NC&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a></div>
+  <div class="dc-body"><div class="dc-top"><span class="dc-date" data-wd="2026-10-11">Sun 10-11</span><span class="badge long">TBD</span></div><h3>Frisco Woods (Hatteras Island NC) → TBD — northern coast → Uncle's, Hillsborough area</h3><div class="dc-meta"><span>Frisco checkout by noon</span><span>Leave by noon</span></div><p class="dc-note">Frisco checkout Sun Oct 11 by noon. TBD — northern coast → Uncle's, Hillsborough area. Open Directions for live time and distance.</p><p class="dc-traffic">Traffic: route is TBD along the northern coast toward Hillsborough.</p><div class="dc-maps"><a class="dc-map-btn" href="https://www.google.com/maps/dir/?api=1&destination=Hillsborough,%20NC&travelmode=driving" target="_blank" rel="noopener">Google Maps · traffic</a><a class="dc-map-btn secondary" href="https://maps.apple.com/?daddr=Hillsborough,%20NC&dirflg=d" target="_blank" rel="noopener">Apple Maps · traffic</a></div>
   </div>
 </article></div>
 </section>
@@ -429,7 +430,7 @@ input,select,textarea{font-size:16px}
     <span class="sync-meta" id="lodgeSyncMeta">Baked lodging · Sync sheet updates Food + Lodging</span>
   </div>
 
-  <p class="lede" id="kitchenSummary" style="margin:10px 0 12px">Kitchen totals across <b>13 overnight nights</b>: <b>5 full</b> (Edisto 2 + Clayton 3) · <b>2 kitchenette</b> (Anastasia) · <b>6 none</b> (Carolina Beach + Hammocks + Frisco). After boat-out on Oct 4 you’re in a <b>6-night no-kitchen stretch</b> through Oct 10 — cooler meals, Cook Out / takeout, or travel stove/grill.</p>
+  <p class="lede" id="kitchenSummary" style="margin:10px 0 12px">Kitchen totals across <b>14 overnight nights</b>: <b>5 full</b> (Edisto 2 + Clayton 3) · <b>2 kitchenette</b> (Anastasia) · <b>7 none</b> (Carolina Beach + Hammocks + Frisco). After boat-out on Oct 4 you’re in a <b>7-night no-kitchen stretch</b> through checkout Sun Oct 11 — cooler meals, Cook Out / takeout, or travel stove/grill.</p>
 
   <div class="table-wrap">
   <table class="lodge-table">
@@ -442,7 +443,7 @@ input,select,textarea{font-size:16px}
     <tr data-until="2026-10-04" data-done="✓ Clayton Cabin · Oct 1–4 · done"><td>3. Clayton Cabin / Commander&#x27;s Island</td><td>Oct 1–4 (3)</td><td>Linens/towels provided (no sheets to bring)</td><td>No washer listed</td><td class="kitchen"><b>Full kitchen</b><br/><span style="opacity:.85;font-size:.86em">Gas stove/oven, fridge, drip coffee maker, basic spices, cookware. Gas grill, picnic table, screened porch, private dock. Free Wi-Fi (may be weak — recent review), central A/C/heat, TV</span></td><td>Paid ($696). Check-in Thu Oct 1 after 3:00 PM · checkout Sun Oct 4 by 10:00 AM · 3 adults · 2BR/1BA ~1,500 sq ft (queen + full + full sleeper sofa). Evolve emails a rental agreement that must be accepted before arrival; photo ID and a credit card may be required. Bring from the mainland: groceries, ice, drinks, bug spray. Gas up before the boat. Nearby: Hopsewee Plantation ~9 min from the cabin area; Pawleys Island/Litchfield beaches ~40 min. <a href="https://www.airbnb.com/rooms/42045580" target="_blank" rel="noopener">Listing</a>.<p class="arrival-alert"><b>Boat dock (park here):</b> <a href="https://www.google.com/maps/dir/?api=1&amp;destination=840%20Commanders%20Island%20Rd%2C%20SC%2029440&amp;travelmode=driving" target="_blank" rel="noopener">840 Commanders Island Rd</a> <a class="map-alt" href="https://maps.apple.com/?daddr=840%20Commanders%20Island%20Rd%2C%20SC%2029440&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a>. Parking is at the dock. Still to confirm with Evolve (<a href="tel:+17204087414">+1 720-408-7414</a>): pickup time and boat ride length.</p></td><td>Boat-only (Santee River). The listing states $100 paid on-site for arrival + departure concierge rides; extra rides not included</td></tr>
     <tr data-until="2026-10-06" data-done="✓ Carolina Beach SP · Oct 4–6 · done"><td>4. Carolina Beach SP cabin</td><td>Oct 4–6 (2)</td><td>BRING linens (NC kit)</td><td>Coin laundry at marina ~¾ mi</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camper cabin · outdoor grill/fire ring only · no indoor cooking</span></td><td>SP cabin rates</td><td>—</td></tr>
     <tr data-until="2026-10-08" data-done="✓ Hammocks Beach SP · Oct 6–8 · done"><td>5. Hammocks Beach SP Simmons</td><td>Oct 6–8 (2)</td><td>BRING linens + extra set (no laundry)</td><td>No on-site laundry</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Simmons camper cabin · outdoor fire pit · bathhouse</span></td><td>SP cabin rates</td><td>— (mainland cabin)</td></tr>
-    <tr data-until="2026-10-10" data-done="✓ Frisco Woods · Oct 8–10 · done"><td>6. Frisco Woods camping cabin</td><td>Oct 8–10 (2)</td><td>BRING linens</td><td>Shared laundry</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Camping cabin · outdoor grill/picnic · no indoor kitchen (confirm unit)</span></td><td>Camping cabin rates</td><td>—</td></tr>
+    <tr data-until="2026-10-11" data-done="✓ Frisco Woods · Oct 8–11 · done"><td>6. Frisco Woods · Cabin 6</td><td>Oct 8–11 (3)</td><td>BRING linens</td><td>Bathhouses in the park</td><td class="kitchen"><b>No kitchen</b><br/><span style="opacity:.85;font-size:.86em">Seaglass Cabin (2 rooms) · charcoal grill and picnic table outside · restrooms in the park bathhouses</span></td><td>Paid in full · $0 balance · check-in Thu Oct 8 3:00 PM · check-out Sun Oct 11 noon</td><td>—</td></tr>
     </tbody>
   </table>
   </div>
@@ -527,6 +528,7 @@ input,select,textarea{font-size:16px}
     <h3>Carolina Beach SP cabin</h3>
     <p class="when">Oct 4–6 · 2 nights</p>
     <p class="arrival-alert">Gate locks at 9 PM in October. Arrive before 9 PM on Oct 4, and be back inside before 9 PM on Oct 5. The combination will not be given out. No re-entry after close.</p>
+    <a class="arrival-action" href="https://www.ncparks.gov/maps/carolina-beach-state-park-map/open" target="_blank" rel="noopener">Carolina Beach State Park Trail Map</a>
     <ul class="arrival-fields">
       <li data-field="address"><b>Address:</b> <a href="https://www.google.com/maps/dir/?api=1&amp;destination=1010%20State%20Park%20Road,%20Carolina%20Beach,%20NC%2028428&amp;travelmode=driving">1010 State Park Road, Carolina Beach, NC 28428</a> <a class="map-alt" href="https://maps.apple.com/?daddr=1010%20State%20Park%20Road,%20Carolina%20Beach,%20NC%2028428&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a>. Official GPS 34.0472, -77.9066. Six camper cabins in the family campground near Snow’s Cut. Visitor Center is 0.5 mi; marina and boat launch 0.75 mi.</li>
       <li data-field="checkin"><b>Check-in / out:</b> Check in at the Marina Store after 4 PM · gate locks 9 PM.</li>
@@ -564,25 +566,22 @@ input,select,textarea{font-size:16px}
   </div>
 </details>
 
-  <details class="auto-fold show-full stay-fold" data-until="2026-10-10" open>
-  <summary><span class="sum-done">✓ Frisco Woods · Oct 8–10 · done</span><span class="sum-live">Frisco Woods</span></summary>
+  <details class="auto-fold show-full stay-fold" data-until="2026-10-11" open>
+  <summary><span class="sum-done">✓ Frisco Woods · Oct 8–11 · done</span><span class="sum-live">Frisco Woods</span></summary>
   <div class="stay-facts" id="frisco-arrival" data-arrival="frisco">
-    <h3>Frisco Woods · Cabin 6</h3>
-    <p class="when">Oct 8–10 · 2 nights · Hatteras Island NC</p>
-    <p class="arrival-alert">Check-in 3:00 PM Thu Oct 8. Frisco Woods Cabin 6 — fully paid. Express check-in: pull up to the first yellow speed bump and they bring the welcome packet out.</p>
+    <h3>Frisco Woods · Cabin 6 · Seaglass</h3>
+    <p class="when">Oct 8–11 · 3 nights (Oct 8, 9, and 10) · Hatteras Island NC · 2 rooms</p>
+    <p class="arrival-alert">Check-in Thu Oct 8 at 3:00 PM. Check-out Sun Oct 11 at 12:00 noon. Paid in full, $0 balance. Express check-in: pull up to the first yellow speed bump and they bring the welcome packet out.</p>
     <ul class="arrival-fields">
-      <li data-field="address"><b>Address:</b> <a href="https://www.google.com/maps/dir/?api=1&amp;destination=53124%20NC%2012%20Highway,%20Frisco,%20NC%2027936&amp;travelmode=driving">53124 NC 12 Highway, Frisco, NC 27936</a> <a class="map-alt" href="https://maps.apple.com/?daddr=53124%20NC%2012%20Highway,%20Frisco,%20NC%2027936&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a></li>
-      <li data-field="checkin"><b>Check-in 3:00 PM</b> Thu Oct 8. <b>Check-out</b> 12:00 PM.</li>
-      <li data-field="arrival"><b>Express check-in:</b> Frisco Woods Cabin 6 — fully paid. On arrival, pull up to the first yellow speed bump and they bring the welcome packet out.</li>
-      <li data-field="contact"><b>Phone:</b> <a href="tel:+12529955208">(252) 995-5208</a>. Email <a href="mailto:reservations@fwcobx.com">reservations@fwcobx.com</a>. Confirmations sometimes land in spam.</li>
-      <li data-field="vehicles"><b>Vehicles:</b> 1 included, max 2 per site, extra vehicle $10/night. Rates assume 2 adults + 2 children + 1 vehicle. Each additional adult (13+) is $6/night. Site change is $10.</li>
-      <li data-field="fees"><b>Rates:</b> the booking amount is not in the sources. Fall rates were not on the page. Published 2026 summer rates through Sep 30 (not the October price): One Room $120/night, Two Room $130/night. One Room sleeps 4 (2 full, or 1 full + 1 twin bunk). Two Room sleeps 6 (1 full + 2 twin bunk sets in a separate room). No guarantee of a specific site.</li>
-      <li data-field="wifi">Wi-Fi details: see confirmation email. Hub cell note: limited Buxton to Frisco.</li>
-      <li data-field="linens"><b>Linens / laundry:</b> cabins have no bathroom or kitchen. Bring your own bed linens. A/C, lights, and outlets inside. Outside: park-style charcoal grill, picnic table, water spigot. Laundry is not listed on the official site. The sheet says shared laundry / camp laundry if available.</li>
-      <li data-field="fire"><b>Fire:</b> <span class="checked-tag">checked Sep 25</span> NO ground fires and no park fire ring. Only elevated/contained portable fire pits. Propane stove/grill OK. Plan propane for cooking there.</li>
-      <li data-field="notes"><b>Rules:</b> Quiet hours 11 PM–7 AM. 5 mph. Golf carts parked by 10 PM. Pool 9 AM–dusk. No events listed for Oct 8–10 (Fall Fest is Oct 17). Oct 10: Frisco checkout by noon, then TBD — northern coast → Uncle's, Hillsborough area.</li>
+      <li data-field="address"><b>Address:</b> <a href="https://www.google.com/maps/dir/?api=1&amp;destination=53124%20Highway%2012,%20Frisco,%20NC%2027936&amp;travelmode=driving">53124 Highway 12, Frisco, NC 27936</a> <a class="map-alt" href="https://maps.apple.com/?daddr=53124%20Highway%2012,%20Frisco,%20NC%2027936&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a></li>
+      <li data-field="checkin"><b>Check-in</b> Thu Oct 8 at 3:00 PM (cabins). <b>Check-out</b> Sun Oct 11 at 12:00 noon. 3 nights: Oct 8, Oct 9, and Oct 10.</li>
+      <li data-field="arrival"><b>Express check-in:</b> Cabin 6 — Seaglass Cabin (2 rooms). Paid in full, $0 balance. On arrival, pull up to the first yellow speed bump and they bring the welcome packet out.</li>
+      <li data-field="contact"><b>Phone:</b> <a href="tel:+12529955208">(252) 995-5208</a>. Email <a href="mailto:reservations@fwcobx.com">reservations@fwcobx.com</a>.</li>
+      <li data-field="wifi"><b>Wi-Fi / TV:</b> Wi-Fi is not guaranteed. TV needs Roku or smart TV apps. Hub cell note: limited Buxton to Frisco.</li>
+      <li data-field="linens"><b>Cabin:</b> bring your own bed linens. AC, but no heat (a small heater is OK). Charcoal grill and picnic table outside. Restrooms are in the park bathhouses.</li>
+      <li data-field="fire"><b>Fire:</b> no ground fires. Grills, camp stoves, or raised fire containers (Solo Stove) only.</li>
+      <li data-field="notes"><b>Rules:</b> Quiet hours 11 PM–7 AM. Pool open 9 AM–dusk. Sun Oct 11: checkout by noon, then TBD — northern coast → Uncle's, Hillsborough area.</li>
     </ul>
-    <p class="still-need">Still need: confirmation #, office hours</p>
   </div>
 </details>
   <details class="todo-fold is-past" id="anastasia-todo" data-until="2026-09-29">
@@ -727,6 +726,9 @@ input,select,textarea{font-size:16px}
   <details class="todo-fold" id="carolina-todo" data-until="2026-10-06">
     <summary><span class="sum-done">✓ Carolina Beach SP · Oct 4–6 · done</span><span class="sum-live">Things to do at Carolina Beach<span class="todo-sub">Flytraps, trails, Fort Fisher · Oct 4–6</span></span></summary>
     <div class="todo-body">
+      <div class="todo-top">
+        <a class="book" href="https://www.ncparks.gov/maps/carolina-beach-state-park-map/open" target="_blank" rel="noopener">Carolina Beach State Park Trail Map</a>
+      </div>
       <p class="todo-deadline">The park gate locks at 9 PM. The NC Aquarium at Fort Fisher is closed for renovation (since May 26, 2026). Fort Fisher Historic Site is closed Sun–Mon, so go Tue Oct 6 before checkout.</p>
       <p class="todo-note">Drive times are from the park cabins. Checked Sep 26, 2026.</p>
       <ul class="todo-items">
@@ -756,19 +758,19 @@ input,select,textarea{font-size:16px}
       </ul>
     </div>
   </details>
-  <details class="todo-fold" id="frisco-todo" data-until="2026-10-10">
-    <summary><span class="sum-done">✓ Frisco Woods · Oct 8–10 · done</span><span class="sum-live">Things to do at Frisco / Hatteras<span class="todo-sub">Lighthouses, shipwrecks, Ocracoke ferry · Oct 8–10</span></span></summary>
+  <details class="todo-fold" id="frisco-todo" data-until="2026-10-11">
+    <summary><span class="sum-done">✓ Frisco Woods · Oct 8–11 · done</span><span class="sum-live">Things to do at Frisco / Hatteras<span class="todo-sub">Lighthouses, shipwrecks, Ocracoke ferry · Oct 8–11</span></span></summary>
     <div class="todo-body">
-      <p class="todo-deadline">The Cape Hatteras Lighthouse is closed for climbing all of 2026, but the grounds are open. At Frisco Woods: no ground fires, so cook on propane.</p>
+      <p class="todo-deadline">The Cape Hatteras Lighthouse is closed for climbing all of 2026, but the grounds are open. At Frisco Woods: no ground fires — grills, camp stoves, or a raised fire container (Solo Stove) only. Checkout is noon Sun Oct 11.</p>
       <p class="todo-note">Drive times are from Frisco Woods. Checked Sep 26, 2026.</p>
       <ul class="todo-items">
         <li><a href="https://www.nps.gov/caha/planyourvisit/chls.htm" target="_blank" rel="noopener">Cape Hatteras Light Station</a> <span class="todo-drive">· ~20 min, Buxton</span><span class="todo-line">Tallest brick lighthouse in the US. The tower is closed for restoration, but the grounds and nearby beach are open 24/7. The 1.5-mile paved Lighthouse Pathway starts at NC-12.</span></li>
         <li><a href="https://www.nps.gov/caha/planyourvisit/hiking.htm" target="_blank" rel="noopener">Buxton Woods Trail</a> <span class="todo-drive">· ~15 min</span><span class="todo-line">0.75-mile loop (about 45 min) through maritime forest from the Buxton Woods Picnic Area. Open 24 hours. Bring bug spray.</span></li>
-        <li><a href="https://graveyardoftheatlantic.nc.gov/plan-your-visit" target="_blank" rel="noopener">Graveyard of the Atlantic Museum</a> <span class="todo-drive">· ~15 min, Hatteras village</span><span class="todo-line">Free. Shipwreck history, plus the Cape Hatteras Lighthouse’s first-order Fresnel lens. Tue–Sat 10 AM–5 PM, so open Thu Oct 8–Sat Oct 10. <b>Rainy-day pick.</b></span></li>
+        <li><a href="https://graveyardoftheatlantic.nc.gov/plan-your-visit" target="_blank" rel="noopener">Graveyard of the Atlantic Museum</a> <span class="todo-drive">· ~15 min, Hatteras village</span><span class="todo-line">Free. Shipwreck history, plus the Cape Hatteras Lighthouse’s first-order Fresnel lens. Tue–Sat 10 AM–5 PM, so open Thu Oct 8–Sat Oct 10 and closed Sun Oct 11. <b>Rainy-day pick.</b></span></li>
         <li><a href="https://nativeamericanmuseum.org/" target="_blank" rel="noopener">Frisco Native American Museum</a> <span class="todo-drive">· ~2 min</span><span class="todo-line">Small museum with a free ¼-mile nature trail. Tue–Sun 10 AM–5 PM, $8/adult. Second rainy-day option.</span></li>
         <li><a href="https://www.ncdot.gov/travel-maps/ferry-tickets-services/routes/Pages/default.aspx" target="_blank" rel="noopener">Hatteras–Ocracoke ferry day trip</a> <span class="todo-drive">· ~15 min to Hatteras terminal</span><span class="todo-line">Free vehicle ferry, about a 70-minute crossing, first come first served. Frequent departures from about 5 AM to midnight on the Mar 31–Oct 19 schedule. On Ocracoke, the lighthouse base is open some days, and the Hammock Hills Trail is a 0.75-mile loop. <span class="confirm-tag">check</span> NCDOT ferry status that morning, because dredging cut late runs earlier this year.</span></li>
         <li><a href="https://slashcreekoutfitters.com/" target="_blank" rel="noopener">Slash Creek Outfitters: kayak rental</a> <span class="todo-drive">· ~10 min, Hatteras village</span><span class="todo-line">Kayak rentals with a launch right at the shop, plus bikes and beach gear. Call <a href="tel:+12529861500">252-986-1500</a>. <span class="confirm-tag">check hours</span></span></li>
-        <li><a href="https://www.recreation.gov/ticket/facility/252034" target="_blank" rel="noopener">Bodie Island Lighthouse climb</a> <span class="todo-drive">· ~1 hr 25 min north (fits the Oct 10 drive off the island)</span><span class="todo-line">Self-guided climbs every 20 minutes, 9 AM–5 PM, through Oct 12. Tickets are same-day only on Recreation.gov, go on sale at 7 AM, and are limited to 8 per slot.</span></li>
+        <li><a href="https://www.recreation.gov/ticket/facility/252034" target="_blank" rel="noopener">Bodie Island Lighthouse climb</a> <span class="todo-drive">· ~1 hr 25 min north (fits the Oct 11 drive off the island)</span><span class="todo-line">Self-guided climbs every 20 minutes, 9 AM–5 PM, through Oct 12. Tickets are same-day only on Recreation.gov, go on sale at 7 AM, and are limited to 8 per slot.</span></li>
       </ul>
     </div>
   </details>
@@ -778,7 +780,7 @@ input,select,textarea{font-size:16px}
 <section class="block" id="weather">
   <h2><span class="dot"></span> Weather strip</h2>
   <div class='whead'><p class='wstamp' data-weather-stamp>Forecast as of Sep 25, 12:54 PM ET</p><button type='button' class='wrefresh' data-weather-refresh>Refresh</button></div>
-  <div class='wstrip' data-weather-strip><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday' data-date='2026-09-30'><div class='wd'>Wed 9/30</div><div class='hl'>83°/74°</div><div class='pr'>4%</div></div><div class='wday' data-date='2026-10-01'><div class='wd'>Thu 10/1</div><div class='hl'>84°/77°</div><div class='pr'>7%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday' data-date='2026-10-01'><div class='wd'>Thu 10/1</div><div class='hl'>90°/71°</div><div class='pr'>10%</div></div><div class='wday' data-date='2026-10-02'><div class='wd'>Fri 10/2</div><div class='hl'>87°/71°</div><div class='pr'>21%</div></div><div class='wday' data-date='2026-10-03'><div class='wd'>Sat 10/3</div><div class='hl'>86°/74°</div><div class='pr'>29%</div></div><div class='wday' data-date='2026-10-04'><div class='wd'>Sun 10/4</div><div class='hl'>88°/74°</div><div class='pr'>35%</div></div></div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-04'><div class='wd'>Sun 10/4</div><div class='hl'>87°/73°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-05'><div class='wd'>Mon 10/5</div><div class='hl'>90°/72°</div><div class='pr'>37%</div></div><div class='wday' data-date='2026-10-06'><div class='wd'>Tue 10/6</div><div class='hl'>81°/72°</div><div class='pr'>43%</div></div></div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-06'><div class='wd'>Tue 10/6</div><div class='hl'>78°/68°</div><div class='pr'>39%</div></div><div class='wday' data-date='2026-10-07'><div class='wd'>Wed 10/7</div><div class='hl'>76°/67°</div><div class='pr'>46%</div></div><div class='wday' data-date='2026-10-08'><div class='wd'>Thu 10/8</div><div class='hl'>85°/74°</div><div class='pr'>19%</div></div></div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-08'><div class='wd'>Thu 10/8</div><div class='hl'>77°/75°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-09'><div class='wd'>Fri 10/9</div><div class='hl'>75°/66°</div><div class='pr'>23%</div></div><div class='wday' data-date='2026-10-10'><div class='wd'>Sat 10/10</div><div class='hl'>67°/61°</div><div class='pr'>29%</div></div></div></div></div>
+  <div class='wstrip' data-weather-strip><div class='wcard' data-stop='edisto'><div class='wtitle'>Edisto Beach SP<span>Edisto Beach, SC</span></div><div class='wdays'><div class='wday' data-date='2026-09-30'><div class='wd'>Wed 9/30</div><div class='hl'>83°/74°</div><div class='pr'>4%</div></div><div class='wday' data-date='2026-10-01'><div class='wd'>Thu 10/1</div><div class='hl'>84°/77°</div><div class='pr'>7%</div></div></div></div><div class='wcard' data-stop='georgetown'><div class='wtitle'>Clayton Cabin / Georgetown<span>Georgetown, SC</span></div><div class='wdays'><div class='wday' data-date='2026-10-01'><div class='wd'>Thu 10/1</div><div class='hl'>90°/71°</div><div class='pr'>10%</div></div><div class='wday' data-date='2026-10-02'><div class='wd'>Fri 10/2</div><div class='hl'>87°/71°</div><div class='pr'>21%</div></div><div class='wday' data-date='2026-10-03'><div class='wd'>Sat 10/3</div><div class='hl'>86°/74°</div><div class='pr'>29%</div></div><div class='wday' data-date='2026-10-04'><div class='wd'>Sun 10/4</div><div class='hl'>88°/74°</div><div class='pr'>35%</div></div></div></div><div class='wcard' data-stop='carolina'><div class='wtitle'>Carolina Beach SP<span>Carolina Beach, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-04'><div class='wd'>Sun 10/4</div><div class='hl'>87°/73°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-05'><div class='wd'>Mon 10/5</div><div class='hl'>90°/72°</div><div class='pr'>37%</div></div><div class='wday' data-date='2026-10-06'><div class='wd'>Tue 10/6</div><div class='hl'>81°/72°</div><div class='pr'>43%</div></div></div></div><div class='wcard' data-stop='hammocks'><div class='wtitle'>Hammocks Beach SP<span>Swansboro, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-06'><div class='wd'>Tue 10/6</div><div class='hl'>78°/68°</div><div class='pr'>39%</div></div><div class='wday' data-date='2026-10-07'><div class='wd'>Wed 10/7</div><div class='hl'>76°/67°</div><div class='pr'>46%</div></div><div class='wday' data-date='2026-10-08'><div class='wd'>Thu 10/8</div><div class='hl'>85°/74°</div><div class='pr'>19%</div></div></div></div><div class='wcard' data-stop='frisco'><div class='wtitle'>Frisco Woods<span>Frisco, NC</span></div><div class='wdays'><div class='wday' data-date='2026-10-08'><div class='wd'>Thu 10/8</div><div class='hl'>77°/75°</div><div class='pr'>26%</div></div><div class='wday' data-date='2026-10-09'><div class='wd'>Fri 10/9</div><div class='hl'>75°/66°</div><div class='pr'>23%</div></div><div class='wday' data-date='2026-10-10'><div class='wd'>Sat 10/10</div><div class='hl'>67°/61°</div><div class='pr'>29%</div></div><div class='wday' data-date='2026-10-11'><div class='wd'>Sun 10/11</div><div class='hl'>77°/74°</div><div class='pr'>47%</div></div></div></div></div>
 </section>
 
 <section class="block" id="boat">
@@ -1065,25 +1067,35 @@ input,select,textarea{font-size:16px}
       <li><span class="tag">stop</span> Cook Out Morehead City on the Crystal Coast approach</li>
       <li><span class="tag">note</span> No Buc-ee’s on OBX yet — stock snacks before this leg</li>
       <li><span class="tag">dinner</span> Camping cabin: READYWISE / remaining pouches on Coleman · EPIC / flax snacks</li>
-      <li><span class="tag">note</span> <span class="checked-tag">checked Sep 25</span> NO ground fires and no park fire ring. Only elevated/contained portable fire pits. Propane stove/grill OK. Plan propane for cooking there.</li>
+      <li><span class="tag">note</span> No ground fires. Grills, camp stoves, or raised fire containers (Solo Stove) only. Charcoal grill and picnic table are outside the cabin.</li>
     </ul>
   </div>
 </details>
 
   <details class="auto-fold show-full food-fold" data-until="2026-10-10" open>
-  <summary><span class="sum-done">✓ Fri 10/9 · Frisco (stay) · Sat 10/10 toward Hillsborough · done</span><span class="sum-live">Fri 10/9 · Frisco (stay) · Sat 10/10 toward Hillsborough</span></summary>
+  <summary><span class="sum-done">✓ Fri–Sat 10/9–10/10 · Frisco (stay) · done</span><span class="sum-live">Fri–Sat 10/9–10/10 · Frisco (stay)</span></summary>
   <div class="food-day" data-dates="2026-10-09 2026-10-10">
-    <h3 data-wd="2026-10-09" data-wd-also="2026-10-10" data-wd-tail="toward Hillsborough" data-label="Frisco (stay)">Fri 10/9 · Frisco (stay) · Sat 10/10 toward Hillsborough</h3>
-    <p class="when"><b>NO kitchen</b> · Coleman through <span data-wd-text="2026-10-10">Sat</span> AM · then toward Hillsborough</p>
+    <h3 data-wd="2026-10-09" data-wd-end="2026-10-10" data-label="Frisco (stay)">Fri–Sat 10/9–10/10 · Frisco (stay)</h3>
+    <p class="when"><b>NO kitchen</b> · charcoal grill, camp stove, or raised fire container · checkout noon <span data-wd-text="2026-10-11">Sun</span></p>
     <ul>
       <li><span class="tag">breakfast</span> Finish cereal / peaches oatmeal / coffee pods</li>
-      <li><span class="tag" data-wd-text="2026-10-09" data-wd-prefix="dinner ">dinner Fri</span> Last READYWISE or pouch boil · clear cooler leftovers</li>
-      <li><span class="tag">northbound</span> Frisco checkout by noon, then TBD — northern coast → Uncle's, Hillsborough area. Plan a fuel + food stop on the way.</li>
+      <li><span class="tag">dinner</span> READYWISE or pouch boil · grill or camp stove · clear cooler leftovers before Sunday</li>
     </ul>
   </div>
 </details>
 
-  <p style="color:var(--muted);font-size:.8rem;margin:8px 0 0">Map pins: Buc-ee’s (beaver gold), Cook Out (orange), Wawa (red) — toggle on the Coastal Trip Map. Oct 4–10 = 6 no-kitchen nights on the Coleman Bottletop; foil OK, no parchment. Fire status for each stop is in its arrival block (checked Sep 25).</p>
+  <details class="auto-fold show-full food-fold" data-until="2026-10-11" open>
+  <summary><span class="sum-done">✓ Sun 10/11 · Checkout → Uncle's · done</span><span class="sum-live">Sun 10/11 · Checkout → Uncle's</span></summary>
+  <div class="food-day" data-dates="2026-10-11">
+    <h3 data-wd="2026-10-11" data-label="Checkout → Uncle's, Hillsborough area">Sun 10/11 · Checkout → Uncle's, Hillsborough area</h3>
+    <p class="when">Frisco checkout by noon · then TBD — northern coast → Uncle's</p>
+    <ul>
+      <li><span class="tag">northbound</span> Frisco checkout Sun Oct 11 by noon, then TBD — northern coast → Uncle's, Hillsborough area. Plan a fuel + food stop on the way.</li>
+    </ul>
+  </div>
+</details>
+
+  <p style="color:var(--muted);font-size:.8rem;margin:8px 0 0">Map pins: Buc-ee’s (beaver gold), Cook Out (orange), Wawa (red) — toggle on the Coastal Trip Map. Oct 4–11 = 7 no-kitchen nights on the Coleman Bottletop; foil OK, no parchment. Fire status for each stop is in its arrival block.</p>
 </section>
 
 
@@ -1091,7 +1103,7 @@ input,select,textarea{font-size:16px}
   <h2><span class="dot"></span> Party SMS / share text</h2>
   <p style="color:var(--muted);margin:0 0 8px;font-size:.85rem">Copy and text to Kelli / the thread — no gist jargon.</p>
   <textarea class="share" id="shareText" readonly>Coastal trip — party of 3
-Sep 27 – Oct 10, 2026
+Sep 27 – Oct 11, 2026
 Home: Home (Largo)
 
 STOPS
@@ -1100,7 +1112,7 @@ STOPS
 • Clayton Cabin, Georgetown SC — Oct 1–4 (BOAT-ONLY · Airbnb paid)
 • Carolina Beach SP cabin — Oct 4–6 (BRING linens)
 • Hammocks Beach SP Simmons — Oct 6–8 (BRING linens + extra set)
-• Frisco Woods camping cabin — Oct 8–10 (BRING linens)
+• Frisco Woods · Cabin 6 (Seaglass) — Oct 8–11, 3 nights (BRING linens) · checkout Sun noon
 
 LINKS
 Trip hub: https://jdubs84.github.io/coastal-trip-hub/
@@ -1112,7 +1124,7 @@ Questions → text the thread.</textarea>
   <div class="btnrow"><button class="copy" type="button" id="copyShare">Copy share message</button></div>
 </section>
 
-<footer><span id="hubBuildLabel">20261003-qol</span> · <button type="button" id="btnCheckUpdate">Check for update</button></footer>
+<footer><span id="hubBuildLabel">20261005-frisco</span> · <button type="button" id="btnCheckUpdate">Check for update</button></footer>
 </div>
 <script>
 /* iOS (Safari tab and Home Screen standalone) does not hand target=_blank maps links to the Maps apps. */
@@ -1209,9 +1221,9 @@ Questions → text the thread.</textarea>
 </script>
 <script>
 const TRIP_START = '2026-09-27';
-const TRIP_END = '2026-10-10';
-const STAYS = [{"id": "anastasia", "name": "Anastasia SP bungalows", "start": "2026-09-27", "end": "2026-09-29"}, {"id": "edisto", "name": "Edisto Beach SP cabins", "start": "2026-09-29", "end": "2026-10-01"}, {"id": "georgetown", "name": "Clayton Cabin / Georgetown", "start": "2026-10-01", "end": "2026-10-04"}, {"id": "carolina", "name": "Carolina Beach SP cabin", "start": "2026-10-04", "end": "2026-10-06"}, {"id": "hammocks", "name": "Hammocks Beach SP Simmons", "start": "2026-10-06", "end": "2026-10-08"}, {"id": "frisco", "name": "Frisco Woods camping cabin", "start": "2026-10-08", "end": "2026-10-10"}];
-const LEGS = [{"date": "2026-10-01", "from": "Edisto Beach SP", "to": "Clayton Cabin / Georgetown SC"}, {"date": "2026-10-04", "from": "Georgetown (boat out)", "to": "Carolina Beach SP cabin"}, {"date": "2026-10-06", "from": "Carolina Beach SP", "to": "Hammocks Beach SP Simmons"}, {"date": "2026-10-08", "from": "Hammocks Beach SP", "to": "Frisco Woods camping cabin"}, {"date": "2026-10-10", "from": "Frisco Woods (Hatteras Island NC)", "to": "TBD — northern coast → Uncle's, Hillsborough area"}];
+const TRIP_END = '2026-10-11';
+const STAYS = [{"id": "anastasia", "name": "Anastasia SP bungalows", "start": "2026-09-27", "end": "2026-09-29"}, {"id": "edisto", "name": "Edisto Beach SP cabins", "start": "2026-09-29", "end": "2026-10-01"}, {"id": "georgetown", "name": "Clayton Cabin / Georgetown", "start": "2026-10-01", "end": "2026-10-04"}, {"id": "carolina", "name": "Carolina Beach SP cabin", "start": "2026-10-04", "end": "2026-10-06"}, {"id": "hammocks", "name": "Hammocks Beach SP Simmons", "start": "2026-10-06", "end": "2026-10-08"}, {"id": "frisco", "name": "Frisco Woods · Cabin 6", "start": "2026-10-08", "end": "2026-10-11"}];
+const LEGS = [{"date": "2026-10-01", "from": "Edisto Beach SP", "to": "Clayton Cabin / Georgetown SC"}, {"date": "2026-10-04", "from": "Georgetown (boat out)", "to": "Carolina Beach SP cabin"}, {"date": "2026-10-06", "from": "Carolina Beach SP", "to": "Hammocks Beach SP Simmons"}, {"date": "2026-10-08", "from": "Hammocks Beach SP", "to": "Frisco Woods · Cabin 6"}, {"date": "2026-10-11", "from": "Frisco Woods (Hatteras Island NC)", "to": "TBD — northern coast → Uncle's, Hillsborough area"}];
 function todayISO(){
   const sel = document.getElementById('dateOverride');
   const picked = sel && sel.value;
@@ -1253,9 +1265,10 @@ const DAY_PLAN = {
   "2026-10-05": { title:"Carolina Beach stay", leave:"No drive", meals:"Cereal · pier snacks · cabin or Cook Out Wilmington", checkin:"Still Carolina Beach", linens:"Your kit", next:"Tomorrow → Hammocks Simmons", warn:"Gate locks at 9 PM. Be back inside before 9 — the combination is not given out." },
   "2026-10-06": { title:"Drive → Hammocks Simmons", leave:"Leave ~1:55 PM · ~2h 05m", meals:"Cook Out Jacksonville NC optional · easy packs dinner", checkin:"Hammocks Beach SP Simmons", linens:"BRING linens + EXTRA set (no laundry)", next:"Stay {wd:2026-10-07}", blocks:[{k:"Visitor Center", cls:"warn", html:"Check in at the Visitor Center, <a href='https://www.google.com/maps/dir/?api=1&amp;destination=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&amp;travelmode=driving'>1572 Hammocks Beach Road, Swansboro, NC 28584</a> <a class='map-alt' href='https://maps.apple.com/?daddr=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&amp;dirflg=d' target='_blank' rel='noopener'>Apple Maps</a>, after 3:00 PM. No early check-in. If the 1:55 PM leave-by slips, call <a href='tel:+19103264881'>910-326-4881</a> <b>before 5</b>."},{k:"Linens", cls:"warn", html:"Extra sheet set — no laundry on-site."}] },
   "2026-10-07": { title:"Hammocks stay", leave:"No drive", meals:"Remaining Have/Ordered · town only if needed", checkin:"Still Simmons", linens:"Your kit + extra", next:"Tomorrow → Frisco Woods (OBX)" },
-  "2026-10-08": { title:"Drive → Frisco Woods · Cabin 6", leave:"Leave ~10:35 AM · ~5h 24m · stock snacks before OBX", meals:"Cook Out Morehead City · camping cabin packs", checkin:"Frisco Woods · Cabin 6 · Check-in 3:00 PM", linens:"BRING linens", next:"Stay {wd:2026-10-09} · {wd:2026-10-10} Frisco checkout by noon, then Uncle's (Hillsborough area)", warn:"No Buc-ee’s on OBX — snack up.", blocks:[{k:"Paid", html:"Frisco Woods Cabin 6 — fully paid. Check-in <b>3:00 PM</b> Thu Oct 8, check-out noon. Express check-in: pull up to the first yellow speed bump for the welcome packet."}] },
-  "2026-10-09": { title:"Frisco stay", leave:"No drive", meals:"Remaining packs · local if needed", checkin:"Still Frisco", linens:"Your kit", next:"Tomorrow: Frisco checkout by noon · TBD — northern coast → Uncle's, Hillsborough area" },
-  "2026-10-10": { title:"TBD — northern coast → Uncle's, Hillsborough area", leave:"Frisco checkout by noon", meals:"Road food toward Hillsborough", checkin:"Uncle's, Hillsborough area", linens:"Pack out of Frisco", next:"After Frisco", warn:"Frisco checkout by noon" },
+  "2026-10-08": { title:"Drive → Frisco Woods · Cabin 6", leave:"Leave ~10:35 AM · ~5h 24m · stock snacks before OBX", meals:"Cook Out Morehead City · camping cabin packs", checkin:"Frisco Woods · Cabin 6 (Seaglass) · check-in 3:00 PM · checkout noon Sun Oct 11", linens:"BRING linens", next:"Stay {wd:2026-10-09}–{wd:2026-10-10} · checkout noon {wd:2026-10-11}, then Uncle's (Hillsborough area)", warn:"No Buc-ee’s on OBX — snack up.", blocks:[{k:"Paid", html:"Frisco Woods Cabin 6 — Seaglass Cabin (2 rooms). Paid in full, <b>$0 balance</b>. Check-in <b>3:00 PM</b> Thu Oct 8. Check-out <b>noon Sun Oct 11</b>. Express check-in: pull up to the first yellow speed bump for the welcome packet."}] },
+  "2026-10-09": { title:"Frisco stay", leave:"No drive", meals:"Remaining packs · grill or camp stove", checkin:"Still Frisco · Cabin 6", linens:"Your kit", next:"Stay {wd:2026-10-10} · checkout noon {wd:2026-10-11}, then TBD — northern coast → Uncle's" },
+  "2026-10-10": { title:"Frisco stay", leave:"No drive", meals:"Remaining packs · local if needed", checkin:"Still Frisco · checkout noon Sun Oct 11", linens:"Your kit", next:"Tomorrow: checkout noon · TBD — northern coast → Uncle's, Hillsborough area", warn:"Checkout Sun Oct 11 by noon" },
+  "2026-10-11": { title:"TBD — northern coast → Uncle's, Hillsborough area", leave:"Frisco checkout by noon", meals:"Road food toward Hillsborough", checkin:"Uncle's, Hillsborough area", linens:"Pack out of Frisco", next:"After Frisco", warn:"Frisco checkout Sun Oct 11 by noon" },
 };
 
 function nyDate(iso){
@@ -1372,7 +1385,9 @@ const DAY_CALL = {
   "2026-10-06": ["tel:+19103264881", "Call 910-326-4881"],
   "2026-10-07": ["tel:+19103264881", "Call 910-326-4881"],
   "2026-10-08": ["tel:+12529955208", "Call 252-995-5208"],
-  "2026-10-09": ["tel:+12529955208", "Call 252-995-5208"]
+  "2026-10-09": ["tel:+12529955208", "Call 252-995-5208"],
+  "2026-10-10": ["tel:+12529955208", "Call 252-995-5208"],
+  "2026-10-11": ["tel:+12529955208", "Call 252-995-5208"]
 };
 const STAY_MAP = {
   anastasia: {
@@ -1401,9 +1416,9 @@ const STAY_MAP = {
     google: "https://www.google.com/maps/dir/?api=1&destination=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&travelmode=driving"
   },
   frisco: {
-    address: "53124 NC 12 Highway, Frisco, NC 27936",
-    apple: "https://maps.apple.com/?daddr=53124%20NC%2012%20Highway,%20Frisco,%20NC%2027936&dirflg=d",
-    google: "https://www.google.com/maps/dir/?api=1&destination=53124%20NC%2012%20Highway,%20Frisco,%20NC%2027936&travelmode=driving"
+    address: "53124 Highway 12, Frisco, NC 27936",
+    apple: "https://maps.apple.com/?daddr=53124%20Highway%2012,%20Frisco,%20NC%2027936&dirflg=d",
+    google: "https://www.google.com/maps/dir/?api=1&destination=53124%20Highway%2012,%20Frisco,%20NC%2027936&travelmode=driving"
   }
 };
 function renderDayCard(day){
@@ -1463,6 +1478,16 @@ function renderDayCard(day){
     a.textContent = 'Apple Maps';
     card.appendChild(a);
   }
+  const stayDay = stayFor(day);
+  if (stayDay && stayDay.id === 'carolina' && card) {
+    const a = document.createElement('a');
+    a.className = 'dayof-directions';
+    a.href = 'https://www.ncparks.gov/maps/carolina-beach-state-park-map/open';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = 'Carolina Beach State Park Trail Map';
+    card.appendChild(a);
+  }
   const call = DAY_CALL[day];
   if (call && card) {
     const a = document.createElement('a');
@@ -1479,7 +1504,7 @@ function foldLodgeRows(day){
     [/clayton|commander/i, '2026-10-04', '✓ Clayton Cabin · Oct 1–4 · done'],
     [/carolina beach/i, '2026-10-06', '✓ Carolina Beach SP · Oct 4–6 · done'],
     [/hammocks/i, '2026-10-08', '✓ Hammocks Beach SP · Oct 6–8 · done'],
-    [/frisco/i, '2026-10-10', '✓ Frisco Woods · Oct 8–10 · done']
+    [/frisco/i, '2026-10-11', '✓ Frisco Woods · Oct 8–11 · done']
   ];
   document.querySelectorAll('#lodgeTbody > tr').forEach(tr => {
     let until = tr.getAttribute('data-until');
@@ -1574,6 +1599,8 @@ function paintNow(day){
       if (addrApple) addrApple.hidden = true;
     }
   }
+  const trail = document.getElementById('nowTrailMap');
+  if (trail) trail.hidden = !(stay && stay.id === 'carolina');
   const call = DAY_CALL[day];
   if (callEl) {
     if (call) {
@@ -1641,7 +1668,7 @@ const SHARE_BITS = {
   georgetown: 'Oct 1–4 · boat-only · checkout Sun Oct 4 by 10 AM',
   carolina: 'Oct 4–6 · bring linens · Marina Store after 4 PM · gate locks 9 PM',
   hammocks: 'Oct 6–8 · bring linens + extra set',
-  frisco: 'Oct 8–10 · bring linens · checkout by noon'
+  frisco: 'Oct 8–11 · 3 nights · Cabin 6 Seaglass · bring linens · checkout Sun noon · paid in full'
 };
 function renderShare(day){
   const el = document.getElementById('shareText');
@@ -1651,7 +1678,7 @@ function renderShare(day){
   const leg = LEGS.find(l => l.date >= day);
   const lines = [];
   lines.push('Coastal trip — party of 3');
-  lines.push('Sep 27 – Oct 10, 2026');
+  lines.push('Sep 27 – Oct 11, 2026');
   lines.push('Home: Home (Largo)');
   lines.push('');
   if (current) lines.push('Now: ' + current.name);
@@ -1672,7 +1699,7 @@ function renderShare(day){
     else if (next && s.id === next.id) mark = 'next';
     lines.push('• ' + s.name + ' — ' + mark + ' (' + (SHARE_BITS[s.id] || '') + ')');
   });
-  lines.push("• After Frisco: TBD — northern coast → Uncle's, Hillsborough area");
+  lines.push("• After Frisco: Sun Oct 11 — TBD northern coast → Uncle's, Hillsborough area");
   lines.push('');
   lines.push('LINKS');
   lines.push('Trip hub: https://jdubs84.github.io/coastal-trip-hub/');
@@ -1711,7 +1738,7 @@ function refreshDay(){
     setText(detail, 'Today is ' + day + '. First drive: Home → Anastasia (~3h 33m).');
   } else if (day > TRIP_END){
     setText(status, 'Trip over — hope the coast was good.');
-    setText(detail, 'Today is ' + day + ' (after Oct 10).');
+    setText(detail, 'Today is ' + day + ' (after Oct 11).');
   } else {
     const stay = stayFor(day);
     const leg = LEGS.find(l => l.date === day);
@@ -1820,7 +1847,7 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
 window.foldStops = function(){ foldPast(todayISO()); };
 refreshDay();
 
-const HUB_BUILD = '20261003-qol';
+const HUB_BUILD = '20261005-frisco';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 (function(){ const el = document.getElementById('hubBuildLabel'); if (el) el.textContent = HUB_BUILD; })();
@@ -2378,9 +2405,9 @@ checkForHubUpdate(false);
     { id:'georgetown', lat:33.2291, lon:-79.4162, days:['2026-10-01','2026-10-02','2026-10-03','2026-10-04'] },
     { id:'carolina', lat:34.036, lon:-77.907, days:['2026-10-04','2026-10-05','2026-10-06'] },
     { id:'hammocks', lat:34.687, lon:-77.139, days:['2026-10-06','2026-10-07','2026-10-08'] },
-    { id:'frisco', lat:35.223, lon:-75.635, days:['2026-10-08','2026-10-09','2026-10-10'] }
+    { id:'frisco', lat:35.223, lon:-75.635, days:['2026-10-08','2026-10-09','2026-10-10','2026-10-11'] }
   ];
-  const BAKED = {"asOf":"2026-09-25T12:54:00-04:00","stops":{"anastasia":{"2026-09-27":{"hi":90,"lo":59,"pop":0},"2026-09-28":{"hi":89,"lo":68,"pop":3},"2026-09-29":{"hi":90,"lo":70,"pop":8}},"edisto":{"2026-09-29":{"hi":83,"lo":73,"pop":2},"2026-09-30":{"hi":83,"lo":74,"pop":4},"2026-10-01":{"hi":84,"lo":77,"pop":7}},"georgetown":{"2026-10-01":{"hi":90,"lo":71,"pop":10},"2026-10-02":{"hi":87,"lo":71,"pop":21},"2026-10-03":{"hi":86,"lo":74,"pop":29},"2026-10-04":{"hi":88,"lo":74,"pop":35}},"carolina":{"2026-10-04":{"hi":87,"lo":73,"pop":26},"2026-10-05":{"hi":90,"lo":72,"pop":37},"2026-10-06":{"hi":81,"lo":72,"pop":43}},"hammocks":{"2026-10-06":{"hi":78,"lo":68,"pop":39},"2026-10-07":{"hi":76,"lo":67,"pop":46},"2026-10-08":{"hi":85,"lo":74,"pop":19}},"frisco":{"2026-10-08":{"hi":77,"lo":75,"pop":26},"2026-10-09":{"hi":75,"lo":66,"pop":23},"2026-10-10":{"hi":67,"lo":61,"pop":29}}}};
+  const BAKED = {"asOf":"2026-09-25T12:54:00-04:00","stops":{"anastasia":{"2026-09-27":{"hi":90,"lo":59,"pop":0},"2026-09-28":{"hi":89,"lo":68,"pop":3},"2026-09-29":{"hi":90,"lo":70,"pop":8}},"edisto":{"2026-09-29":{"hi":83,"lo":73,"pop":2},"2026-09-30":{"hi":83,"lo":74,"pop":4},"2026-10-01":{"hi":84,"lo":77,"pop":7}},"georgetown":{"2026-10-01":{"hi":90,"lo":71,"pop":10},"2026-10-02":{"hi":87,"lo":71,"pop":21},"2026-10-03":{"hi":86,"lo":74,"pop":29},"2026-10-04":{"hi":88,"lo":74,"pop":35}},"carolina":{"2026-10-04":{"hi":87,"lo":73,"pop":26},"2026-10-05":{"hi":90,"lo":72,"pop":37},"2026-10-06":{"hi":81,"lo":72,"pop":43}},"hammocks":{"2026-10-06":{"hi":78,"lo":68,"pop":39},"2026-10-07":{"hi":76,"lo":67,"pop":46},"2026-10-08":{"hi":85,"lo":74,"pop":19}},"frisco":{"2026-10-08":{"hi":77,"lo":75,"pop":26},"2026-10-09":{"hi":75,"lo":66,"pop":23},"2026-10-10":{"hi":67,"lo":61,"pop":29},"2026-10-11":{"hi":77,"lo":74,"pop":47}}}};
 
   function roundOrNull(v){
     if (v === null || v === undefined || v === '') return null;
