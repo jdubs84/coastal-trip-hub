@@ -283,9 +283,20 @@ a.map-alt,.stay-facts a.map-alt,.dayof-item a.map-alt,.food-day a.map-alt,.now-p
 .now-next,.now-late{margin:10px 0 0;font-size:1.12rem;font-weight:700;line-height:1.35;color:#f7f1e4}
 .now-address{display:flex;align-items:center;min-height:48px;margin-top:8px;font-size:1.2rem;font-weight:800;line-height:1.3;color:var(--gold-bright);text-decoration:underline;text-underline-offset:3px}
 .now-actions{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.now-maps{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .now-actions a{display:flex;align-items:center;justify-content:center;min-height:52px;padding:12px 16px;border-radius:14px;text-decoration:none;font-weight:800;font-size:1.15rem;text-align:center;box-sizing:border-box}
 .now-go,.now-call{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#0a0a0a}
 .now-alt{background:#1a160e;color:#f7f3ea;border:1px solid #8a7324}
+details.earlier-fold{border:1px solid var(--border);border-radius:12px;background:var(--panel2);margin:10px 0}
+details.earlier-fold > summary{cursor:pointer;list-style:none;min-height:48px;padding:12px 14px;font-weight:800;font-size:1.05rem;color:var(--gold-bright);display:flex;align-items:center;justify-content:space-between;gap:10px}
+details.earlier-fold > summary::-webkit-details-marker{display:none}
+details.earlier-fold > summary::after{content:"Show";font-size:12px;font-weight:800;color:var(--gold-bright);flex:none}
+details.earlier-fold[open] > summary::after{content:"Hide"}
+details.earlier-fold > .table-wrap,details.earlier-fold > .earlier-stays{padding:0 10px 10px}
+.drive-grid > details.earlier-fold{grid-column:1 / -1}
+@media (max-width:480px){
+  .badge,.food-day .tag,.confirm-tag,.checked-tag,.todo-sub,th,.act-prices th,.wnote,.wday .pr,.wday .wd,footer,.lodge-table td:nth-child(n+3)::before{font-size:12px}
+}
 .past-fold{border:1px solid var(--border);border-radius:12px;background:var(--panel2)}
 .past-fold>summary{cursor:pointer;list-style:none;min-height:48px;padding:12px 14px;font-weight:800;font-size:1.05rem;color:var(--gold-bright);display:flex;align-items:center;justify-content:space-between;gap:10px}
 .past-fold>summary::-webkit-details-marker{display:none}
@@ -339,12 +350,13 @@ input,select,textarea{font-size:16px}
   <p class="now-meta" id="nowMeta">Tomorrow: Edisto → Clayton · leave ~12:30 PM · boat-in after 3 PM</p>
   <p class="now-next" id="nowNext">Edisto Cabin 2 · checkout Thu Oct 1 by 10:00 AM</p>
     <a class="now-address" id="nowAddress" href="https://www.google.com/maps/dir/?api=1&amp;destination=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;travelmode=driving" target="_blank" rel="noopener">8377 State Cabin Rd, Edisto Island, SC 29438</a>
-    <a class="map-alt" id="nowAddressApple" href="https://maps.apple.com/?daddr=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a>
   <p class="now-late" id="nowLate">Checkout Thu 10:00 AM · confirm boat pickup tonight</p>
   <div class="now-actions" id="nowActions">
-    <a class="now-go" id="nowDirections" href="https://www.google.com/maps/dir/?api=1&amp;destination=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;travelmode=driving" target="_blank" rel="noopener">Google Maps</a>
+    <div class="now-maps">
+      <a class="now-go" id="nowDirections" href="https://www.google.com/maps/dir/?api=1&amp;destination=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;travelmode=driving" target="_blank" rel="noopener">Google Maps</a>
+      <a class="now-alt" id="nowGoogle" href="https://maps.apple.com/?daddr=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a>
+    </div>
     <a class="now-call" id="nowCall" href="tel:+18438692156">Call 843-869-2156</a>
-    <a class="now-alt" id="nowGoogle" href="https://maps.apple.com/?daddr=8377%20State%20Cabin%20Rd,%20Edisto%20Island,%20SC%2029438&amp;dirflg=d" target="_blank" rel="noopener">Apple Maps</a>
     <a class="now-go" id="nowTrailMap" href="https://www.ncparks.gov/maps/carolina-beach-state-park-map/open" target="_blank" rel="noopener" hidden>Carolina Beach State Park Trail Map</a>
     <a class="now-alt" id="nowMap" href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener">Open trip map</a>
   </div>
@@ -355,13 +367,13 @@ input,select,textarea{font-size:16px}
   <p class="sub">Sep 27 – Oct 13, 2026 · Party of 3 · Home: Home (Largo)</p>
   <div class="pills">
     <span class="pill">7 overnight stops</span>
-    <span class="pill">~18h 35m / ~815+ mi (legs)</span>
+    <!-- Map OSRM total (Home → Corolla, no return). Old pill ~815 mi / ~18h 35m
+         was only Anastasia→Frisco and left out Home→Anastasia and Frisco→Corolla.
+         loadRouteTotals() replaces this from route-totals.json when that file is up. -->
+    <span class="pill" id="tripTotals">1113.4 mi · 25h 39m</span>
     <span class="pill" id="nextDrivePill">Next drive Thu 10/1 · Edisto → Clayton</span>
   </div>
   <div class="links">
-    <a href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener">Open map</a>
-    <a href="https://pack.here2serve.us" target="_blank" rel="noopener">Pack list</a>
-    <a class="sec" href="#food">Food</a>
     <a href="#food-schedule">Food schedule</a>
     <a class="sec" href="https://docs.google.com/spreadsheets/d/1_frgr_bs-ECGU7PbTcwaiSbnStPBjjLm7gTUqmnARHo" target="_blank" rel="noopener">Google Sheet</a>
   </div>
@@ -374,6 +386,7 @@ input,select,textarea{font-size:16px}
     <a href="#weather" id="jumpWeather"><span class="ph-kicker">Forecast</span><span class="ph-title">Weather</span><span class="ph-sub">Stops along the route</span></a>
     <a class="is-map" href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener"><span class="ph-kicker">Route</span><span class="ph-title">Trip map</span><span class="ph-sub">Stops + food pins</span></a>
     <a href="https://pack.here2serve.us" target="_blank" rel="noopener"><span class="ph-kicker">Gear</span><span class="ph-title">Pack list</span><span class="ph-sub">pack.here2serve.us</span></a>
+    <a href="#food"><span class="ph-kicker">Meals</span><span class="ph-title">Food</span><span class="ph-sub">Kelli’s sheet</span></a>
     <a href="#boat"><span class="ph-kicker">Oct 1–4</span><span class="ph-title">Boat / Clayton</span><span class="ph-sub">Cheat sheet</span></a>
     <a href="#coverage"><span class="ph-kicker">Signal</span><span class="ph-title">Cell / Starlink</span><span class="ph-sub">Gap zones</span></a>
   </div>
@@ -1174,7 +1187,7 @@ Questions → text the thread.</textarea>
   <div class="btnrow"><button class="copy" type="button" id="copyShare">Copy share message</button></div>
 </section>
 
-<footer><span id="hubBuildLabel">20261008-corolla-addr</span> · <button type="button" id="btnCheckUpdate">Check for update</button></footer>
+<footer><span id="hubBuildLabel">20261008-critique</span> · <button type="button" id="btnCheckUpdate">Check for update</button></footer>
 </div>
 <script>
 /* iOS (Safari tab and Home Screen standalone) does not hand target=_blank maps links to the Maps apps. */
@@ -1314,7 +1327,7 @@ const DAY_PLAN = {
   "2026-10-04": { title:"Boat out → Carolina Beach", leave:"Leave by 10–11 AM · storms from ~3 PM · ~2h 56m after boat-to-car", meals:"Lunch on US-17 (Murrells Inlet / Myrtle Beach) · cabin packs dinner", checkin:"Check in at the Marina Store after 4 PM · gate locks 9 PM", linens:"No water or bathroom in cabin — bathhouse nearby; bring linens", next:"Stay {wd:2026-10-05}", blocks:[{k:"Storm", cls:"warn", html:"Heavy rain/storms likely from ~3 PM Sun (80–90%) — leave by 10–11 AM, pack a dry bag for the boat."},{k:"Checkout", cls:"warn", html:"Clayton checkout is Sun Oct 4 <b>by 10:00 AM</b>. Call Evolve (<a href='tel:+17204087414'>+1 720-408-7414</a>) to set the boat-out time."},{k:"Lunch", cls:"warn", html:"Check-in at the Marina Store is after 4 PM, so the afternoon is open. Lunch stop: Murrells Inlet or Myrtle Beach on US-17."},{k:"Check-in", cls:"warn", html:"Check in at the Marina Store after 4 PM · gate locks 9 PM. Be inside before 9 — the combination is not given out. Marina <a href='tel:+19104587770'>910-458-7770</a>."},{k:"Cabin", cls:"warn", html:"No water or bathroom in cabin — bathhouse nearby; bring linens."}] },
   "2026-10-05": { title:"Carolina Beach stay", leave:"No drive", meals:"Cereal · pier snacks · cabin or Cook Out Wilmington", checkin:"Still Carolina Beach", linens:"Your kit", next:"Tomorrow → Hammocks Simmons", warn:"Gate locks at 9 PM. Be back inside before 9 — the combination is not given out." },
   "2026-10-06": { title:"Drive → Hammocks Simmons", leave:"Leave ~1:55 PM · ~2h 05m", meals:"Cook Out Jacksonville NC optional · easy packs dinner", checkin:"Hammocks Beach SP Simmons", linens:"BRING linens + EXTRA set (no laundry)", next:"Stay {wd:2026-10-07}", blocks:[{k:"Visitor Center", cls:"warn", html:"Check in at the Visitor Center, <a href='https://www.google.com/maps/dir/?api=1&amp;destination=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&amp;travelmode=driving'>1572 Hammocks Beach Road, Swansboro, NC 28584</a> <a class='map-alt' href='https://maps.apple.com/?daddr=1572%20Hammocks%20Beach%20Road,%20Swansboro,%20NC%2028584&amp;dirflg=d' target='_blank' rel='noopener'>Apple Maps</a>, after 3:00 PM. No early check-in. If the 1:55 PM leave-by slips, call <a href='tel:+19103264881'>910-326-4881</a> <b>before 5</b>."},{k:"Linens", cls:"warn", html:"Extra sheet set — no laundry on-site."}] },
-  "2026-10-07": { title:"Hammocks stay", leave:"No drive", meals:"Remaining Have/Ordered · town only if needed", checkin:"Still Simmons", linens:"Your kit + extra", next:"Tomorrow → Frisco Woods (OBX)" },
+  "2026-10-07": { title:"Hammocks stay", leave:"No drive", meals:"Remaining Have/Ordered · town only if needed", checkin:"Cabin: Simmons", linens:"Your kit + extra", next:"Tomorrow → Frisco Woods (OBX)" },
   "2026-10-08": { title:"Drive → Frisco Woods · Cabin 6", leave:"Leave ~10:35 AM · ~5h 24m · stock snacks before OBX", meals:"Cook Out Morehead City · camping cabin packs", checkin:"Frisco Woods · Cabin 6 (Seaglass) · check-in 3:00 PM · checkout noon Sun Oct 11", linens:"BRING linens", next:"Stay {wd:2026-10-09}–{wd:2026-10-10} · checkout noon {wd:2026-10-11}, then Corolla GhettOHway Condo (check-in 4:00 PM)", warn:"No Buc-ee’s on OBX — snack up.", blocks:[{k:"Paid", html:"Frisco Woods Cabin 6 — Seaglass Cabin (2 rooms). Paid in full, <b>$0 balance</b>. Check-in <b>3:00 PM</b> Thu Oct 8. Check-out <b>noon Sun Oct 11</b>. Express check-in: pull up to the first yellow speed bump for the welcome packet."}] },
   "2026-10-09": { title:"Frisco stay", leave:"No drive", meals:"Remaining packs · grill or camp stove", checkin:"Still Frisco · Cabin 6", linens:"Your kit", next:"Stay {wd:2026-10-10} · checkout noon {wd:2026-10-11}, then Corolla GhettOHway Condo (check-in 4:00 PM)" },
   "2026-10-10": { title:"Frisco stay", leave:"No drive", meals:"Remaining packs · local if needed", checkin:"Still Frisco · checkout noon Sun Oct 11", linens:"Your kit", next:"Tomorrow: checkout noon · north on NC-12 to Corolla GhettOHway Condo (check-in 4:00 PM)", warn:"Checkout Sun Oct 11 by noon" },
@@ -1564,28 +1577,126 @@ function foldLodgeRows(day){
     [/frisco/i, '2026-10-11', '✓ Frisco Woods · Oct 8–11 · done'],
     [/corolla|ghettohway/i, '2026-10-13', '✓ Corolla · Oct 11–13 · done']
   ];
-  document.querySelectorAll('#lodgeTbody > tr').forEach(tr => {
-    let until = tr.getAttribute('data-until');
+  document.querySelectorAll('#lodgeTbody > tr, #lodgeEarlierBody > tr').forEach(tr => {
+    if (tr.getAttribute('data-until')) return;
     const probe = tr.querySelector('tbody > tr') || tr;
-    if (!until) {
-      const hit = meta.find(m => m[0].test(probe.textContent || ''));
-      if (!hit) return;
-      until = hit[1];
-      tr.setAttribute('data-until', until);
-      tr.setAttribute('data-done', hit[2]);
-    }
-    const past = until < day;
-    const details = tr.querySelector(':scope > td[colspan] > details');
-    if (past && !details) {
-      const html = tr.innerHTML;
-      const label = tr.getAttribute('data-done') || 'Done';
-      tr.innerHTML = '<td colspan="7"><details class="past-fold"><summary></summary><div class="table-wrap"><table class="lodge-table"><tbody><tr>' + html + '</tr></tbody></table></div></details></td>';
-      tr.querySelector('summary').textContent = label;
-    } else if (!past && details) {
-      const inner = details.querySelector('tbody > tr');
-      if (inner) tr.innerHTML = inner.innerHTML;
-    }
+    const hit = meta.find(m => m[0].test(probe.textContent || ''));
+    if (!hit) return;
+    tr.setAttribute('data-until', hit[1]);
+    tr.setAttribute('data-done', hit[2]);
   });
+}
+function unwrapLodgeRow(tr){
+  const details = tr.querySelector(':scope > td[colspan] > details');
+  if (!details) return tr;
+  const inner = details.querySelector('tbody > tr');
+  if (!inner) return tr;
+  ['data-until', 'data-done'].forEach(attr => {
+    if (!inner.hasAttribute(attr) && tr.hasAttribute(attr)) inner.setAttribute(attr, tr.getAttribute(attr));
+  });
+  tr.replaceWith(inner);
+  return inner;
+}
+function ensureEarlier(parent, summaryText){
+  let bin = parent.querySelector(':scope > details.earlier-fold');
+  if (!bin) {
+    bin = document.createElement('details');
+    bin.className = 'earlier-fold';
+    const summary = document.createElement('summary');
+    summary.textContent = summaryText || 'Earlier';
+    bin.appendChild(summary);
+    parent.appendChild(bin);
+  }
+  return bin;
+}
+function stampOrder(nodes){
+  nodes.forEach(el => {
+    if (!el.dataset.seq) el.dataset.seq = String(++stampOrder.n);
+  });
+  return nodes.slice().sort((a, b) => Number(a.dataset.seq) - Number(b.dataset.seq));
+}
+stampOrder.n = 0;
+function isBeforeDay(el, day){
+  const until = el.getAttribute('data-until') || '';
+  return !!until && until < day;
+}
+function regroupEarlier(parent, selector, day, label){
+  const bin = ensureEarlier(parent, 'Earlier');
+  const loose = [...parent.children].filter(el => el !== bin && el.matches(selector));
+  const binned = [...bin.children].filter(el => el.matches(selector));
+  const items = stampOrder(loose.concat(binned));
+  const past = [];
+  const live = [];
+  items.forEach(el => (isBeforeDay(el, day) ? past : live).push(el));
+  live.forEach(el => parent.insertBefore(el, bin));
+  past.forEach(el => bin.appendChild(el));
+  const summary = bin.querySelector('summary');
+  if (summary) summary.textContent = past.length ? ('Earlier · ' + label(past.length)) : 'Earlier';
+  bin.hidden = past.length === 0;
+  return past.length;
+}
+function groupLodging(day){
+  const section = document.getElementById('lodging');
+  const tbody = document.getElementById('lodgeTbody');
+  if (!section || !tbody) return;
+  const bin = ensureEarlier(section, 'Earlier');
+  let wrap = bin.querySelector(':scope > .table-wrap');
+  if (!wrap) {
+    wrap = document.createElement('div');
+    wrap.className = 'table-wrap';
+    const table = document.createElement('table');
+    table.className = 'lodge-table';
+    const mainHead = document.querySelector('#lodging .lodge-table thead');
+    if (mainHead) table.appendChild(mainHead.cloneNode(true));
+    const body = document.createElement('tbody');
+    body.id = 'lodgeEarlierBody';
+    table.appendChild(body);
+    wrap.appendChild(table);
+    bin.appendChild(wrap);
+  }
+  let stayBin = bin.querySelector(':scope > .earlier-stays');
+  if (!stayBin) {
+    stayBin = document.createElement('div');
+    stayBin.className = 'earlier-stays';
+    bin.appendChild(stayBin);
+  }
+  const earlierBody = wrap.querySelector('tbody');
+  [...tbody.querySelectorAll(':scope > tr'), ...earlierBody.querySelectorAll(':scope > tr')].forEach(unwrapLodgeRow);
+  const rows = stampOrder([...tbody.querySelectorAll(':scope > tr'), ...earlierBody.querySelectorAll(':scope > tr')]);
+  const pastRows = [];
+  const liveRows = [];
+  rows.forEach(tr => (isBeforeDay(tr, day) ? pastRows : liveRows).push(tr));
+  liveRows.forEach(tr => tbody.appendChild(tr));
+  pastRows.forEach(tr => earlierBody.appendChild(tr));
+  const blockSel = 'details.stay-fold, details.todo-fold';
+  const blocks = stampOrder([
+    ...section.querySelectorAll(':scope > ' + blockSel),
+    ...stayBin.querySelectorAll(':scope > ' + blockSel)
+  ]);
+  const pastBlocks = [];
+  const liveBlocks = [];
+  blocks.forEach(el => (isBeforeDay(el, day) ? pastBlocks : liveBlocks).push(el));
+  liveBlocks.forEach(el => section.insertBefore(el, bin));
+  pastBlocks.forEach(el => stayBin.appendChild(el));
+  const summary = bin.querySelector('summary');
+  const n = pastRows.length;
+  if (summary) summary.textContent = n ? ('Earlier · ' + n + ' finished stay' + (n === 1 ? '' : 's')) : 'Earlier';
+  bin.hidden = n === 0;
+}
+function groupPastSections(day){
+  const drives = document.querySelector('#drives .drive-grid');
+  if (drives) {
+    regroupEarlier(drives, 'details.drive-fold', day, function (n) {
+      return n + ' drive' + (n === 1 ? '' : 's');
+    });
+  }
+  const food = document.getElementById('food-schedule');
+  if (food) {
+    regroupEarlier(food, 'details.food-fold', day, function (n) {
+      return n + ' day' + (n === 1 ? '' : 's');
+    });
+  }
+  groupLodging(day);
 }
 function foldPast(day){
   ensureDriveFolds();
@@ -1601,6 +1712,7 @@ function foldPast(day){
     }
   });
   foldLodgeRows(day);
+  groupPastSections(day);
 }
 function paintNow(day){
   const plan = DAY_PLAN[day] || {};
@@ -1832,7 +1944,112 @@ function refreshDay(){
   paintNextDrive(day);
   renderShare(day);
   hidePastWeather();
+  labelActionLinks();
+  enforceMinFont();
 }
+const PHONE_PLACE = {
+  '9049886869': 'Anastasia State Park',
+  '8438692156': 'Edisto Beach State Park',
+  '7204087414': 'the Clayton Cabin host',
+  '9104587770': 'the Carolina Beach marina',
+  '9103264881': 'Hammocks Beach State Park',
+  '2529955208': 'Frisco Woods'
+};
+function linkText(el){
+  return (el && el.textContent || '').replace(/\s+/g, ' ').trim();
+}
+function phoneDigits(s){
+  return String(s || '').replace(/\D/g, '');
+}
+function phonePlace(href){
+  const d = phoneDigits(href);
+  const keys = Object.keys(PHONE_PLACE).sort((a, b) => b.length - a.length);
+  for (const key of keys) if (d.endsWith(key)) return PHONE_PLACE[key];
+  return '';
+}
+function nearbyDestination(a){
+  const own = linkText(a);
+  const tail = own.replace(/^(apple maps|google maps)\b\s*[·:]?\s*/i, '').trim();
+  if (tail && !/^traffic$/i.test(tail)) return tail;
+  if (own && !/^(apple maps|google maps)\b/i.test(own)) return own;
+  const li = a.closest('li, p, .dc-note, .dayof-item, .arrival-alert');
+  if (li) {
+    const others = [...li.querySelectorAll('a')];
+    for (const other of others) {
+      if (other === a) continue;
+      const t = linkText(other);
+      if (!t || /^(apple maps|google maps|call)\b/i.test(t) || /^\+?[\d().\s-]{7,}$/.test(t)) continue;
+      return t;
+    }
+  }
+  const card = a.closest('.stay-facts, .drive-card, .todo-fold, .food-day, .now-panel, .boat-card, .dayof-card');
+  if (card) {
+    const addr = card.querySelector('.now-address, [data-field="address"] a, h3');
+    if (addr && addr !== a) {
+      const t = linkText(addr);
+      if (t) return t;
+    }
+  }
+  return own || 'this stop';
+}
+function labelActionLinks(){
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const own = linkText(a);
+    let label = '';
+    if (href.indexOf('tel:') === 0) {
+      const place = phonePlace(href);
+      const shown = (own || href.replace(/^tel:/i, '')).replace(/^call\s+/i, '');
+      label = place ? ('Call ' + place + ', ' + shown) : ('Call ' + (shown || own));
+    } else if (/maps\.apple\.com/i.test(href)) {
+      label = 'Apple Maps directions to ' + nearbyDestination(a);
+    } else if (/google\.com\/maps|maps\.google/i.test(href)) {
+      label = 'Google Maps directions to ' + nearbyDestination(a);
+    } else if (!own && !a.getAttribute('aria-label')) {
+      label = a.getAttribute('title') || '';
+    }
+    if (label) a.setAttribute('aria-label', label);
+  });
+}
+function enforceMinFont(){
+  const phone = window.matchMedia('(max-width: 480px)').matches;
+  document.querySelectorAll('[data-font-floor]').forEach(el => {
+    el.style.fontSize = '';
+    el.removeAttribute('data-font-floor');
+  });
+  if (!phone) return;
+  document.body.querySelectorAll('*').forEach(el => {
+    if (el.closest('script, style, svg')) return;
+    const size = parseFloat(getComputedStyle(el).fontSize);
+    if (size > 0 && size < 12) {
+      el.style.fontSize = '12px';
+      el.setAttribute('data-font-floor', '1');
+    }
+  });
+}
+window.addEventListener('resize', enforceMinFont);
+/* The hub pill used to say ~815 mi / ~18h 35m. That was the rounded
+   Anastasia → Frisco legs only (about 273 + 106 + 123 + 82 + 227).
+   The coastal trip map's OSRM route is Home (Largo) → Corolla:
+   212.9 + 273.3 + 106.2 + 123.2 + 82.1 + 226.7 + 89.0 = 1113.4 mi,
+   published as 25h 39m. No return to Largo. Corolla was booked after
+   the old pill was written, and the home leg was never in it. */
+const ROUTE_TOTALS_URL = 'https://jdubs84.github.io/coastal-trip-map/route-totals.json';
+function applyRouteTotals(data){
+  const el = document.getElementById('tripTotals');
+  if (!el || !data) return;
+  const miles = Number(data.miles);
+  const duration = String(data.duration || '');
+  if (!isFinite(miles) || miles <= 0 || !/^\d+h \d+m$/.test(duration)) return;
+  setText(el, miles + ' mi · ' + duration);
+}
+function loadRouteTotals(){
+  fetch(ROUTE_TOTALS_URL, { cache: 'no-store' }).then(res => {
+    if (!res.ok) throw new Error('route totals ' + res.status);
+    return res.json();
+  }).then(applyRouteTotals).catch(() => {});
+}
+loadRouteTotals();
 
 document.getElementById('dateOverride').addEventListener('change', refreshDay);
 document.getElementById('copyShare').addEventListener('click', async () => {
@@ -1909,7 +2126,7 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
 window.foldStops = function(){ foldPast(todayISO()); };
 refreshDay();
 
-const HUB_BUILD = '20261008-corolla-addr';
+const HUB_BUILD = '20261008-critique';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 (function(){ const el = document.getElementById('hubBuildLabel'); if (el) el.textContent = HUB_BUILD; })();
