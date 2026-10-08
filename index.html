@@ -294,9 +294,7 @@ details.earlier-fold > summary::after{content:"Show";font-size:12px;font-weight:
 details.earlier-fold[open] > summary::after{content:"Hide"}
 details.earlier-fold > .table-wrap,details.earlier-fold > .earlier-stays{padding:0 10px 10px}
 .drive-grid > details.earlier-fold{grid-column:1 / -1}
-@media (max-width:480px){
-  .badge,.food-day .tag,.confirm-tag,.checked-tag,.todo-sub,th,.act-prices th,.wnote,.wday .pr,.wday .wd,footer,.lodge-table td:nth-child(n+3)::before{font-size:12px}
-}
+.badge,.food-day .tag,.confirm-tag,.checked-tag,.todo-sub,th,.act-prices th,.wnote,.wday .pr,.wday .wd,footer,.lodge-table td:nth-child(n+3)::before{font-size:12px}
 .past-fold{border:1px solid var(--border);border-radius:12px;background:var(--panel2)}
 .past-fold>summary{cursor:pointer;list-style:none;min-height:48px;padding:12px 14px;font-weight:800;font-size:1.05rem;color:var(--gold-bright);display:flex;align-items:center;justify-content:space-between;gap:10px}
 .past-fold>summary::-webkit-details-marker{display:none}
@@ -369,7 +367,7 @@ input,select,textarea{font-size:16px}
     <span class="pill">7 overnight stops</span>
     <!-- Map OSRM total (Home → Corolla, no return). Old pill ~815 mi / ~18h 35m
          was only Anastasia→Frisco and left out Home→Anastasia and Frisco→Corolla.
-         loadRouteTotals() replaces this from route-totals.json when that file is up. -->
+         loadRouteTotals() replaces this from the map's route-summary.json when that file loads. -->
     <span class="pill" id="tripTotals">1113.4 mi · 25h 39m</span>
     <span class="pill" id="nextDrivePill">Next drive Thu 10/1 · Edisto → Clayton</span>
   </div>
@@ -382,7 +380,7 @@ input,select,textarea{font-size:16px}
 
   <div class="phone-home" aria-label="Quick open">
     <a href="#dayof" id="jumpDayof"><span class="ph-kicker">Today</span><span class="ph-title">Day-of</span><span class="ph-sub">Leave-by · meals · linens</span></a>
-    <a href="#lodging" id="jumpTonight"><span class="ph-kicker">Stay</span><span class="ph-title">Tonight / Check-in</span><span class="ph-sub">Lodging · linens</span></a>
+    <a href="#lodging" id="jumpTonight"><span class="ph-kicker">Stay</span><span class="ph-title">Tonight</span><span class="ph-sub">Check-in · lodging · linens</span></a>
     <a href="#weather" id="jumpWeather"><span class="ph-kicker">Forecast</span><span class="ph-title">Weather</span><span class="ph-sub">Stops along the route</span></a>
     <a class="is-map" href="https://jdubs84.github.io/coastal-trip-map/" target="_blank" rel="noopener"><span class="ph-kicker">Route</span><span class="ph-title">Trip map</span><span class="ph-sub">Stops + food pins</span></a>
     <a href="https://pack.here2serve.us" target="_blank" rel="noopener"><span class="ph-kicker">Gear</span><span class="ph-title">Pack list</span><span class="ph-sub">pack.here2serve.us</span></a>
@@ -1187,7 +1185,7 @@ Questions → text the thread.</textarea>
   <div class="btnrow"><button class="copy" type="button" id="copyShare">Copy share message</button></div>
 </section>
 
-<footer><span id="hubBuildLabel">20261008-critique</span> · <button type="button" id="btnCheckUpdate">Check for update</button></footer>
+<footer><span id="hubBuildLabel">20261008-followup</span> · <button type="button" id="btnCheckUpdate">Check for update</button></footer>
 </div>
 <script>
 /* iOS (Safari tab and Home Screen standalone) does not hand target=_blank maps links to the Maps apps. */
@@ -2012,12 +2010,10 @@ function labelActionLinks(){
   });
 }
 function enforceMinFont(){
-  const phone = window.matchMedia('(max-width: 480px)').matches;
   document.querySelectorAll('[data-font-floor]').forEach(el => {
     el.style.fontSize = '';
     el.removeAttribute('data-font-floor');
   });
-  if (!phone) return;
   document.body.querySelectorAll('*').forEach(el => {
     if (el.closest('script, style, svg')) return;
     const size = parseFloat(getComputedStyle(el).fontSize);
@@ -2034,20 +2030,24 @@ window.addEventListener('resize', enforceMinFont);
    212.9 + 273.3 + 106.2 + 123.2 + 82.1 + 226.7 + 89.0 = 1113.4 mi,
    published as 25h 39m. No return to Largo. Corolla was booked after
    the old pill was written, and the home leg was never in it. */
-const ROUTE_TOTALS_URL = 'https://jdubs84.github.io/coastal-trip-map/route-totals.json';
+const ROUTE_SUMMARY_URL = 'https://jdubs84.github.io/coastal-trip-map/route-summary.json';
 function applyRouteTotals(data){
   const el = document.getElementById('tripTotals');
-  if (!el || !data) return;
-  const miles = Number(data.miles);
+  if (!el || !data || typeof data !== 'object') return;
+  const miles = Number(data.distance_mi);
   const duration = String(data.duration || '');
   if (!isFinite(miles) || miles <= 0 || !/^\d+h \d+m$/.test(duration)) return;
-  setText(el, miles + ' mi · ' + duration);
+  const next = miles + ' mi · ' + duration;
+  if (!next) return;
+  setText(el, next);
 }
 function loadRouteTotals(){
-  fetch(ROUTE_TOTALS_URL, { cache: 'no-store' }).then(res => {
-    if (!res.ok) throw new Error('route totals ' + res.status);
+  fetch(ROUTE_SUMMARY_URL, { cache: 'no-store' }).then(function (res) {
+    if (!res || !res.ok) return null;
     return res.json();
-  }).then(applyRouteTotals).catch(() => {});
+  }).then(function (data) {
+    if (data) applyRouteTotals(data);
+  }).catch(function () {});
 }
 loadRouteTotals();
 
@@ -2126,7 +2126,7 @@ document.getElementById('jumpDayof')?.addEventListener('click', (e) => {
 window.foldStops = function(){ foldPast(todayISO()); };
 refreshDay();
 
-const HUB_BUILD = '20261008-critique';
+const HUB_BUILD = '20261008-followup';
 const VERSION_URL = 'https://jdubs84.github.io/coastal-trip-hub/hub-version.json';
 const DISMISS_KEY = 'tripHubDismissBuild';
 (function(){ const el = document.getElementById('hubBuildLabel'); if (el) el.textContent = HUB_BUILD; })();
