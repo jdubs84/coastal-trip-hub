@@ -159,7 +159,9 @@ class Page {
           next: text('nowNext'),
           status: text('dayStatus'),
           pill: pill.hidden ? '' : text('nextDrivePill'),
+          nextHidden: !!(document.getElementById('nowNext') && document.getElementById('nowNext').hidden),
           bottom: Math.ceil(Math.max(nowBox.bottom, pillBox.bottom) + y + 16),
+          dayTop: Math.floor((document.getElementById('dayof') || now).getBoundingClientRect().top + y),
           drivesTop: Math.floor(driveBox.top + y),
           drivesBottom: Math.ceil(driveBox.bottom + y + 8),
           liveDrives: liveDrives,
@@ -169,7 +171,25 @@ class Page {
           hammocksTodo: place('#hammocks-todo'),
           frisco: place('#frisco-arrival'),
           friscoTodo: place('#frisco-todo'),
-          corolla: place('#corolla-arrival')
+          corolla: place('#corolla-arrival'),
+          meals: (function () {
+            const row = [...document.querySelectorAll('#dayCardGrid .dayof-item')].find(el => /^meals$/i.test(((el.querySelector('.k') || {}).textContent || '').trim()));
+            return row ? row.textContent.replace(/\s+/g, ' ').trim() : '';
+          })(),
+          food: (function () {
+            const read = (date) => {
+              const block = document.querySelector('.food-day[data-dates~="' + date + '"]');
+              const fold = block && block.closest('details.food-fold');
+              if (!block || !fold) return { earlier: false, open: false, visible: '', leg: '' };
+              return {
+                earlier: !!fold.closest('details.earlier-fold'),
+                open: !!fold.open,
+                visible: [...block.querySelectorAll(':scope > ul > li')].map(li => li.textContent.replace(/\s+/g, ' ').trim()).join(' | '),
+                leg: (fold.querySelector('details.leg-fold') ? 'collapsed' : '')
+              };
+            };
+            return { thu: read('2026-10-08'), fri: read('2026-10-09'), sun: read('2026-10-11') };
+          })()
         };
       })()`,
       returnByValue: true
@@ -242,16 +262,15 @@ async function main() {
       ['this drive is still next', /10\/8/.test(snap.pill) && /Hammocks/i.test(snap.pill)]
     ]);
 
-    await page.open(base + '?date=2026-10-08&time=21:10');
+    await page.open(base + '?date=2026-10-08&time=21:00');
     snap = await page.snapshot();
     assertCase('after arrival', snap, [
       ['phase arrived', snap.phase === 'arrived'],
-      ['drive done headline', snap.time === 'Drive done · Frisco stay'],
-      ['kicker is drive done', /drive done/i.test(snap.kicker) && !/no drive/i.test(snap.kicker)],
-      ['tomorrow is Friday', /Fri 10\/9/.test(snap.meta) && /Frisco stay/.test(snap.meta)],
-      ['does not skip to Saturday', !/Stay Sat/.test(snap.meta)],
-      ['cabin wording', snap.next === 'Cabin: 6'],
-      ['no still frisco', !/Still Frisco/i.test(snap.next)],
+      ['stay named once', snap.title === 'Frisco stay' && snap.time !== 'Frisco stay' && !/Frisco stay/.test(snap.meta) && !/Frisco stay/.test(snap.kicker)],
+      ['headline is the cabin', snap.time === 'Cabin 6 · Frisco Woods'],
+      ['kicker is drive done', /drive done/i.test(snap.kicker)],
+      ['tomorrow is Friday and adds a fact', snap.meta === 'Tomorrow · Fri 10/9 · No drive'],
+      ['cabin line is not repeated under tomorrow', snap.nextHidden || snap.next !== snap.time],
       ['next drive is Sunday', /10\/11/.test(snap.pill) && /Corolla/i.test(snap.pill)],
       ['today drive is not next', !/10\/8/.test(snap.pill)],
       ['status is the stay', /Frisco/i.test(snap.status) && !/^Drive day/i.test(snap.status)],
@@ -260,9 +279,15 @@ async function main() {
       ['five finished stays', snap.lodgeEarlier === 'Earlier · 5 finished stays'],
       ['hammocks stay folded', snap.hammocks.earlier && !snap.hammocks.open],
       ['hammocks todo folded', snap.hammocksTodo.earlier && !snap.hammocksTodo.open],
-      ['frisco stay open', snap.frisco.open && !snap.frisco.earlier]
+      ['frisco stay open', snap.frisco.open && !snap.frisco.earlier],
+      ['thursday food stays current', snap.food.thu.open && snap.food.thu.earlier === false],
+      ['leg notes collapsed', snap.food.thu.leg === 'collapsed' && !/Cook Out/.test(snap.food.thu.visible) && !/stock snack/i.test(snap.food.thu.visible)],
+      ['tonight dinner still listed', /READYWISE|dinner/i.test(snap.food.thu.visible) && /READYWISE|Coleman/i.test(snap.meals) && !/Cook Out/.test(snap.meals) && !/stock snack/i.test(snap.meals)]
     ]);
     const afterPath = await page.shoot('thu-9pm-390.png', Math.max(snap.bottom, 640));
+    const thuMealsPath = await page.shoot('thu-9pm-meals-390.png', {
+      x: 0, y: snap.dayTop, width: 390, height: 980, scale: 1
+    });
     const thuDrivesPath = await page.shoot('thu-9pm-drives-390.png', {
       x: 0, y: snap.drivesTop, width: 390, height: Math.min(snap.drivesBottom - snap.drivesTop, 1400), scale: 1
     });
@@ -291,7 +316,8 @@ async function main() {
     assertCase('Friday noon stay', snap, [
       ['phase stay', snap.phase === 'stay'],
       ['no drive on a stay day', /no drive/i.test(snap.time)],
-      ['cabin wording', snap.next === 'Cabin: 6'],
+      ['cabin wording', snap.next === 'Cabin 6 · Frisco Woods'],
+      ['thursday food has rolled past midnight', snap.food.thu.earlier && snap.food.thu.open === false],
       ['tomorrow is Saturday', /Sat/.test(snap.meta) && !/Fri 10\/9/.test(snap.meta)],
       ['thursday drive stays folded', snap.liveDrives.join(',') === '2026-10-11'],
       ['four earlier drives', snap.driveEarlier === 'Earlier · 4 drives'],
@@ -301,7 +327,7 @@ async function main() {
     ]);
     const friPath = await page.shoot('fri-noon-390.png', Math.max(snap.bottom, 640));
 
-    await page.open(base + '?date=2026-10-11&time=09:00');
+    await page.open(base + '?date=2026-10-11&time=08:00');
     snap = await page.snapshot();
     assertCase('Sunday morning before leaving', snap, [
       ['phase before', snap.phase === 'before'],
@@ -309,15 +335,19 @@ async function main() {
       ['sunday drive is live', snap.liveDrives.indexOf('2026-10-11') !== -1],
       ['frisco still open', snap.frisco.open && !snap.frisco.earlier],
       ['hammocks already folded', snap.hammocks.earlier && !snap.hammocks.open],
-      ['next drive is today', /10\/11/.test(snap.pill)]
+      ['next drive is today', /10\/11/.test(snap.pill)],
+      ['sunday food still current', snap.food.sun.open && snap.food.sun.earlier === false && /northbound|NC-12/i.test(snap.food.sun.visible)],
+      ['thursday food already earlier', snap.food.thu.earlier]
     ]);
+    const sunPath = await page.shoot('sun-8am-390.png', Math.max(snap.bottom, 640));
 
     await page.open(base + '?date=2026-10-11&time=21:00');
     snap = await page.snapshot();
     assertCase('Sunday evening after arrival', snap, [
       ['phase arrived', snap.phase === 'arrived'],
-      ['drive done headline', snap.time === 'Drive done · Corolla stay'],
-      ['tomorrow is Monday', /Mon 10\/12/.test(snap.meta) && /Corolla stay/.test(snap.meta)],
+      ['headline is the condo', snap.time === 'GhettOHway Condo · Corolla'],
+      ['stay named once', snap.title === 'Corolla stay' && !/Corolla stay/.test(snap.meta)],
+      ['tomorrow is Monday', snap.meta === 'Tomorrow · Mon 10/12 · No drive'],
       ['sunday drive folded', snap.liveDrives.indexOf('2026-10-11') === -1],
       ['five earlier drives', snap.driveEarlier === 'Earlier · 5 drives'],
       ['frisco folded', snap.frisco.earlier && !snap.frisco.open],
@@ -337,8 +367,10 @@ async function main() {
 
     console.log('screenshot ' + beforePath);
     console.log('screenshot ' + afterPath);
+    console.log('screenshot ' + thuMealsPath);
     console.log('screenshot ' + thuDrivesPath);
     console.log('screenshot ' + friPath);
+    console.log('screenshot ' + sunPath);
   } finally {
     if (page) page.close();
     chrome.kill();
