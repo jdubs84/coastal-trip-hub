@@ -52,8 +52,9 @@ test('Thu Oct 8 morning, the drive, and after arrival', () => {
   assert.equal(drivePhase(c.leave, c.arrival, 21 * 60 + 10), 'arrived');
 });
 
-test('Frisco stay uses Cabin wording', () => {
-  assert.match(html, /"2026-10-09":[^}]*checkin:"Cabin: 6"/);
+test('Frisco stay names the cabin and campground', () => {
+  assert.match(html, /"2026-10-09":[^}]*checkin:"Cabin 6 · Frisco Woods"/);
+  assert.equal(html.includes('Cabin: 6'), false);
   assert.equal(html.includes('Still Frisco · Cabin 6'), false);
 });
 
