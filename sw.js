@@ -1,10 +1,11 @@
 /* Coastal Trip Hub service worker. BUILD must match HUB_BUILD in index.html. */
-const BUILD = '20261009-wording';
+const BUILD = '20261012-stay-line';
 const CACHE = 'coastal-hub-' + BUILD;
 const PRECACHE = [
   './',
   './index.html',
   './drive-phase.js',
+  './stay-card.js',
   './hub-version.json',
   './manifest.webmanifest',
   './icon-192.png',

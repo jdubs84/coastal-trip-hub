@@ -160,6 +160,20 @@ class Page {
           status: text('dayStatus'),
           pill: pill.hidden ? '' : text('nextDrivePill'),
           nextHidden: !!(document.getElementById('nowNext') && document.getElementById('nowNext').hidden),
+          call: (function () {
+            const a = document.getElementById('nowCall');
+            if (!a || a.hidden) return '';
+            return a.textContent.replace(/\\s+/g, ' ').trim();
+          })(),
+          dayStay: (function () {
+            const row = [...document.querySelectorAll('#dayCardGrid .dayof-item')].find(el => /check-in \\/ stay/i.test(((el.querySelector('.k') || {}).textContent || '').trim()));
+            const value = row && row.querySelector('.v');
+            return value ? value.textContent.replace(/\\s+/g, ' ').trim() : '';
+          })(),
+          dayCall: (function () {
+            const a = document.querySelector('#dayCard .dayof-call');
+            return a ? a.textContent.replace(/\\s+/g, ' ').trim() : '';
+          })(),
           bottom: Math.ceil(Math.max(nowBox.bottom, pillBox.bottom) + y + 16),
           dayTop: Math.floor((document.getElementById('dayof') || now).getBoundingClientRect().top + y),
           drivesTop: Math.floor(driveBox.top + y),
@@ -282,7 +296,8 @@ async function main() {
       ['frisco stay open', snap.frisco.open && !snap.frisco.earlier],
       ['thursday food stays current', snap.food.thu.open && snap.food.thu.earlier === false],
       ['leg notes collapsed', snap.food.thu.leg === 'collapsed' && !/Cook Out/.test(snap.food.thu.visible) && !/stock snack/i.test(snap.food.thu.visible)],
-      ['tonight dinner still listed', /READYWISE|dinner/i.test(snap.food.thu.visible) && /READYWISE|Coleman/i.test(snap.meals) && !/Cook Out/.test(snap.meals) && !/stock snack/i.test(snap.meals)]
+      ['tonight dinner still listed', /READYWISE|dinner/i.test(snap.food.thu.visible) && /READYWISE|Coleman/i.test(snap.meals) && !/Cook Out/.test(snap.meals) && !/stock snack/i.test(snap.meals)],
+      ['arrived call is Frisco, not Hammocks', snap.call === 'Call 252-995-5208']
     ]);
     const afterPath = await page.shoot('thu-9pm-390.png', Math.max(snap.bottom, 640));
     const thuMealsPath = await page.shoot('thu-9pm-meals-390.png', {
@@ -337,7 +352,8 @@ async function main() {
       ['hammocks already folded', snap.hammocks.earlier && !snap.hammocks.open],
       ['next drive is today', /10\/11/.test(snap.pill)],
       ['sunday food still current', snap.food.sun.open && snap.food.sun.earlier === false && /northbound|NC-12/i.test(snap.food.sun.visible)],
-      ['thursday food already earlier', snap.food.thu.earlier]
+      ['thursday food already earlier', snap.food.thu.earlier],
+      ['before checkout the call is still Frisco', snap.call === 'Call 252-995-5208']
     ]);
     const sunPath = await page.shoot('sun-8am-390.png', Math.max(snap.bottom, 640));
 
@@ -352,7 +368,47 @@ async function main() {
       ['five earlier drives', snap.driveEarlier === 'Earlier · 5 drives'],
       ['frisco folded', snap.frisco.earlier && !snap.frisco.open],
       ['corolla open', snap.corolla.open && !snap.corolla.earlier],
-      ['no next drive', snap.pill === '']
+      ['no next drive', snap.pill === ''],
+      ['checkout line does not rename the condo', snap.next === 'Checkout Tue Oct 13 at 10:00 AM'],
+      ['stay line does not say Still', !/still/i.test(snap.next)],
+      ['day card matches', snap.dayStay === 'Checkout Tue Oct 13 at 10:00 AM'],
+      ['evening call is not Frisco', snap.call === '' && snap.dayCall === '']
+    ]);
+    const sunEvePath = await page.shoot('sun-9pm-390.png', Math.max(snap.bottom, 640));
+
+    await page.open(base + '?date=2026-10-11&time=13:00');
+    snap = await page.snapshot();
+    assertCase('Sunday afternoon after checkout', snap, [
+      ['still on the drive', snap.phase === 'enroute'],
+      ['checkout has dropped the old phone', snap.call !== 'Call 252-995-5208']
+    ]);
+
+    await page.open(base + '?date=2026-10-12&time=15:00');
+    snap = await page.snapshot();
+    assertCase('Monday stay at Corolla', snap, [
+      ['phase stay', snap.phase === 'stay'],
+      ['no drive', /no drive/i.test(snap.time)],
+      ['checkout line names the place once', snap.next === 'Checkout Tue Oct 13 at 10:00 AM'],
+      ['day card matches', snap.dayStay === 'Checkout Tue Oct 13 at 10:00 AM'],
+      ['no Still', !/still/i.test(snap.title + ' ' + snap.time + ' ' + snap.next + ' ' + snap.dayStay)],
+      ['no Corolla phone, and not Frisco', snap.call === '' && snap.dayCall === '']
+    ]);
+    const monPath = await page.shoot('mon-3pm-390.png', Math.max(snap.bottom, 640));
+
+    await page.open(base + '?date=2026-10-04&time=21:00');
+    snap = await page.snapshot();
+    assertCase('Sunday Oct 4 evening at Carolina Beach', snap, [
+      ['phase arrived', snap.phase === 'arrived'],
+      ['call is the marina', snap.call === 'Call marina 910-458-7770']
+    ]);
+
+    await page.open(base + '?date=2026-10-10&time=15:00');
+    snap = await page.snapshot();
+    assertCase('Saturday Frisco stay', snap, [
+      ['phase stay', snap.phase === 'stay'],
+      ['checkout line', snap.next === 'Checkout noon Sun Oct 11'],
+      ['day card matches', snap.dayStay === 'Checkout noon Sun Oct 11'],
+      ['no Still', !/still/i.test(snap.next + ' ' + snap.dayStay)]
     ]);
 
     await page.open(base + '?date=2026-10-13&time=21:00');
@@ -371,6 +427,8 @@ async function main() {
     console.log('screenshot ' + thuDrivesPath);
     console.log('screenshot ' + friPath);
     console.log('screenshot ' + sunPath);
+    console.log('screenshot ' + sunEvePath);
+    console.log('screenshot ' + monPath);
   } finally {
     if (page) page.close();
     chrome.kill();
