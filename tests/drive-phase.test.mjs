@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import DrivePhase from '../drive-phase.js';
+import StayCard from '../stay-card.js';
 
 const {
   leaveByMinutes,
@@ -56,6 +57,102 @@ test('Frisco stay names the cabin and campground', () => {
   assert.match(html, /"2026-10-09":[^}]*checkin:"Cabin 6 · Frisco Woods"/);
   assert.equal(html.includes('Cabin: 6'), false);
   assert.equal(html.includes('Still Frisco · Cabin 6'), false);
+});
+
+const STAYS = JSON.parse(html.match(/const STAYS = (\[[\s\S]*?\]);/)[1]);
+const STAY_CALL = {
+  anastasia: ['tel:+19049886869', 'Call 904-988-6869'],
+  edisto: ['tel:+18438692156', 'Call 843-869-2156'],
+  georgetown: ['tel:+17204087414', 'Call host 720-408-7414'],
+  carolina: ['tel:+19104587770', 'Call marina 910-458-7770'],
+  hammocks: ['tel:+19103264881', 'Call 910-326-4881'],
+  frisco: ['tel:+12529955208', 'Call 252-995-5208']
+};
+const DAY_CALL = {
+  '2026-09-29': STAY_CALL.edisto,
+  '2026-10-01': STAY_CALL.georgetown,
+  '2026-10-04': STAY_CALL.carolina,
+  '2026-10-06': STAY_CALL.hammocks,
+  '2026-10-08': STAY_CALL.frisco,
+  '2026-10-11': STAY_CALL.frisco
+};
+
+test('stay cards name the place once and do not say Still', () => {
+  assert.equal(/checkin:"Still /.test(html), false);
+  assert.equal(/next:"Still /.test(html), false);
+  assert.match(html, /"2026-10-12":[^}]*checkin:"Checkout Tue Oct 13 at 10:00 AM"/);
+  assert.match(html, /"2026-10-10":[^}]*checkin:"Checkout noon Sun Oct 11"/);
+  const corolla = STAYS.find((s) => s.id === 'corolla');
+  const frisco = STAYS.find((s) => s.id === 'frisco');
+  const carolina = STAYS.find((s) => s.id === 'carolina');
+  const edisto = STAYS.find((s) => s.id === 'edisto');
+  assert.equal(
+    StayCard.stayDetailLine('Still Corolla GhettOHway Condo · checkout Tue Oct 13 at 10:00 AM', corolla, 'GhettOHway Condo · Corolla'),
+    'Checkout Tue Oct 13 at 10:00 AM'
+  );
+  assert.equal(
+    StayCard.stayDetailLine('Still Frisco · checkout noon Sun Oct 11', frisco, 'Cabin 6 · Frisco Woods'),
+    'Checkout noon Sun Oct 11'
+  );
+  assert.equal(
+    StayCard.stayDetailLine('Cabin 6 · Frisco Woods', frisco, 'Cabin 6 · Frisco Woods'),
+    'Cabin 6 · Frisco Woods'
+  );
+  assert.equal(
+    StayCard.stayDetailLine('Still Carolina Beach', carolina, 'Carolina Beach SP cabin'),
+    ''
+  );
+  assert.equal(
+    StayCard.stayDetailLine('Carolina Beach SP cabin', carolina, 'Carolina Beach SP cabin'),
+    'Carolina Beach SP cabin'
+  );
+  assert.equal(
+    StayCard.stayDetailLine('Edisto Cabin 2 · checkout Thu Oct 1 by 10:00 AM', edisto, 'Cabin 2 · Edisto Beach SP'),
+    'Cabin 2 · checkout Thu Oct 1 by 10:00 AM'
+  );
+  assert.equal(
+    StayCard.stayDetailLine('On island · checkout Sun by 10 AM', STAYS.find((s) => s.id === 'georgetown'), "Clayton Cabin · Commander's Island"),
+    'On island · checkout Sun by 10 AM'
+  );
+});
+
+function planLeave(date) {
+  const m = html.match(new RegExp('"' + date + '":\\s*\\{[^}]*leave:"([^"]+)"'));
+  assert.ok(m, 'plan leave ' + date);
+  return m[1];
+}
+
+function changeoverSwitched(date, minutes) {
+  const c = card(date);
+  const phase = drivePhase(c.leave, c.arrival, minutes);
+  const checkedOut = checkoutPassed(planLeave(date) + ' ' + c.leave, minutes);
+  return phase === 'arrived' || checkedOut;
+}
+
+test('changeover dates call the new stay after arrival or morning checkout', () => {
+  assert.match(html, /"2026-10-11": \["tel:\+12529955208", "Call 252-995-5208"\]/);
+  const phone = (date, minutes) => StayCard.callForDay(date, STAYS, STAY_CALL, DAY_CALL, changeoverSwitched(date, minutes));
+  assert.equal(phone('2026-10-11', 8 * 60)[1], 'Call 252-995-5208');
+  assert.equal(phone('2026-10-11', 12 * 60), null);
+  assert.equal(phone('2026-10-11', 16 * 60), null);
+  assert.equal(phone('2026-10-11', 21 * 60) , null);
+  assert.equal(phone('2026-10-08', 8 * 60)[1], 'Call 252-995-5208');
+  assert.equal(phone('2026-10-08', 21 * 60)[1], 'Call 252-995-5208');
+  assert.notEqual(phone('2026-10-08', 21 * 60)[0], STAY_CALL.hammocks[0]);
+  assert.equal(phone('2026-10-06', 8 * 60)[1], 'Call 910-326-4881');
+  assert.equal(phone('2026-10-06', 17 * 60)[1], 'Call 910-326-4881');
+  assert.equal(phone('2026-10-04', 8 * 60)[1], 'Call marina 910-458-7770');
+  assert.equal(phone('2026-10-04', 21 * 60)[1], 'Call marina 910-458-7770');
+  assert.equal(phone('2026-10-01', 9 * 60)[1], 'Call host 720-408-7414');
+  assert.equal(phone('2026-10-01', 16 * 60)[1], 'Call host 720-408-7414');
+  const handoffs = STAYS.filter((stay) => STAYS.some((next) => next.start === stay.end && next.id !== stay.id));
+  assert.ok(handoffs.length >= 6);
+  handoffs.forEach((stay) => {
+    const incoming = STAYS.find((next) => next.start === stay.end);
+    const after = StayCard.callForDay(stay.end, STAYS, STAY_CALL, DAY_CALL, true);
+    assert.equal(after, STAY_CALL[incoming.id] || null, stay.end + ' after the switch');
+    if (after && STAY_CALL[stay.id]) assert.notEqual(after[0], STAY_CALL[stay.id][0], stay.id + ' phone must not survive the switch');
+  });
 });
 
 test('last day checkout is 10:00 AM ET', () => {
